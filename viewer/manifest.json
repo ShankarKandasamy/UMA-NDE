@@ -1,0 +1,19 @@
+{
+  "name": "UMA Viewer",
+  "short_name": "UMA View",
+  "description": "View and manage NDT inspection data from UMA AI",
+  "start_url": "/viewer/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#1a1a2e",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}

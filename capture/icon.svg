@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0a0a0f"/>
+  <rect x="32" y="32" width="448" height="448" rx="48" fill="#12121a"/>
+  
+  <!-- Camera lens circle -->
+  <circle cx="256" cy="240" r="100" fill="none" stroke="#00d4aa" stroke-width="12"/>
+  <circle cx="256" cy="240" r="60" fill="none" stroke="#00d4aa" stroke-width="8" opacity="0.6"/>
+  <circle cx="256" cy="240" r="24" fill="#00d4aa"/>
+  
+  <!-- Camera body hint -->
+  <rect x="120" y="140" width="272" height="200" rx="16" fill="none" stroke="#2a2a3a" stroke-width="4"/>
+  
+  <!-- Flash indicator -->
+  <circle cx="380" cy="180" r="16" fill="#00d4aa" opacity="0.4"/>
+  
+  <!-- UMA text -->
+  <text x="256" y="420" font-family="monospace" font-size="64" font-weight="bold" fill="#00d4aa" text-anchor="middle">UMA</text>
+</svg>

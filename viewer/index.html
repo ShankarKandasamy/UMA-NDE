@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <title>UMA Viewer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent: #00d4aa;
+            --accent-dim: #00d4aa22;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888aa;
+            --border: #2a2a3a;
+            --success: #00d4aa;
+            --error: #ff4466;
+            --warning: #ffaa00;
+        }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+        }
+
+        .status-dot.connected {
+            background: var(--success);
+            box-shadow: 0 0 8px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.error {
+            background: var(--error);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Tab Bar */
+        .tab-bar {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            transition: all 0.15s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Main Layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .tab-content {
+            display: none;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .tab-content.active {
+            display: flex;
+        }
+
+        /* Browse Tab Layout */
+        #browse-tab {
+            display: none;
+        }
+
+        #browse-tab.active {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 0.75rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .folder-tree {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem 0;
+        }
+
+        .folder-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .folder-item:hover {
+            background: var(--bg-card);
+        }
+
+        .folder-item.active {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .folder-item.nested {
+            padding-left: 2rem;
+        }
+
+        .folder-item.nested-2 {
+            padding-left: 3rem;
+        }
+
+        .folder-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .folder-item.active .folder-icon {
+            color: var(--accent);
+        }
+
+        .folder-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .folder-count {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        .expand-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--text-secondary);
+            transition: transform 0.15s ease;
+        }
+
+        .folder-item.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        .sidebar-footer {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* File Grid Panel */
+        .file-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .breadcrumb-bar {
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .breadcrumb {
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .breadcrumb:hover {
+            color: var(--text-primary);
+        }
+
+        .breadcrumb.current {
+            color: var(--text-primary);
+            cursor: default;
+        }
+
+        .breadcrumb-sep {
+            color: var(--text-secondary);
+        }
+
+        .file-toolbar {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .file-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .toolbar-btn {
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.15s ease;
+        }
+
+        .toolbar-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .toolbar-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .file-grid {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            align-content: start;
+        }
+
+        .file-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .file-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .file-thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .file-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .file-thumb svg {
+            width: 40px;
+            height: 40px;
+            color: var(--text-secondary);
+        }
+
+        .file-thumb.loading {
+            background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-card) 50%, var(--bg-secondary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .file-name {
+            font-size: 0.75rem;
+            text-align: center;
+            word-break: break-word;
+            line-height: 1.3;
+            max-height: 2.6em;
+            overflow: hidden;
+        }
+
+        .file-meta {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+        }
+
+        /* Empty State */
+        .empty-state {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .empty-state p {
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Gallery Tab */
+        #gallery-tab {
+            flex-direction: column;
+        }
+
+        .gallery-header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-select {
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .gallery-grid {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            align-content: start;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.15s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 60%, rgba(0,0,0,0.7));
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.75rem;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-name {
+            font-size: 0.75rem;
+            color: white;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .gallery-footer {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gallery-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .load-more-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .load-more-btn:hover {
+            border-color: var(--accent);
+        }
+
+        /* Reports Tab */
+        #reports-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .reports-placeholder {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .reports-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--accent-dim);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reports-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--accent);
+        }
+
+        .reports-placeholder h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .reports-placeholder p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .reports-features {
+            text-align: left;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .reports-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reports-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        /* Preview Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .preview-modal {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .preview-header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .preview-close:hover {
+            color: var(--text-primary);
+        }
+
+        .preview-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: auto;
+            min-height: 300px;
+        }
+
+        .preview-body img {
+            max-width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .preview-body iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .preview-info {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .preview-info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            font-size: 0.8rem;
+        }
+
+        .preview-info-label {
+            color: var(--text-secondary);
+        }
+
+        .preview-footer {
+            padding: 1rem;
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border);
+        }
+
+        .preview-btn {
+            padding: 0.6rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .preview-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .preview-btn.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .preview-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Settings Modal */
+        .settings-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 200;
+        }
+
+        .settings-overlay.active {
+            display: flex;
+        }
+
+        .settings-modal {
+            background: var(--bg-secondary);
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            max-width: 500px;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .settings-overlay.active .settings-modal {
+            transform: translateY(0);
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .settings-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .setting-item {
+            margin-bottom: 1rem;
+        }
+
+        .setting-item label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .setting-item input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .setting-item input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .save-settings-btn {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 300;
+            font-size: 0.85rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success { border-color: var(--success); }
+        .toast.error { border-color: var(--error); }
+
+        .toast svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .toast.success svg { color: var(--success); }
+        .toast.error svg { color: var(--error); }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                z-index: 100;
+            }
+
+            .sidebar.open {
+                display: flex;
+            }
+
+            .file-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+
+            .preview-modal {
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                max-height: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo" id="logo">UMA_VIEWER</div>
+        <div class="header-right">
+            <div class="status-indicator">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Bar -->
+    <nav class="tab-bar">
+        <button class="tab active" data-tab="browse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+            Browse
+        </button>
+        <button class="tab" data-tab="gallery">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Gallery
+        </button>
+        <button class="tab" data-tab="reports">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            Reports
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Browse Tab -->
+        <section id="browse-tab" class="tab-content active">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">Folders</div>
+                <div class="folder-tree" id="folderTree">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <div class="sidebar-footer" id="storageInfo">Loading...</div>
+            </aside>
+
+            <!-- File Panel -->
+            <div class="file-panel">
+                <div class="breadcrumb-bar" id="breadcrumbs">
+                    <span class="breadcrumb current">Home</span>
+                </div>
+                <div class="file-toolbar">
+                    <span class="file-count" id="fileCount">0 items</span>
+                    <div class="toolbar-actions">
+                        <button class="toolbar-btn" id="refreshBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+                <div class="file-grid" id="fileGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Tab -->
+        <section id="gallery-tab" class="tab-content">
+            <div class="gallery-header">
+                <span class="gallery-title">Image Gallery</span>
+                <div class="gallery-filters">
+                    <select class="filter-select" id="galleryDateFilter">
+                        <option value="">All Dates</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div class="gallery-footer">
+                <span class="gallery-count" id="galleryCount">0 images</span>
+                <button class="load-more-btn" id="loadMoreBtn" style="display: none;">Load More</button>
+            </div>
+        </section>
+
+        <!-- Reports Tab -->
+        <section id="reports-tab" class="tab-content">
+            <div class="reports-placeholder">
+                <div class="reports-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                <h2>AI Reports</h2>
+                <p>Generate AI-assisted inspection reports from your uploaded data. Coming soon.</p>
+                <ul class="reports-features">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Select inspection images and data
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Choose report templates (UT, MT/PT, Visual)
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Generate formatted inspection reports
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Export to PDF or Word format
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="preview-modal">
+            <div class="preview-header">
+                <span class="preview-title" id="previewTitle">File Preview</span>
+                <button class="preview-close" id="previewClose">&times;</button>
+            </div>
+            <div class="preview-body" id="previewBody">
+                <!-- Content loaded dynamically -->
+            </div>
+            <div class="preview-footer">
+                <button class="preview-btn" id="previewDownload">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-overlay" id="settingsModal">
+        <div class="settings-modal">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button class="settings-close" id="settingsClose">&times;</button>
+            </div>
+            <div class="setting-item">
+                <label>API Endpoint</label>
+                <input type="url" id="apiEndpoint" placeholder="https://your-worker.workers.dev">
+            </div>
+            <div class="setting-item">
+                <label>API Key</label>
+                <input type="password" id="apiKey" placeholder="Enter your API key">
+            </div>
+            <button class="save-settings-btn" id="saveSettings">Save Settings</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span id="toastMessage">Success</span>
+    </div>
+
+    <script>
+        // ============================================
+        // State Management
+        // ============================================
+        const state = {
+            currentTab: 'browse',
+            currentPath: [],
+            folders: [],
+            files: [],
+            galleryImages: [],
+            selectedFile: null,
+            isLoading: false,
+            isConnected: false,
+            pollInterval: null
+        };
+
+        // Settings from localStorage
+        const settings = {
+            apiEndpoint: localStorage.getItem('uma_api_endpoint') || '',
+            apiKey: localStorage.getItem('uma_api_key') || ''
+        };
+
+        // ============================================
+        // DOM Elements
+        // ============================================
+        const elements = {
+            statusDot: document.getElementById('statusDot'),
+            statusText: document.getElementById('statusText'),
+            folderTree: document.getElementById('folderTree'),
+            fileGrid: document.getElementById('fileGrid'),
+            fileCount: document.getElementById('fileCount'),
+            breadcrumbs: document.getElementById('breadcrumbs'),
+            storageInfo: document.getElementById('storageInfo'),
+            galleryGrid: document.getElementById('galleryGrid'),
+            galleryCount: document.getElementById('galleryCount'),
+            galleryDateFilter: document.getElementById('galleryDateFilter'),
+            previewModal: document.getElementById('previewModal'),
+            previewTitle: document.getElementById('previewTitle'),
+            previewBody: document.getElementById('previewBody'),
+            settingsModal: document.getElementById('settingsModal'),
+            toast: document.getElementById('toast'),
+            toastMessage: document.getElementById('toastMessage')
+        };
+
+        // ============================================
+        // API Functions
+        // ============================================
+        async function api(endpoint, options = {}) {
+            if (!settings.apiEndpoint || !settings.apiKey) {
+                throw new Error('API not configured');
+            }
+
+            const url = `${settings.apiEndpoint}${endpoint}`;
+            const response = await fetch(url, {
+                ...options,
+                headers: {
+                    'X-API-Key': settings.apiKey,
+                    ...options.headers
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`API error: ${response.status}`);
+            }
+
+            // Check if response is JSON
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                return response.json();
+            }
+
+            return response;
+        }
+
+        async function checkConnection() {
+            try {
+                await api('/list?limit=1');
+                setConnectionStatus(true);
+                return true;
+            } catch (error) {
+                setConnectionStatus(false);
+                return false;
+            }
+        }
+
+        function setConnectionStatus(connected) {
+            state.isConnected = connected;
+            elements.statusDot.className = 'status-dot ' + (connected ? 'connected' : 'error');
+            elements.statusText.textContent = connected ? 'Connected' : 'Offline';
+        }
+
+        // ============================================
+        // Folder Tree Functions
+        // ============================================
+        async function loadFolderTree() {
+            try {
+                // Get top-level date folders
+                const data = await api('/list?delimiter=/');
+                const folders = data.folders || [];
+
+                // Sort folders descending (newest first)
+                folders.sort((a, b) => b.localeCompare(a));
+
+                state.folders = folders;
+                renderFolderTree(folders);
+
+                // Calculate total storage
+                const allFiles = await api('/list');
+                const totalSize = (allFiles.objects || []).reduce((sum, obj) => sum + (obj.size || 0), 0);
+                elements.storageInfo.textContent = `Storage: ${formatSize(totalSize)}`;
+
+            } catch (error) {
+                console.error('Failed to load folders:', error);
+                elements.folderTree.innerHTML = '<div class="empty-state"><p>Failed to load folders</p></div>';
+            }
+        }
+
+        function renderFolderTree(folders) {
+            // Add "Recent" at top
+            let html = `
+                <div class="folder-item ${state.currentPath.length === 0 ? 'active' : ''}" data-path="">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span class="folder-name">Recent</span>
+                </div>
+            `;
+
+            // Add date folders
+            folders.forEach(folder => {
+                const folderName = folder.replace(/\/$/, '');
+                const isActive = state.currentPath[0] === folderName;
+                html += `
+                    <div class="folder-item ${isActive ? 'active' : ''}" data-path="${folderName}">
+                        <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="folder-name">${folderName}</span>
+                    </div>
+                `;
+            });
+
+            elements.folderTree.innerHTML = html;
+
+            // Add click handlers
+            elements.folderTree.querySelectorAll('.folder-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const path = item.dataset.path;
+                    navigateToPath(path ? [path] : []);
+                });
+            });
+        }
+
+        // ============================================
+        // File Grid Functions
+        // ============================================
+        async function loadFiles(path = []) {
+            try {
+                state.isLoading = true;
+                const prefix = path.length > 0 ? path.join('/') + '/' : '';
+
+                const data = await api(`/list?prefix=${encodeURIComponent(prefix)}`);
+
+                // Filter out metadata files and separate folders/files
+                const objects = (data.objects || []).filter(obj => !obj.key.endsWith('_metadata.json'));
+
+                // If at root (Recent), sort by upload time
+                if (path.length === 0) {
+                    objects.sort((a, b) => new Date(b.uploaded) - new Date(a.uploaded));
+                }
+
+                state.files = objects;
+                renderFileGrid(objects);
+
+            } catch (error) {
+                console.error('Failed to load files:', error);
+                renderEmptyState('Failed to load files');
+            } finally {
+                state.isLoading = false;
+            }
+        }
+
+        function renderFileGrid(files) {
+            if (files.length === 0) {
+                renderEmptyState('No files found');
+                return;
+            }
+
+            elements.fileCount.textContent = `${files.length} item${files.length !== 1 ? 's' : ''}`;
+
+            let html = '';
+            files.forEach(file => {
+                const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
+                const isImage = isImageFile(fileName);
+                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(file.key)}`;
+
+                html += `
+                    <div class="file-card" data-key="${file.key}" data-name="${fileName}">
+                        <div class="file-thumb ${isImage ? 'loading' : ''}">
+                            ${isImage
+                                ? `<img data-src="${fileUrl}" alt="${fileName}" onload="this.parentElement.classList.remove('loading')">`
+                                : getFileIcon(fileName)
+                            }
+                        </div>
+                        <div class="file-name">${fileName}</div>
+                        <div class="file-meta">${formatSize(file.size)}</div>
+                    </div>
+                `;
+            });
+
+            elements.fileGrid.innerHTML = html;
+
+            // Lazy load images
+            lazyLoadImages();
+
+            // Add click handlers
+            elements.fileGrid.querySelectorAll('.file-card').forEach(card => {
+                card.addEventListener('click', () => openPreview(card.dataset.key, card.dataset.name));
+            });
+        }
+
+        function renderEmptyState(message) {
+            elements.fileCount.textContent = '0 items';
+            elements.fileGrid.innerHTML = `
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <h3>Empty</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+
+        function lazyLoadImages() {
+            const images = elements.fileGrid.querySelectorAll('img[data-src]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // Add API key to image request via fetch
+                        fetch(img.dataset.src, {
+                            headers: { 'X-API-Key': settings.apiKey }
+                        })
+                        .then(res => res.blob())
+                        .then(blob => {
+                            img.src = URL.createObjectURL(blob);
+                        })
+                        .catch(() => {
+                            img.parentElement.innerHTML = getFileIcon('error.img');
+                            img.parentElement.classList.remove('loading');
+                        });
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '100px' });
+
+            images.forEach(img => observer.observe(img));
+        }
+
+        // ============================================
+        // Navigation Functions
+        // ============================================
+        function navigateToPath(path) {
+            state.currentPath = path;
+            renderBreadcrumbs(path);
+            loadFiles(path);
+
+            // Update active folder in tree
+            elements.folderTree.querySelectorAll('.folder-item').forEach(item => {
+                const itemPath = item.dataset.path;
+                item.classList.toggle('active', itemPath === (path[0] || ''));
+            });
+        }
+
+        function renderBreadcrumbs(path) {
+            let html = '<span class="breadcrumb" data-path="">Home</span>';
+
+            path.forEach((segment, index) => {
+                html += '<span class="breadcrumb-sep">/</span>';
+                const isLast = index === path.length - 1;
+                const pathToHere = path.slice(0, index + 1).join('/');
+                html += `<span class="breadcrumb ${isLast ? 'current' : ''}" data-path="${pathToHere}">${segment}</span>`;
+            });
+
+            elements.breadcrumbs.innerHTML = html;
+
+            // Add click handlers
+            elements.breadcrumbs.querySelectorAll('.breadcrumb:not(.current)').forEach(crumb => {
+                crumb.addEventListener('click', () => {
+                    const pathStr = crumb.dataset.path;
+                    navigateToPath(pathStr ? pathStr.split('/') : []);
+                });
+            });
+        }
+
+        // ============================================
+        // Gallery Functions
+        // ============================================
+        async function loadGallery() {
+            try {
+                const data = await api('/list');
+                const images = (data.objects || [])
+                    .filter(obj => isImageFile(obj.key) && !obj.key.endsWith('_metadata.json'))
+                    .sort((a, b) => new Date(b.uploaded) - new Date(a.uploaded));
+
+                state.galleryImages = images;
+
+                // Populate date filter
+                const dates = [...new Set(images.map(img => img.key.split('/')[0]))];
+                elements.galleryDateFilter.innerHTML = '<option value="">All Dates</option>' +
+                    dates.map(d => `<option value="${d}">${d}</option>`).join('');
+
+                renderGallery(images);
+            } catch (error) {
+                console.error('Failed to load gallery:', error);
+            }
+        }
+
+        function renderGallery(images) {
+            elements.galleryCount.textContent = `${images.length} image${images.length !== 1 ? 's' : ''}`;
+
+            if (images.length === 0) {
+                elements.galleryGrid.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <h3>No Images</h3>
+                        <p>Upload images via UMA Capture</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            images.forEach(img => {
+                const fileName = img.customMetadata?.originalName || img.key.split('/').pop();
+                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(img.key)}`;
+
+                html += `
+                    <div class="gallery-item" data-key="${img.key}" data-name="${fileName}">
+                        <img data-src="${fileUrl}" alt="${fileName}">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-name">${fileName}</span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            elements.galleryGrid.innerHTML = html;
+
+            // Lazy load images
+            const galleryImages = elements.galleryGrid.querySelectorAll('img[data-src]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        fetch(img.dataset.src, {
+                            headers: { 'X-API-Key': settings.apiKey }
+                        })
+                        .then(res => res.blob())
+                        .then(blob => {
+                            img.src = URL.createObjectURL(blob);
+                        });
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '100px' });
+
+            galleryImages.forEach(img => observer.observe(img));
+
+            // Add click handlers
+            elements.galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => openPreview(item.dataset.key, item.dataset.name));
+            });
+        }
+
+        // ============================================
+        // Preview Modal
+        // ============================================
+        function openPreview(fileKey, fileName) {
+            state.selectedFile = { key: fileKey, name: fileName };
+            elements.previewTitle.textContent = fileName;
+
+            const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(fileKey)}`;
+
+            if (isImageFile(fileName)) {
+                elements.previewBody.innerHTML = '<div class="spinner"></div>';
+                fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } })
+                    .then(res => res.blob())
+                    .then(blob => {
+                        elements.previewBody.innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="${fileName}">`;
+                    });
+            } else if (fileName.toLowerCase().endsWith('.pdf')) {
+                elements.previewBody.innerHTML = `<iframe src="${fileUrl}"></iframe>`;
+            } else {
+                elements.previewBody.innerHTML = `
+                    <div class="preview-info">
+                        <div class="preview-info-row">
+                            <span class="preview-info-label">File Name</span>
+                            <span>${fileName}</span>
+                        </div>
+                        <div class="preview-info-row">
+                            <span class="preview-info-label">Type</span>
+                            <span>${getFileType(fileName)}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            elements.previewModal.classList.add('active');
+        }
+
+        function closePreview() {
+            elements.previewModal.classList.remove('active');
+            state.selectedFile = null;
+        }
+
+        async function downloadFile() {
+            if (!state.selectedFile) return;
+
+            try {
+                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(state.selectedFile.key)}`;
+                const response = await fetch(fileUrl, {
+                    headers: { 'X-API-Key': settings.apiKey }
+                });
+                const blob = await response.blob();
+
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = state.selectedFile.name;
+                link.click();
+
+                showToast('Download started', 'success');
+            } catch (error) {
+                showToast('Download failed', 'error');
+            }
+        }
+
+        // ============================================
+        // Settings Modal
+        // ============================================
+        function openSettings() {
+            document.getElementById('apiEndpoint').value = settings.apiEndpoint;
+            document.getElementById('apiKey').value = settings.apiKey;
+            elements.settingsModal.classList.add('active');
+        }
+
+        function closeSettings() {
+            elements.settingsModal.classList.remove('active');
+        }
+
+        function saveSettings() {
+            settings.apiEndpoint = document.getElementById('apiEndpoint').value.replace(/\/$/, '');
+            settings.apiKey = document.getElementById('apiKey').value;
+
+            localStorage.setItem('uma_api_endpoint', settings.apiEndpoint);
+            localStorage.setItem('uma_api_key', settings.apiKey);
+
+            closeSettings();
+            showToast('Settings saved', 'success');
+
+            // Reconnect
+            init();
+        }
+
+        // ============================================
+        // Tab Navigation
+        // ============================================
+        function switchTab(tabName) {
+            state.currentTab = tabName;
+
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.tab === tabName);
+            });
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.toggle('active', content.id === `${tabName}-tab`);
+            });
+
+            // Load tab data
+            if (tabName === 'gallery' && state.galleryImages.length === 0) {
+                loadGallery();
+            }
+        }
+
+        // ============================================
+        // Polling
+        // ============================================
+        function startPolling() {
+            if (state.pollInterval) return;
+
+            state.pollInterval = setInterval(async () => {
+                if (state.currentTab === 'browse' && state.currentPath.length === 0) {
+                    // Refresh Recent view
+                    await loadFiles([]);
+                }
+            }, 10000);
+        }
+
+        function stopPolling() {
+            if (state.pollInterval) {
+                clearInterval(state.pollInterval);
+                state.pollInterval = null;
+            }
+        }
+
+        // ============================================
+        // Utility Functions
+        // ============================================
+        function isImageFile(filename) {
+            return /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(filename);
+        }
+
+        function getFileType(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const types = {
+                pdf: 'PDF Document',
+                doc: 'Word Document',
+                docx: 'Word Document',
+                xls: 'Excel Spreadsheet',
+                xlsx: 'Excel Spreadsheet',
+                csv: 'CSV Data',
+                txt: 'Text File',
+                json: 'JSON Data'
+            };
+            return types[ext] || ext.toUpperCase() + ' File';
+        }
+
+        function getFileIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+
+            if (['pdf'].includes(ext)) {
+                return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M9 15h2v2H9zM13 15h2v2h-2z"/>
+                </svg>`;
+            }
+
+            if (['xls', 'xlsx', 'csv'].includes(ext)) {
+                return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="17" x2="16" y2="17"/>
+                </svg>`;
+            }
+
+            return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+            </svg>`;
+        }
+
+        function formatSize(bytes) {
+            if (!bytes) return '0 B';
+            const units = ['B', 'KB', 'MB', 'GB'];
+            let i = 0;
+            while (bytes >= 1024 && i < units.length - 1) {
+                bytes /= 1024;
+                i++;
+            }
+            return `${bytes.toFixed(i > 0 ? 1 : 0)} ${units[i]}`;
+        }
+
+        function showToast(message, type = 'success') {
+            elements.toastMessage.textContent = message;
+            elements.toast.className = `toast ${type}`;
+            elements.toast.classList.add('show');
+
+            setTimeout(() => {
+                elements.toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ============================================
+        // Event Listeners
+        // ============================================
+        function setupEventListeners() {
+            // Tab navigation
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+            });
+
+            // Logo click for settings (triple click)
+            let clickCount = 0;
+            let clickTimer = null;
+            document.getElementById('logo').addEventListener('click', () => {
+                clickCount++;
+                if (clickCount === 3) {
+                    openSettings();
+                    clickCount = 0;
+                }
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => clickCount = 0, 500);
+            });
+
+            // Refresh button
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadFiles(state.currentPath);
+                showToast('Refreshed', 'success');
+            });
+
+            // Gallery filter
+            elements.galleryDateFilter.addEventListener('change', (e) => {
+                const date = e.target.value;
+                const filtered = date
+                    ? state.galleryImages.filter(img => img.key.startsWith(date + '/'))
+                    : state.galleryImages;
+                renderGallery(filtered);
+            });
+
+            // Preview modal
+            document.getElementById('previewClose').addEventListener('click', closePreview);
+            document.getElementById('previewDownload').addEventListener('click', downloadFile);
+            elements.previewModal.addEventListener('click', (e) => {
+                if (e.target === elements.previewModal) closePreview();
+            });
+
+            // Settings modal
+            document.getElementById('settingsClose').addEventListener('click', closeSettings);
+            document.getElementById('saveSettings').addEventListener('click', saveSettings);
+            elements.settingsModal.addEventListener('click', (e) => {
+                if (e.target === elements.settingsModal) closeSettings();
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closePreview();
+                    closeSettings();
+                }
+            });
+
+            // Visibility change - pause/resume polling
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopPolling();
+                } else {
+                    startPolling();
+                }
+            });
+        }
+
+        // ============================================
+        // Initialization
+        // ============================================
+        async function init() {
+            setupEventListeners();
+
+            // Check if settings are configured
+            if (!settings.apiEndpoint || !settings.apiKey) {
+                setConnectionStatus(false);
+                elements.statusText.textContent = 'Not configured';
+                openSettings();
+                return;
+            }
+
+            // Check connection
+            const connected = await checkConnection();
+
+            if (connected) {
+                await loadFolderTree();
+                await loadFiles([]);
+                startPolling();
+            }
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(console.error);
+        }
+
+        // Start app
+        init();
+    </script>
+</body>
+</html>

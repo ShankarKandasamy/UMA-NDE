@@ -1,0 +1,40 @@
+{
+  "name": "UMA Capture",
+  "short_name": "UMA",
+  "description": "Capture NDT inspection data for UMA AI processing",
+  "start_url": "/capture/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Take Photo",
+      "short_name": "Camera",
+      "description": "Capture inspection image",
+      "url": "/capture/"
+    }
+  ],
+  "share_target": {
+    "action": "/capture/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "file",
+          "accept": ["image/*", "application/pdf", ".csv", ".xlsx", ".xls", ".doc", ".docx"]
+        }
+      ]
+    }
+  }
+}

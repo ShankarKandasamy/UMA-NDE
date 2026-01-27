@@ -1,0 +1,23 @@
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Personal notes
+notes.md
+
+# IDE and editor settings
+.cursor/
+.claude/
+.vscode/
+.idea/
+
+# Windows artifacts
+nul
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node modules (if added later)
+node_modules/
