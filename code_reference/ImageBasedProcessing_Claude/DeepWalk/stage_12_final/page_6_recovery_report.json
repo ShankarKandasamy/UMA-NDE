@@ -1,0 +1,106 @@
+{
+  "page_number": "6",
+  "analysis": {
+    "total_buckets": 11,
+    "filtered_buckets": [
+      {
+        "bucket_id": 9,
+        "text": "2",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Name BLOGCATALOG FLICKR YoUTUBE IVI [EL Iv| Labels 80,513 5,899,882 2,990,443 195 Groups 1,138,499",
+        "confidence": 0.8571428571428571,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 1,
+        "text": "47 Groups",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Table 1: Graphs used in our experiments.",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "6.1 Multi-Label Classification To facilitate the comparison between our method and the relevant baselines, we use the exact same datasets and exper- imental procedure as in [39,40]. Specifically; we randomly sample a portion (TR) of the labeled nodes, and use them as training data. The rest of the nodes are used as test. We repeat this process 10 times; and report the average per - formance in terms of both Macro-Fi and Micro-Fi. When possible we report the original results [39,40] here directly: For all models we use a one- VS-rest logistic regression im- plemented by LibLinear [10] for classification. We present results for DEEPWALK with (y 80, W 10, d = 128) . The results for (SpectralClustering;  Modularity, EdgeCluster) use Tang and Liu's preferred dimensionality; d 500. = 6.1.1 BlogCatalog In this experiment we increase the training ratio (TR) on the BLOGCATALOG network from 10% to 90%. Our results are presented in Table 2. Numbers in bold represent the highest performance in each column. DEEPWALK performs consistently better than EdgeCluster, Modularity, and wvRN. In fact, when trained with only 20% of the nodes labeled; DEEPWALK performs better than these approaches when they are given 90% ofthe data. The perfor- mance of SpectralClustering proves much more competitive, but DEEPWALK still outperforms when labeled data is sparse on both Macro-F1 (TR < 209) and Micro-F1 (TR < 60%). This strong performance when only small fractions of the graph are labeled is a core strength of our approach: In the following experiments, we investigate the performance of our representations on even more sparsely labeled graphs.",
+        "confidence": 0.9949141767323586,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "In this experiment we vary the training ratio (TR) on the FLICKR network from 1% to 10%. This corresponds to hav- ing approximately 800 to 8,000 nodes   labeled for classifi- cation in the entire network: Table 3 presents our results which are consistent with the previous experiment. DEEP - WALK outperforms all baselines by at least 3% with respect to Micro-F1. Additionally, its Micro-F1 performance when only 3% of the graph is   labeled beats   all other methods even when they have been given 10% of the data: In other words, DEEPWALK can outperform the baselines with 60% less training data: It also performs quite well in Macro-Fl, initially performing close to SpectralClustering; but distanc- ing itself to 1% improvement. a 6.1.3 YouTube The YoUTUBE  network is considerably larger than the previous ones we have experimented on, and its size pre- vents two of our baseline methods (SpectralClustering and Modularity) from running on it. It is much closer to a real world graph than those we have previously considered: The results of varying the training ratio (TR) from 1% to 10% are presented in Table 4. They show that DEEPWALK significantly outperforms the scalable baseline for creating graph representations; EdgeCluster. When 1% of the la- beled nodes are used for test, the Micro-Fi improves by 14%. The Macro-Fi shows corresponding 10% increase. a This lead narrows as the training data increases, but DEEP- WALK ends with a 3% lead in Micro-Fl, and an impressive 5% improvement in Macro-Fi. This experiment showcases the performance benefits that",
+        "confidence": 0.9923613417469279,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "10,312 333,983 39 Interests",
+        "confidence": 0.8333333333333334,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 7,
+        "text": "An overview of the graphs we consider in our experiments is given in Figure 1. BLOGCATALOG [39] is a network of social relationships provided by blogger authors. The labels represent the topic categories provided by the authors. FLICKR [39] is a network of the contacts between users of the photo sharing website: The labels represent the interest groups of the users such as black  and white photos' _ YouTUBE  [40] is social network a between users of the popular video sharing website. The labels here represent groups of viewers that enjoy common video genres (e.g: anime and wrestling). 5.2 Baseline Methods To validate the performance of our approach we compare it against a number of baselines: SpectralClustering [41]: This method generates a rep- resentation in Rd from the d-smallest eigenvectors of L; the normalized graph Laplacian of G. Utilizing the f 0 LJ will be useful for classification: Modularity [39]: This method generates a representa- tion in Rd from the top-d eigenvectors of B, the Mod- ularity matrix f G. The eigenvectors of B encode information about modular graph partitions of G [34]. Using them as features assumes that modular graph partitions will be useful for classification. EdgeCluster [40]: This method uses k-means cluster- ing to cluster the   adjacency matrix of G. Its has been shown to perform comparably to the Modularity method, with the added advantage of scaling to graphs which are too large for spectral decomposition: WVRN [24]: The weighted-vote Relational Neighbor is a relational classifier. Given the neighborhood Ni of vertex Ui , wvRN estimates Pr(yi|Ni) with the (appro priately normalized) weighted mean of its neighbors (i.e Pr(yi|Ni) shown surprisingly good performance in real networks, and has been advocated as a sensible relational classi- fication baseline [25]. Uij Pr(yj Nj)): It has",
+        "confidence": 0.9658071748878924,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 10,
+        "text": "Majority: This naive method simply chooses the most frequent labels in the training set_ 6_ EXPERIMENTS In this section we present an experimental analysis of our method. We thoroughly evaluate it on a number of multi- label classification tasks, and analyze its sensitivity across several parameters.",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 4,
+        "text": "1 O T71: 1",
+        "texts": [
+          "1 O T71: 1"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.4,
+        "char_count": 10,
+        "word_count": 4,
+        "confidence_missing": 0.33333333333333326,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 8,
+        "text": "UILCU 51 WpII",
+        "texts": [
+          "UILCU 51 WpII"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.36,
+        "char_count": 13,
+        "word_count": 3,
+        "confidence_missing": 0.5384615384615385,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# 5. EXPERIMENTAL DESIGN\n\nIn this section we provide an overview of the datasets and methods which we will use in our experiments. Code and data to reproduce our results will be available at the first author's website.\n\n## 5.1 Datasets\n\n| Name       | BLOGCATALOG | FLICKR     | YouTUBE    |\n|------------|--------------|------------|-------------|\n| |V|        | 10,312       | 80,513     | 1,138,499   |\n| |E|        | 333,983      | 5,899,882  | 2,990,443   |\n| |D|        | 39           | 195        | 47          |\n| Labels     | 1,138,499    | 47         |             |\n\n> Table 1: Graphs used in our experiments.\n\nAn overview of the graphs we consider in our experiments is given in Figure 1.\n\n- **BLOGCATALOG** [39] is a network of social relationships provided by blogger authors. The labels represent the topic categories provided by the authors.\n- **FLICKR** [39] is a network of the contacts between users of the photo sharing website. The labels represent the interest groups of the users such as 'black and white photos'.\n- **YouTUBE** [40] is a social network between users of the popular video sharing website. The labels here represent groups of viewers that enjoy common video genres (e.g: anime and wrestling).\n\n## 5.2 Baseline Methods\n\nTo validate the performance of our approach we compare it against a number of baselines:\n\n- **SpectralClustering** [41]: This method generates a representation in ℝ^d from the d-smallest eigenvectors of L; the normalized graph Laplacian of G. Utilizing the eigenvectors of L will be useful for classification.\n- **Modularity** [39]: This method generates a representation in ℝ^d from the top-d eigenvectors of B, the Modularity matrix of G. The eigenvectors of B encode information about modular graph partitions of G [34]. Using them as features assumes that modular graph partitions will be useful for classification.\n- **EdgeCluster** [40]: This method uses k-means clustering to cluster the adjacency matrix of G. It has been shown to perform comparably to the Modularity method, with the added advantage of scaling to graphs which are too large for spectral decomposition.\n- **wvRN** [24]: The weighted-vote Relational Neighbor is a relational classifier. Given the neighborhood N_i of vertex U_i, wvRN estimates Pr(y_i|N_i) with the (appropriately normalized) weighted mean of its neighbors (i.e Pr(y_i|N_i) = 1/|N_i| ∑_{j∈N_i} w_j Pr(y_j|N_j)). It has shown surprisingly good performance in real networks, and has been advocated as a sensible relational classification baseline [25].\n- **Majority**: This naive method simply chooses the most frequent labels in the training set.\n\n## 6. EXPERIMENTS\n\nIn this section we present an experimental analysis of our method. We thoroughly evaluate it on a number of multi-label classification tasks, and analyze its sensitivity across several parameters.\n\n### 6.1 Multi-Label Classification\n\nTo facilitate the comparison between our method and the relevant baselines, we use the exact same datasets and experimental procedure as in [39,40]. Specifically, we randomly sample a portion (TR) of the labeled nodes, and use them as training data. The rest of the nodes are used as test. We repeat this process 10 times; and report the average performance in terms of both Macro-F1 and Micro-F1. When possible we report the original results [39,40] here directly:\n\nFor all models we use a one-vs-rest logistic regression implemented by LibLinear [10] for classification. We present results for DEEPWALK with (γ = 80, W = 10, d = 128). The results for (SpectralClustering, Modularity, EdgeCluster) use Tang and Liu's preferred dimensionality; d = 500.\n\n#### 6.1.1 BlogCatalog\n\nIn this experiment we increase the training ratio (TR) on the BLOGCATALOG network from 10% to 90%. Our results are presented in Table 2. Numbers in bold represent the highest performance in each column. DEEPWALK performs consistently better than EdgeCluster, Modularity, and wvRN. In fact, when trained with only 20% of the nodes labeled, DEEPWALK performs better than these approaches when they are given 90% of the data. The performance of SpectralClustering proves much more competitive, but DEEPWALK still outperforms when labeled data is sparse on both Macro-F1 (TR < 20%) and Micro-F1 (TR < 60%). This strong performance when only small fractions of the graph are labeled is a core strength of our approach: In the following experiments, we investigate the performance of our representations on even more sparsely labeled graphs.\n\n#### 6.1.2 Flickr\n\nIn this experiment we vary the training ratio (TR) on the FLICKR network from 1% to 10%. This corresponds to having approximately 800 to 8,000 nodes labeled for classification in the entire network. Table 3 presents our results which are consistent with the previous experiment. DEEPWALK outperforms all baselines by at least 3% with respect to Micro-F1. Additionally, its Micro-F1 performance when only 3% of the graph is labeled beats all other methods even when they have been given 10% of the data: In other words, DEEPWALK can outperform the baselines with 60% less training data. It also performs quite well in Macro-F1, initially performing close to SpectralClustering, but distancing itself to a 1% improvement.\n\n#### 6.1.3 YouTube\n\nThe YouTube network is considerably larger than the previous ones we have experimented on, and its size prevents two of our baseline methods (SpectralClustering and Modularity) from running on it. It is much closer to a real world graph than those we have previously considered: The results of varying the training ratio (TR) from 1% to 10% are presented in Table 4. They show that DEEPWALK significantly outperforms the scalable baseline for creating graph representations, EdgeCluster. When 1% of the labeled nodes are used for test, the Micro-F1 improves by 14%. The Macro-F1 shows corresponding 10% increase. This lead narrows as the training data increases, but DEEPWALK ends with a 3% lead in Micro-F1, and an impressive 5% improvement in Macro-F1.\n\n> This experiment showcases the performance benefits that 1 O T71: 1\n\n",
+    "buckets_recovered": [
+      4
+    ],
+    "buckets_gibberish": [
+      8
+    ],
+    "recovery_notes": "Inserted legitimate text from bucket 4 at the end of section 6.1.3 YouTube. Bucket 8 was flagged as gibberish."
+  }
+}

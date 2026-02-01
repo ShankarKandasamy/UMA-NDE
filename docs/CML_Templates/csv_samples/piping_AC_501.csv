@@ -1,0 +1,9 @@
+Circuit_ID,CML,Component,NPS,Schedule,Nominal_mm,t_min_mm,Reading_1,Reading_2,Reading_3,Reading_4,Min_mm,Prev_mm,Prev_Date,Corr_Rate_mm_yr,Remaining_Life_yr,Condition,Service,Material
+AC-501,001,90° Elbow,8,40,8.18,4.09,7.21,6.99,7.02,7.02,6.99,7.21,2024-08-26,0.09,32.2,Good,Acid Service,316L SS
+AC-501,002,45° Elbow,8,40,8.18,4.09,7.24,7.0,,,7.0,7.19,2024-08-26,0.12,24.3,Good,Acid Service,316L SS
+AC-501,003,Straight,4,80,6.02,3.01,4.72,4.67,,,4.67,4.92,2024-08-26,0.12,13.8,Fair,Acid Service,316L SS
+AC-501,004,45° Elbow,6,80,7.11,3.56,6.15,6.35,,,6.15,6.35,2024-08-26,0.11,23.6,Good,Acid Service,316L SS
+AC-501,005,Control Valve,4,80,6.02,3.01,5.34,5.31,5.57,5.51,5.31,5.53,2024-08-26,0.13,17.7,Fair,Acid Service,316L SS
+AC-501,006,90° Elbow,4,80,6.02,3.01,5.48,5.24,5.4,5.31,5.24,5.46,2024-08-26,0.1,22.3,Good,Acid Service,316L SS
+AC-501,007,45° Elbow,4,80,6.02,3.01,4.36,4.31,,,4.31,4.4,2024-08-26,0.04,32.5,Good,Acid Service,316L SS
+AC-501,008,Tee-Branch,6,80,7.11,3.56,5.88,5.75,5.7,5.82,5.7,5.89,2024-08-26,0.12,17.9,Fair,Acid Service,316L SS

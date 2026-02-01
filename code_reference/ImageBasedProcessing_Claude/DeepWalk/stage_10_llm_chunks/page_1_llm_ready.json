@@ -1,0 +1,400 @@
+{
+  "page_number": 1,
+  "total_buckets": 19,
+  "last_bucket_previous_page": null,
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 12,
+      "top_edge": 9,
+      "right_edge": 88,
+      "bottom_edge": 12,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.76,
+      "char_count": 53,
+      "word_count": 6,
+      "texts": [
+        "DeepWalk: Online Learning\"  of Social Representations"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 15,
+      "top_edge": 15,
+      "right_edge": 33,
+      "bottom_edge": 20,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.92,
+      "char_count": 64,
+      "word_count": 9,
+      "texts": [
+        "Bryan Perozzi",
+        "Stony Brook University",
+        "Department of Computer",
+        "Science"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 39,
+      "top_edge": 15,
+      "right_edge": 57,
+      "bottom_edge": 20,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.99,
+      "char_count": 65,
+      "word_count": 11,
+      "texts": [
+        "Rami AI- Rfou",
+        "Stony Brook Iniversity",
+        "Department of Computer",
+        "Scienc e"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 63,
+      "top_edge": 15,
+      "right_edge": 81,
+      "bottom_edge": 20,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.93,
+      "char_count": 64,
+      "word_count": 9,
+      "texts": [
+        "Steven Skiena",
+        "Stony Brook University",
+        "Department of Computer",
+        "Science"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 30,
+      "top_edge": 22,
+      "right_edge": 70,
+      "bottom_edge": 24,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 2,
+      "confidence_avg": 0.76,
+      "char_count": 46,
+      "word_count": 5,
+      "texts": [
+        "{bperozzi, ralrfou; skien a}@cs.stonybrook edu"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 9,
+      "top_edge": 26,
+      "right_edge": 20,
+      "bottom_edge": 28,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.66,
+      "char_count": 8,
+      "word_count": 1,
+      "texts": [
+        "ABSTRACT"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 3,
+      "top_edge": 28,
+      "right_edge": 48,
+      "bottom_edge": 53,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 3,
+      "confidence_avg": 0.94,
+      "char_count": 1072,
+      "word_count": 166,
+      "texts": [
+        "We present DEEPWALK, novel approach for learning la- a",
+        "tent representations of vertices in network. a These latent",
+        "3 representations encode social relations in a continuous vector",
+        "space, which is easily exploited by statistical models. DEEP -",
+        "WALK   generalizes  recent advancements in language  mod-",
+        "eling and unsupervised feature learning (Or deep learning )",
+        "4 from sequences of words to graphs:",
+        "DEEPWALK uses local information obtained from trun-",
+        "cated random walks to learn latent representations by treat-",
+        "ing walks as the equivalent of sentences We demonstrate",
+        "DEEP WALK's latent representations on several  multi-label",
+        "network classification tasks for social networks such as Blog-",
+        "5 Catalog; Flickr, and YouTube: Our results show that DEEP -",
+        "WALK outperforms challenging baselines which are allowed",
+        "a global view of the network; especially in the presence of",
+        "missing information: DEEP WALK's representations can pro",
+        "Itido 1 UL",
+        "when labeled data is sparse. In some experiments, DEEP -",
+        "WALK's representations are able to outperform all baseline",
+        "100 kicbor fban comnotinc motbede 10 / U"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 2,
+      "top_edge": 50,
+      "right_edge": 48,
+      "bottom_edge": 78,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.88,
+      "char_count": 548,
+      "word_count": 77,
+      "texts": [
+        "up",
+        "3 methods while using 60% less training data.",
+        "Categories and Subject Descriptors",
+        "H.2.8 [Database Management]: Database   Applications",
+        "Data Mining; 1.2.6 [Artificial Intelligence]: Learning;",
+        "I.5.1 [Pattern Recognition]: Model Statistical",
+        "1. INTRODUCTION",
+        "The sparsity of a network representation is both a strength",
+        "and weakness   Sparsity enables the design of efficient dis- a",
+        "crete algorithms; but can make it harder to generalize in",
+        "statistical learning: Machine learning   applications in net-",
+        "works (such as network classification [15,37], content rec -"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 8,
+      "top_edge": 54,
+      "right_edge": 48,
+      "bottom_edge": 61,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.95,
+      "char_count": 269,
+      "word_count": 41,
+      "texts": [
+        "DEEPWALK is also scalable. It is an online learning algo-",
+        "rithm which builds useful incremental results; and is trivially",
+        "parallelizable. These qualities make it suitable for broad a",
+        "class  of real world applications such as network classifica-",
+        "tion, and anomaly detection:"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 73,
+      "top_edge": 28,
+      "right_edge": 79,
+      "bottom_edge": 35,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.87,
+      "char_count": 41,
+      "word_count": 10,
+      "texts": [
+        "0.6",
+        "-0.8",
+        "-1.0",
+        "-1.2",
+        "-1.4",
+        "-1.6",
+        "-1.8 -1.0 -0.5 0.0"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 72,
+      "top_edge": 36,
+      "right_edge": 89,
+      "bottom_edge": 38,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.72,
+      "char_count": 26,
+      "word_count": 3,
+      "texts": [
+        "(b) Output: Representation"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 84,
+      "top_edge": 35,
+      "right_edge": 88,
+      "bottom_edge": 35,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.97,
+      "char_count": 9,
+      "word_count": 3,
+      "texts": [
+        "1.5",
+        "2.0",
+        "2.5"
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 80,
+      "top_edge": 35,
+      "right_edge": 83,
+      "bottom_edge": 35,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 6,
+      "word_count": 2,
+      "texts": [
+        "0.5",
+        "1.0"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 54,
+      "top_edge": 36,
+      "right_edge": 69,
+      "bottom_edge": 38,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 23,
+      "word_count": 4,
+      "texts": [
+        "(a) Input: Karate Graph"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 51,
+      "top_edge": 39,
+      "right_edge": 91,
+      "bottom_edge": 49,
+      "position": "right",
+      "width_category": "medium",
+      "y_group_id": 4,
+      "confidence_avg": 0.99,
+      "char_count": 456,
+      "word_count": 72,
+      "texts": [
+        "Figure l: Our proposed method learns a latent space rep-",
+        "resentation of social interactions in Rd The learned rep-",
+        "resentation encodes community structure s0 it can be eas-",
+        "ily exploited by standard classification methods: Here, our",
+        "method is used on Zachary's Karate network [44] to gen-",
+        "erate latent   representation a in R2 _ Note the correspon-",
+        "dence between community structure in the input graph and",
+        "the embedding: Vertex colors represent a modularity-based"
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 59,
+      "top_edge": 50,
+      "right_edge": 63,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.39,
+      "char_count": 8,
+      "word_count": 2,
+      "texts": [
+        "OU1 UIIC"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 51,
+      "top_edge": 54,
+      "right_edge": 91,
+      "bottom_edge": 91,
+      "position": "right",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.89,
+      "char_count": 1550,
+      "word_count": 245,
+      "texts": [
+        "ommendation [11], anomaly detection [5], and missing link",
+        "prediction [22]) must be able to deal with this sparsity in",
+        "order to survive.",
+        "In this paper we introduce deep learning  (unsupervised",
+        "feature learning) [2] techniques, which have proven success-",
+        "ful in natural language processing; into network analysis for",
+        "the first time. We develop an algorithm (DEEPWALK) that",
+        "learns social representations of a graph' < s vertices, by mod-",
+        "eling a stream of short random walks. Social representa-",
+        "tions are latent features of the vertices that capture neigh-",
+        "borhood similarity and community membership. These la-",
+        "tent representations encode social relations in a continuous",
+        "vector space with a relatively small number of dimensions.",
+        "DEEPWALK generalizes neural language models to process a",
+        "special language composed of a set of randomly-generated",
+        "walks. These neural language  models have been used to",
+        "capture the semantic and syntactic structure of human lan-",
+        "guage [6], and even logical analogies [28].",
+        "DEEPWALK takes a graph as input and produces la- a",
+        "tent representation as an output. The result of applying our",
+        "method to the well-studied Karate network is shown in Fig-",
+        "ure 1. The graph, as typically presented by force-directed",
+        "layouts, is shown in Figure la. Figure lb shows the output",
+        "of our method with 2 latent dimensions. Beyond the striking",
+        "similarity, we note that linearly separable portions of (1b)",
+        "correspond to clusters found through modularity maximiza-",
+        "tion in the input graph (1a) (shown as vertex colors)",
+        "To demonstrate DEEPWALK's potential in real world sce-"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 3,
+      "top_edge": 58,
+      "right_edge": 6,
+      "bottom_edge": 70,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.77,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "1"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 8,
+      "top_edge": 87,
+      "right_edge": 48,
+      "bottom_edge": 91,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 7,
+      "confidence_avg": 0.7,
+      "char_count": 215,
+      "word_count": 36,
+      "texts": [
+        "The authors, 2014. This is the author $ draft of the work: It is posted here",
+        "for your personal use. Not for redistribution: The definitive version was",
+        "published in KDD' 14, http: / /dx.doi.org/10.1145/2623330 _",
+        "2623732"
+      ]
+    }
+  ]
+}

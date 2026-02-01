@@ -1,0 +1,130 @@
+{
+  "page_number": 2,
+  "total_buckets": 6,
+  "last_bucket_previous_page": {
+    "id": 4,
+    "left_edge": 13,
+    "top_edge": 57,
+    "right_edge": 41,
+    "bottom_edge": 59,
+    "position": "left",
+    "width_category": "narrow",
+    "y_group_id": 3,
+    "confidence_avg": 0.98,
+    "char_count": 35,
+    "word_count": 7,
+    "texts": [
+      "Figure 1: Cars R Us Showroom (2024)"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 12,
+      "top_edge": 10,
+      "right_edge": 87,
+      "bottom_edge": 19,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.77,
+      "char_count": 275,
+      "word_count": 42,
+      "texts": [
+        "The dealership experienced a moderate level of retc urns, primarily due to warranty issues and customer",
+        "dissatisfaction with specific models. Details are outli ned in Table 2 below; which provides context for",
+        "the after-sales service performancet+.",
+        "Table 2: Returns Data [4]",
+        "Model"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 14,
+      "top_edge": 18,
+      "right_edge": 52,
+      "bottom_edge": 29,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.98,
+      "char_count": 63,
+      "word_count": 14,
+      "texts": [
+        "Units Returned Reason (Top Caus e)",
+        "40",
+        "30",
+        "Truck Max 25",
+        "Hybrid Eco 15"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 14,
+      "top_edge": 20,
+      "right_edge": 20,
+      "bottom_edge": 24,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.94,
+      "char_count": 12,
+      "word_count": 3,
+      "texts": [
+        "Sedan",
+        "SUV Pro"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 36,
+      "top_edge": 20,
+      "right_edge": 46,
+      "bottom_edge": 29,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 40,
+      "word_count": 4,
+      "texts": [
+        "Transmission",
+        "Electronics",
+        "Suspension",
+        "Battery"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 37,
+      "top_edge": 39,
+      "right_edge": 64,
+      "bottom_edge": 41,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.95,
+      "char_count": 31,
+      "word_count": 4,
+      "texts": [
+        "Service Cenler naze Placeholder"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 13,
+      "top_edge": 50,
+      "right_edge": 25,
+      "bottom_edge": 51,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.56,
+      "char_count": 14,
+      "word_count": 4,
+      "texts": [
+        "Figule C= 0 0_"
+      ]
+    }
+  ]
+}

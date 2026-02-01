@@ -1,0 +1,426 @@
+{
+  "page_number": 5,
+  "total_buckets": 20,
+  "last_bucket_previous_page": {
+    "id": 10,
+    "left_edge": 70,
+    "top_edge": 65,
+    "right_edge": 75,
+    "bottom_edge": 66,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 3,
+    "confidence_avg": 0.65,
+    "char_count": 9,
+    "word_count": 2,
+    "texts": [
+      "[log IVII"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 64,
+      "top_edge": 9,
+      "right_edge": 73,
+      "bottom_edge": 10,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.97,
+      "char_count": 7,
+      "word_count": 3,
+      "texts": [
+        "2 U3 U4"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 88,
+      "top_edge": 9,
+      "right_edge": 90,
+      "bottom_edge": 10,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.83,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "U8"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 35,
+      "top_edge": 11,
+      "right_edge": 46,
+      "bottom_edge": 22,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.96,
+      "char_count": 16,
+      "word_count": 7,
+      "texts": [
+        "Wv4 4",
+        "3",
+        "Uk 1]v;",
+        "L5",
+        "1"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 37,
+      "top_edge": 25,
+      "right_edge": 55,
+      "bottom_edge": 26,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.88,
+      "char_count": 27,
+      "word_count": 3,
+      "texts": [
+        "(b) Representation lapping:"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 53,
+      "top_edge": 15,
+      "right_edge": 53,
+      "bottom_edge": 16,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "d"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 69,
+      "top_edge": 23,
+      "right_edge": 72,
+      "bottom_edge": 24,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.58,
+      "char_count": 6,
+      "word_count": 2,
+      "texts": [
+        "$(v1 )"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 67,
+      "top_edge": 25,
+      "right_edge": 83,
+      "bottom_edge": 26,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.66,
+      "char_count": 25,
+      "word_count": 3,
+      "texts": [
+        "(c) Hierarchical Softmax:"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 12,
+      "top_edge": 25,
+      "right_edge": 30,
+      "bottom_edge": 26,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.76,
+      "char_count": 27,
+      "word_count": 4,
+      "texts": [
+        "(a) Random walk generation:"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 9,
+      "top_edge": 27,
+      "right_edge": 91,
+      "bottom_edge": 33,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 2,
+      "confidence_avg": 0.88,
+      "char_count": 436,
+      "word_count": 79,
+      "texts": [
+        "Figure 3: Overview of DEEPWALK. We slide a window of ler Agth Zw + 1 over the random walk Wv4 , mapping the central",
+        "vertex U1 to its representation $(01). Hierarchical Softmax fa ctors out Pr(03 $(01)) and Pr(v5 9(01)) over sequences of",
+        "probability distributions corresponding to the paths starting t the root and ending at and U3",
+        "updated to maximize the probability of V1 co-occurring with it S context {03 , U5 } .",
+        "The representation $ is"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 8,
+      "top_edge": 35,
+      "right_edge": 48,
+      "bottom_edge": 91,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 3,
+      "confidence_avg": 0.94,
+      "char_count": 2091,
+      "word_count": 368,
+      "texts": [
+        "with the number of vertices that are seen s0 far.",
+        "4.3 Parallelizability",
+        "As shown in Figure 2 the frequency distribution of vertices",
+        "in random walks of social network and words in a language",
+        "both follow power law. a This results in a long tail of infre-",
+        "quent vertices, therefore, the updates that affect $ will be",
+        "sparse in nature. This allows us to use asynchronous version",
+        "of stochastic gradient descent (ASGD), in the multi-worker",
+        "case_ Given that our updates are sparse and we d0 not aC-",
+        "quire a lock to access the model shared parameters, ASGD",
+        "WII acheve an optlmal rate Of convergence [36] . W hile wC",
+        "run experiments on one machine using multiple threads, it",
+        "has been demonstrated that this technique is highly scal-",
+        "able;, and can be used in very large scale machine  learn-",
+        "ing [8]. Figure 4 presents the effects of parallelizing DEEP_",
+        "WALK. It shows the speed up in processing BLOGCATALOG",
+        "and FLICKR networks is consistent as we increase the num-",
+        "ber of workers to 8 (Figure 4a). It also shows that there",
+        "is no loss of predictive performance relative to the running",
+        "DEEPWALK serially (Figure 4b).",
+        "4.4 Algorithm Variants",
+        "Here we discuss some variants of our proposed method,",
+        "which we believe may be of interest.",
+        "4.4.1 Streaming",
+        "One interesting variant of this method is a streaming ap",
+        "proach; which could be implemented without knowledge of",
+        "the entire graph. In this variant small walks from the graph",
+        "are passed directly to the representation learning code, and",
+        "the model is updated directly: Some modifications to the",
+        "learning process will also be necessary: First, using de- a",
+        "caying learning rate will no longer be possible. Instead, wC",
+        "can initialize the learning rate a to a small constant value_",
+        "This will take longer to learn; but may be worth it in some",
+        "applications. Second, we cannot necessarily build a tree of",
+        "parameters any more. If the cardinality of V is known (or",
+        "can be bounded) , we can build the Hierarchical Softmax tree",
+        "for that maximum value. Vertices can be assigned to one of",
+        "the remaining leaves when they are first seen. If we have",
+        "the ability to estimate the vertex frequency a priori, we can"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 53,
+      "top_edge": 36,
+      "right_edge": 54,
+      "bottom_edge": 36,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "20"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 52,
+      "top_edge": 38,
+      "right_edge": 54,
+      "bottom_edge": 41,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.75,
+      "char_count": 8,
+      "word_count": 5,
+      "texts": [
+        "2 2 1",
+        "1",
+        "22"
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 53,
+      "top_edge": 43,
+      "right_edge": 55,
+      "bottom_edge": 44,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "23 20"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 56,
+      "top_edge": 44,
+      "right_edge": 86,
+      "bottom_edge": 49,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.94,
+      "char_count": 77,
+      "word_count": 14,
+      "texts": [
+        "21 # of Workers 22",
+        "(a) Running Time",
+        "Figure 4: Effects of parallelizing DEEPWALK"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 85,
+      "top_edge": 36,
+      "right_edge": 89,
+      "bottom_edge": 37,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 17,
+      "word_count": 2,
+      "texts": [
+        "BlogCatalog",
+        "Flickr"
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 66,
+      "top_edge": 36,
+      "right_edge": 69,
+      "bottom_edge": 37,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 17,
+      "word_count": 2,
+      "texts": [
+        "BlogCatalog",
+        "Flickr"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 71,
+      "top_edge": 36,
+      "right_edge": 75,
+      "bottom_edge": 44,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.73,
+      "char_count": 33,
+      "word_count": 11,
+      "texts": [
+        "1 0.02",
+        "2 0.01",
+        "9",
+        "8 0.00",
+        "L ~0.01",
+        "~0.02",
+        "20"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 88,
+      "top_edge": 44,
+      "right_edge": 88,
+      "bottom_edge": 44,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "23"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 76,
+      "top_edge": 44,
+      "right_edge": 86,
+      "bottom_edge": 47,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.88,
+      "char_count": 32,
+      "word_count": 6,
+      "texts": [
+        "21 #of Workers 22",
+        "(b) Performance"
+      ]
+    },
+    {
+      "id": 19,
+      "left_edge": 51,
+      "top_edge": 52,
+      "right_edge": 91,
+      "bottom_edge": 91,
+      "position": "right",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.9,
+      "char_count": 1264,
+      "word_count": 205,
+      "texts": [
+        "also still use Huffman coding to decrease frequent element",
+        "access times.",
+        "4.4.2 Non-random walks",
+        "Some graphs are created as a by-product of agents inter-",
+        "acting with a sequence of elements (e.g: users' navigation",
+        "of pages on website)_ a When a graph is created by such a",
+        "stream of non-random walks, we can use this process to feed",
+        "the modeling phase directly: Graphs sampled in this way will",
+        "not only capture information related to network structure,",
+        "but also to the frequency at which paths are traversed.",
+        "In our view this variant also encompasses language mod-",
+        "eling: Sentences can be viewed as purposed walks through",
+        "an appropriately designed language network, and language",
+        "models like SkipGram are designed to capture this behavior.",
+        "This approach can be combined with the streaming vari-",
+        "ant (Section 4.4.1) to train features on continually evolv- a",
+        "ing network without ever explicitly constructing the entire",
+        "graph. Maintaining representations with this technique could",
+        "enable web-scale classification without the hassles of dealing",
+        "with a web-scale graph.",
+        "5_ EXPERIMENTAL DESIGN",
+        "In this section we provide an overview of the datasets and",
+        "methods which we will use in our experiments. Code and",
+        "data to reproduce our results will be available at the first",
+        "author s website.",
+        "5.1 Datasets"
+      ]
+    }
+  ]
+}

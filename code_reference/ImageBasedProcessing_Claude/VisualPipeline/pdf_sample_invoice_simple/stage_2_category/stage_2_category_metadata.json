@@ -1,0 +1,56 @@
+{
+  "pdf_path": "C:\\Users\\shank\\OneDrive\\Destiny\\Uma\\UmaAI\\RAG_proto_Claude\\docs\\pdf_sample_invoice_simple.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-21T22:06:41.070784",
+  "total_pages": 1,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 0,
+    "Section-header": 0,
+    "Table": 0,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2481,
+        "height": 3508
+      },
+      "detections": []
+    }
+  ],
+  "stage_2_info": {
+    "model": "gpt-4o-mini",
+    "categories": [
+      "table",
+      "graph/chart",
+      "photograph",
+      "diagram",
+      "other"
+    ],
+    "timestamp": "2025-12-21T22:06:41.093784",
+    "total_images": 0,
+    "total_categorized": 0,
+    "category_counts": {
+      "table": 0,
+      "graph/chart": 0,
+      "photograph": 0,
+      "diagram": 0,
+      "other": 0
+    },
+    "total_tokens": 0
+  }
+}

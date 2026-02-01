@@ -1,0 +1,167 @@
+{
+  "page_number": "4",
+  "analysis": {
+    "total_buckets": 21,
+    "filtered_buckets": [
+      {
+        "bucket_id": 20,
+        "text": "4",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "From Wikibooks",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Force control signal",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Force (C Golgi tendon organ) Force fe edback",
+        "confidence": 0.9285714285714286,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Inter- neurons",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "Driving signal",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "Muscle length",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Tendon organs",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Muscle force",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 9,
+        "text": "Muscle 2",
+        "confidence": 0.75,
+        "method": "ngram_overlap"
+      },
+      {
+        "bucket_id": 10,
+        "text": "Load",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 11,
+        "text": "Length (secondary muscle-spindel afferents) Length error (primary muscle-spindel afferents) Velocity (primary muscle-spindel afferents)",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 12,
+        "text": "Length & velocity feedback",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 13,
+        "text": "Length control signal",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 15,
+        "text": "Gamma bias",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 16,
+        "text": "Figure 3: Feedback loops for proprioceptive sigr als for the perception and control of limb move - ments. Arrows indicate excitatory connections; fi lled circles inhibitory connections:",
+        "confidence": 0.9776536312849163,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 17,
+        "text": "few myofila ments and is non-contractile, but it does have one or more sensory endings applied to it. When the mus- 2 cle is stretc hed, the central part of the intrafusal fiber is stretched a1 1d each sensory ending fires impulses. Muscle S pindles also receive a motor innervation. The large motor neurons that supply extrafusal muscle fibers are called al pha motor neurons, while the smaller ones sup - plying the contractile portions of intrafusal fibers are called gamr na neurons. Gamma motor neurons can regu- late the sen sitivity of the muscle spindle so that this sen- sitivity can be maintained at any given muscle length_",
+        "confidence": 0.964573268921095,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 18,
+        "text": "Joint recep tors The joint re ceptors are low-threshold mechanoreceptors and have be en divided into four groups They signal differ- ent characte eristics of joint function (position, movements, direction ar d speed of movements) The free receptors or type 4 joint receptors are nociceptors.",
+        "confidence": 0.9719298245614035,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 19,
+        "text": "For more examples of how to use HTML and CSS for paper-based publishing; see css4.pub:",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 4,
+        "text": "External forces",
+        "texts": [
+          "External",
+          "forces"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 1,
+        "confidence_avg": 0.93,
+        "char_count": 14,
+        "word_count": 2,
+        "confidence_missing": 0.4,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 14,
+        "text": "S oindles",
+        "texts": [
+          "S oindles"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 1.0,
+        "char_count": 9,
+        "word_count": 2,
+        "confidence_missing": 0.2222222222222221,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# From Wikibooks\n\n## Force Control Signal\n\n- **Force (Golgi tendon organ)**  \n  - Force feedback\n\n- **Inter-neurons**\n\n- **Driving signal**  \n  - α Muscle  \n  - Tendon organs  \n  - Muscle force  \n  - Load  \n  - Muscle length  \n\n- **Length (secondary muscle-spindel afferents)**  \n- **Length error (primary muscle-spindel afferents)**  \n- **Velocity (primary muscle-spindel afferents)**  \n\n- **Length control signal**  \n- **Spindles**  \n- **Gamma bias**  \n- **External forces**  \n\n---\n\n![Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements. Arrows indicate excitatory connections; filled circles inhibitory connections.](attachment)\n\nMuscle spindles have few myofilaments and are non-contractile, but they do have one or more sensory endings applied to it. When the muscle is stretched, the central part of the intrafusal fiber is stretched and each sensory ending fires impulses. Muscle spindles also receive a motor innervation. The large motor neurons that supply extrafusal muscle fibers are called alpha motor neurons, while the smaller ones supplying the contractile portions of intrafusal fibers are called gamma neurons. Gamma motor neurons can regulate the sensitivity of the muscle spindle so that this sensitivity can be maintained at any given muscle length.\n\n## Joint Receptors\n\nThe joint receptors are low-threshold mechanoreceptors and have been divided into four groups. They signal different characteristics of joint function (position, movements, direction and speed of movements). The free receptors or type 4 joint receptors are nociceptors.\n\nFor more examples of how to use HTML and CSS for paper-based publishing; see css4.pub:\n\n4\n",
+    "buckets_recovered": [
+      4
+    ],
+    "buckets_gibberish": [
+      14
+    ],
+    "recovery_notes": "Inserted legitimate text from bucket 4 ('External forces') into the appropriate section. Bucket 14 was identified as gibberish and not inserted."
+  }
+}

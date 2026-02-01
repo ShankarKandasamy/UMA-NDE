@@ -1,0 +1,192 @@
+{
+  "page_number": 2,
+  "total_buckets": 8,
+  "last_bucket_previous_page": {
+    "id": 19,
+    "left_edge": 83,
+    "top_edge": 84,
+    "right_edge": 84,
+    "bottom_edge": 85,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 7,
+    "confidence_avg": 1.0,
+    "char_count": 1,
+    "word_count": 1,
+    "texts": [
+      "1"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 9,
+      "top_edge": 6,
+      "right_edge": 22,
+      "bottom_edge": 8,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 14,
+      "word_count": 2,
+      "texts": [
+        "From Wikibooks"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 9,
+      "top_edge": 11,
+      "right_edge": 35,
+      "bottom_edge": 34,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.9,
+      "char_count": 422,
+      "word_count": 68,
+      "texts": [
+        "Figure 2: Mammalian muscle",
+        "spindle showing typical position",
+        "in a muscle (left), neuronal con-",
+        "nections in spinal cord (middle)",
+        "and expanded schematic (right).",
+        "The spindle is 0 stretch receptor",
+        "with its own motor supply con-",
+        "sisting of several intrafusal mus -",
+        "cle fibres: The sensory endings 0f",
+        "0 primary (group Ia) afferent and",
+        "0 secondary (group II) afferent",
+        "coil around the non-contractile",
+        "central portions of the intrafusal",
+        "fibres:"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 62,
+      "top_edge": 14,
+      "right_edge": 69,
+      "bottom_edge": 16,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.53,
+      "char_count": 17,
+      "word_count": 2,
+      "texts": [
+        "Moionavton",
+        "aterent"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 77,
+      "top_edge": 18,
+      "right_edge": 83,
+      "bottom_edge": 22,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.69,
+      "char_count": 25,
+      "word_count": 3,
+      "texts": [
+        "extratusal",
+        "muscle",
+        "lasciclcs"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 77,
+      "top_edge": 24,
+      "right_edge": 83,
+      "bottom_edge": 27,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.61,
+      "char_count": 21,
+      "word_count": 3,
+      "texts": [
+        "inbraiusal",
+        "Muscle",
+        "Ibeis"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 62,
+      "top_edge": 25,
+      "right_edge": 67,
+      "bottom_edge": 26,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.93,
+      "char_count": 10,
+      "word_count": 2,
+      "texts": [
+        "Ia aterent"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 37,
+      "top_edge": 35,
+      "right_edge": 84,
+      "bottom_edge": 80,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 3,
+      "confidence_avg": 0.93,
+      "char_count": 1275,
+      "word_count": 212,
+      "texts": [
+        "rapidly adaj pting afferent activity, muscle force increases",
+        "reflexively 1 Intil the gripped object no longer moves. Such",
+        "a rapid resp onse to a tactile stimulus is a clear indication",
+        "of the role ] layed by somatosensory neurons in motor ac-",
+        "tivity:",
+        "The slov ly adapting Merkel's receptors are responsible",
+        "for form an 1 texture perception. As would be expected for",
+        "receptors ediating form perception, Merkel's receptors",
+        "are present at high density in the digits and around the",
+        "mouth (50/ mm2 of skin surface), at lower density in oth-",
+        "er glabrous surfaces, and at very low density in hairy skin.",
+        "This innerv ations density shrinks progressively with the",
+        "passage of t ime so that by the age of 50,the density in hu-",
+        "man digits is reduced to 10/mm2 Unlike rapidly adapting",
+        "axons, slow ly adapting fibers respond not only to the ini-",
+        "tial indenta tion of skin, but also to sustained indentation",
+        "up to severz l seconds in duration:",
+        "Activatic n of the rapidly adapting Pacinian corpuscles",
+        "gives fee a ling of vibration; while the slowly adapting",
+        "Ruffini corp uscles   respond to the lataral movement or",
+        "stretching € f skin:",
+        "Nociceptor S",
+        "Nociceptor have free nerve endings. Functionally, skin",
+        "nociceptors are either high-threshold mechanoreceptors",
+        "or polymodc al receptors. Polymodal receptors respond not"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 8,
+      "top_edge": 84,
+      "right_edge": 9,
+      "bottom_edge": 85,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "2"
+      ]
+    }
+  ]
+}

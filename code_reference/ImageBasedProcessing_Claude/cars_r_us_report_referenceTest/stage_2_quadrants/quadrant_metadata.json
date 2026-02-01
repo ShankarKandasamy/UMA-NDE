@@ -1,0 +1,283 @@
+{
+  "pdf_name": "cars_r_us_report_referenceTest",
+  "total_pages": 3,
+  "total_quadrants": 12,
+  "overlap_ratio": 0.0,
+  "upscaled_to_original": true,
+  "timestamp": "20251221_205520",
+  "pages": [
+    {
+      "page_number": 1,
+      "source_screenshot": "page_1_cars_r_us_report_referenceTest.png",
+      "full_page_width": 2550,
+      "full_page_height": 3300,
+      "quadrant_width": 1275,
+      "quadrant_height": 1650,
+      "overlap_ratio": 0.0,
+      "quadrants": [
+        {
+          "quadrant_name": "top_left",
+          "page_number": 1,
+          "filename": "page_1_top_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 0,
+          "crop_box": [
+            0,
+            0,
+            1275,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "top_right",
+          "page_number": 1,
+          "filename": "page_1_top_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 0,
+          "crop_box": [
+            1275,
+            0,
+            2550,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_left",
+          "page_number": 1,
+          "filename": "page_1_bottom_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 1650,
+          "crop_box": [
+            0,
+            1650,
+            1275,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_right",
+          "page_number": 1,
+          "filename": "page_1_bottom_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 1650,
+          "crop_box": [
+            1275,
+            1650,
+            2550,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "source_screenshot": "page_2_cars_r_us_report_referenceTest.png",
+      "full_page_width": 2550,
+      "full_page_height": 3300,
+      "quadrant_width": 1275,
+      "quadrant_height": 1650,
+      "overlap_ratio": 0.0,
+      "quadrants": [
+        {
+          "quadrant_name": "top_left",
+          "page_number": 2,
+          "filename": "page_2_top_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 0,
+          "crop_box": [
+            0,
+            0,
+            1275,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "top_right",
+          "page_number": 2,
+          "filename": "page_2_top_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 0,
+          "crop_box": [
+            1275,
+            0,
+            2550,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_left",
+          "page_number": 2,
+          "filename": "page_2_bottom_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 1650,
+          "crop_box": [
+            0,
+            1650,
+            1275,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_right",
+          "page_number": 2,
+          "filename": "page_2_bottom_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 1650,
+          "crop_box": [
+            1275,
+            1650,
+            2550,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "source_screenshot": "page_3_cars_r_us_report_referenceTest.png",
+      "full_page_width": 2550,
+      "full_page_height": 3300,
+      "quadrant_width": 1275,
+      "quadrant_height": 1650,
+      "overlap_ratio": 0.0,
+      "quadrants": [
+        {
+          "quadrant_name": "top_left",
+          "page_number": 3,
+          "filename": "page_3_top_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 0,
+          "crop_box": [
+            0,
+            0,
+            1275,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "top_right",
+          "page_number": 3,
+          "filename": "page_3_top_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 0,
+          "crop_box": [
+            1275,
+            0,
+            2550,
+            1650
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_left",
+          "page_number": 3,
+          "filename": "page_3_bottom_left_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 1650,
+          "crop_box": [
+            0,
+            1650,
+            1275,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        },
+        {
+          "quadrant_name": "bottom_right",
+          "page_number": 3,
+          "filename": "page_3_bottom_right_cars_r_us_report_referenceTest.png",
+          "width_px": 2550,
+          "height_px": 3300,
+          "cropped_width_px": 1275,
+          "cropped_height_px": 1650,
+          "upscaled": true,
+          "offset_x": 1275,
+          "offset_y": 1650,
+          "crop_box": [
+            1275,
+            1650,
+            2550,
+            3300
+          ],
+          "full_page_width": 2550,
+          "full_page_height": 3300
+        }
+      ]
+    }
+  ]
+}

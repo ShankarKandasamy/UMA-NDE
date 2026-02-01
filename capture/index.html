@@ -786,10 +786,7 @@
         // Initialize settings inputs
         apiEndpointInput.value = settings.apiEndpoint;
         apiKeyInput.value = settings.apiKey;
-        
-        // Update STT badge based on available provider
-        updateSttBadge();
-        
+
         // Event Listeners
         captureZone.addEventListener('click', () => cameraInput.click());
         cameraBtn.addEventListener('click', () => cameraInput.click());
@@ -985,17 +982,162 @@
         });
         
         // ============================================
-        // SPEECH-TO-TEXT (MOCK - Coming Soon)
+        // SPEECH-TO-TEXT (Web Speech API with Streaming)
         // ============================================
 
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition = null;
+        let isListening = false;
+        let finalTranscript = '';  // Committed text from previous results
+        let interimTranscript = ''; // Current in-progress text
+
         function updateSttBadge() {
-            sttBadge.textContent = 'Coming Soon';
-            sttBadge.style.color = 'var(--text-secondary)';
+            if (SpeechRecognition) {
+                sttBadge.textContent = 'Web Speech';
+                sttBadge.style.color = 'var(--accent)';
+            } else {
+                sttBadge.textContent = 'Not Supported';
+                sttBadge.style.color = 'var(--error)';
+            }
         }
 
-        // Voice button handler - shows coming soon message
+        function initSpeechRecognition() {
+            if (!SpeechRecognition) {
+                return null;
+            }
+
+            const rec = new SpeechRecognition();
+            rec.continuous = true;           // Keep listening until stopped
+            rec.interimResults = true;       // Enable streaming
+            rec.lang = 'en-US';
+
+            rec.onstart = () => {
+                isListening = true;
+                voiceBtn.classList.add('listening');
+                voiceBtn.classList.remove('processing');
+                voiceStatus.classList.add('active');
+                voiceStatusText.textContent = 'Listening...';
+                // Store existing text as the base
+                finalTranscript = notesInput.value;
+                if (finalTranscript && !finalTranscript.endsWith(' ') && !finalTranscript.endsWith('\n')) {
+                    finalTranscript += ' ';  // Add space before new speech
+                }
+                interimTranscript = '';
+            };
+
+            rec.onresult = (event) => {
+                interimTranscript = '';
+
+                // Process results from the current result index
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const result = event.results[i];
+                    const transcript = result[0].transcript;
+
+                    if (result.isFinal) {
+                        finalTranscript += transcript;
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+
+                // Update textarea with final + interim (interim shown as-is for MVP)
+                notesInput.value = finalTranscript + interimTranscript;
+
+                // Auto-scroll textarea to bottom
+                notesInput.scrollTop = notesInput.scrollHeight;
+            };
+
+            rec.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                stopListening();
+
+                let errorMsg = 'Speech error';
+                switch (event.error) {
+                    case 'no-speech':
+                        errorMsg = 'No speech detected. Try again.';
+                        break;
+                    case 'audio-capture':
+                        errorMsg = 'No microphone found.';
+                        break;
+                    case 'not-allowed':
+                        errorMsg = 'Microphone permission denied.';
+                        break;
+                    case 'network':
+                        errorMsg = 'Network error. Check connection.';
+                        break;
+                }
+                showToast(errorMsg, 'error');
+            };
+
+            rec.onend = () => {
+                // Recognition ended (either manually or automatically)
+                if (isListening) {
+                    // If we're still supposed to be listening, restart
+                    // This handles the case where recognition auto-stops
+                    try {
+                        rec.start();
+                    } catch (e) {
+                        stopListening();
+                    }
+                } else {
+                    stopListening();
+                }
+            };
+
+            return rec;
+        }
+
+        function startListening() {
+            if (!SpeechRecognition) {
+                showToast('Speech recognition not supported in this browser', 'error');
+                return;
+            }
+
+            if (!recognition) {
+                recognition = initSpeechRecognition();
+            }
+
+            if (!recognition) {
+                showToast('Failed to initialize speech recognition', 'error');
+                return;
+            }
+
+            try {
+                recognition.start();
+            } catch (e) {
+                // Already started, stop and restart
+                recognition.stop();
+            }
+        }
+
+        function stopListening() {
+            isListening = false;
+            voiceBtn.classList.remove('listening', 'processing');
+            voiceStatus.classList.remove('active');
+
+            if (recognition) {
+                try {
+                    recognition.stop();
+                } catch (e) {
+                    // Ignore errors when stopping
+                }
+            }
+
+            // Commit any remaining interim transcript
+            if (interimTranscript) {
+                finalTranscript += interimTranscript;
+                notesInput.value = finalTranscript;
+                interimTranscript = '';
+            }
+        }
+
+        // Voice button toggle
         voiceBtn.addEventListener('click', () => {
-            showToast('Voice input coming soon! Use keyboard for now.', 'success');
+            if (isListening) {
+                stopListening();
+            } else {
+                startListening();
+            }
         });
 
         // ============================================
@@ -1009,6 +1151,7 @@
         
         // Initial status check
         updateStatus();
+        updateSttBadge();
     </script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+Circuit_ID,CML,Component,NPS,Schedule,Nominal_mm,t_min_mm,Reading_1,Reading_2,Reading_3,Reading_4,Min_mm,Prev_mm,Prev_Date,Corr_Rate_mm_yr,Remaining_Life_yr,Condition,Service,Material
+HC-301,001,Tee-Run,6,80,7.11,3.56,5.87,5.81,6.03,5.86,5.81,5.95,2024-09-22,0.06,37.6,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,002,Tee-Branch,4,80,6.02,3.01,4.9,4.76,4.88,4.79,4.76,4.97,2024-09-22,0.09,19.4,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,003,Tee-Branch,4,80,6.02,3.01,4.83,4.7,4.56,4.66,4.56,4.75,2024-09-22,0.09,17.2,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,004,Tee-Branch,4,80,6.02,3.01,4.9,4.74,4.79,4.74,4.74,4.93,2024-09-22,0.12,14.4,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,005,Tee-Run,4,80,6.02,3.01,4.4,4.6,4.65,4.56,4.4,4.65,2024-09-22,0.12,11.6,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,006,Weldolet,4,80,6.02,3.01,4.85,4.76,,,4.76,4.91,2024-09-22,0.09,19.4,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,007,Straight,8,40,8.18,4.09,6.07,5.95,,,5.95,6.04,2024-09-22,0.05,37.2,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,008,45° Elbow,6,80,7.11,3.56,5.73,5.78,,,5.73,5.96,2024-09-22,0.12,18.1,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,009,Control Valve,4,80,6.02,3.01,4.02,4.09,4.12,4.19,4.02,4.27,2024-09-22,0.15,6.7,ALERT,Hydrocarbon Process,A106 Gr.B
+HC-301,010,Weldolet,3,80,5.49,2.75,4.49,4.46,,,4.46,4.62,2024-09-22,0.08,21.4,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,011,Control Valve,4,80,6.02,3.01,4.9,4.86,4.96,4.93,4.86,5.05,2024-09-22,0.13,14.2,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,012,Flange,6,80,7.11,3.56,5.8,5.61,,,5.61,5.73,2024-09-22,0.06,34.3,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,013,45° Elbow,3,80,5.49,2.75,4.13,4.4,,,4.13,4.28,2024-09-22,0.1,13.8,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,014,90° Elbow,6,80,7.11,3.56,5.7,5.74,5.52,5.59,5.52,5.61,2024-09-22,0.05,39.3,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,015,Straight,3,80,5.49,2.75,4.25,4.3,,,4.25,4.38,2024-09-22,0.08,18.8,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,016,90° Elbow,4,80,6.02,3.01,4.66,4.92,4.78,4.78,4.66,4.83,2024-09-22,0.09,18.3,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,017,Weldolet,6,80,7.11,3.56,5.54,5.46,,,5.46,5.64,2024-09-22,0.1,19.0,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,018,Tee-Branch,6,80,7.11,3.56,5.31,5.31,5.32,5.37,5.31,5.49,2024-09-22,0.1,17.5,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,019,Straight,8,40,8.18,4.09,6.25,6.39,,,6.25,6.38,2024-09-22,0.06,36.0,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,020,90° Elbow,4,80,6.02,3.01,5.04,4.84,5.0,4.96,4.84,5.06,2024-09-22,0.1,18.3,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,021,Flange,3,80,5.49,2.75,4.44,4.36,,,4.36,4.48,2024-09-22,0.05,32.3,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,022,90° Elbow,8,40,8.18,4.09,6.47,6.57,6.75,6.73,6.47,6.65,2024-09-22,0.09,26.4,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,023,90° Elbow,2,80,3.91,1.96,3.14,3.18,3.18,3.18,3.14,3.25,2024-09-22,0.06,19.8,Fair,Hydrocarbon Process,A106 Gr.B
+HC-301,024,Weldolet,2,80,3.91,1.96,3.0,3.14,,,3.0,3.1,2024-09-22,0.05,20.9,Good,Hydrocarbon Process,A106 Gr.B
+HC-301,025,Straight,6,80,7.11,3.56,5.88,5.93,,,5.88,6.07,2024-09-22,0.08,29.1,Good,Hydrocarbon Process,A106 Gr.B

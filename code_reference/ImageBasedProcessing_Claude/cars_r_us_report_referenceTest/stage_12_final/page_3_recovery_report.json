@@ -1,0 +1,46 @@
+{
+  "page_number": "3",
+  "analysis": {
+    "total_buckets": 5,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Trend analysis reveals that electric and hybrid mode ls are gaining increasing market share. Table 3 highlights quarterly trends in hybrid and EV adoptior 1. This aligns with industry-wide movement toward sustainability and reduced carbon footprints [3]. Fut ure projections suggest even stronger adoption in upcoming years1 _ Table3: Quarterly_Hybrid & EV Trends [5] Quarter Hybrid Sales EV Sales",
+        "confidence": 0.9895561357702349,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Q1 Q2 Q3 Q4",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 2,
+        "text": "References [1] Cars R Us Annual Market Report DocID: CRU-_ 2024-001 RevA [2] Sales Ledger Records DocID: CRU-2024-002 Rev1 [3] Sustainability & EV Market Study DocID: CRU-_ 2024-003 RevC [4] Returns & Warranty Report DocD: CRU-2024- 004 RevB [5] Trend & Forecast Analysis DocID: CRU-2024-C 105 Rev2 * Sales were affected by seasonal weather patterns ++ Returns slightly decreased compared to 2023. 1 Trend forecasts may vary depending on policy chz anges: 2 Customer surveys indicate rising interest in EV me odels. 3 Global chip shortages may influence future sales",
+        "confidence": 0.9915014164305949,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "200 280 320 300",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 4,
+        "text": "150 210 260 310",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      }
+    ],
+    "missing_buckets": [],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "buckets_recovered": [],
+    "buckets_gibberish": [],
+    "recovery_notes": "No missing buckets"
+  }
+}

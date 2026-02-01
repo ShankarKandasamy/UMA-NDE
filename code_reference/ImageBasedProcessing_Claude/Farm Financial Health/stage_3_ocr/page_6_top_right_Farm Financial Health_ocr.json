@@ -1,0 +1,36 @@
+{
+  "quadrant_name": "top_right",
+  "page_number": 6,
+  "source_image": "page_6_top_right_Farm Financial Health.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 1275,
+  "offset_y": 0,
+  "crop_box": [
+    1275,
+    0,
+    2550,
+    1650
+  ],
+  "total_blocks": 1,
+  "min_x": 2550,
+  "max_x": 3023,
+  "min_y": 2760,
+  "max_y": 3024,
+  "blocks": [
+    {
+      "text": "IAL",
+      "start_x": 2550,
+      "end_x": 3023,
+      "start_y": 2760,
+      "end_y": 3024,
+      "mid_x": 2786,
+      "mid_y": 2892,
+      "mid_y_x": 2943.0,
+      "height": 264,
+      "confidence": 0.9999256688134786,
+      "char_count": 3,
+      "word_count": 1
+    }
+  ]
+}

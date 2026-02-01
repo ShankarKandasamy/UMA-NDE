@@ -1,0 +1,115 @@
+{
+  "page_number": "4",
+  "analysis": {
+    "total_buckets": 11,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Algorithm 1 DEEP WALK(G , d, Y t) U , Input: graph G(V; E) window size W embedding size d walks per vertex walk length t Output: matrix of vertex representations $ € RlVIxd l: Initialization: Sample $ from ulvIxd 2: Build a binary Tree T from V 3: for % 0 to > do 4: 5: for each € do Ui 6= 7: 8= 9: end for",
+        "confidence": 0.9130434782608695,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 1,
+        "text": "of our desired properties. This method generates represen- tations of social networks that are low-dimensional; and @X- ist in a continuous vector space. Its representations encode latent   forms of community membership, and because the method outputs useful intermediate representations, it can adapt to changing network topology: 4 METHOD In this section we discuss the main   components of our algorithm: We also present several variants of our approach and discuss their merits. 4.1 Overview As in any language modeling algorithm; the only required input is a corpus and a vocabulary V. DEEPWALK considers a set of short truncated random walks its own corpus, and the graph vertices as its own vocabulary is beneficial to know the V and the frequency distribution of vertices in the random walks ahead of the training; it is not necessary for the algorithm to work as we will show in 4.2.2. V). While it",
+        "confidence": 0.9887005649717514,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "4.2 Algorithm: DEEP WALK The algorithm consists of two main components; first a random walk generator and second an update procedure. The random walk generator takes a graph G and samples uniformly random a vertex Ui as the root of the random walk Wvi A walk   samples  uniformly from the neighbors of the last vertex visited until the maximum length (t) is reached. While we set the length of our random walks in the experiments to be fixed, there is no restriction for the random walks to be of the same length: These walks could have restarts (i.e. a teleport probability of returning back to their root), but our preliminary results did not show any advantage of using restarts: In practice, our implementation specifies a number of random walks Y of length t to start at each vertex. Lines 3-9 in Algorithm 1 shows the core of our approach: The outer loop specifies the number of times, Y, which wC should start random walks at each vertex We think of each iteration making as a pass over the data and sample one walk per node during this pass. At the start of each pass we generate a random ordering to traverse the vertices. This is not strictly required, but is well-known to speed up the convergence of stochastic gradient descent_",
+        "confidence": 0.9958847736625515,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Algorithm 2 SkipGram(d , Wvi' w) 1: for each Vj € Wvi do 2: for each Uk € Wvi [j ~ w : j + w] do 3: 4: 5: end for 6: end for J(d) = _ log Pr(uk | d(vj)) $ = $ -a *",
+        "confidence": 0.8421052631578947,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 4,
+        "text": "In the inner loop, we iterate over all the vertices of the graph. For each vertex Vi we generate a random walk IWvi t, and then use it to update our representations (Line 7). We use the SkipGram algorithm [26] to update these represen- tations in accordance with our objective function in Eq: 2_ 4.2.1 SkipGram SkipGram is a language model that maximizes the CO- occurrence probability among the words that appear within a window, W, in a sentence [26]. Algorithm 2 iterates over all possible collocations in ran- dom walk that appear within the window w (lines 1-2) . For each; we map each vertex Uj to its current representation vector @(uj) € Rd (See Figure 3b). Given the representa- tion of Uj , we would like to maximize the probability of its neighbors in the walk (line 3). We can learn such posterior distribution using several choices of classifiers. For exam- ple, modeling the previous problem using logistic regression would result in a huge number of labels that is equal to |V| which could be in millions or billions. Such models require large amount of computational resources that could span a whole cluster of computers [3]. To speed the training time; Hierarchical Softmax [29,30] can be used to approximate the probability distribution. 4.2.2 Hierarchical Softmax Given that Uk € V, calculating Pr(uk $(v;)) in line 3 is not feasible: Computing the partition function (normal- ization factor) is expensive. If we assign the vertices to the leaves of a binary tree, the prediction problem turns into maximizing the probability of a specific path in the tree (See Figure 3c). If the path to vertex Uk is identified by a sequence of tree nodes  (b0, b1,- Uk: ) then root,",
+        "confidence": 0.9882133995037221,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "Pr(uk d(v;)) II Pr(b1 d(v;)) 1=1 Now, Pr(b1 d(v;)) could be modeled by a binary classifier that is assigned to the parent of the node b1. This reduces the computational complexity of calculating Pr(uk $(v;)) from O(IVI) to O(log|VV): We can speed up the training process further, by assigning shorter paths to the frequent vertices in the random walks. Huffman coding is used to reduce the access time of frequent elements in the tree. 4.2.3 Optimization The model parameter set is {d,T} where the size of each is O(dlvI): Stochastic gradient descent (SGD) [4] is used to optimize these parameters (Line 4, Algorithm 2)- The derivatives are estimated using the back-propagation algo rithm. The learning rate Q for SGD is initially set to 2.5% at the beginning of the training and then decreased linearly",
+        "confidence": 0.9700130378096481,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Shuffle(V )",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Wvi RandomW alk(G , Vi,t) SkipGram( d , Wvi' w) end for",
+        "confidence": 0.7,
+        "method": "word_coverage"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 5,
+        "text": "bflog IVII",
+        "texts": [
+          "bflog IVII"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.61,
+        "char_count": 10,
+        "word_count": 2,
+        "confidence_missing": 0.33333333333333326,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 9,
+        "text": "2 b[log _ IvI1) , (bo",
+        "texts": [
+          "2 b[log _ IvI1) , (bo"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.96,
+        "char_count": 21,
+        "word_count": 6,
+        "confidence_missing": 0.2666666666666666,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 10,
+        "text": "[log IVII",
+        "texts": [
+          "[log IVII"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.65,
+        "char_count": 9,
+        "word_count": 2,
+        "confidence_missing": 0.23076923076923084,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Algorithm 1 DEEPWALK(G, d, γ, t)\n\n**Input:** graph G(V, E)  \n**window size** W  \n**embedding size** d  \n**walks per vertex** γ  \n**walk length** t  \n\n**Output:** matrix of vertex representations Φ ∈ ℝ|V|×d  \n1: Initialization: Sample Φ from U|V|×d  \n2: Build a binary Tree T from V  \n3: for i = 0 to γ do  \n4:  0 = Shuffle(Φ)  \n5: for each v_i ∈ V do  \n6:  W_vi = RandomWalk(G, v_i, t)  \n7:  SkipGram(Φ, W_vi, w)  \n8: end for  \n9: end for  \n\n---\n\nof our desired properties. This method generates representations of social networks that are low-dimensional; and exist in a continuous vector space. Its representations encode latent forms of community membership, and because the method outputs useful intermediate representations, it can adapt to changing network topology:\n\n## 4 METHOD  \nIn this section we discuss the main components of our algorithm. We also present several variants of our approach and discuss their merits.\n\n### 4.1 Overview  \nAs in any language modeling algorithm, the only required input is a corpus and a vocabulary V. DEEPWALK considers a set of short truncated random walks its own corpus, and the graph vertices as its own vocabulary. It is beneficial to know the V and the frequency distribution of vertices in the random walks ahead of the training; it is not necessary for the algorithm to work as we will show in 4.2.2.\n\n### 4.2 Algorithm: DEEPWALK  \nThe algorithm consists of two main components; first a random walk generator and second an update procedure. The random walk generator takes a graph G and samples uniformly random a vertex U_i as the root of the random walk W_vi. A walk samples uniformly from the neighbors of the last vertex visited until the maximum length (t) is reached. While we set the length of our random walks in the experiments to be fixed, there is no restriction for the random walks to be of the same length: These walks could have restarts (i.e. a teleport probability of returning back to their root), but our preliminary results did not show any advantage of using restarts: In practice, our implementation specifies a number of random walks Y of length t to start at each vertex. Lines 3-9 in Algorithm 1 shows the core of our approach: The outer loop specifies the number of times, Y, which we should start random walks at each vertex. We think of each iteration making a pass over the data and sample one walk per node during this pass. At the start of each pass we generate a random ordering to traverse the vertices. This is not strictly required, but is well-known to speed up the convergence of stochastic gradient descent.\n\n### Algorithm 2 SkipGram(Φ, W_vi, w)  \n1: for each v_j ∈ W_vi do  \n2: for each U_k ∈ W_vi[j - w : j + w] do  \n3:  J(Φ) = - log Pr(U_k | Φ(v_j))  \n4:  Φ = Φ - α * ∂J(Φ)  \n5: end for  \n6: end for  \n\nIn the inner loop, we iterate over all the vertices of the graph. For each vertex v_i, we generate a random walk W_vi = t, and then use it to update our representations (Line 7). We use the SkipGram algorithm [26] to update these representations in accordance with our objective function in Eq. 2.\n\n#### 4.2.1 SkipGram  \nSkipGram is a language model that maximizes the co-occurrence probability among the words that appear within a window, W, in a sentence [26]. Algorithm 2 iterates over all possible collocations in random walk that appear within the window w (lines 1-2). For each, we map each vertex U_j to its current representation vector Φ(U_j) ∈ ℝ^d (See Figure 3b). Given the representation of U_j, we would like to maximize the probability of its neighbors in the walk (line 3). We can learn such posterior distribution using several choices of classifiers. For example, modeling the previous problem using logistic regression would result in a huge number of labels that is equal to |V| which could be in millions or billions. Such models require large amount of computational resources that could span a whole cluster of computers [3]. To speed the training time; Hierarchical Softmax [29,30] can be used to approximate the probability distribution.\n\n#### 4.2.2 Hierarchical Softmax  \nGiven that U_k ∈ V, calculating Pr(U_k | Φ(v_i)) in line 3 is not feasible: Computing the partition function (normalization factor) is expensive. If we assign the vertices to the leaves of a binary tree, the prediction problem turns into maximizing the probability of a specific path in the tree (See Figure 3c). If the path to vertex U_k is identified by a sequence of tree nodes (b_0, b_1, ..., b_l, U_k), then\n\nPr(U_k | Φ(v_i)) = ∏_{i=1}^{l} Pr(b_i | Φ(v_i))\n\nNow, Pr(b_i | Φ(v_i)) could be modeled by a binary classifier that is assigned to the parent of the node b_i. This reduces the computational complexity of calculating Pr(U_k | Φ(v_i)) from O(|V|) to O(log|V|): We can speed up the training process further, by assigning shorter paths to the frequent vertices in the random walks. Huffman coding is used to reduce the access time of frequent elements in the tree.\n\n#### 4.2.3 Optimization  \nThe model parameter set is {d, T} where the size of each is O(d|V|): Stochastic gradient descent (SGD) [4] is used to optimize these parameters (Line 4, Algorithm 2). The derivatives are estimated using the back-propagation algorithm. The learning rate α for SGD is initially set to 2.5% at the beginning of the training and then decreased linearly.\n\n> Shuffle(V)  \n> W_vi = RandomWalk(G, V_i, t)  \n> SkipGram(d, W_vi, w)\n\n2 b[log |V|] , (b_0\n\n[log |V|]",
+    "buckets_recovered": [],
+    "buckets_gibberish": [
+      5,
+      9,
+      10
+    ],
+    "recovery_notes": "All missing buckets were identified as gibberish and not inserted into the markdown."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "quadrant_name": "bottom_left",
+  "page_number": 3,
+  "source_image": "page_3_bottom_left_cars_r_us_report_referenceTest.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 0,
+  "offset_y": 1650,
+  "crop_box": [
+    0,
+    1650,
+    1275,
+    3300
+  ],
+  "total_blocks": 0,
+  "min_x": null,
+  "max_x": null,
+  "min_y": null,
+  "max_y": null,
+  "blocks": []
+}

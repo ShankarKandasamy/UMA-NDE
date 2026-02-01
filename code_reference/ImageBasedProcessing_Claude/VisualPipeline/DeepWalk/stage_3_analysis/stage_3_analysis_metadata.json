@@ -1,0 +1,858 @@
+{
+  "pdf_path": "docs\\DeepWalk.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-23T15:06:17.156760",
+  "total_pages": 6,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 4,
+    "Section-header": 0,
+    "Table": 2,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 1325,
+            "y1": 884,
+            "x2": 2280,
+            "y2": 1240
+          },
+          "left_edge": 52,
+          "top_edge": 27,
+          "right_edge": 89,
+          "bottom_edge": 38,
+          "confidence": 0.8346000909805298,
+          "file_path": "picture\\page_1_picture_0.png",
+          "category": "graph/chart: relationship",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:19.224372",
+          "visual_analysis": {
+            "raw_text": "{\n  \"figure_id\": \"page_1_figure_1\",\n  \"subcategory\": \"Relationship Chart\",\n  \"ocr_text\": \"(a) Input: Karate Graph\\n(b) Output: Representation\",\n  \"chart_type\": \"relationship\",\n  \"chart_subtype\": \"network\",\n  \"nodes\": [\n    {\n      \"node_id\": \"node_1\",\n      \"label\": \"1\",\n      \"value\": null,\n      \"node_type\": \"hub\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"large\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_2\",\n      \"label\": \"2\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_3\",\n      \"label\": \"3\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_4\",\n      \"label\": \"4\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_5\",\n      \"label\": \"5\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_6\",\n      \"label\": \"6\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_7\",\n      \"label\": \"7\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_8\",\n      \"label\": \"8\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_9\",\n      \"label\": \"9\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_10\",\n      \"label\": \"10\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"purple\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_11\",\n      \"label\": \"11\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"cyan\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_12\",\n      \"label\": \"12\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_13\",\n      \"label\": \"13\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_14\",\n      \"label\": \"14\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"red\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_15\",\n      \"label\": \"15\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"purple\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_16\",\n      \"label\": \"16\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"color\": \"purple\",\n        \"size\": \"medium\"\n      },\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_17\",\n      \"label\": \"17\",\n      \"value\": null,\n      \"node_type\": \"intermediate\",\n      \"position\": {\n        \"level\": null,\n        \"stage\": null\n      },\n      \"visual_attributes\": {\n        \"",
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-23T15:06:55.903847",
+              "prompt_tokens": 16333,
+              "completion_tokens": 1500,
+              "total_tokens": 17833
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-23T15:06:55.903847",
+          "prompt_file": "graph_chart_relationship.md",
+          "context_metadata": {
+            "before_tokens": 73,
+            "after_tokens": 96,
+            "total_tokens": 169,
+            "before_text_preview": "{bperozzi, ralrfou; skien a}@cs.stonybrook edu\n\nBryan Perozzi Stony Brook University Department of Computer Science\n\nRami AI- Rfou Stony Brook Iniversity Department of Computer Scienc e\n\nSteven Skiena Stony Brook University Department of Computer Science\n\nDeepWalk: Online Learning\"  of Social Representations",
+            "after_text_preview": "Figure l: Our proposed method learns a latent space rep- resentation of social interactions in Rd The learned rep- resentation encodes community structure s0 it can be eas- ily exploited by standard classification methods: Here, our method is used on Zachary's Karate network [44] to gen- erate latent   representation a in R2 _ Note the correspon- dence between community structure in the input grap..."
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": []
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 243,
+            "y1": 230,
+            "x2": 1181,
+            "y2": 620
+          },
+          "left_edge": 10,
+          "top_edge": 7,
+          "right_edge": 46,
+          "bottom_edge": 19,
+          "confidence": 0.8703579306602478,
+          "file_path": "picture\\page_3_picture_0.png",
+          "category": "graph/chart: continuous",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:21.171505",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Continuous Chart",
+            "ocr_text": "Frequency of Vertex Occurrence in Short Random Walks\n# of Vertices\nVertex visitation count\nFrequency of Word Occurrence in Wikipedia\n# of Words\nWord mention count\n(a) YouTube Social Graph\n(b) Wikipedia Article Text",
+            "chart_type": "continuous",
+            "chart_subtype": "scatter",
+            "titles": {
+              "main_title": "Frequency of Vertex Occurrence in Short Random Walks",
+              "x_axis_label": "Vertex visitation count",
+              "y_axis_label": "# of Vertices",
+              "subtitle": null
+            },
+            "axes": {
+              "x_axis": {
+                "label": "Vertex visitation count",
+                "data_type": "numeric",
+                "scale": "logarithmic",
+                "range": {
+                  "min": 10,
+                  "max": 1000000
+                },
+                "tick_values": [
+                  10,
+                  100,
+                  1000,
+                  10000,
+                  100000,
+                  1000000
+                ]
+              },
+              "y_axis": {
+                "label": "# of Vertices",
+                "data_type": "numeric",
+                "scale": "logarithmic",
+                "range": {
+                  "min": 10,
+                  "max": 100000
+                },
+                "tick_values": [
+                  10,
+                  100,
+                  1000,
+                  10000,
+                  100000
+                ]
+              }
+            },
+            "data_series": [
+              {
+                "series_id": "series_1",
+                "series_label": "YouTube Social Graph",
+                "visual_encoding": {
+                  "color": "blue",
+                  "line_style": "none",
+                  "marker_shape": "circle"
+                },
+                "data_points": [
+                  {
+                    "x": 10,
+                    "y": 10,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 100,
+                    "y": 100,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 1000,
+                    "y": 1000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 10000,
+                    "y": 10000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 100000,
+                    "y": 100000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 1000000,
+                    "y": 100000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "exponential decay",
+                  "notable_patterns": [
+                    "logarithmic"
+                  ]
+                }
+              },
+              {
+                "series_id": "series_2",
+                "series_label": "Wikipedia Article Text",
+                "visual_encoding": {
+                  "color": "blue",
+                  "line_style": "none",
+                  "marker_shape": "circle"
+                },
+                "data_points": [
+                  {
+                    "x": 10,
+                    "y": 10,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 100,
+                    "y": 100,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 1000,
+                    "y": 1000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 10000,
+                    "y": 10000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 100000,
+                    "y": 100000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  },
+                  {
+                    "x": 1000000,
+                    "y": 100000,
+                    "approximate": false,
+                    "labeled": false,
+                    "confidence": 0.9
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "exponential decay",
+                  "notable_patterns": [
+                    "logarithmic"
+                  ]
+                }
+              }
+            ],
+            "inflection_points": [],
+            "cross_series_analysis": {
+              "correlation": "none",
+              "relative_performance": "Both series show similar decreasing trends.",
+              "divergence_points": []
+            },
+            "key_insights": [
+              "Both the YouTube Social Graph and Wikipedia Article Text exhibit a power-law distribution.",
+              "The number of vertices and words decreases exponentially as visitation or mention count increases.",
+              "The logarithmic scale highlights the rapid decline in frequency for higher counts."
+            ],
+            "summary": "Both series demonstrate a decreasing trend in frequency as visitation or mention counts increase, following a power-law distribution with exponential decay characteristics.",
+            "keywords": [
+              "power-law distribution",
+              "vertex occurrence",
+              "word occurrence",
+              "YouTube",
+              "Wikipedia",
+              "random walks",
+              "logarithmic scale"
+            ],
+            "meta": {
+              "extraction_confidence": 0.95,
+              "interpolation_method": "gridline_alignment",
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-23T15:07:18.139185",
+              "prompt_tokens": 16595,
+              "completion_tokens": 1246,
+              "total_tokens": 17841
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-23T15:07:18.139185",
+          "prompt_file": "graph_chart_continuous.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 37,
+            "total_tokens": 37,
+            "before_text_preview": "",
+            "after_text_preview": "Figure 2: The power-law distribution of vertices appearing in short random walks (2a) follows power-law, much like a the distribution of words in natural language (2b)."
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 219,
+            "y1": 221,
+            "x2": 1222,
+            "y2": 943
+          },
+          "left_edge": 9,
+          "top_edge": 7,
+          "right_edge": 48,
+          "bottom_edge": 29,
+          "confidence": 0.8904268145561218,
+          "file_path": "table\\page_4_table_0.png",
+          "category": "diagram: technical",
+          "main_category": "diagram",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:23.665729",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Technical Diagram",
+            "ocr_text": "Algorithm 1 DeepWalk(G, w, d, \u03b3, t)\nInput: graph G(V, E)\nwindow size w\nembedding size d\nwalks per vertex \u03b3\nwalk length t\nOutput: matrix of vertex representations \u03a6 \u2208 R|V|\u00d7d\n1: Initialization: Sample \u03a6 from U|V|\u00d7d\n2: Build a binary Tree T from V\n3: for i = 0 to \u03b3 do\n4: O = Shuffle(V)\n5: for each vi \u2208 O do\n6: Wvi = RandomWalk(G, vi, t)\n7: SkipGram(\u03a6, Wvi, w)\n8: end for\n9: end for",
+            "diagram_domain": "software",
+            "description": "This diagram represents the DeepWalk algorithm for generating vertex representations from a graph.",
+            "components": [],
+            "connections": [],
+            "system_boundaries": {
+              "input_points": [
+                {
+                  "label": "graph G(V, E)",
+                  "type": "data"
+                }
+              ],
+              "output_points": [
+                {
+                  "label": "matrix of vertex representations \u03a6",
+                  "type": "data"
+                }
+              ],
+              "external_interfaces": []
+            },
+            "technical_features": [],
+            "annotations": {
+              "title_block": {
+                "drawing_number": null,
+                "revision": null,
+                "date": null,
+                "author": null
+              },
+              "notes": [],
+              "standards_references": [],
+              "legend": []
+            },
+            "signal_flow_analysis": {
+              "main_paths": [
+                "Data flows from input graph to output matrix of vertex representations."
+              ],
+              "critical_paths": [],
+              "feedback_mechanisms": []
+            },
+            "key_insights": [
+              "The algorithm initializes a matrix of vertex representations.",
+              "It builds a binary tree from the graph vertices.",
+              "Random walks are performed for each vertex to generate embeddings."
+            ],
+            "summary": "This technical diagram outlines the DeepWalk algorithm, which processes a graph to produce a matrix of vertex representations. It includes steps for initialization, random walks, and the SkipGram model for embedding generation.",
+            "keywords": [
+              "DeepWalk",
+              "graph",
+              "vertex representations",
+              "random walk",
+              "SkipGram",
+              "algorithm"
+            ],
+            "meta": {
+              "extraction_confidence": 0.9,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-23T15:07:28.171397",
+              "prompt_tokens": 27943,
+              "completion_tokens": 537,
+              "total_tokens": 28480
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-23T15:07:28.171397",
+          "prompt_file": "diagram_technical.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 223,
+            "y1": 241,
+            "x2": 2306,
+            "y2": 857
+          },
+          "left_edge": 9,
+          "top_edge": 7,
+          "right_edge": 90,
+          "bottom_edge": 26,
+          "confidence": 0.8624747395515442,
+          "file_path": "picture\\page_5_picture_0.png",
+          "category": "diagram: technical",
+          "main_category": "diagram",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:25.325505",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Technical Diagram",
+            "ocr_text": "(a) Random walk generation.\n(b) Representation mapping.\n(c) Hierarchical Softmax.",
+            "diagram_domain": "other",
+            "description": "The diagram illustrates three concepts: random walk generation, representation mapping, and hierarchical softmax, each represented in distinct sections.",
+            "components": [],
+            "connections": [],
+            "system_boundaries": {
+              "input_points": [],
+              "output_points": [],
+              "external_interfaces": []
+            },
+            "technical_features": [],
+            "annotations": {
+              "title_block": {
+                "drawing_number": null,
+                "revision": null,
+                "date": null,
+                "author": null
+              },
+              "notes": [],
+              "standards_references": [],
+              "legend": []
+            },
+            "signal_flow_analysis": {
+              "main_paths": [],
+              "critical_paths": [],
+              "feedback_mechanisms": []
+            },
+            "key_insights": [
+              "The diagram presents three distinct concepts related to a technical process.",
+              "Each section is labeled clearly to indicate its focus area.",
+              "The visual representation aids in understanding complex relationships."
+            ],
+            "summary": "This technical diagram presents three concepts: random walk generation, representation mapping, and hierarchical softmax. Each concept is visually separated and labeled for clarity, facilitating understanding of their interrelations.",
+            "keywords": [
+              "random walk",
+              "representation mapping",
+              "hierarchical softmax"
+            ],
+            "meta": {
+              "extraction_confidence": 0.5,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-23T15:07:37.610564",
+              "prompt_tokens": 50611,
+              "completion_tokens": 347,
+              "total_tokens": 50958
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-23T15:07:37.610564",
+          "prompt_file": "diagram_technical.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 1328,
+            "y1": 1169,
+            "x2": 2267,
+            "y2": 1623
+          },
+          "left_edge": 52,
+          "top_edge": 35,
+          "right_edge": 89,
+          "bottom_edge": 49,
+          "confidence": 0.8160043358802795,
+          "file_path": "picture\\page_5_picture_1.png",
+          "category": "graph/chart: continuous",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:27.551872",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_4",
+            "subcategory": "Continuous Chart",
+            "ocr_text": "Relative Time\n# of Workers\nRelative Change in Micro F1\n# of Workers\n(a) Running Time\n(b) Performance\nFigure 4: Effects of parallelizing DEEPWALK",
+            "chart_type": "continuous",
+            "chart_subtype": "line",
+            "titles": {
+              "main_title": "Effects of parallelizing DEEPWALK",
+              "x_axis_label": "# of Workers",
+              "y_axis_label": "Relative Time",
+              "subtitle": "(a) Running Time"
+            },
+            "axes": {
+              "x_axis": {
+                "label": "# of Workers",
+                "data_type": "numeric",
+                "scale": "logarithmic",
+                "range": {
+                  "min": 1,
+                  "max": 8
+                },
+                "tick_values": [
+                  1,
+                  2,
+                  4,
+                  8
+                ]
+              },
+              "y_axis": {
+                "label": "Relative Time",
+                "data_type": "numeric",
+                "scale": "linear",
+                "range": {
+                  "min": -3,
+                  "max": 2
+                },
+                "tick_values": [
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2
+                ]
+              }
+            },
+            "data_series": [
+              {
+                "series_id": "series_1",
+                "series_label": "BlogCatalog",
+                "visual_encoding": {
+                  "color": "red",
+                  "line_style": "solid",
+                  "marker_shape": "circle"
+                },
+                "data_points": [
+                  {
+                    "x": 1,
+                    "y": 2,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 2,
+                    "y": 1,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 4,
+                    "y": 0,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 8,
+                    "y": -1,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "Steady decline",
+                  "notable_patterns": []
+                }
+              },
+              {
+                "series_id": "series_2",
+                "series_label": "Flickr",
+                "visual_encoding": {
+                  "color": "blue",
+                  "line_style": "solid",
+                  "marker_shape": "square"
+                },
+                "data_points": [
+                  {
+                    "x": 1,
+                    "y": 2,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 2,
+                    "y": 1,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 4,
+                    "y": 0,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  },
+                  {
+                    "x": 8,
+                    "y": -1,
+                    "approximate": false,
+                    "labeled": true,
+                    "label": null,
+                    "confidence": 0.95
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "Steady decline",
+                  "notable_patterns": []
+                }
+              }
+            ],
+            "inflection_points": [],
+            "cross_series_analysis": {
+              "correlation": "positive",
+              "relative_performance": "Both series show similar performance trends.",
+              "divergence_points": []
+            },
+            "key_insights": [
+              "Both BlogCatalog and Flickr show a steady decrease in relative time as the number of workers increases.",
+              "The performance of both datasets converges at higher worker counts.",
+              "No significant differences in performance metrics between the two datasets."
+            ],
+            "summary": "Both BlogCatalog and Flickr exhibit a steady downward trend in relative time as the number of workers increases, indicating improved efficiency with parallelization.",
+            "keywords": [
+              "DEEPWALK",
+              "parallelization",
+              "performance",
+              "BlogCatalog",
+              "Flickr",
+              "relative time",
+              "workers"
+            ],
+            "meta": {
+              "extraction_confidence": 0.95,
+              "interpolation_method": "gridline_alignment",
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-23T15:08:01.719800",
+              "prompt_tokens": 16561,
+              "completion_tokens": 1071,
+              "total_tokens": 17632
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-23T15:08:01.719800",
+          "prompt_file": "graph_chart_continuous.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 281,
+            "y1": 220,
+            "x2": 1163,
+            "y2": 447
+          },
+          "left_edge": 11,
+          "top_edge": 7,
+          "right_edge": 46,
+          "bottom_edge": 14,
+          "confidence": 0.8539384603500366,
+          "file_path": "table\\page_6_table_0.png",
+          "category": "table",
+          "main_category": "table",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-23T15:06:28.947644",
+          "visual_analysis": {
+            "title": "Graphs used in our experiments",
+            "columns": [
+              "Name",
+              "BLOGCATALOG",
+              "FLICKR",
+              "YOUTUBE"
+            ],
+            "rows": [
+              {
+                "Name": "|V|",
+                "BLOGCATALOG": "10,312",
+                "FLICKR": "80,513",
+                "YOUTUBE": "1,138,499"
+              },
+              {
+                "Name": "|E|",
+                "BLOGCATALOG": "333,983",
+                "FLICKR": "5,899,882",
+                "YOUTUBE": "2,990,443"
+              },
+              {
+                "Name": "|\ud835\udcb4|",
+                "BLOGCATALOG": "39",
+                "FLICKR": "195",
+                "YOUTUBE": "47"
+              },
+              {
+                "Name": "Labels",
+                "BLOGCATALOG": "Interests",
+                "FLICKR": "Groups",
+                "YOUTUBE": "Groups"
+              }
+            ],
+            "dataTypes": {
+              "Name": "text",
+              "BLOGCATALOG": "mixed",
+              "FLICKR": "mixed",
+              "YOUTUBE": "mixed"
+            },
+            "formatting": {
+              "boldHeaders": true
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o",
+              "timestamp": "2025-12-23T15:08:13.504469",
+              "prompt_tokens": 1173,
+              "completion_tokens": 282,
+              "total_tokens": 1455
+            }
+          },
+          "analysis_model": "gpt-4o",
+          "analysis_timestamp": "2025-12-23T15:08:13.504469",
+          "prompt_file": "table.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 11,
+            "total_tokens": 11,
+            "before_text_preview": "",
+            "after_text_preview": "Table 1: Graphs used in our experiments."
+          }
+        }
+      ]
+    }
+  ],
+  "stage_2_info": {
+    "model": "gpt-4o-mini",
+    "categories": [
+      "table",
+      "graph/chart",
+      "photograph",
+      "diagram",
+      "other"
+    ],
+    "timestamp": "2025-12-23T15:06:29.048244",
+    "total_images": 6,
+    "total_categorized": 6,
+    "category_counts": {
+      "table": 1,
+      "graph/chart": 3,
+      "photograph": 0,
+      "diagram": 2,
+      "other": 0
+    },
+    "total_tokens": 139213
+  },
+  "stage_3_info": {
+    "prompt_version": "claude",
+    "timestamp": "2025-12-23T15:08:13.605125",
+    "total_images": 6,
+    "total_analyzed": 6,
+    "total_skipped": 0,
+    "skip_reasons": {},
+    "category_counts": {
+      "graph/chart": 3,
+      "diagram": 2,
+      "table": 1
+    },
+    "total_tokens": 134199
+  }
+}

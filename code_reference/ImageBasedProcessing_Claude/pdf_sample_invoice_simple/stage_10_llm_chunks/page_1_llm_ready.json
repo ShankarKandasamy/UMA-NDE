@@ -1,0 +1,265 @@
+{
+  "page_number": 1,
+  "total_buckets": 14,
+  "last_bucket_previous_page": null,
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 9,
+      "top_edge": 8,
+      "right_edge": 24,
+      "bottom_edge": 12,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 7,
+      "word_count": 1,
+      "texts": [
+        "Invoice"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 70,
+      "top_edge": 17,
+      "right_edge": 86,
+      "bottom_edge": 29,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.89,
+      "char_count": 94,
+      "word_count": 18,
+      "texts": [
+        "YesLogic Pty. Ltd.",
+        "7 | 39 Bouverie St",
+        "Carlton VIC 3053",
+        "Australia",
+        "www:yeslogiccom",
+        "ABN 32 101 193 560"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 9,
+      "top_edge": 26,
+      "right_edge": 22,
+      "bottom_edge": 33,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.91,
+      "char_count": 39,
+      "word_count": 6,
+      "texts": [
+        "Customer Name",
+        "Street",
+        "Postcode City",
+        "Country"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 9,
+      "top_edge": 36,
+      "right_edge": 23,
+      "bottom_edge": 41,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.99,
+      "char_count": 40,
+      "word_count": 6,
+      "texts": [
+        "Invoice date:",
+        "Invoice number:",
+        "Payment due:"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 9,
+      "top_edge": 44,
+      "right_edge": 31,
+      "bottom_edge": 50,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.88,
+      "char_count": 41,
+      "word_count": 6,
+      "texts": [
+        "Description",
+        "Prince Upgrades & Support",
+        "Total"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 37,
+      "top_edge": 36,
+      "right_edge": 58,
+      "bottom_edge": 41,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.81,
+      "char_count": 45,
+      "word_count": 10,
+      "texts": [
+        "Nov 26, 2016",
+        "161126",
+        "30 days after i nvoice date"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 37,
+      "top_edge": 44,
+      "right_edge": 48,
+      "bottom_edge": 48,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.91,
+      "char_count": 16,
+      "word_count": 4,
+      "texts": [
+        "From",
+        "Nov 26, 2016"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 54,
+      "top_edge": 43,
+      "right_edge": 65,
+      "bottom_edge": 48,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.85,
+      "char_count": 17,
+      "word_count": 4,
+      "texts": [
+        "Until",
+        "Nov 26, 2017"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 77,
+      "top_edge": 44,
+      "right_edge": 88,
+      "bottom_edge": 50,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.81,
+      "char_count": 28,
+      "word_count": 5,
+      "texts": [
+        "Amount",
+        "USD S950.00",
+        "USD S950.00"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 9,
+      "top_edge": 54,
+      "right_edge": 30,
+      "bottom_edge": 56,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.62,
+      "char_count": 26,
+      "word_count": 4,
+      "texts": [
+        "Please transfer amount to:"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 9,
+      "top_edge": 58,
+      "right_edge": 30,
+      "bottom_edge": 71,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.79,
+      "char_count": 152,
+      "word_count": 26,
+      "texts": [
+        "Bank account name:",
+        "Name of Bank:",
+        "Bank State Branch (BSB):",
+        "Bank State Branch (BSB):",
+        "Bank State Branch (BSB):",
+        "Bank account number:",
+        "Bank SWIFT code:",
+        "Bank address:"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 9,
+      "top_edge": 73,
+      "right_edge": 86,
+      "bottom_edge": 78,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 6,
+      "confidence_avg": 0.79,
+      "char_count": 236,
+      "word_count": 40,
+      "texts": [
+        "The BSB number identifies a branch of a financial institutior 1 in Australia: When transferring money to Australia, the",
+        "BSB number is used together with the bank account number and the SWIFT code. Australian banks do not use IBAN",
+        "numbers."
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 37,
+      "top_edge": 57,
+      "right_edge": 77,
+      "bottom_edge": 72,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.99,
+      "char_count": 134,
+      "word_count": 22,
+      "texts": [
+        "Yes Logic Pty td",
+        "Commonwealt h Bank of Australia (CBA)",
+        "063010",
+        "063010",
+        "063019",
+        "13201652",
+        "CTBAAU2S",
+        "231 Swanston St, Melbourne, VIC 3000, Australia"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 49,
+      "top_edge": 97,
+      "right_edge": 56,
+      "bottom_edge": 99,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 0.77,
+      "char_count": 8,
+      "word_count": 2,
+      "texts": [
+        "ogic com"
+      ]
+    }
+  ]
+}

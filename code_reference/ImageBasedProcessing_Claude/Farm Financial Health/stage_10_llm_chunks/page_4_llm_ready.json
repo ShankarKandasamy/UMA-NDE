@@ -1,0 +1,171 @@
+{
+  "page_number": 4,
+  "total_buckets": 7,
+  "last_bucket_previous_page": {
+    "id": 7,
+    "left_edge": 39,
+    "top_edge": 94,
+    "right_edge": 61,
+    "bottom_edge": 97,
+    "position": "center",
+    "width_category": "narrow",
+    "y_group_id": 5,
+    "confidence_avg": 0.9,
+    "char_count": 76,
+    "word_count": 12,
+    "texts": [
+      "Canadian Federa tion of Agriculture",
+      "21 Florence Stree Ottawa, Ontario",
+      "KZ2P OW6"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 10,
+      "top_edge": 8,
+      "right_edge": 90,
+      "bottom_edge": 33,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.88,
+      "char_count": 724,
+      "word_count": 105,
+      "texts": [
+        "Recommendations for Action",
+        "Help manage the increased cost 05 production:",
+        "Recommendation #1: Extend the on-farm carbon pricinc exemption for qualifying farming fuel to marketable",
+        "natural gas and propane:",
+        "Recommendation #2: Consult on and develop a Critical Farm Input Strategy to ensure that Canadian producers",
+        "have a long-term, stable source of supply for critical farn inputs, including fertilizer, needed to produce high 1",
+        "quality agriculture and agri-food products.",
+        "Recommendation #3: Make the interest-free limit for ad vances under the Advance Payments Program (APP)",
+        "permanent beyond the 2023 program, alongside other dministrative program adjustments, to make the APP",
+        "more accessible and responsive to higher production cc sts."
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 10,
+      "top_edge": 35,
+      "right_edge": 89,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 1,
+      "confidence_avg": 0.82,
+      "char_count": 498,
+      "word_count": 73,
+      "texts": [
+        "Recommendation #4: Make Accelerated Capital Cost A Ilowance permanent across all classes of farm",
+        "equipment; allowing producers to depreciate 100% of th eir capital allocated to purchases of farm equipment in",
+        "the first year.",
+        "Improve risk management progran 1s and reduce regulatory and",
+        "tax burdens that restrict competiti veness.",
+        "Recommendation #5: Implement a new national grant rogram modelled after the Canada Digital Adoption",
+        "Program; that would support on-farm risk management lanning and mitigation."
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 10,
+      "top_edge": 52,
+      "right_edge": 90,
+      "bottom_edge": 90,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 2,
+      "confidence_avg": 0.8,
+      "char_count": 1625,
+      "word_count": 235,
+      "texts": [
+        "Recommendation #6: Improve resilience against extren 1e weather events for all agricultural commodities,",
+        "including aquaculture, by ensuring business risk manage ment programs are responsive, predictable, and",
+        "accessible: An immediate example would be using Agric ulture and Agri-Food Canada's Drought Monitor to",
+        "trigger an AgriRecovery assessment",
+        "Recommendation #7: Increase AgriStability program co verage to 85% of the reference margin to improve",
+        "participation, predictability, and levels of support for proe ducers.",
+        "Recommendation #8: Ensure that the Pest Managemen t Regulatory Agency (PMRA) is appropriately resourced",
+        "and improves internal processes in support of timely, tra nsparent; and science-based decisions that will help",
+        "Canadian producers remain competitive in a global mark et.",
+        "Recommendation #9: Exempt farms from filing the Unde erused Housing Tax (UHT) return which requires private",
+        "corporations and partnerships (including farms) that own residential property to file a UHT return, adding an",
+        "unnecessary financial burden, even if they do not have t 0 pay the tax",
+        "Recommendation #1O: Implement measures to support a farmer's right to repair their farm machinery.",
+        "Recommendation #11: Build on the Budget 2023 extenc Jed interswitching pilot by further expanding the",
+        "distance beyond 160km and extending the pilot past the current 18-month period:",
+        "Recommendation #12: Provide financial support for the creation of a Grocery Code Adjudication Office, which",
+        "will be critical to advance the training, education, dispute ? resolution services, and oversight necessary to",
+        "implement an industry-led Grocery Industry Code of Cor Iduct."
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 39,
+      "top_edge": 94,
+      "right_edge": 61,
+      "bottom_edge": 97,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.84,
+      "char_count": 76,
+      "word_count": 12,
+      "texts": [
+        "Canadian Federa tion of Agriculture",
+        "21 Florence Street Ottawa, Ontario",
+        "KZP OW6"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 8,
+      "top_edge": 94,
+      "right_edge": 29,
+      "bottom_edge": 97,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 41,
+      "word_count": 6,
+      "texts": [
+        "CFA FCA",
+        "Canadian Federation of Agriculture"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 22,
+      "top_edge": 96,
+      "right_edge": 31,
+      "bottom_edge": 98,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 38,
+      "word_count": 4,
+      "texts": [
+        "de /'agriculture Federation canadienne"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 88,
+      "top_edge": 95,
+      "right_edge": 90,
+      "bottom_edge": 96,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "iv"
+      ]
+    }
+  ]
+}

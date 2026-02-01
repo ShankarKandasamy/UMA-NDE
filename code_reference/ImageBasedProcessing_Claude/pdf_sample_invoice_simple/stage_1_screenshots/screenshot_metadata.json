@@ -1,0 +1,17 @@
+{
+  "pdf_path": "..\\..\\..\\docs\\pdf_sample_invoice_simple.pdf",
+  "pdf_name": "pdf_sample_invoice_simple",
+  "total_pages_in_pdf": 1,
+  "pages_processed": 1,
+  "dpi": 300,
+  "timestamp": "20251221_205852",
+  "pages": [
+    {
+      "page_number": 1,
+      "screenshot_file": "page_1_pdf_sample_invoice_simple.png",
+      "width_px": 2481,
+      "height_px": 3508,
+      "dpi": 300
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Vessel_ID,Component,CML_ID,Orientation,Nominal_t,in,Actual_t,in,Tmin,in,Inspection_Date
+V-201,Shell Course 1,CML-S1-01,South @ 6 o'clock,0.625,0.54,0.48,2024-07-02,,,
+V-201,Shell Course 1,CML-S1-02,North @ 12 o'clock,0.625,0.565,0.48,2024-07-02,,,
+V-201,Bottom Head,CML-BH-01,Knuckle region,0.75,0.61,0.52,2024-07-02,,,
+V-201,Nozzle N2,CML-N2-01,Nozzle neck OD,0.5,0.455,0.41,2024-07-02,,,

@@ -1,0 +1,361 @@
+{
+  "page_number": 1,
+  "total_buckets": 20,
+  "last_bucket_previous_page": null,
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 9,
+      "top_edge": 11,
+      "right_edge": 79,
+      "bottom_edge": 15,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 36,
+      "word_count": 6,
+      "texts": [
+        "Anatomy of the Somz tosensory System"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 9,
+      "top_edge": 18,
+      "right_edge": 23,
+      "bottom_edge": 20,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.92,
+      "char_count": 16,
+      "word_count": 3,
+      "texts": [
+        "FROM WIKIBOOKS 1"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 9,
+      "top_edge": 23,
+      "right_edge": 56,
+      "bottom_edge": 48,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 1,
+      "confidence_avg": 0.93,
+      "char_count": 711,
+      "word_count": 117,
+      "texts": [
+        "Our somatosensory system consists of sensors in the skin",
+        "and sensors in our muscles, tendons, and joic ts. The re-",
+        "ceptors in the skin, the so called cutaneous re ceptors, tell",
+        "us about temperature (thermoreceptors) , pressi 1re and sur -",
+        "face texture (mechano receptors), and pain (r ociceptors)",
+        "The receptors in muscles and joints provide = nformation",
+        "about muscle length, muscle tension, and joint t angles",
+        "Cutaneous receptors",
+        "Sensory information from Meissner corpuscles and rapidly",
+        "adapting afferents leads to adjustment of grip force when",
+        "objects are lifted. These afferents respond vith V~ brief a",
+        "burst of action potentials when objects move a small dis -",
+        "tance during the early stages of lifting:   In 1 esponse to"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 60,
+      "top_edge": 24,
+      "right_edge": 89,
+      "bottom_edge": 35,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.89,
+      "char_count": 205,
+      "word_count": 35,
+      "texts": [
+        "This is a sample document to",
+        "showcase page-based formatting: It",
+        "contains a chapter from a Wikibook",
+        "called Sensory Systems. None of the",
+        "content has been changed in this",
+        "article; but some content has been",
+        "removed:"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 21,
+      "top_edge": 49,
+      "right_edge": 27,
+      "bottom_edge": 50,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 10,
+      "word_count": 2,
+      "texts": [
+        "Hairy skin"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 36,
+      "top_edge": 49,
+      "right_edge": 44,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.98,
+      "char_count": 13,
+      "word_count": 2,
+      "texts": [
+        "Glabrous skin"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 37,
+      "top_edge": 53,
+      "right_edge": 44,
+      "bottom_edge": 54,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 16,
+      "word_count": 2,
+      "texts": [
+        "Papillary Ridges"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 58,
+      "top_edge": 49,
+      "right_edge": 84,
+      "bottom_edge": 67,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.9,
+      "char_count": 324,
+      "word_count": 50,
+      "texts": [
+        "Figure 1: Receptors in the hu-",
+        "man skin: Mechanoreceptors can",
+        "be free receptors or encapsulated",
+        "Examples for free receptors are",
+        "the hair receptors at the roots of",
+        "hairs. Encapsulated receptors are",
+        "the Pacinian corpuscles and the",
+        "receptors in the glabrous (hair-",
+        "less) skin: Meissner   corpuscles,",
+        "Ruffini corpuscles and Merkels",
+        "disks."
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 50,
+      "top_edge": 57,
+      "right_edge": 56,
+      "bottom_edge": 58,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 9,
+      "word_count": 1,
+      "texts": [
+        "Epidermis"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 17,
+      "top_edge": 58,
+      "right_edge": 22,
+      "bottom_edge": 60,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.9,
+      "char_count": 16,
+      "word_count": 3,
+      "texts": [
+        "Free nerve",
+        "ending"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 35,
+      "top_edge": 58,
+      "right_edge": 38,
+      "bottom_edge": 59,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 5,
+      "word_count": 1,
+      "texts": [
+        "Septa"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 24,
+      "top_edge": 58,
+      "right_edge": 27,
+      "bottom_edge": 60,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.98,
+      "char_count": 15,
+      "word_count": 2,
+      "texts": [
+        "Merkels",
+        "receptor"
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 43,
+      "top_edge": 64,
+      "right_edge": 47,
+      "bottom_edge": 66,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 1.0,
+      "char_count": 20,
+      "word_count": 4,
+      "texts": [
+        "Meissne rs",
+        "corpuscl e"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 9,
+      "top_edge": 64,
+      "right_edge": 14,
+      "bottom_edge": 66,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 1.0,
+      "char_count": 14,
+      "word_count": 2,
+      "texts": [
+        "Sebaceous",
+        "gland"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 50,
+      "top_edge": 65,
+      "right_edge": 54,
+      "bottom_edge": 66,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 1.0,
+      "char_count": 6,
+      "word_count": 1,
+      "texts": [
+        "Dermis"
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 27,
+      "top_edge": 66,
+      "right_edge": 32,
+      "bottom_edge": 68,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.97,
+      "char_count": 17,
+      "word_count": 2,
+      "texts": [
+        "Ruffinis",
+        "corpuscle"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 11,
+      "top_edge": 70,
+      "right_edge": 16,
+      "bottom_edge": 70,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.72,
+      "char_count": 13,
+      "word_count": 2,
+      "texts": [
+        "Hair receptor"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 18,
+      "top_edge": 74,
+      "right_edge": 22,
+      "bottom_edge": 75,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 1.0,
+      "char_count": 17,
+      "word_count": 2,
+      "texts": [
+        "Pacinian",
+        "corpuscle"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 9,
+      "top_edge": 79,
+      "right_edge": 82,
+      "bottom_edge": 81,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 103,
+      "word_count": 16,
+      "texts": [
+        "1 The following description is based on lecture notez S from Laszlo Zaborszky, from Rutgers University:"
+      ]
+    },
+    {
+      "id": 19,
+      "left_edge": 83,
+      "top_edge": 84,
+      "right_edge": 84,
+      "bottom_edge": 85,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "1"
+      ]
+    }
+  ]
+}

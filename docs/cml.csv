@@ -1,0 +1,4 @@
+Circuit_ID,Line_No,CML_ID,Location_Description,Nominal_t,in,Actual_t,in,Tmin,in,Corrosion_Rate_in_per_yr,Remaining_Life_yrs,Inspection_Date
+P-102-A,"10""-CS-102-A",CML-01,Elbow downstream of Pump P-102 @ 6 o'clock,0.375,0.312,0.25,0.012,5.2,2024-08-14,,,
+P-102-A,"10""-CS-102-A",CML-02,Straight run 1.5m downstream elbow @ 12 o'clock,0.375,0.33,0.25,0.008,10,2024-08-14,,,
+P-102-A,"10""-CS-102-A",CML-03,Pipe shoe location PS-04 (CUI),0.375,0.295,0.25,0.015,3,2024-08-14,,,

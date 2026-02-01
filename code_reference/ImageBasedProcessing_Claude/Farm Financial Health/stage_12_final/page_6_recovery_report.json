@@ -1,0 +1,54 @@
+{
+  "page_number": "6",
+  "analysis": {
+    "total_buckets": 4,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 1,
+        "text": "In 2022, Canadian farmers saw their total farm cash receipts increase by 14.6% compared to 2021, because of higher prices for both crops +S7.1 billion) and livestock (+S3.6 billion) (Statistics Canada,_2023). However, this increa= se is overshadowed by a 18.6% increase in total expenses, pushing realized net income lo wer to S11.8 billion in 2022 from $12.8 billion, a 5.9% decrease from 2021 levels (Statistics Ca nada, 2023). One of the most significant input costs for Canz dian producers through 2021and 2022 was fertilizer According to Statistics Canada, fertiliz er prices began rising rapidly in early 2021 due predominantly to high natural gas prices a nd Russia's invasion of Ukraine, resulting in a 54.4% increase in 2022 (Statistics Canada,202 23). In addition, successive droughts in Western Ca nada, beginning in 2021, limited the supply of 9 hay and grain feed contributing to a 20.7% incr ease in commercial feed expenses for livestock producers. Further, fuel expenses inc reased by 52.5% in 2022 as demand increased with economies opening post-COVIC )-19 and supply decreased because of sanctions on large fuel exporters such as Russh",
+        "confidence": 0.9829596412556054,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "CFA FCA Canadian Federation of Agriculture",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "de |agriculture Federation canadienne",
+        "confidence": 0.9142857142857143,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "FARM FINANC IAL 1 ANDCAADE",
+        "texts": [
+          "FARM FINANC IAL",
+          "1 ANDCAADE"
+        ],
+        "position": "center",
+        "width_category": "medium",
+        "y_group_id": 0,
+        "confidence_avg": 0.67,
+        "char_count": 25,
+        "word_count": 5,
+        "confidence_missing": 0.16000000000000003,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# FARM FINANCIAL LANDSCAPE\n\nIn 2022, Canadian farmers saw their total farm cash receipts increase by 14.6% compared to 2021, because of higher prices for both crops (+$7.1 billion) and livestock (+$3.6 billion) (Statistics Canada, 2023). However, this increase is overshadowed by an 18.6% increase in total expenses, pushing realized net income lower to $11.8 billion in 2022 from $12.8 billion, a 5.9% decrease from 2021 levels (Statistics Canada, 2023).\n\nOne of the most significant input costs for Canadian producers through 2021 and 2022 was fertilizer. According to Statistics Canada, fertilizer prices began rising rapidly in early 2021 due predominantly to high natural gas prices and Russia's invasion of Ukraine, resulting in a 54.4% increase in 2022 (Statistics Canada, 2023).\n\nIn addition, successive droughts in Western Canada, beginning in 2021, limited the supply of hay and grain feed contributing to a 20.7% increase in commercial feed expenses for livestock producers. Further, fuel expenses increased by 52.5% in 2022 as demand increased with economies opening post-COVID-19 and supply decreased because of sanctions on large fuel exporters such as Russia.\n\n> FARM FINANCIAL\n> LANDSCAPE\n> CFA FCA  \n> Canadian Federation of Agriculture  \n> de l'agriculture Fédération canadienne",
+    "buckets_recovered": [],
+    "buckets_gibberish": [
+      0
+    ],
+    "recovery_notes": "The missing bucket contained OCR gibberish and was not inserted into the markdown."
+  }
+}

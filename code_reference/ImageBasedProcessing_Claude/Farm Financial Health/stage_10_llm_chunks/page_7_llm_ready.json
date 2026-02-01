@@ -1,0 +1,627 @@
+{
+  "page_number": 7,
+  "total_buckets": 36,
+  "last_bucket_previous_page": {
+    "id": 3,
+    "left_edge": 22,
+    "top_edge": 96,
+    "right_edge": 31,
+    "bottom_edge": 98,
+    "position": "left",
+    "width_category": "narrow",
+    "y_group_id": 2,
+    "confidence_avg": 0.87,
+    "char_count": 37,
+    "word_count": 4,
+    "texts": [
+      "de |agriculture Federation canadienne"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 10,
+      "top_edge": 7,
+      "right_edge": 73,
+      "bottom_edge": 15,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 0,
+      "confidence_avg": 0.86,
+      "char_count": 172,
+      "word_count": 29,
+      "texts": [
+        "The cost of production is higher th an it has ever been:",
+        "Figure 1: Total Farm Input Price Index",
+        "Source: Statistics Canada:",
+        "Table 18-10-0258-01 Farm",
+        "input price index, quarterly"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 84,
+      "top_edge": 19,
+      "right_edge": 87,
+      "bottom_edge": 20,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "160"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 84,
+      "top_edge": 23,
+      "right_edge": 88,
+      "bottom_edge": 25,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "140"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 88,
+      "top_edge": 24,
+      "right_edge": 90,
+      "bottom_edge": 27,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.86,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "8"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 84,
+      "top_edge": 28,
+      "right_edge": 88,
+      "bottom_edge": 29,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "120"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 84,
+      "top_edge": 32,
+      "right_edge": 87,
+      "bottom_edge": 34,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.99,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "100"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 84,
+      "top_edge": 33,
+      "right_edge": 90,
+      "bottom_edge": 38,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.85,
+      "char_count": 5,
+      "word_count": 3,
+      "texts": [
+        "1",
+        "80 F"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 55,
+      "top_edge": 31,
+      "right_edge": 70,
+      "bottom_edge": 40,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.89,
+      "char_count": 69,
+      "word_count": 10,
+      "texts": [
+        "Price index",
+        "Animal production",
+        "Crop production",
+        "Farm input total",
+        "Fertilizer"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 55,
+      "top_edge": 40,
+      "right_edge": 68,
+      "bottom_edge": 42,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.66,
+      "char_count": 15,
+      "word_count": 2,
+      "texts": [
+        "\"Machinery fuel"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 56,
+      "top_edge": 43,
+      "right_edge": 64,
+      "bottom_edge": 44,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.73,
+      "char_count": 10,
+      "word_count": 1,
+      "texts": [
+        "Pesticides"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 54,
+      "top_edge": 47,
+      "right_edge": 55,
+      "bottom_edge": 48,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.91,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "1"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 84,
+      "top_edge": 42,
+      "right_edge": 86,
+      "bottom_edge": 43,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "60"
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 84,
+      "top_edge": 46,
+      "right_edge": 86,
+      "bottom_edge": 47,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 2,
+      "word_count": 1,
+      "texts": [
+        "40"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 11,
+      "top_edge": 47,
+      "right_edge": 12,
+      "bottom_edge": 48,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "1"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 10,
+      "top_edge": 51,
+      "right_edge": 89,
+      "bottom_edge": 63,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 4,
+      "confidence_avg": 0.88,
+      "char_count": 237,
+      "word_count": 38,
+      "texts": [
+        "Year and# Quarter",
+        "Farmers are grappling with rising abor costs as a result of inflation",
+        "and a scarcity of available worker 5 .",
+        "Figure 2: Average Hourly Wage Rate and Unen nployment",
+        "Source: Statistics Canada.",
+        "Table 14-10-0063-01;",
+        "14-10-0022-01."
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 17,
+      "top_edge": 47,
+      "right_edge": 23,
+      "bottom_edge": 50,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.81,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "3",
+        "2020"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 39,
+      "top_edge": 47,
+      "right_edge": 44,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "3",
+        "2021"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 60,
+      "top_edge": 47,
+      "right_edge": 65,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.72,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "3",
+        "2022"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 70,
+      "top_edge": 47,
+      "right_edge": 71,
+      "bottom_edge": 48,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "4"
+      ]
+    },
+    {
+      "id": 19,
+      "left_edge": 75,
+      "top_edge": 47,
+      "right_edge": 81,
+      "bottom_edge": 50,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "1",
+        "2023"
+      ]
+    },
+    {
+      "id": 20,
+      "left_edge": 35,
+      "top_edge": 62,
+      "right_edge": 61,
+      "bottom_edge": 66,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.92,
+      "char_count": 76,
+      "word_count": 12,
+      "texts": [
+        "Avg Hourly Rate",
+        "Total, all industries Une employment Rate",
+        "0Ag Unemployment Rat"
+      ]
+    },
+    {
+      "id": 21,
+      "left_edge": 26,
+      "top_edge": 63,
+      "right_edge": 29,
+      "bottom_edge": 64,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.8,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "$24"
+      ]
+    },
+    {
+      "id": 22,
+      "left_edge": 23,
+      "top_edge": 66,
+      "right_edge": 26,
+      "bottom_edge": 69,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.47,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "#"
+      ]
+    },
+    {
+      "id": 23,
+      "left_edge": 26,
+      "top_edge": 69,
+      "right_edge": 29,
+      "bottom_edge": 70,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.69,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "$22"
+      ]
+    },
+    {
+      "id": 24,
+      "left_edge": 64,
+      "top_edge": 64,
+      "right_edge": 74,
+      "bottom_edge": 70,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.77,
+      "char_count": 10,
+      "word_count": 3,
+      "texts": [
+        "M 0.15",
+        "0.10"
+      ]
+    },
+    {
+      "id": 25,
+      "left_edge": 74,
+      "top_edge": 67,
+      "right_edge": 77,
+      "bottom_edge": 69,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.62,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "2"
+      ]
+    },
+    {
+      "id": 26,
+      "left_edge": 71,
+      "top_edge": 73,
+      "right_edge": 74,
+      "bottom_edge": 75,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.89,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "0.05"
+      ]
+    },
+    {
+      "id": 27,
+      "left_edge": 26,
+      "top_edge": 75,
+      "right_edge": 29,
+      "bottom_edge": 76,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 0.98,
+      "char_count": 3,
+      "word_count": 1,
+      "texts": [
+        "$20"
+      ]
+    },
+    {
+      "id": 28,
+      "left_edge": 29,
+      "top_edge": 79,
+      "right_edge": 33,
+      "bottom_edge": 80,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2020"
+      ]
+    },
+    {
+      "id": 29,
+      "left_edge": 40,
+      "top_edge": 79,
+      "right_edge": 44,
+      "bottom_edge": 80,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2021"
+      ]
+    },
+    {
+      "id": 30,
+      "left_edge": 50,
+      "top_edge": 79,
+      "right_edge": 54,
+      "bottom_edge": 80,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2022"
+      ]
+    },
+    {
+      "id": 31,
+      "left_edge": 61,
+      "top_edge": 79,
+      "right_edge": 65,
+      "bottom_edge": 80,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 0.65,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2023"
+      ]
+    },
+    {
+      "id": 32,
+      "left_edge": 10,
+      "top_edge": 81,
+      "right_edge": 88,
+      "bottom_edge": 90,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 8,
+      "confidence_avg": 0.84,
+      "char_count": 327,
+      "word_count": 52,
+      "texts": [
+        "Yel ar",
+        "Furthermore, a lack of available workers, and rising inflation rates, are resulting in an",
+        "increasingly tight labour market, placing upwz rd pressure on labour costs. Since the",
+        "beginning of 2019 to August 2023, wages als 0 increased from $20.29 to $23.42, further",
+        "indicating a tight labour market (Statistics _Car ada,-2023)."
+      ]
+    },
+    {
+      "id": 33,
+      "left_edge": 8,
+      "top_edge": 94,
+      "right_edge": 29,
+      "bottom_edge": 97,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 9,
+      "confidence_avg": 1.0,
+      "char_count": 40,
+      "word_count": 6,
+      "texts": [
+        "CFA FCA",
+        "Canadian Federation",
+        "of Agriculture"
+      ]
+    },
+    {
+      "id": 34,
+      "left_edge": 22,
+      "top_edge": 96,
+      "right_edge": 31,
+      "bottom_edge": 98,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 9,
+      "confidence_avg": 0.73,
+      "char_count": 36,
+      "word_count": 4,
+      "texts": [
+        "Federation canadienne",
+        "de |agriculture"
+      ]
+    },
+    {
+      "id": 35,
+      "left_edge": 88,
+      "top_edge": 95,
+      "right_edge": 89,
+      "bottom_edge": 96,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 9,
+      "confidence_avg": 0.92,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "2"
+      ]
+    }
+  ]
+}

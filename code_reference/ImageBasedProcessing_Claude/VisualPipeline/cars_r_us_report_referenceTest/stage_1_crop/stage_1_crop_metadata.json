@@ -1,0 +1,85 @@
+{
+  "pdf_path": "C:\\Users\\shank\\OneDrive\\Destiny\\Uma\\UmaAI\\RAG_proto_Claude\\docs\\cars_r_us_report_referenceTest.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-21T22:06:30.533781",
+  "total_pages": 3,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 0,
+    "Section-header": 0,
+    "Table": 2,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 321,
+            "y1": 840,
+            "x2": 1135,
+            "y2": 1220
+          },
+          "left_edge": 13,
+          "top_edge": 25,
+          "right_edge": 45,
+          "bottom_edge": 37,
+          "confidence": 0.6893520355224609,
+          "file_path": "table\\page_1_table_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 321,
+            "y1": 573,
+            "x2": 1346,
+            "y2": 953
+          },
+          "left_edge": 13,
+          "top_edge": 17,
+          "right_edge": 53,
+          "bottom_edge": 29,
+          "confidence": 0.903715968132019,
+          "file_path": "table\\page_2_table_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": []
+    }
+  ]
+}

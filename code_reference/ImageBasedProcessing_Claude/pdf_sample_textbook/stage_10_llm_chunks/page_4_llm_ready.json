@@ -1,0 +1,390 @@
+{
+  "page_number": 4,
+  "total_buckets": 21,
+  "last_bucket_previous_page": {
+    "id": 9,
+    "left_edge": 83,
+    "top_edge": 84,
+    "right_edge": 85,
+    "bottom_edge": 85,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 6,
+    "confidence_avg": 0.82,
+    "char_count": 1,
+    "word_count": 1,
+    "texts": [
+      "3"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 9,
+      "top_edge": 6,
+      "right_edge": 22,
+      "bottom_edge": 8,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 14,
+      "word_count": 2,
+      "texts": [
+        "From Wikibooks"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 27,
+      "top_edge": 14,
+      "right_edge": 31,
+      "bottom_edge": 17,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 18,
+      "word_count": 3,
+      "texts": [
+        "Force",
+        "control",
+        "signal"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 42,
+      "top_edge": 15,
+      "right_edge": 57,
+      "bottom_edge": 17,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 43,
+      "word_count": 8,
+      "texts": [
+        "Force (C Golgi tendon organ)",
+        "Force fe edback"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 33,
+      "top_edge": 16,
+      "right_edge": 38,
+      "bottom_edge": 18,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 13,
+      "word_count": 2,
+      "texts": [
+        "Inter-",
+        "neurons"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 64,
+      "top_edge": 19,
+      "right_edge": 69,
+      "bottom_edge": 21,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.93,
+      "char_count": 14,
+      "word_count": 2,
+      "texts": [
+        "External",
+        "forces"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 27,
+      "top_edge": 23,
+      "right_edge": 32,
+      "bottom_edge": 25,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.85,
+      "char_count": 13,
+      "word_count": 2,
+      "texts": [
+        "Driving",
+        "signal"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 72,
+      "top_edge": 23,
+      "right_edge": 76,
+      "bottom_edge": 25,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 12,
+      "word_count": 2,
+      "texts": [
+        "Muscle",
+        "length"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 51,
+      "top_edge": 24,
+      "right_edge": 55,
+      "bottom_edge": 27,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 12,
+      "word_count": 2,
+      "texts": [
+        "Tendon",
+        "organs"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 57,
+      "top_edge": 24,
+      "right_edge": 64,
+      "bottom_edge": 25,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.98,
+      "char_count": 12,
+      "word_count": 2,
+      "texts": [
+        "Muscle force"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 43,
+      "top_edge": 25,
+      "right_edge": 47,
+      "bottom_edge": 26,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 8,
+      "word_count": 2,
+      "texts": [
+        "Muscle 2"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 68,
+      "top_edge": 25,
+      "right_edge": 71,
+      "bottom_edge": 26,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "Load"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 9,
+      "top_edge": 29,
+      "right_edge": 35,
+      "bottom_edge": 32,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.75,
+      "char_count": 133,
+      "word_count": 13,
+      "texts": [
+        "Length (secondary muscle-spindel afferents)",
+        "Length error (primary muscle-spindel afferents)",
+        "Velocity (primary muscle-spindel afferents)"
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 37,
+      "top_edge": 30,
+      "right_edge": 43,
+      "bottom_edge": 33,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.98,
+      "char_count": 24,
+      "word_count": 4,
+      "texts": [
+        "Length &",
+        "velocity",
+        "feedback"
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 27,
+      "top_edge": 33,
+      "right_edge": 31,
+      "bottom_edge": 36,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 19,
+      "word_count": 3,
+      "texts": [
+        "Length",
+        "control",
+        "signal"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 45,
+      "top_edge": 33,
+      "right_edge": 50,
+      "bottom_edge": 34,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 9,
+      "word_count": 2,
+      "texts": [
+        "S oindles"
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 39,
+      "top_edge": 37,
+      "right_edge": 46,
+      "bottom_edge": 38,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.8,
+      "char_count": 10,
+      "word_count": 2,
+      "texts": [
+        "Gamma bias"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 9,
+      "top_edge": 40,
+      "right_edge": 84,
+      "bottom_edge": 43,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 4,
+      "confidence_avg": 0.83,
+      "char_count": 184,
+      "word_count": 27,
+      "texts": [
+        "Figure 3: Feedback loops for proprioceptive sigr als for the perception and control of limb move -",
+        "ments. Arrows indicate excitatory connections; fi lled circles inhibitory connections:"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 37,
+      "top_edge": 45,
+      "right_edge": 84,
+      "bottom_edge": 64,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.87,
+      "char_count": 624,
+      "word_count": 109,
+      "texts": [
+        "few myofila ments and is non-contractile, but it does have",
+        "one or more sensory endings applied to it. When the mus- 2",
+        "cle is stretc hed, the central part of the intrafusal fiber is",
+        "stretched a1 1d each sensory ending fires impulses.",
+        "Muscle S pindles also receive a motor innervation. The",
+        "large motor neurons that supply extrafusal muscle fibers",
+        "are called al pha motor neurons, while the smaller ones sup -",
+        "plying the contractile portions of intrafusal fibers are",
+        "called gamr na neurons. Gamma motor neurons can regu-",
+        "late the sen sitivity of the muscle spindle so that this sen-",
+        "sitivity can be maintained at any given muscle length_"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 37,
+      "top_edge": 66,
+      "right_edge": 84,
+      "bottom_edge": 77,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 7,
+      "confidence_avg": 0.91,
+      "char_count": 286,
+      "word_count": 45,
+      "texts": [
+        "Joint recep tors",
+        "The joint re ceptors are low-threshold mechanoreceptors",
+        "and have be en divided into four groups They signal differ-",
+        "ent characte eristics of joint function (position, movements,",
+        "direction ar d speed of movements) The free receptors or",
+        "type 4 joint receptors are nociceptors."
+      ]
+    },
+    {
+      "id": 19,
+      "left_edge": 7,
+      "top_edge": 53,
+      "right_edge": 33,
+      "bottom_edge": 58,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.78,
+      "char_count": 84,
+      "word_count": 15,
+      "texts": [
+        "For more examples of how to use",
+        "HTML and CSS for paper-based",
+        "publishing; see css4.pub:"
+      ]
+    },
+    {
+      "id": 20,
+      "left_edge": 8,
+      "top_edge": 84,
+      "right_edge": 9,
+      "bottom_edge": 85,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 8,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "4"
+      ]
+    }
+  ]
+}

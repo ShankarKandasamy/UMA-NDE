@@ -1,0 +1,50 @@
+{
+  "quadrant_name": "top_left",
+  "page_number": 6,
+  "source_image": "page_6_top_left_Farm Financial Health.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 0,
+  "offset_y": 0,
+  "crop_box": [
+    0,
+    0,
+    1275,
+    1650
+  ],
+  "total_blocks": 2,
+  "min_x": 521,
+  "max_x": 2550,
+  "min_y": 2764,
+  "max_y": 3300,
+  "blocks": [
+    {
+      "text": "FARM FINANC",
+      "start_x": 521,
+      "end_x": 2550,
+      "start_y": 2764,
+      "end_y": 3028,
+      "mid_x": 1536,
+      "mid_y": 2896,
+      "mid_y_x": 2906.42,
+      "height": 264,
+      "confidence": 0.6749587572137025,
+      "char_count": 11,
+      "word_count": 2
+    },
+    {
+      "text": "1 ANDCAADE",
+      "start_x": 548,
+      "end_x": 2310,
+      "start_y": 3167,
+      "end_y": 3300,
+      "mid_x": 1429,
+      "mid_y": 3234,
+      "mid_y_x": 3244.96,
+      "height": 133,
+      "confidence": 0.3433069083878414,
+      "char_count": 10,
+      "word_count": 2
+    }
+  ]
+}

@@ -1,0 +1,558 @@
+{
+  "pdf_path": "C:\\Users\\shank\\OneDrive\\Destiny\\Uma\\UmaAI\\RAG_proto_Claude\\docs\\pdf_sample_textbook.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-21T22:05:02.645775",
+  "total_pages": 4,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 3,
+    "Section-header": 0,
+    "Table": 1,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2363,
+        "height": 2953
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 232,
+            "y1": 1618,
+            "x2": 1421,
+            "y2": 2536
+          },
+          "left_edge": 10,
+          "top_edge": 55,
+          "right_edge": 60,
+          "bottom_edge": 86,
+          "confidence": 0.9555845856666565,
+          "file_path": "picture\\page_1_picture_0.png",
+          "category": "diagram: explanatory",
+          "main_category": "diagram",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:05:04.719958",
+          "visual_analysis": {
+            "raw_text": "{\n  \"figure_id\": \"page_1_figure_1\",\n  \"subcategory\": \"Explanatory Diagram\",\n\n  \"ocr_text\": \"Hairy skin\\nGlabrous skin\\nFree nerve ending\\nMerkel's receptor\\nSebaceous gland\\nHair receptor\\nPacinian corpuscle\\nRuffini's corpuscle\\nMeissner's corpuscle\\nPapillary Ridges\\nSeptum\\nEpidermis\\nDermis\",\n\n  \"nodes\": [\n    {\n      \"node_id\": \"node_1\",\n      \"label\": \"Hairy skin\",\n      \"element_type\": \"other\",\n      \"shape\": \"rectangle\",\n      \"swimlane_id\": null,\n      \"position\": \"top left\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_2\",\n      \"label\": \"Glabrous skin\",\n      \"element_type\": \"other\",\n      \"shape\": \"rectangle\",\n      \"swimlane_id\": null,\n      \"position\": \"top right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_3\",\n      \"label\": \"Free nerve ending\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"middle left\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_4\",\n      \"label\": \"Merkel's receptor\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"middle left\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_5\",\n      \"label\": \"Sebaceous gland\",\n      \"element_type\": \"process\",\n      \"shape\": \"rectangle\",\n      \"swimlane_id\": null,\n      \"position\": \"bottom left\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_6\",\n      \"label\": \"Hair receptor\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"bottom left\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_7\",\n      \"label\": \"Pacinian corpuscle\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"middle right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_8\",\n      \"label\": \"Ruffini's corpuscle\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"middle right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_9\",\n      \"label\": \"Meissner's corpuscle\",\n      \"element_type\": \"input_output\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"middle right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_10\",\n      \"label\": \"Papillary Ridges\",\n      \"element_type\": \"other\",\n      \"shape\": \"rectangle\",\n      \"swimlane_id\": null,\n      \"position\": \"top center\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_11\",\n      \"label\": \"Septum\",\n      \"element_type\": \"other\",\n      \"shape\": \"rectangle\",\n      \"swimlane_id\": null,\n      \"position\": \"middle center\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_12\",\n      \"label\": \"Epidermis\",\n      \"element_type\": \"start_end\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"top right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    },\n    {\n      \"node_id\": \"node_13\",\n      \"label\": \"Dermis\",\n      \"element_type\": \"start_end\",\n      \"shape\": \"oval\",\n      \"swimlane_id\": null,\n      \"position\": \"bottom right\",\n      \"sequence_number\": null,\n      \"confidence\": 0.9\n    }\n  ],\n\n  \"connections\": [\n    {\n      \"from_node_id\": \"node_1\",\n      \"to_node_id\": \"node_3\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_1\",\n      \"to_node_id\": \"node_4\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_1\",\n      \"to_node_id\": \"node_5\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_1\",\n      \"to_node_id\": \"node_6\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_2\",\n      \"to_node_id\": \"node_7\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_2\",\n      \"to_node_id\": \"node_8\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\": 0.9\n    },\n    {\n      \"from_node_id\": \"node_2\",\n      \"to_node_id\": \"node_9\",\n      \"connection_label\": null,\n      \"connection_type\": \"sequential\",\n      \"direction\": \"forward\",\n      \"connection_style\": \"solid\",\n      \"confidence\":",
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:05:37.781860",
+              "prompt_tokens": 27749,
+              "completion_tokens": 1500,
+              "total_tokens": 29249
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:05:37.781860",
+          "prompt_file": "diagram_explanatory.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2363,
+        "height": 2953
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 936,
+            "y1": 352,
+            "x2": 2130,
+            "y2": 1045
+          },
+          "left_edge": 40,
+          "top_edge": 12,
+          "right_edge": 90,
+          "bottom_edge": 35,
+          "confidence": 0.9681341052055359,
+          "file_path": "picture\\page_2_picture_0.png",
+          "category": "diagram: technical",
+          "main_category": "diagram",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:05:06.489409",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Technical Diagram",
+            "ocr_text": "enlarged view of muscle spindle\n\u03b3 s motoneuron\nII afferent\nla afferent\n\u03b3 d motoneuron\nextrafusal (main) muscle fascicles\nintrafusal muscle fibers",
+            "diagram_domain": "other",
+            "description": "This diagram illustrates the neural connections and components associated with muscle spindles, including motoneurons and muscle fibers.",
+            "components": [
+              {
+                "component_id": "component_1",
+                "reference_designator": "\u03b3 s motoneuron",
+                "component_type": "unidentified",
+                "label": "\u03b3 s motoneuron",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              },
+              {
+                "component_id": "component_2",
+                "reference_designator": "II afferent",
+                "component_type": "unidentified",
+                "label": "II afferent",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              },
+              {
+                "component_id": "component_3",
+                "reference_designator": "la afferent",
+                "component_type": "unidentified",
+                "label": "la afferent",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              },
+              {
+                "component_id": "component_4",
+                "reference_designator": "\u03b3 d motoneuron",
+                "component_type": "unidentified",
+                "label": "\u03b3 d motoneuron",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              },
+              {
+                "component_id": "component_5",
+                "reference_designator": "extrafusal muscle fascicles",
+                "component_type": "unidentified",
+                "label": "extrafusal (main) muscle fascicles",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              },
+              {
+                "component_id": "component_6",
+                "reference_designator": "intrafusal muscle fibers",
+                "component_type": "unidentified",
+                "label": "intrafusal muscle fibers",
+                "symbol_shape": null,
+                "specifications": null,
+                "position": "Approximate location in the diagram",
+                "confidence": 0.8
+              }
+            ],
+            "connections": [],
+            "system_boundaries": {
+              "input_points": [],
+              "output_points": [],
+              "external_interfaces": []
+            },
+            "technical_features": [],
+            "annotations": {
+              "title_block": {
+                "drawing_number": null,
+                "revision": null,
+                "date": null,
+                "author": null
+              },
+              "notes": [],
+              "standards_references": [],
+              "legend": []
+            },
+            "signal_flow_analysis": {
+              "main_paths": [],
+              "critical_paths": [],
+              "feedback_mechanisms": []
+            },
+            "key_insights": [
+              "The diagram represents the neural connections involved in muscle spindle function.",
+              "Key components include various motoneurons and muscle fibers.",
+              "The diagram highlights the relationship between afferent signals and muscle response."
+            ],
+            "summary": "This technical diagram illustrates the neural connections associated with muscle spindles, detailing the roles of different motoneurons and muscle fibers. It emphasizes the interaction between afferent signals and muscle response mechanisms.",
+            "keywords": [
+              "muscle spindle",
+              "motoneuron",
+              "afferent",
+              "muscle fibers",
+              "neural connections"
+            ],
+            "meta": {
+              "extraction_confidence": 0.8,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:05:56.028089",
+              "prompt_tokens": 39277,
+              "completion_tokens": 886,
+              "total_tokens": 40163
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:05:56.028089",
+          "prompt_file": "diagram_technical.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2363,
+        "height": 2953
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 233,
+            "y1": 351,
+            "x2": 2125,
+            "y2": 806
+          },
+          "left_edge": 10,
+          "top_edge": 12,
+          "right_edge": 90,
+          "bottom_edge": 27,
+          "confidence": 0.9050291180610657,
+          "file_path": "table\\page_3_table_0.png",
+          "category": "table",
+          "main_category": "table",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:05:07.843640",
+          "visual_analysis": {
+            "columns": [
+              "Receptor Type",
+              "Rapidly adapting",
+              "Slowly adapting"
+            ],
+            "rows": [
+              {
+                "Receptor Type": "Surface receptor / small receptive field",
+                "Rapidly adapting": "Hair receptor, Meissner\u2019s corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture.",
+                "Slowly adapting": "Merkel\u2019s receptor: Used for spatial details, e.g. a round surface edge or \u201can X\u201d in braille."
+              },
+              {
+                "Receptor Type": "Deep receptor / large receptive field",
+                "Rapidly adapting": "Pacinian corpuscle: \u201cA diffuse vibration\u201d e.g. tapping with a pencil.",
+                "Slowly adapting": "Ruffini\u2019s corpuscle: \u201cA skin stretch\u201d. Used for joint position in fingers."
+              }
+            ],
+            "_stage3_meta": {
+              "model": "gpt-4o",
+              "timestamp": "2025-12-21T22:06:01.470269",
+              "prompt_tokens": 1513,
+              "completion_tokens": 186,
+              "total_tokens": 1699
+            }
+          },
+          "analysis_model": "gpt-4o",
+          "analysis_timestamp": "2025-12-21T22:06:01.470269",
+          "prompt_file": "table.md",
+          "context_metadata": {
+            "before_tokens": 10,
+            "after_tokens": 0,
+            "total_tokens": 10,
+            "before_text_preview": "Anatomy of the Somatosensory System",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "image_size": {
+        "width": 2363,
+        "height": 2953
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 226,
+            "y1": 349,
+            "x2": 2029,
+            "y2": 1255
+          },
+          "left_edge": 10,
+          "top_edge": 12,
+          "right_edge": 86,
+          "bottom_edge": 42,
+          "confidence": 0.9489089250564575,
+          "file_path": "picture\\page_4_picture_0.png",
+          "category": "diagram: explanatory",
+          "main_category": "diagram",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:05:09.254343",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Explanatory Diagram",
+            "ocr_text": "Force control signal\nDriving signal\nLength (secondary muscle-spindle afferents)\nLength error (primary muscle-spindle afferents)\nVelocity (primary muscle-spindle afferents)\nLength control signal\nGamma bias\nForce (Golgi tendon organ)\nForce feedback\nMuscle force\nMuscle length\nExternal forces",
+            "nodes": [
+              {
+                "node_id": "node_1",
+                "label": "Inter-neurons",
+                "element_type": "process",
+                "shape": "rectangle",
+                "swimlane_id": null,
+                "position": "top center",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_2",
+                "label": "\u03b1",
+                "element_type": "process",
+                "shape": "oval",
+                "swimlane_id": null,
+                "position": "middle left",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_3",
+                "label": "Muscle",
+                "element_type": "process",
+                "shape": "rectangle",
+                "swimlane_id": null,
+                "position": "middle center",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_4",
+                "label": "Tendon organs",
+                "element_type": "process",
+                "shape": "rectangle",
+                "swimlane_id": null,
+                "position": "middle right",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_5",
+                "label": "Load",
+                "element_type": "process",
+                "shape": "rectangle",
+                "swimlane_id": null,
+                "position": "bottom right",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_6",
+                "label": "Spindles",
+                "element_type": "process",
+                "shape": "rectangle",
+                "swimlane_id": null,
+                "position": "bottom center",
+                "sequence_number": null,
+                "confidence": 0.9
+              },
+              {
+                "node_id": "node_7",
+                "label": "\u03b3",
+                "element_type": "process",
+                "shape": "oval",
+                "swimlane_id": null,
+                "position": "bottom left",
+                "sequence_number": null,
+                "confidence": 0.9
+              }
+            ],
+            "connections": [
+              {
+                "from_node_id": "node_1",
+                "to_node_id": "node_2",
+                "connection_label": "Force control signal",
+                "connection_type": "sequential",
+                "direction": "forward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_2",
+                "to_node_id": "node_3",
+                "connection_label": "Driving signal",
+                "connection_type": "sequential",
+                "direction": "forward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_3",
+                "to_node_id": "node_4",
+                "connection_label": "Muscle force",
+                "connection_type": "sequential",
+                "direction": "forward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_4",
+                "to_node_id": "node_5",
+                "connection_label": "Muscle length",
+                "connection_type": "sequential",
+                "direction": "forward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_5",
+                "to_node_id": "node_6",
+                "connection_label": "Length & velocity feedback",
+                "connection_type": "sequential",
+                "direction": "backward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_6",
+                "to_node_id": "node_2",
+                "connection_label": "Length (secondary muscle-spindle afferents)",
+                "connection_type": "sequential",
+                "direction": "backward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              },
+              {
+                "from_node_id": "node_6",
+                "to_node_id": "node_7",
+                "connection_label": "Gamma bias",
+                "connection_type": "sequential",
+                "direction": "forward",
+                "connection_style": "solid",
+                "confidence": 0.9
+              }
+            ],
+            "decision_points": [],
+            "hierarchies": [],
+            "swimlanes": [],
+            "path_analysis": {
+              "main_path": [
+                "node_1",
+                "node_2",
+                "node_3",
+                "node_4",
+                "node_5",
+                "node_6"
+              ],
+              "exception_paths": [],
+              "loops": [],
+              "parallel_branches": [],
+              "start_points": [
+                "node_1"
+              ],
+              "end_points": [
+                "node_6"
+              ]
+            },
+            "key_insights": [
+              "The diagram illustrates the feedback loop involved in muscle control.",
+              "It highlights the roles of inter-neurons, alpha and gamma motor neurons, and spindles.",
+              "The connections show how signals flow from control to muscle and back for feedback."
+            ],
+            "summary": "This diagram explains the process of muscle control through a feedback loop involving inter-neurons, motor neurons, and spindles. It outlines the flow of signals from force control to muscle action and back, emphasizing the importance of feedback in muscle length and force regulation.",
+            "keywords": [
+              "muscle control",
+              "feedback loop",
+              "inter-neurons",
+              "motor neurons",
+              "spindles",
+              "force regulation"
+            ],
+            "meta": {
+              "extraction_confidence": 0.9,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:06:28.631165",
+              "prompt_tokens": 39083,
+              "completion_tokens": 1371,
+              "total_tokens": 40454
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:06:28.631165",
+          "prompt_file": "diagram_explanatory.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 0,
+            "total_tokens": 0,
+            "before_text_preview": "",
+            "after_text_preview": ""
+          }
+        }
+      ]
+    }
+  ],
+  "stage_2_info": {
+    "model": "gpt-4o-mini",
+    "categories": [
+      "table",
+      "graph/chart",
+      "photograph",
+      "diagram",
+      "other"
+    ],
+    "timestamp": "2025-12-21T22:05:09.354758",
+    "total_images": 4,
+    "total_categorized": 4,
+    "category_counts": {
+      "table": 1,
+      "graph/chart": 0,
+      "photograph": 0,
+      "diagram": 3,
+      "other": 0
+    },
+    "total_tokens": 130590
+  },
+  "stage_3_info": {
+    "prompt_version": "claude",
+    "timestamp": "2025-12-21T22:06:28.732341",
+    "total_images": 4,
+    "total_analyzed": 4,
+    "total_skipped": 0,
+    "skip_reasons": {},
+    "category_counts": {
+      "diagram": 3,
+      "table": 1
+    },
+    "total_tokens": 111565
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "page_number": "1",
+  "analysis": {
+    "total_buckets": 6,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 2,
+        "text": "R eport 2023-2024",
+        "confidence": 0.9411764705882352,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "CFA FC A Canadian Federation of Agriculture",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "2023",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "[ ari (",
+        "texts": [
+          "[",
+          "ari ("
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 0,
+        "confidence_avg": 0.72,
+        "char_count": 6,
+        "word_count": 3,
+        "confidence_missing": 0.33333333333333326,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Jnan clal 2",
+        "texts": [
+          "Jnan clal",
+          "2"
+        ],
+        "position": "center",
+        "width_category": "medium",
+        "y_group_id": 1,
+        "confidence_avg": 0.61,
+        "char_count": 10,
+        "word_count": 3,
+        "confidence_missing": 0.36363636363636365,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 4,
+        "text": "de |'agricl Federatior 1 canadienne Ilture",
+        "texts": [
+          "de |'agricl Federatior 1 canadienne Ilture"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.99,
+        "char_count": 42,
+        "word_count": 6,
+        "confidence_missing": 0.30000000000000004,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Farm Financial Health Report 2023-2024\n\n## CFA FC A\nCanadian Federation of Agriculture\n\n> Fédération canadienne de l'agriculture\n\n2023\n\nde l'agriculture",
+    "buckets_recovered": [
+      4
+    ],
+    "buckets_gibberish": [
+      0,
+      1
+    ],
+    "recovery_notes": "Inserted legitimate text from bucket 4 into the markdown. Buckets 0 and 1 were flagged as gibberish due to low OCR confidence and nonsensical content."
+  }
+}

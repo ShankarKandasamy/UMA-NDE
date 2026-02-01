@@ -1,0 +1,108 @@
+{
+  "page_number": "3",
+  "analysis": {
+    "total_buckets": 10,
+    "filtered_buckets": [
+      {
+        "bucket_id": 9,
+        "text": "3",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Anatomy of the Somatosensory System",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Rapidly adaptir 2g",
+        "confidence": 0.7142857142857143,
+        "method": "ngram_overlap"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Slowly adapting",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Surface receptor Hair receptor, Meissner'S COr puscle: De- ) Merkel 's receptor: Used for spa - small receptive tect an insect or a very fine vibration. field tial details, e.g. a round surface edge an X\" in brail. or Ruffini's corpuscle: A skin stretch\" . Used for joint position in fingers:",
+        "confidence": 0.8235294117647058,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 4,
+        "text": "Deep receptor large receptive field Table 1",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 6,
+        "text": "Used for recognizing textur e_ Pacinian corpuscle: A diffus se vibra- tion 9) e.g: tapping with a pe ncil:",
+        "confidence": 0.7291666666666666,
+        "method": "ngram_overlap"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Notice how figure captions and sidenotes are shown in the outside margin (on the left or right; depending on whether the page is left or right): Also, figures are floated to the topl bottom of the page: Wide content; like the table and Figure 3,intrude into the outside margins:",
+        "confidence": 0.9962962962962963,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Muscle Spindles Scattered throughout virtually every striated m uscle in the body are long, thin, stretch receptors called m luscle spin - dles. They are quite simple in principle, consist ing of a few small muscle fibers with a capsule surrounding the middle third of the fibers. These fibers are called intrc fusal fibers, in contrast to the ordinary extrafusal fibers. The ends of the intrafusal fibers are attached to extrafusal fibel \"S, SO when- ever the muscle is stretched, the intrafusal fib ers are also stretched. The central region of each intrafus al fiber has",
+        "confidence": 0.9855855855855856,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 5,
+        "text": "only to intense mechanical stimuli, but also to heat and to noxious chemicals These receptors respone 1t0 minute punctures of the epithelium, with a response magnitude ) that depends on the degree of tissue deformati on. They al- SO respond to temperatures in the range of 4C )-60*C, and change their response rates as a linear functic n of warm- ing (in contrast with the saturating responses € lisplayed by non-noxious thermoreceptors at high tempera tures). Pain signals can be separated into individ ual compo- UI IC1 VC Glorc used for transmitting these signals The rapidl y transmit- ted  signal, which often has high spatial re_ solution, is called first pain or cutaneous pricking pain. It is well local- ized and easily tolerated. The much slower; h ighly affec - tive component is called second pain or burnin g pain; it is poorly localized and poorly tolerated: The tk ird or deep pain, arising from viscera, musculature and jo ints, is also poorly localized, can be chronic and is often associated with referred pain. Lu Aifforer+",
+        "texts": [
+          "only to intense mechanical stimuli, but also to heat and",
+          "to noxious chemicals These receptors respone 1t0 minute",
+          "punctures of the epithelium, with a response magnitude )",
+          "that depends on the degree of tissue deformati on. They al-",
+          "SO respond to temperatures in the range of 4C )-60*C, and",
+          "change their response rates as a linear functic n of warm-",
+          "ing (in contrast with the saturating responses € lisplayed by",
+          "non-noxious thermoreceptors at high tempera tures).",
+          "Pain signals can be separated into individ ual compo-",
+          "UI IC1 VC Glorc",
+          "used for transmitting these signals The rapidl y transmit-",
+          "ted  signal, which often has high spatial re_ solution, is",
+          "called first pain or cutaneous pricking pain. It is well local-",
+          "ized and easily tolerated. The much slower; h ighly affec -",
+          "tive component is called second pain or burnin g pain; it is",
+          "poorly localized and poorly tolerated: The tk ird or deep",
+          "pain, arising from viscera, musculature and jo ints, is also",
+          "poorly localized, can be chronic and is often associated",
+          "with referred pain.",
+          "Lu Aifforer+"
+        ],
+        "position": "left",
+        "width_category": "medium",
+        "y_group_id": 3,
+        "confidence_avg": 0.9,
+        "char_count": 1023,
+        "word_count": 176,
+        "confidence_missing": 0.28798411122144985,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Anatomy of the Somatosensory System\n\n## Rapidly adapting\n\n| Surface receptor / small receptive field | Hair receptor, Meissner's corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture. |\n|------------------------------------------|----------------------------------------------------------|\n| Deep receptor / large receptive field     | Pacinian corpuscle: “A diffuse vibration” e.g. tapping with a pencil. |\n\n## Slowly adapting\n\n| Merkel's receptor: Used for spatial details, e.g. a round surface edge or “an X” in brail. | Ruffini's corpuscle: “A skin stretch”. Used for joint position in fingers. |\n\nTable 1\n\nPain signals can be separated into individual components, corresponding to different types of nerve fibers used for transmitting these signals. The rapidly transmitted signal, which often has high spatial resolution, is called first pain or cutaneous pricking pain. It is well localized and easily tolerated. The much slower, highly affective component is called second pain or burning pain; it is poorly localized and poorly tolerated. The third or deep pain, arising from viscera, musculature and joints, is also poorly localized, can be chronic and is often associated with referred pain.\n\n> Notice how figure captions and sidenotes are shown in the outside margin (on the left or right; depending on whether the page is left or right): Also, figures are floated to the top/bottom of the page: Wide content, like the table and Figure 3, intrude into the outside margins:\n\n## Muscle Spindles\n\nScattered throughout virtually every striated muscle in the body are long, thin, stretch receptors called muscle spindles. They are quite simple in principle, consisting of a few small muscle fibers with a capsule surrounding the middle third of the fibers. These fibers are called intrafusal fibers, in contrast to the ordinary extrafusal fibers. The ends of the intrafusal fibers are attached to extrafusal fibers, so whenever the muscle is stretched, the intrafusal fibers are also stretched. The central region of each intrafusal fiber has only to intense mechanical stimuli, but also to heat and to noxious chemicals. These receptors respond to minute punctures of the epithelium, with a response magnitude that depends on the degree of tissue deformation. They also respond to temperatures in the range of 40–60°C, and change their response rates as a linear function of warming (in contrast with the saturating responses displayed by non-noxious thermoreceptors at high temperatures).\n\n",
+    "buckets_recovered": [
+      5
+    ],
+    "buckets_gibberish": [],
+    "recovery_notes": "Inserted legitimate text from bucket 5 into the appropriate section under 'Muscle Spindles'."
+  }
+}

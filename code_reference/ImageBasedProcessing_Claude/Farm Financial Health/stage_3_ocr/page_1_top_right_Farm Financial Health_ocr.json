@@ -1,0 +1,64 @@
+{
+  "quadrant_name": "top_right",
+  "page_number": 1,
+  "source_image": "page_1_top_right_Farm Financial Health.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 1275,
+  "offset_y": 0,
+  "crop_box": [
+    1275,
+    0,
+    2550,
+    1650
+  ],
+  "total_blocks": 3,
+  "min_x": 2550,
+  "max_x": 4069,
+  "min_y": 2117,
+  "max_y": 3300,
+  "blocks": [
+    {
+      "text": "clal",
+      "start_x": 2550,
+      "end_x": 3930,
+      "start_y": 2117,
+      "end_y": 2819,
+      "mid_x": 3240,
+      "mid_y": 2468,
+      "mid_y_x": 2519.0,
+      "height": 702,
+      "confidence": 0.6359815001487732,
+      "char_count": 4,
+      "word_count": 1
+    },
+    {
+      "text": "2",
+      "start_x": 2550,
+      "end_x": 3032,
+      "start_y": 2900,
+      "end_y": 3300,
+      "mid_x": 2791,
+      "mid_y": 3100,
+      "mid_y_x": 3151.0,
+      "height": 400,
+      "confidence": 0.5938077651598093,
+      "char_count": 1,
+      "word_count": 1
+    },
+    {
+      "text": "ila",
+      "start_x": 3203,
+      "end_x": 4069,
+      "start_y": 2793,
+      "end_y": 3300,
+      "mid_x": 3636,
+      "mid_y": 3046,
+      "mid_y_x": 3110.06,
+      "height": 507,
+      "confidence": 0.10842405324725833,
+      "char_count": 3,
+      "word_count": 1
+    }
+  ]
+}

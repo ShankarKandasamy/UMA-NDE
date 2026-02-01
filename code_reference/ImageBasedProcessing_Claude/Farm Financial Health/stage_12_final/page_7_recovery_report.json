@@ -1,0 +1,284 @@
+{
+  "page_number": "7",
+  "analysis": {
+    "total_buckets": 36,
+    "filtered_buckets": [
+      {
+        "bucket_id": 3,
+        "text": "8",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 10,
+        "text": "1",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 11,
+        "text": "60",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 12,
+        "text": "40",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 13,
+        "text": "1",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 18,
+        "text": "4",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 22,
+        "text": "#",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 25,
+        "text": "2",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 35,
+        "text": "2",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "The cost of production is higher th an it has ever been: Figure 1: Total Farm Input Price Index Source: Statistics Canada: Table 18-10-0258-01 Farm input price index, quarterly",
+        "confidence": 0.9970674486803519,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "160",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "140",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 4,
+        "text": "120",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "100",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Price index Animal production Crop production Farm input total Fertilizer",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 8,
+        "text": "\"Machinery fuel",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 9,
+        "text": "Pesticides",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 14,
+        "text": "Year and# Quarter Farmers are grappling with rising abor costs as a result of inflation and a scarcity of available worker 5 . Figure 2: Average Hourly Wage Rate and Unen nployment Source: Statistics Canada. Table 14-10-0063-01; 14-10-0022-01.",
+        "confidence": 0.6591928251121076,
+        "method": "ngram_overlap"
+      },
+      {
+        "bucket_id": 19,
+        "text": "1 2023",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 21,
+        "text": "$24",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 23,
+        "text": "$22",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 24,
+        "text": "M 0.15 0.10",
+        "confidence": 0.75,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 26,
+        "text": "0.05",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 27,
+        "text": "$20",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 28,
+        "text": "2020",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 29,
+        "text": "2021",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 30,
+        "text": "2022",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 31,
+        "text": "2023",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 32,
+        "text": "Yel ar Furthermore, a lack of available workers, and rising inflation rates, are resulting in an increasingly tight labour market, placing upwz rd pressure on labour costs. Since the beginning of 2019 to August 2023, wages als 0 increased from $20.29 to $23.42, further indicating a tight labour market (Statistics _Car ada,-2023).",
+        "confidence": 0.9652996845425867,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 33,
+        "text": "CFA FCA Canadian Federation of Agriculture",
+        "confidence": 0.8157894736842105,
+        "method": "ngram_overlap"
+      },
+      {
+        "bucket_id": 34,
+        "text": "Federation canadienne de |agriculture",
+        "confidence": 0.9166666666666665,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 6,
+        "text": "1 80 F",
+        "texts": [
+          "1",
+          "80 F"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.85,
+        "char_count": 5,
+        "word_count": 3,
+        "confidence_missing": 0.16666666666666652,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 15,
+        "text": "3 2020",
+        "texts": [
+          "3",
+          "2020"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 0.81,
+        "char_count": 5,
+        "word_count": 2,
+        "confidence_missing": 0.16666666666666652,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 16,
+        "text": "3 2021",
+        "texts": [
+          "3",
+          "2021"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 1.0,
+        "char_count": 5,
+        "word_count": 2,
+        "confidence_missing": 0.16666666666666652,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 17,
+        "text": "3 2022",
+        "texts": [
+          "3",
+          "2022"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 0.72,
+        "char_count": 5,
+        "word_count": 2,
+        "confidence_missing": 0.16666666666666652,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 20,
+        "text": "Avg Hourly Rate Total, all industries Une employment Rate 0Ag Unemployment Rat",
+        "texts": [
+          "Avg Hourly Rate",
+          "Total, all industries Une employment Rate",
+          "0Ag Unemployment Rat"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 5,
+        "confidence_avg": 0.92,
+        "char_count": 76,
+        "word_count": 12,
+        "confidence_missing": 0.4545454545454546,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# The cost of production is higher than it has ever been.\n\nFigure 1: Total Farm Input Price Index  \nSource: Statistics Canada.  \nTable 18-10-0258-01 Farm input price index, quarterly\n\n| Year and Quarter | Price index |  \n|------------------|-------------|  \n| 2020             | 160         |  \n| 2021             | 140         |  \n| 2022             | 80          |  \n| 2023             | 120         |  \n|                  | 100         |  \n|                  | 180 F       |  \n\n- Animal production  \n- Crop production  \n- Farm input total  \n- Fertilizer  \n- Machinery fuel  \n- Pesticides  \n\nFigure 2: Average Hourly Wage Rate and Unemployment  \nSource: Statistics Canada.  \nTable 14-10-0063-01;  \n14-10-0022-01.\n\n| Year | Avg Hourly Rate | Unemployment Rate |  \n|------|-----------------|-------------------|  \n| 2020 | $24             | 0.15              |  \n| 2021 | $22             | 0.10              |  \n| 2022 | $20             | 0.05              |  \n| 2023 | $20             | 0.00              |  \n\nFurthermore, a lack of available workers, and rising inflation rates, are resulting in an increasingly tight labour market, placing upward pressure on labour costs. Since the beginning of 2019 to August 2023, wages also increased from $20.29 to $23.42, further indicating a tight labour market (Statistics Canada, 2023).\n\n> Canadian Federation of Agriculture  \n> Fédération canadienne de l'agriculture",
+    "buckets_recovered": [
+      15,
+      16
+    ],
+    "buckets_gibberish": [
+      6,
+      17,
+      20
+    ],
+    "recovery_notes": "Inserted legitimate text from buckets 15 and 16 into the appropriate tables. Buckets 6, 17, and 20 were identified as gibberish and not included."
+  }
+}

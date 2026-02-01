@@ -1,0 +1,55 @@
+{
+  "page_number": 2,
+  "total_buckets": 2,
+  "last_bucket_previous_page": {
+    "id": 5,
+    "left_edge": 80,
+    "top_edge": 95,
+    "right_edge": 84,
+    "bottom_edge": 97,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 4,
+    "confidence_avg": 1.0,
+    "char_count": 4,
+    "word_count": 1,
+    "texts": [
+      "2023"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 30,
+      "top_edge": 87,
+      "right_edge": 67,
+      "bottom_edge": 94,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 41,
+      "word_count": 6,
+      "texts": [
+        "CFA FCA",
+        "Canadian Federation of Agriculture"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 55,
+      "top_edge": 91,
+      "right_edge": 71,
+      "bottom_edge": 94,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.97,
+      "char_count": 38,
+      "word_count": 4,
+      "texts": [
+        "de /'agriculture Federation canadienne"
+      ]
+    }
+  ]
+}

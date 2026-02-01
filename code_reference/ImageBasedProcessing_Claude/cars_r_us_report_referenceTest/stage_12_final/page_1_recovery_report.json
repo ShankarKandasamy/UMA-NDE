@@ -1,0 +1,59 @@
+{
+  "page_number": "1",
+  "analysis": {
+    "total_buckets": 5,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Cars R Us Auto Deal ership Report 2024 This report provides an overview of Cars R Us deal ership's performance for 2024. The results are presented in three sections: Sales Data, Returns Dz ta, and Trend Analysis. Throughout this report; we reference detailed data tables (see Table 1 , Table Table 3) . Important supporting evidence is referenced from published documents [1], [2], [3], [4 1, [5]: Note that market fluctuations have significantly impacted quarterly sales* _ Table_1: Car Sales Data Summary [2] Model 1,200 950",
+        "confidence": 0.9815573770491803,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Sedan SUV Pro Truck Max 700 Hybrid Eco 1,100",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Units Sold Revenue (SM) 36 42 28 44",
+        "confidence": 0.875,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 4,
+        "text": "Figure 1: Cars R Us Showroom (2024)",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 3,
+        "text": "ShowToom [ mge Placeholder",
+        "texts": [
+          "ShowToom [ mge Placeholder"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.95,
+        "char_count": 26,
+        "word_count": 4,
+        "confidence_missing": 0.125,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Cars R Us Auto Dealership Report - 2024\n\nThis report provides an overview of Cars R Us dealership's performance for 2024. The results are presented in three sections: Sales Data, Returns Data, and Trend Analysis. Throughout this report, we reference detailed data tables (see Table 1, Table 2, Table 3). Important supporting evidence is referenced from published documents [1], [2], [3], [4], [5]. Note that market fluctuations have significantly impacted quarterly sales*.\n\n## Table 1: Car Sales Data Summary [2]\n| Model       | Units Sold | Revenue ($M) |\n|-------------|------------|---------------|\n| Sedan X    | 1,200      | 36            |\n| SUV Pro    | 950        | 42            |\n| Truck Max  | 700        | 28            |\n| Hybrid Eco | 1,100      | 44            |\n\n> Figure 1: Cars R Us Showroom (2024)\n\n![Showroom Image Placeholder](Showroom Image Placeholder)\n\nFigure 1: Cars R Us Showroom (2024)",
+    "buckets_recovered": [
+      3
+    ],
+    "buckets_gibberish": [],
+    "recovery_notes": "Inserted the legitimate text 'Figure 1: Cars R Us Showroom (2024)' after the image placeholder."
+  }
+}

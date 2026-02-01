@@ -1,0 +1,78 @@
+{
+  "page_number": "3",
+  "analysis": {
+    "total_buckets": 8,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Executive Summary Taking Stock of Farm Finar Icial Health Amid Rising Costs of Production and a Rapidly Changing Climate Farmers across Canada have demonstrated tre mendous resilience in the face of several domestic and global events including the COV ID-19 pandemic, the war in Ukraine, and extreme climate events at home and abroad: Ir 2022, primary agriculture contributed $36.3 billion (1.8%) of Canada's GDP and supported 249,900 jobs across the country: However; through this time, the cost of critical arm inputs such as fuel, fertilizer, feed, machinery, pesticides, land and labour increase ed dramatically: When coupled with high inflation, interest rates and a price on carbon fc r essential farming activities, for which farmers have no viable alternatives, Canadian producers are facing tremendous pressure on their farm financial and mental health:",
+        "confidence": 0.9916467780429595,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "While most Canadian farmers have managed tc ) stay afloat, largely due to high commodity prices and farm cash receipts that increased 14 1.6% over 2021 levels, the ongoing impact of high inflation, matched with increasing interest rates, is beginning to take a serious toll on the operating margins of Canadian producers. Recent numbers from Statistics Canada have shown that the net income for Canadian farme s fell 5.9% in 2022, because the growth in expenses outpaced the rise in tarm income; an d total tarm operating expenses (atter rebates) increased 19.9% in 2022,the large by st gain since 1979 (+21.1%): Meanwhile; while the full weight of the Bank of Canada's string of interest rate hikes has yet to sink in, farmers across Canada are experieng cing an increasing series of extreme weather events that are testing the limits and effectiven ess of Canada's suite of risk management programs:",
+        "confidence": 0.9829351535836177,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "To help address many of these challenges, the Canadian Federation of Agriculture (CFA) has put forward recommendations in several a eas aimed at not only helping farmers manage the increasing cost of production and navigate challenging regulatory barriers, but also to help them mitigate the effects of climate change and support the next generation of 2 farmers.",
+        "confidence": 0.9916201117318437,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Canadian farmers play a crucial role in sustainie ng our rural communities, as stewards of our natural environment and in meeting our nation= al and international food security needs. The following recommendations are aimed at ensum ing Canada's farmers have the flexibility and tools they need to weather the current financia I climate and support the transition to a low emissions economy:",
+        "confidence": 0.9819121447028424,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "CFA FCA Canadian Federation of Agriculture",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "de /'agriculture Federation canadienne",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Canadian Federa tion of Agriculture 21 Florence Stree Ottawa, Ontario KZ2P OW6",
+        "confidence": 0.9673202614379085,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 4,
+        "text": "13 iii",
+        "texts": [
+          "13",
+          "iii"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 0.75,
+        "char_count": 5,
+        "word_count": 2,
+        "confidence_missing": 0.5,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Executive Summary\n\n## Taking Stock of Farm Financial Health Amid Rising Costs of Production and a Rapidly Changing Climate\n\nFarmers across Canada have demonstrated tremendous resilience in the face of several domestic and global events including the COVID-19 pandemic, the war in Ukraine, and extreme climate events at home and abroad. In 2022, primary agriculture contributed $36.3 billion (1.8%) of Canada’s GDP and supported 249,900 jobs across the country.\n\nHowever, through this time, the cost of critical farm inputs such as fuel, fertilizer, feed, machinery, pesticides, land and labour increased dramatically. When coupled with high inflation, interest rates and a price on carbon for essential farming activities, for which farmers have no viable alternatives, Canadian producers are facing tremendous pressure on their farm financial and mental health.\n\nWhile most Canadian farmers have managed to stay afloat, largely due to high commodity prices and farm cash receipts that increased 14.6% over 2021 levels, the ongoing impact of high inflation, matched with increasing interest rates, is beginning to take a serious toll on the operating margins of Canadian producers. Recent numbers from Statistics Canada have shown that the net income for Canadian farmers fell 5.9% in 2022, because the growth in expenses outpaced the rise in farm income; and total farm operating expenses (after rebates) increased 19.9% in 2022, the largest gain since 1979 (+21.1%).\n\nMeanwhile, while the full weight of the Bank of Canada’s string of interest rate hikes has yet to sink in, farmers across Canada are experiencing an increasing series of extreme weather events that are testing the limits and effectiveness of Canada’s suite of risk management programs.\n\nTo help address many of these challenges, the Canadian Federation of Agriculture (CFA) has put forward recommendations in several areas aimed at not only helping farmers manage the increasing cost of production and navigate challenging regulatory barriers, but also to help them mitigate the effects of climate change and support the next generation of farmers.\n\nCanadian farmers play a crucial role in sustaining our rural communities, as stewards of our natural environment and in meeting our national and international food security needs. The following recommendations are aimed at ensuring Canada’s farmers have the flexibility and tools they need to weather the current financial climate and support the transition to a low emissions economy.\n\n> CFA FCA  \n> Canadian Federation of Agriculture\n\n> de /'agriculture Federation canadienne\n\n\nCanadian Federation of Agriculture  \n21 Florence Street, Ottawa, Ontario  \nK2P 0W6\n\niii\n---",
+    "buckets_recovered": [
+      4
+    ],
+    "buckets_gibberish": [],
+    "recovery_notes": "Inserted the legitimate text 'iii' at the end of the markdown to indicate the page number."
+  }
+}

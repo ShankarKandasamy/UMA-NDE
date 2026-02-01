@@ -1,0 +1,229 @@
+{
+  "page_number": 3,
+  "total_buckets": 10,
+  "last_bucket_previous_page": {
+    "id": 7,
+    "left_edge": 8,
+    "top_edge": 84,
+    "right_edge": 9,
+    "bottom_edge": 85,
+    "position": "left",
+    "width_category": "narrow",
+    "y_group_id": 4,
+    "confidence_avg": 1.0,
+    "char_count": 1,
+    "word_count": 1,
+    "texts": [
+      "2"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 53,
+      "top_edge": 6,
+      "right_edge": 84,
+      "bottom_edge": 8,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.98,
+      "char_count": 35,
+      "word_count": 5,
+      "texts": [
+        "Anatomy of the Somatosensory System"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 33,
+      "top_edge": 11,
+      "right_edge": 48,
+      "bottom_edge": 13,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.78,
+      "char_count": 18,
+      "word_count": 3,
+      "texts": [
+        "Rapidly adaptir 2g"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 63,
+      "top_edge": 11,
+      "right_edge": 77,
+      "bottom_edge": 13,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 1.0,
+      "char_count": 15,
+      "word_count": 2,
+      "texts": [
+        "Slowly adapting"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 9,
+      "top_edge": 13,
+      "right_edge": 83,
+      "bottom_edge": 24,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 1,
+      "confidence_avg": 0.88,
+      "char_count": 285,
+      "word_count": 51,
+      "texts": [
+        "Surface receptor Hair receptor, Meissner'S COr puscle: De- ) Merkel 's receptor: Used for spa -",
+        "small receptive tect an insect or a very fine vibration.",
+        "field",
+        "tial details, e.g. a round surface",
+        "edge an X\" in brail. or",
+        "Ruffini's corpuscle: A skin",
+        "stretch\" . Used for joint position",
+        "in fingers:"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 9,
+      "top_edge": 19,
+      "right_edge": 22,
+      "bottom_edge": 27,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.91,
+      "char_count": 40,
+      "word_count": 7,
+      "texts": [
+        "Deep receptor",
+        "large receptive",
+        "field",
+        "Table 1"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 9,
+      "top_edge": 29,
+      "right_edge": 56,
+      "bottom_edge": 61,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 3,
+      "confidence_avg": 0.9,
+      "char_count": 1023,
+      "word_count": 176,
+      "texts": [
+        "only to intense mechanical stimuli, but also to heat and",
+        "to noxious chemicals These receptors respone 1t0 minute",
+        "punctures of the epithelium, with a response magnitude )",
+        "that depends on the degree of tissue deformati on. They al-",
+        "SO respond to temperatures in the range of 4C )-60*C, and",
+        "change their response rates as a linear functic n of warm-",
+        "ing (in contrast with the saturating responses € lisplayed by",
+        "non-noxious thermoreceptors at high tempera tures).",
+        "Pain signals can be separated into individ ual compo-",
+        "UI IC1 VC Glorc",
+        "used for transmitting these signals The rapidl y transmit-",
+        "ted  signal, which often has high spatial re_ solution, is",
+        "called first pain or cutaneous pricking pain. It is well local-",
+        "ized and easily tolerated. The much slower; h ighly affec -",
+        "tive component is called second pain or burnin g pain; it is",
+        "poorly localized and poorly tolerated: The tk ird or deep",
+        "pain, arising from viscera, musculature and jo ints, is also",
+        "poorly localized, can be chronic and is often associated",
+        "with referred pain.",
+        "Lu Aifforer+"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 24,
+      "top_edge": 17,
+      "right_edge": 53,
+      "bottom_edge": 23,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.98,
+      "char_count": 104,
+      "word_count": 19,
+      "texts": [
+        "Used for recognizing textur e_",
+        "Pacinian corpuscle: A diffus se vibra-",
+        "tion 9) e.g: tapping with a pe ncil:"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 60,
+      "top_edge": 43,
+      "right_edge": 91,
+      "bottom_edge": 56,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.7,
+      "char_count": 271,
+      "word_count": 49,
+      "texts": [
+        "Notice how figure captions and",
+        "sidenotes are shown in the outside",
+        "margin (on the left or right; depending",
+        "on whether the page is left or right):",
+        "Also, figures are floated to the topl",
+        "bottom of the page: Wide content; like",
+        "the table and Figure 3,intrude into the",
+        "outside margins:"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 9,
+      "top_edge": 62,
+      "right_edge": 56,
+      "bottom_edge": 81,
+      "position": "left",
+      "width_category": "medium",
+      "y_group_id": 5,
+      "confidence_avg": 0.82,
+      "char_count": 564,
+      "word_count": 96,
+      "texts": [
+        "Muscle Spindles",
+        "Scattered throughout virtually every striated m uscle in the",
+        "body are long, thin, stretch receptors called m luscle spin -",
+        "dles. They are quite simple in principle, consist ing of a few",
+        "small muscle fibers with a capsule surrounding the middle",
+        "third of the fibers. These fibers are called intrc fusal fibers,",
+        "in contrast to the ordinary extrafusal fibers. The ends of the",
+        "intrafusal fibers are attached to extrafusal fibel \"S, SO when-",
+        "ever the muscle is stretched, the intrafusal fib ers are also",
+        "stretched. The central region of each intrafus al fiber has"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 83,
+      "top_edge": 84,
+      "right_edge": 85,
+      "bottom_edge": 85,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.82,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "3"
+      ]
+    }
+  ]
+}

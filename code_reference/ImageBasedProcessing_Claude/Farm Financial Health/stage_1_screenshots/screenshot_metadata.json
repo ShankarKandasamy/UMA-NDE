@@ -1,0 +1,66 @@
+{
+  "pdf_path": "..\\..\\..\\docs\\Farm Financial Health.pdf",
+  "pdf_name": "Farm Financial Health",
+  "total_pages_in_pdf": 33,
+  "pages_processed": 8,
+  "dpi": 300,
+  "timestamp": "20251221_203916",
+  "pages": [
+    {
+      "page_number": 1,
+      "screenshot_file": "page_1_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 2,
+      "screenshot_file": "page_2_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 3,
+      "screenshot_file": "page_3_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 4,
+      "screenshot_file": "page_4_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 5,
+      "screenshot_file": "page_5_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 6,
+      "screenshot_file": "page_6_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 7,
+      "screenshot_file": "page_7_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 8,
+      "screenshot_file": "page_8_Farm Financial Health.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    }
+  ]
+}

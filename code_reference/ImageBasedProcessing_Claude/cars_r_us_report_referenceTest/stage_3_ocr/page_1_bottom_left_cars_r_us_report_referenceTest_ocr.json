@@ -1,0 +1,36 @@
+{
+  "quadrant_name": "bottom_left",
+  "page_number": 1,
+  "source_image": "page_1_bottom_left_cars_r_us_report_referenceTest.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 0,
+  "offset_y": 1650,
+  "crop_box": [
+    0,
+    1650,
+    1275,
+    3300
+  ],
+  "total_blocks": 1,
+  "min_x": 638,
+  "max_x": 2081,
+  "min_y": 3789,
+  "max_y": 3903,
+  "blocks": [
+    {
+      "text": "Figure 1: Cars R Us Showroom (2024)",
+      "start_x": 638,
+      "end_x": 2081,
+      "start_y": 3789,
+      "end_y": 3903,
+      "mid_x": 1360,
+      "mid_y": 3846,
+      "mid_y_x": 3858.76,
+      "height": 114,
+      "confidence": 0.9830333108371638,
+      "char_count": 35,
+      "word_count": 7
+    }
+  ]
+}

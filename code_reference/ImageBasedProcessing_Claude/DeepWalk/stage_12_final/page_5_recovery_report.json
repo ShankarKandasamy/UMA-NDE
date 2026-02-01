@@ -1,0 +1,196 @@
+{
+  "page_number": "5",
+  "analysis": {
+    "total_buckets": 20,
+    "filtered_buckets": [
+      {
+        "bucket_id": 1,
+        "text": "U8",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 4,
+        "text": "d",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 10,
+        "text": "20",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 17,
+        "text": "23",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 2,
+        "text": "Wv4 4 3 Uk 1]v; L5 1",
+        "confidence": 0.7142857142857143,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 3,
+        "text": "(b) Representation lapping:",
+        "confidence": 0.9583333333333335,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "$(v1 )",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "(c) Hierarchical Softmax:",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "(a) Random walk generation:",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Figure 3: Overview of DEEPWALK. We slide a window of ler Agth Zw + 1 over the random walk Wv4 , mapping the central vertex U1 to its representation $(01). Hierarchical Softmax fa ctors out Pr(03 $(01)) and Pr(v5 9(01)) over sequences of probability distributions corresponding to the paths starting t the root and ending at and U3 updated to maximize the probability of V1 co-occurring with it S context {03 , U5 } . The representation $ is",
+        "confidence": 0.9060240963855422,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 9,
+        "text": "with the number of vertices that are seen s0 far. 4.3 Parallelizability As shown in Figure 2 the frequency distribution of vertices in random walks of social network and words in a language both follow power law. a This results in a long tail of infre- quent vertices, therefore, the updates that affect $ will be sparse in nature. This allows us to use asynchronous version of stochastic gradient descent (ASGD), in the multi-worker case_ Given that our updates are sparse and we d0 not aC- quire a lock to access the model shared parameters, ASGD WII acheve an optlmal rate Of convergence [36] . W hile wC run experiments on one machine using multiple threads, it has been demonstrated that this technique is highly scal- able;, and can be used in very large scale machine  learn- ing [8]. Figure 4 presents the effects of parallelizing DEEP_ WALK. It shows the speed up in processing BLOGCATALOG and FLICKR networks is consistent as we increase the num- ber of workers to 8 (Figure 4a). It also shows that there is no loss of predictive performance relative to the running DEEPWALK serially (Figure 4b). 4.4 Algorithm Variants Here we discuss some variants of our proposed method, which we believe may be of interest. 4.4.1 Streaming One interesting variant of this method is a streaming ap proach; which could be implemented without knowledge of the entire graph. In this variant small walks from the graph are passed directly to the representation learning code, and the model is updated directly: Some modifications to the learning process will also be necessary: First, using de- a caying learning rate will no longer be possible. Instead, wC can initialize the learning rate a to a small constant value_ This will take longer to learn; but may be worth it in some applications. Second, we cannot necessarily build a tree of parameters any more. If the cardinality of V is known (or can be bounded) , we can build the Hierarchical Softmax tree for that maximum value. Vertices can be assigned to one of the remaining leaves when they are first seen. If we have the ability to estimate the vertex frequency a priori, we can",
+        "confidence": 0.9804017638412543,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 13,
+        "text": "21 # of Workers 22 (a) Running Time Figure 4: Effects of parallelizing DEEPWALK",
+        "confidence": 0.7,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 14,
+        "text": "BlogCatalog Flickr",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 15,
+        "text": "BlogCatalog Flickr",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 19,
+        "text": "also still use Huffman coding to decrease frequent element access times. 4.4.2 Non-random walks Some graphs are created as a by-product of agents inter- acting with a sequence of elements (e.g: users' navigation of pages on website)_ a When a graph is created by such a stream of non-random walks, we can use this process to feed the modeling phase directly: Graphs sampled in this way will not only capture information related to network structure, but also to the frequency at which paths are traversed. In our view this variant also encompasses language mod- eling: Sentences can be viewed as purposed walks through an appropriately designed language network, and language models like SkipGram are designed to capture this behavior. This approach can be combined with the streaming vari- ant (Section 4.4.1) to train features on continually evolv- a ing network without ever explicitly constructing the entire graph. Maintaining representations with this technique could enable web-scale classification without the hassles of dealing with a web-scale graph. 5_ EXPERIMENTAL DESIGN In this section we provide an overview of the datasets and methods which we will use in our experiments. Code and data to reproduce our results will be available at the first author s website. 5.1 Datasets",
+        "confidence": 0.9936758893280633,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "2 U3 U4",
+        "texts": [
+          "2 U3 U4"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 0,
+        "confidence_avg": 0.97,
+        "char_count": 7,
+        "word_count": 3,
+        "confidence_missing": 0.4285714285714286,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 11,
+        "text": "2 2 1 1 22",
+        "texts": [
+          "2 2 1",
+          "1",
+          "22"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.75,
+        "char_count": 8,
+        "word_count": 5,
+        "confidence_missing": 0.33333333333333337,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 12,
+        "text": "23 20",
+        "texts": [
+          "23 20"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 1.0,
+        "char_count": 5,
+        "word_count": 2,
+        "confidence_missing": 0.5555555555555556,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 16,
+        "text": "1 0.02 2 0.01 9 8 0.00 L ~0.01 ~0.02 20",
+        "texts": [
+          "1 0.02",
+          "2 0.01",
+          "9",
+          "8 0.00",
+          "L ~0.01",
+          "~0.02",
+          "20"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.73,
+        "char_count": 33,
+        "word_count": 11,
+        "confidence_missing": 0.6756756756756757,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 18,
+        "text": "21 #of Workers 22 (b) Performance",
+        "texts": [
+          "21 #of Workers 22",
+          "(b) Performance"
+        ],
+        "position": "right",
+        "width_category": "narrow",
+        "y_group_id": 4,
+        "confidence_avg": 0.88,
+        "char_count": 32,
+        "word_count": 6,
+        "confidence_missing": 0.3846153846153846,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# 4.3 Parallelizability\n\nAs shown in Figure 2 the frequency distribution of vertices in random walks of social network and words in a language both follow a power law. This results in a long tail of infrequent vertices; therefore, the updates that affect $ will be sparse in nature. This allows us to use asynchronous version of stochastic gradient descent (ASGD), in the multi-worker case. Given that our updates are sparse and we do not acquire a lock to access the model shared parameters, ASGD will achieve an optimal rate of convergence [36]. While we run experiments on one machine using multiple threads, it has been demonstrated that this technique is highly scalable, and can be used in very large scale machine learning [8]. Figure 4 presents the effects of parallelizing DEEPWALK. It shows the speed up in processing BLOGCATALOG and FLICKR networks is consistent as we increase the number of workers to 8 (Figure 4a). It also shows that there is no loss of predictive performance relative to the running DEEPWALK serially (Figure 4b).\n\n## 4.4 Algorithm Variants\nHere we discuss some variants of our proposed method, which we believe may be of interest.\n\n### 4.4.1 Streaming\nOne interesting variant of this method is a streaming approach, which could be implemented without knowledge of the entire graph. In this variant small walks from the graph are passed directly to the representation learning code, and the model is updated directly: Some modifications to the learning process will also be necessary: First, using a decaying learning rate will no longer be possible. Instead, we can initialize the learning rate to a small constant value. This will take longer to learn; but may be worth it in some applications. Second, we cannot necessarily build a tree of parameters any more. If the cardinality of V is known (or can be bounded), we can build the Hierarchical Softmax tree for that maximum value. Vertices can be assigned to one of the remaining leaves when they are first seen. If we have the ability to estimate the vertex frequency a priori, we can also still use Huffman coding to decrease frequent element access times.\n\n### 4.4.2 Non-random walks\nSome graphs are created as a by-product of agents interacting with a sequence of elements (e.g., users' navigation of pages on a website). When a graph is created by such a stream of non-random walks, we can use this process to feed the modeling phase directly: Graphs sampled in this way will not only capture information related to network structure, but also to the frequency at which paths are traversed. In our view this variant also encompasses language modeling: Sentences can be viewed as purposed walks through an appropriately designed language network, and language models like SkipGram are designed to capture this behavior. This approach can be combined with the streaming variant (Section 4.4.1) to train features on continually evolving network without ever explicitly constructing the entire graph. Maintaining representations with this technique could enable web-scale classification without the hassles of dealing with a web-scale graph.\n\n# 5. EXPERIMENTAL DESIGN\nIn this section we provide an overview of the datasets and methods which we will use in our experiments. Code and data to reproduce our results will be available at the first author's website.\n\n## 5.1 Datasets\n\n(a) Random walk generation:\n\n(b) Representation mapping:\n\n(c) Hierarchical Softmax:\n\nFigure 3: Overview of DEEPWALK. We slide a window of length 2w + 1 over the random walk Wv4, mapping the central vertex v1 to its representation $(v1). Hierarchical Softmax factors out Pr(v3 | (v1)) and Pr(v5 | (v1)) over sequences of probability distributions corresponding to the paths starting at the root and ending at v3 and vs. The representation Φ is updated to maximize the probability of v1 co-occurring with its context {v3, v5}.\n\nFigure 4: Effects of parallelizing DEEPWALK.",
+    "buckets_recovered": [
+      12,
+      18
+    ],
+    "buckets_gibberish": [
+      0,
+      11,
+      16
+    ],
+    "recovery_notes": "Inserted legitimate text from buckets 12 and 18 into the appropriate sections of the markdown. Buckets 0, 11, and 16 were identified as gibberish and not included."
+  }
+}

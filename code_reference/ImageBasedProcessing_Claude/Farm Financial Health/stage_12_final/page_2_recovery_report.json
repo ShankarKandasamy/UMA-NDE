@@ -1,0 +1,28 @@
+{
+  "page_number": "2",
+  "analysis": {
+    "total_buckets": 2,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "CFA FCA Canadian Federation of Agriculture",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "de /'agriculture Federation canadienne",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "buckets_recovered": [],
+    "buckets_gibberish": [],
+    "recovery_notes": "No missing buckets"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "page_number": "1",
+  "analysis": {
+    "total_buckets": 14,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Invoice",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "YesLogic Pty. Ltd. 7 | 39 Bouverie St Carlton VIC 3053 Australia www:yeslogiccom ABN 32 101 193 560",
+        "confidence": 0.9894736842105263,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Customer Name Street Postcode City Country",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Invoice date: Invoice number: Payment due:",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 4,
+        "text": "Description Prince Upgrades & Support Total",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 5,
+        "text": "Nov 26, 2016 161126 30 days after i nvoice date",
+        "confidence": 0.8,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 6,
+        "text": "From Nov 26, 2016",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Until Nov 26, 2017",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Amount USD S950.00 USD S950.00",
+        "confidence": 0.75,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 9,
+        "text": "Please transfer amount to:",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 10,
+        "text": "Bank account name: Name of Bank: Bank State Branch (BSB): Bank State Branch (BSB): Bank State Branch (BSB): Bank account number: Bank SWIFT code: Bank address:",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 11,
+        "text": "The BSB number identifies a branch of a financial institutior 1 in Australia: When transferring money to Australia, the BSB number is used together with the bank account number and the SWIFT code. Australian banks do not use IBAN numbers.",
+        "confidence": 0.9914163090128756,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 12,
+        "text": "Yes Logic Pty td Commonwealt h Bank of Australia (CBA) 063010 063010 063019 13201652 CTBAAU2S 231 Swanston St, Melbourne, VIC 3000, Australia",
+        "confidence": 0.8421052631578947,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 13,
+        "text": "ogic com",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "buckets_recovered": [],
+    "buckets_gibberish": [],
+    "recovery_notes": "No missing buckets"
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "pdf_path": "C:\\Users\\shank\\OneDrive\\Destiny\\Uma\\UmaAI\\RAG_proto_Claude\\docs\\Farm Financial Health.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-21T22:01:48.571028",
+  "total_pages": 8,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 13,
+    "Section-header": 0,
+    "Table": 0,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 1963,
+            "y1": 2820,
+            "x2": 2214,
+            "y2": 3139
+          },
+          "left_edge": 77,
+          "top_edge": 85,
+          "right_edge": 87,
+          "bottom_edge": 95,
+          "confidence": 0.7979499101638794,
+          "file_path": "picture\\page_1_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 340,
+            "y1": 2811,
+            "x2": 1526,
+            "y2": 3146
+          },
+          "left_edge": 13,
+          "top_edge": 85,
+          "right_edge": 60,
+          "bottom_edge": 95,
+          "confidence": 0.7837855815887451,
+          "file_path": "picture\\page_1_picture_1.png"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": []
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 214,
+            "y1": 3034,
+            "x2": 779,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 92,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.6337893605232239,
+          "file_path": "picture\\page_3_picture_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 215,
+            "y1": 3055,
+            "x2": 778,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.5979306697845459,
+          "file_path": "picture\\page_4_picture_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 213,
+            "y1": 3055,
+            "x2": 778,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.7914476990699768,
+          "file_path": "picture\\page_5_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 48,
+            "y1": 1829,
+            "x2": 2456,
+            "y2": 3063
+          },
+          "left_edge": 2,
+          "top_edge": 55,
+          "right_edge": 96,
+          "bottom_edge": 93,
+          "confidence": 0.5196570158004761,
+          "file_path": "picture\\page_5_picture_1.png"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 212,
+            "y1": 3056,
+            "x2": 777,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 30,
+          "bottom_edge": 97,
+          "confidence": 0.9078896641731262,
+          "file_path": "picture\\page_6_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 2550,
+            "y2": 1356
+          },
+          "left_edge": 0,
+          "top_edge": 0,
+          "right_edge": 100,
+          "bottom_edge": 41,
+          "confidence": 0.6907163858413696,
+          "file_path": "picture\\page_6_picture_1.png"
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 239,
+            "y1": 534,
+            "x2": 2270,
+            "y2": 1713
+          },
+          "left_edge": 9,
+          "top_edge": 16,
+          "right_edge": 89,
+          "bottom_edge": 52,
+          "confidence": 0.9399765133857727,
+          "file_path": "picture\\page_7_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 212,
+            "y1": 3056,
+            "x2": 776,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 30,
+          "bottom_edge": 97,
+          "confidence": 0.9052168130874634,
+          "file_path": "picture\\page_7_picture_1.png"
+        },
+        {
+          "type": "Picture",
+          "index": 2,
+          "bbox": {
+            "x1": 579,
+            "y1": 2023,
+            "x2": 1961,
+            "y2": 2719
+          },
+          "left_edge": 23,
+          "top_edge": 61,
+          "right_edge": 77,
+          "bottom_edge": 82,
+          "confidence": 0.8564717173576355,
+          "file_path": "picture\\page_7_picture_2.png"
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 255,
+            "y1": 2099,
+            "x2": 2285,
+            "y2": 3051
+          },
+          "left_edge": 10,
+          "top_edge": 64,
+          "right_edge": 90,
+          "bottom_edge": 92,
+          "confidence": 0.9055002927780151,
+          "file_path": "picture\\page_8_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 314,
+            "y1": 499,
+            "x2": 2084,
+            "y2": 1373
+          },
+          "left_edge": 12,
+          "top_edge": 15,
+          "right_edge": 82,
+          "bottom_edge": 42,
+          "confidence": 0.781024694442749,
+          "file_path": "picture\\page_8_picture_1.png"
+        }
+      ]
+    }
+  ]
+}

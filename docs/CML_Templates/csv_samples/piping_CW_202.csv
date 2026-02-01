@@ -1,0 +1,19 @@
+Circuit_ID,CML,Component,NPS,Schedule,Nominal_mm,t_min_mm,Reading_1,Reading_2,Reading_3,Reading_4,Min_mm,Prev_mm,Prev_Date,Corr_Rate_mm_yr,Remaining_Life_yr,Condition,Service,Material
+CW-202,001,Tee-Run,4,80,6.02,3.01,5.34,5.34,5.24,5.36,5.24,5.38,2025-01-18,0.08,27.9,Good,Cooling Water Return,A53 Gr.B
+CW-202,002,90° Elbow,6,80,7.11,3.56,5.92,5.91,6.03,5.91,5.91,6.04,2025-01-18,0.07,33.6,Good,Cooling Water Return,A53 Gr.B
+CW-202,003,Weldolet,6,80,7.11,3.56,5.89,5.74,,,5.74,5.88,2025-01-18,0.07,31.2,Good,Cooling Water Return,A53 Gr.B
+CW-202,004,Straight,8,40,8.18,4.09,6.39,6.41,,,6.39,6.6,2025-01-18,0.1,23.0,Good,Cooling Water Return,A53 Gr.B
+CW-202,005,45° Elbow,6,80,7.11,3.56,5.66,5.68,,,5.66,5.9,2025-01-18,0.11,19.1,Fair,Cooling Water Return,A53 Gr.B
+CW-202,006,Control Valve,4,80,6.02,3.01,5.04,4.99,4.95,4.89,4.89,5.12,2025-01-18,0.11,17.1,Fair,Cooling Water Return,A53 Gr.B
+CW-202,007,90° Elbow,4,80,6.02,3.01,5.11,4.96,5.09,5.07,4.96,5.11,2025-01-18,0.08,24.4,Good,Cooling Water Return,A53 Gr.B
+CW-202,008,Straight,6,80,7.11,3.56,5.99,5.77,,,5.77,5.91,2025-01-18,0.06,36.9,Good,Cooling Water Return,A53 Gr.B
+CW-202,009,90° Elbow,4,80,6.02,3.01,5.21,5.35,5.39,5.22,5.21,5.45,2025-01-18,0.12,18.3,Fair,Cooling Water Return,A53 Gr.B
+CW-202,010,45° Elbow,6,80,7.11,3.56,6.28,6.06,,,6.06,6.18,2025-01-18,0.05,50.1,Good,Cooling Water Return,A53 Gr.B
+CW-202,011,Flange,6,80,7.11,3.56,6.32,6.27,,,6.27,6.51,2025-01-18,0.11,24.7,Good,Cooling Water Return,A53 Gr.B
+CW-202,012,Tee-Branch,3,80,5.49,2.75,4.23,4.32,4.31,4.25,4.23,4.31,2025-01-18,0.03,49.5,Good,Cooling Water Return,A53 Gr.B
+CW-202,013,Tee-Branch,2,80,3.91,1.96,3.42,3.18,3.44,3.42,3.18,3.28,2025-01-18,0.05,24.5,Good,Cooling Water Return,A53 Gr.B
+CW-202,014,Control Valve,2,80,3.91,1.96,3.24,3.13,3.11,3.14,3.11,3.2,2025-01-18,0.06,19.2,Fair,Cooling Water Return,A53 Gr.B
+CW-202,015,Weldolet,6,80,7.11,3.56,6.17,6.15,,,6.15,6.27,2025-01-18,0.07,37.1,Good,Cooling Water Return,A53 Gr.B
+CW-202,016,Tee-Run,4,80,6.02,3.01,5.01,4.92,5.01,4.83,4.83,4.92,2025-01-18,0.06,30.3,Good,Cooling Water Return,A53 Gr.B
+CW-202,017,Reducer,6,80,7.11,3.56,5.83,5.96,,,5.83,5.95,2025-01-18,0.07,32.5,Good,Cooling Water Return,A53 Gr.B
+CW-202,018,Straight,8,40,8.18,4.09,6.78,6.81,,,6.78,6.95,2025-01-18,0.09,29.9,Good,Cooling Water Return,A53 Gr.B

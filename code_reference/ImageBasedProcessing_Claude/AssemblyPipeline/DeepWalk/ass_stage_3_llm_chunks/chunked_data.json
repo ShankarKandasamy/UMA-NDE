@@ -1,0 +1,339 @@
+{
+  "document": "DeepWalk",
+  "total_pages": 6,
+  "total_batches": 3,
+  "total_chunks": 45,
+  "batches": [
+    {
+      "batch_id": 1,
+      "pages": [
+        1,
+        2
+      ],
+      "chunks": [
+        {
+          "chunk_id": 1,
+          "content": "# DeepWalk: Online Learning of Social Representations\n\nBryan Perozzi  \nStony Brook University  \nDepartment of Computer Science  \n\nRami Al-Rfou  \nStony Brook University  \nDepartment of Computer Science  \n\nSteven Skiena  \nStony Brook University  \nDepartment of Computer Science  \n\n{bperozzi, ralrfou, skiena}@cs.stonybrook.edu  \n\n## ABSTRACT\nWe present DEEPWALK, a novel approach for learning latent representations of vertices in a network. These latent representations encode social relations in a continuous vector space, which is easily exploited by statistical models. DEEPWALK generalizes recent advancements in language modeling and unsupervised feature learning (or deep learning) from sequences of words to graphs: DEEPWALK uses local information obtained from truncated random walks to learn latent representations by treating walks as the equivalent of sentences. We demonstrate DEEPWALK's latent representations on several multi-label network classification tasks for social networks such as BlogCatalog, Flickr, and YouTube. Our results show that DEEPWALK outperforms challenging baselines which are allowed a global view of the network, especially in the presence of missing information.",
+          "char_count": 889,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 2,
+          "content": "DEEPWALK's representations can provide significant improvements when labeled data is sparse. In some experiments, DEEPWALK's representations are able to outperform all baseline methods while using 60% less training data. DEEPWALK is also scalable. It is an online learning algorithm which builds useful incremental results; and is trivially parallelizable. These qualities make it suitable for broad a class of real world applications such as network classification, and anomaly detection:\n\n## Categories and Subject Descriptors\nH.2.8 [Database Management]: Database Applications; Data Mining; I.2.6 [Artificial Intelligence]: Learning; I.5.1 [Pattern Recognition]: Model - Statistical",
+          "char_count": 797,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 3,
+          "content": "## 1. INTRODUCTION\nThe sparsity of a network representation is both a strength and a weakness. Sparsity enables the design of efficient discrete algorithms, but can make it harder to generalize in statistical learning. Machine learning applications in networks (such as network classification, content recommendation, anomaly detection, and missing link prediction) must be able to deal with this sparsity in order to survive.\n\nIn this paper we introduce deep learning (unsupervised feature learning) techniques, which have proven successful in natural language processing, into network analysis for the first time. We develop an algorithm (DEEPWALK) that learns social representations of a graph's vertices by modeling a stream of short random walks.",
+          "char_count": 834,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 4,
+          "content": "Social representations are latent features of the vertices that capture neighborhood similarity and community membership. These latent representations encode social relations in a continuous vector space with a relatively small number of dimensions. DEEPWALK generalizes neural language models to process a special language composed of a set of randomly-generated walks. These neural language models have been used to capture the semantic and syntactic structure of human language and even logical analogies.\n\nDEEPWALK takes a graph as input and produces a latent representation as an output. The result of applying our method to the well-studied Karate network is shown in Figure 1. The graph, as typically presented by force-directed layouts, is shown in Figure 1a.",
+          "char_count": 860,
+          "semantic_type": "section/figure"
+        },
+        {
+          "chunk_id": 5,
+          "content": "Figure 1b shows the output of our method with 2 latent dimensions. Beyond the striking similarity, we note that linearly separable portions of (1b) correspond to clusters found through modularity maximization in the input graph (1a) (shown as vertex colors).\n\n> Figure 1: Our proposed method learns a latent space representation of social interactions in R². The learned representation encodes community structure so it can be easily exploited by standard classification methods. Here, our method is used on Zachary's Karate network to generate a latent representation in R². Note the correspondence between community structure in the input graph and the embedding: Vertex colors represent a modularity-based clustering of the input graph.",
+          "char_count": 861,
+          "semantic_type": "figure"
+        },
+        {
+          "chunk_id": 6,
+          "content": "In relational classification problems, the links between feature vectors violate the traditional i.i.d. assumption. Techniques to address this problem typically use approximate inference techniques to leverage the dependency information to improve classification results. We distance ourselves from these approaches by learning label-independent representations of the graph: Our representation quality is not influenced by the choice of labeled vertices, so they can be shared among tasks. DEEPWALK outperforms other latent representation methods for creating social dimensions, especially when labeled nodes are scarce.",
+          "char_count": 843,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 7,
+          "content": "Strong performance with our representations is possible with very simple linear classifiers (e.g: logistic regression). Our representations are general, and can be combined with any classification method (including iterative inference methods). DEEPWALK achieves all of that while being an online algorithm that is trivially parallelizable.\n\nOur contributions are as follows:\n\n- We introduce deep learning as a tool to analyze graphs, to build robust representations that are suitable for statistical modeling: DEEPWALK learns structural regularities present within short random walks.",
+          "char_count": 856,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 8,
+          "content": "- We extensively evaluate our representations on multi-label classification tasks on several social networks. We show significantly increased classification performance in the presence of label sparsity, getting improvements of 5%-10% of Micro F1, on the sparsest problems we consider. DEEPWALK outperforms its competitors even when given 60% less training data.\n\nWe demonstrate the scalability of our algorithm by building representations of web-scale graphs, (such as YouTube) using a parallel implementation.",
+          "char_count": 848,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 9,
+          "content": "Moreover, we describe the minimal changes necessary to build a streaming version of our approach. The rest of the paper is arranged as follows. In Sections 2 and 3, we discuss the problem formulation of classification in data networks, and how it relates to our work. In Section 4 we present DEEPWALK, our approach for Social Representation Learning. We outline our experiments in Section 5, and present their results in Section 6. We close with a discussion of related work in Section 7, and our conclusions.",
+          "char_count": 830,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 10,
+          "content": "## 2. PROBLEM DEFINITION\nWe consider the problem of classifying members of a social network into one or more categories. More formally, let G = (V,E), where V are the members of the network; and E be its edges, E = (V x V). Given partially labeled social network G_L = (V, E, X, Y), with attributes X ∈ R^{|V| x s} where s is the size of the feature space for each attribute vector; and Y ∈ R^{|V| x |X|} is the set of labels. In a traditional machine learning classification setting, we aim to learn a hypothesis H that maps elements of X to the labels set Y.",
+          "char_count": 861,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 11,
+          "content": "In our case, we can utilize the significant information about the dependence of the examples embedded in the structure of G to achieve superior performance. In the literature, this is known as the relational classification (or the collective classification problem). Traditional approaches to relational classification pose the problem as an inference in an undirected Markov network, and then use iterative approximate inference algorithms to compute the posterior distribution of labels given the network structure.\n\nWe propose a different approach to capture the network topology information.",
+          "char_count": 855,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 12,
+          "content": "Instead of mixing the label space as part of the feature space, we propose an unsupervised method which learns features that capture the graph structure independent of the labels' distribution. This separation between the structural representation and the labeling task avoids cascading errors, which can occur in iterative methods. Moreover, the same representation can be used for multiple classification problems concerning that network.\n\nOur goal is to learn X_E ∈ R^{|V| x d} where d is a small number of latent dimensions. These low-dimensional representations are distributed; meaning each social phenomenon is expressed by a subset of the dimensions and each dimension contributes to a subset of the social concepts expressed by the space.",
+          "char_count": 860,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 13,
+          "content": "Using these structural features, we will augment the attributes space to help the classification decision. These features are general, and can be used with any classification algorithm (including iterative methods). However, we believe that the greatest utility of these features is their easy integration with simple machine learning algorithms. They scale appropriately in real-world networks, as we will show in Section 6.\n\n## 3. LEARNING SOCIAL REPRESENTATIONS\nWe seek learning social representations with the following characteristics:",
+          "char_count": 860,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 14,
+          "content": "- **Adaptability**: Real social networks are constantly evolving; new social relations should not require repeating the learning process all over again.\n- **Community aware**: The distance between latent dimensions should represent a metric for evaluating social similarity between the corresponding members of the network. This allows generalization in networks with homophily.\n- **Low dimensional**: When labeled data is scarce, low-dimensional models generalize better, and speed up convergence and inference.\n- **Continuous**: We require latent representations to model partial community membership in continuous space.",
+          "char_count": 861,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 15,
+          "content": "In addition to providing a nuanced view of community membership, a continuous representation has smooth decision boundaries between communities which allows more robust classification. Our method for satisfying these requirements learns representation for vertices from a stream of short random walks, using optimization techniques originally designed for language modeling. Here, we review the basics of both random walks and language modeling, and describe how their combination satisfies our requirements.",
+          "char_count": 860,
+          "semantic_type": "section"
+        }
+      ],
+      "metadata": {
+        "model": "gpt-4o-mini",
+        "timestamp": "2025-12-23T16:19:03.852248",
+        "prompt_tokens": 2246,
+        "completion_tokens": 2407,
+        "total_tokens": 4653,
+        "target_range": {
+          "min_chunks": 11,
+          "max_chunks": 15
+        }
+      }
+    },
+    {
+      "batch_id": 2,
+      "pages": [
+        3,
+        4
+      ],
+      "chunks": [
+        {
+          "chunk_id": 1,
+          "content": "# Frequency of Vertex Occurrence in Short Random Walks\n\n## 103\n\"5 102 #\n101\n109\n109\n\n### 101\n\n### Vertex visitation count\n102 103 10\"\n(a) YouTube Social Graph\n\n### 105\n\n### 106\n#### Frequency of Word Occurrence in Wikipedia\n105\n10'\n1 103\n# 102\n101\n109\n109 101 102 103 10' 105 106 107\nWord mention count\n(b) Wikipedia Article Text\n\n## Figure 2: The power-law distribution of vertices appearing in short random walks (2a) follows power-law, much like the distribution of words in natural language (2b).",
+          "char_count": 863,
+          "semantic_type": "mixed"
+        },
+        {
+          "chunk_id": 2,
+          "content": "### 3.1 Random Walks\nWe denote a random walk rooted at vertex \\( U_i \\) as \\( W_{v_i} \\). It is a stochastic process with random variables \\( W_1, W_2, \\ldots, W_k \\) such that \\( W_k \\) is a vertex chosen at random from the neighbors of vertex \\( U_k \\). Random walks have been used as a similarity measure for a variety of problems in content recommendation [11] and community detection [1]. They are also the foundation of a class of output sensitive algorithms which use them to compute local community structure information in time sublinear to the size of the input graph [38].",
+          "char_count": 792,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 3,
+          "content": "It is this connection to local structure that motivates us to use a stream of short random walks as our basic tool for extracting information from a network. In addition to capturing community information, using random walks as the basis for our algorithm gives us two other desirable properties. First, local exploration is easy to parallelize: Several random walkers (in different threads, processes, or machines) can simultaneously explore different parts of the same graph. Secondly, relying on information obtained from short random walks makes it possible to accommodate small changes in the graph structure without the need for global recomputation.",
+          "char_count": 859,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 4,
+          "content": "### 3.2 Connection: Power laws\nHaving chosen online random walks as our primitive for capturing graph structure, we now need a suitable method to capture this information: If the degree distribution of a connected graph follows a power law (is scale-free), we observe that the frequency with which vertices appear in the short random walks will also follow a power-law distribution. Word frequency in natural language follows a similar distribution, and techniques from language modeling account for this distributional behavior.",
+          "char_count": 853,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 5,
+          "content": "To emphasize this similarity we show two different power-law distributions in Figure 2. The first comes from a series of short random walks on a scale-free graph, and the second comes from the text of 100,000 articles from the English Wikipedia. A core contribution of our work is the idea that techniques which have been used to model natural language (where the symbol frequency follows a power law distribution (or Zipf's law)) can be repurposed to model community structure in networks.",
+          "char_count": 868,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 6,
+          "content": "### 3.3 Language Modeling\nThe goal of language modeling is to estimate the likelihood of a specific sequence of words appearing in a corpus. More formally, given a sequence of words\n\n$$ W_n = (w_0, w_1, \\ldots, w_n) $$\nwhere \\( w_i \\in V \\) (V is the vocabulary), we would like to maximize the \\( Pr(w_n | w_0, U_1, \\ldots, w_{n-1}) \\) over all the training corpus. Recent work in representation learning has focused on using probabilistic neural networks to build general representations of words which extend the scope of language modeling beyond its original goals.",
+          "char_count": 867,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 7,
+          "content": "In this work, we present a generalization of language modeling to explore the graph through a stream of short random walks. These walks can be thought of as short sentences and phrases in a special language. The direct analog is to estimate the likelihood of observing vertex \\( U_i \\) given all the previous vertices visited so far in the random walk.\n\n$$ Pr(w_n | (v_1, v_2, \\ldots, v_{n-1})) $$",
+          "char_count": 807,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 8,
+          "content": "Our goal is to learn a latent representation, not only a probability distribution of node co-occurrences, and so we introduce a mapping function \\( \\phi: V \\to \\mathbb{R}^{l \\times d} \\). This mapping \\( \\phi \\) represents the latent social representation associated with each vertex \\( U \\) in the graph. (In practice, we represent \\( \\phi \\) by a \\( |V| \\times d \\) matrix of free parameters, which will serve later on as our \\( XE \\).) The problem then, is to estimate the likelihood:\n\n$$ \\text{(1)} $$",
+          "char_count": 866,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 9,
+          "content": "However, as the walk length grows, computing this objective function becomes unfeasible. A recent relaxation in language modeling [26, 27] turns the prediction problem on its head. First, instead of using the context to predict a missing word, it uses one word to predict the context. Secondly, the context is composed of the words appearing to the right side of the given word as well as the left side.",
+          "char_count": 829,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 10,
+          "content": "Finally, it removes the ordering constraint on the problem: Instead, the model is required to maximize the probability of any word appearing in the context without the knowledge of its offset from the given word:\n\nIn terms of vertex representation modeling, this yields the optimization problem:\n\n$$ \\text{minimize } \\phi $$\n$$ - \\log Pr(t_i | (v_{i-1}, v_{i+1}, \\ldots, v_{i+w})) | \\phi(v_i) $$",
+          "char_count": 860,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 11,
+          "content": "We find these relaxations are particularly desirable for social representation learning: First, the order independence assumption better captures a sense of 'nearness' that is provided by random walks. Moreover, this relaxation is quite useful for speeding up the training time by building small models as one vertex is given at a time. Solving the optimization problem from Eq. (2) builds representations that capture the shared similarities in local graph structure between vertices.",
+          "char_count": 868,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 12,
+          "content": "Vertices which have similar neighborhoods will acquire similar representations (encoding co-citation similarity), allowing generalization on machine learning tasks. By combining both truncated random walks and neural language models, we formulate a method which satisfies all. \n\n# Algorithm 1 DEEPWALK(G, d, γ, t)\n\n**Input:** graph G(V, E)  \n**window size** W  \n**embedding size** d  \n**walks per vertex** γ  \n**walk length** t  \n\n**Output:** matrix of vertex representations Φ ∈ ℝ|V|×d  \n1: Initialization: Sample Φ from U|V|×d  \n2: Build a binary Tree T from V  \n3: for i = 0 to γ do  \n4:  0 = Shuffle(Φ)  \n5: for each v_i ∈ V do  \n6:  W_vi = RandomWalk(G, v_i, t)  \n7:  SkipGram(Φ, W_vi, w)  \n8: end for  \n9: end for  \n\n---",
+          "char_count": 883,
+          "semantic_type": "mixed"
+        },
+        {
+          "chunk_id": 13,
+          "content": "of our desired properties. This method generates representations of social networks that are low-dimensional; and exist in a continuous vector space. Its representations encode latent forms of community membership, and because the method outputs useful intermediate representations, it can adapt to changing network topology:\n\n## 4 METHOD  \nIn this section we discuss the main components of our algorithm. We also present several variants of our approach and discuss their merits.",
+          "char_count": 855,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 14,
+          "content": "### 4.1 Overview  \nAs in any language modeling algorithm, the only required input is a corpus and a vocabulary V. DEEPWALK considers a set of short truncated random walks its own corpus, and the graph vertices as its own vocabulary. It is beneficial to know the V and the frequency distribution of vertices in the random walks ahead of the training; it is not necessary for the algorithm to work as we will show in 4.2.2.",
+          "char_count": 849,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 15,
+          "content": "### 4.2 Algorithm: DEEPWALK  \nThe algorithm consists of two main components; first a random walk generator and second an update procedure. The random walk generator takes a graph G and samples uniformly random a vertex U_i as the root of the random walk W_vi. A walk samples uniformly from the neighbors of the last vertex visited until the maximum length (t) is reached. While we set the length of our random walks in the experiments to be fixed, there is no restriction for the random walks to be of the same length: These walks could have restarts (i.e. a teleport probability of returning back to their root), but our preliminary results did not show any advantage of using restarts.",
+          "char_count": 883,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 16,
+          "content": "In practice, our implementation specifies a number of random walks Y of length t to start at each vertex. Lines 3-9 in Algorithm 1 shows the core of our approach: The outer loop specifies the number of times, Y, which we should start random walks at each vertex. We think of each iteration making a pass over the data and sample one walk per node during this pass. At the start of each pass we generate a random ordering to traverse the vertices. This is not strictly required, but is well-known to speed up the convergence of stochastic gradient descent.",
+          "char_count": 860,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 17,
+          "content": "### Algorithm 2 SkipGram(Φ, W_vi, w)  \n1: for each v_j ∈ W_vi do  \n2: for each U_k ∈ W_vi[j - w : j + w] do  \n3:  J(Φ) = - log Pr(U_k | Φ(v_j))  \n4:  Φ = Φ - α * ∂J(Φ)  \n5: end for  \n6: end for  \n\nIn the inner loop, we iterate over all the vertices of the graph. For each vertex v_i, we generate a random walk W_vi = t, and then use it to update our representations (Line 7). We use the SkipGram algorithm [26] to update these representations in accordance with our objective function in Eq. 2.",
+          "char_count": 872,
+          "semantic_type": "mixed"
+        },
+        {
+          "chunk_id": 18,
+          "content": "#### 4.2.1 SkipGram  \nSkipGram is a language model that maximizes the co-occurrence probability among the words that appear within a window, W, in a sentence [26]. Algorithm 2 iterates over all possible collocations in random walk that appear within the window w (lines 1-2). For each, we map each vertex U_j to its current representation vector Φ(U_j) ∈ ℝ^d (See Figure 3b). Given the representation of U_j, we would like to maximize the probability of its neighbors in the walk (line 3).",
+          "char_count": 855,
+          "semantic_type": "section"
+        }
+      ],
+      "metadata": {
+        "model": "gpt-4o-mini",
+        "timestamp": "2025-12-23T16:20:59.010427",
+        "prompt_tokens": 3124,
+        "completion_tokens": 2863,
+        "total_tokens": 5987,
+        "target_range": {
+          "min_chunks": 14,
+          "max_chunks": 18
+        }
+      }
+    },
+    {
+      "batch_id": 3,
+      "pages": [
+        5,
+        6
+      ],
+      "chunks": [
+        {
+          "chunk_id": 1,
+          "content": "# 4.3 Parallelizability\n\nAs shown in Figure 2, the frequency distribution of vertices in random walks of social networks and words in a language both follow a power law. This results in a long tail of infrequent vertices; therefore, the updates that affect the model will be sparse in nature. This allows us to use an asynchronous version of stochastic gradient descent (ASGD) in the multi-worker case. Given that our updates are sparse and we do not acquire a lock to access the model's shared parameters, ASGD will achieve an optimal rate of convergence. While we run experiments on one machine using multiple threads, it has been demonstrated that this technique is highly scalable and can be used in very large-scale machine learning. Figure 4 presents the effects of parallelizing DEEPWALK, showing consistent speedup in processing BLOGCATALOG and FLICKR networks as we increase the number of workers to 8.",
+          "char_count": 855,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 2,
+          "content": "## 4.4 Algorithm Variants\nHere we discuss some variants of our proposed method, which we believe may be of interest.\n\n### 4.4.1 Streaming\nOne interesting variant of this method is a streaming approach, which could be implemented without knowledge of the entire graph. In this variant, small walks from the graph are passed directly to the representation learning code, and the model is updated directly. Some modifications to the learning process will also be necessary: First, using a decaying learning rate will no longer be possible. Instead, we can initialize the learning rate to a small constant value. This will take longer to learn but may be worth it in some applications. Second, we cannot necessarily build a tree of parameters anymore.",
+          "char_count": 855,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 3,
+          "content": "If the cardinality of V is known (or can be bounded), we can build the Hierarchical Softmax tree for that maximum value. Vertices can be assigned to one of the remaining leaves when they are first seen. If we have the ability to estimate the vertex frequency a priori, we can also still use Huffman coding to decrease frequent element access times.\n\n### 4.4.2 Non-random walks\nSome graphs are created as a by-product of agents interacting with a sequence of elements (e.g., users' navigation of pages on a website). When a graph is created by such a stream of non-random walks, we can use this process to feed the modeling phase directly: Graphs sampled in this way will not only capture information related to network structure but also to the frequency at which paths are traversed.",
+          "char_count": 853,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 4,
+          "content": "In our view, this variant also encompasses language modeling: Sentences can be viewed as purposed walks through an appropriately designed language network, and language models like SkipGram are designed to capture this behavior. This approach can be combined with the streaming variant to train features on a continually evolving network without ever explicitly constructing the entire graph. Maintaining representations with this technique could enable web-scale classification without the hassles of dealing with a web-scale graph.\n\n# 5. EXPERIMENTAL DESIGN\nIn this section, we provide an overview of the datasets and methods which we will use in our experiments. Code and data to reproduce our results will be available at the first author's website.",
+          "char_count": 857,
+          "semantic_type": "section"
+        },
+        {
+          "chunk_id": 5,
+          "content": "## 5.1 Datasets\n\n| Name       | BLOGCATALOG | FLICKR     | YouTUBE    |\n|------------|--------------|------------|-------------|\n| |V|        | 10,312       | 80,513     | 1,138,499   |\n| |E|        | 333,983      | 5,899,882  | 2,990,443   |\n| |D|        | 39           | 195        | 47          |\n| Labels     | 1,138,499    | 47         |             |\n\n> Table 1: Graphs used in our experiments.\n\nAn overview of the graphs we consider in our experiments is given in Figure 1. BLOGCATALOG is a network of social relationships provided by blogger authors, where the labels represent the topic categories provided by the authors.",
+          "char_count": 873,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 6,
+          "content": "FLICKR is a network of the contacts between users of the photo-sharing website, with labels representing the interest groups of the users, such as 'black and white photos'. YouTUBE is a social network between users of the popular video-sharing website, where labels represent groups of viewers that enjoy common video genres (e.g., anime and wrestling).\n\n## 5.2 Baseline Methods\nTo validate the performance of our approach, we compare it against a number of baselines: SpectralClustering generates a representation in ℝ^d from the d-smallest eigenvectors of L, the normalized graph Laplacian of G. Utilizing the eigenvectors of L will be useful for classification.",
+          "char_count": 868,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 7,
+          "content": "- **Modularity**: This method generates a representation in ℝ^d from the top-d eigenvectors of B, the Modularity matrix of G. The eigenvectors of B encode information about modular graph partitions of G. Using them as features assumes that modular graph partitions will be useful for classification.\n- **EdgeCluster**: This method uses k-means clustering to cluster the adjacency matrix of G. It has been shown to perform comparably to the Modularity method, with the added advantage of scaling to graphs that are too large for spectral decomposition.",
+          "char_count": 860,
+          "semantic_type": "mixed"
+        },
+        {
+          "chunk_id": 8,
+          "content": "- **wvRN**: The weighted-vote Relational Neighbor is a relational classifier. Given the neighborhood N_i of vertex U_i, wvRN estimates Pr(y_i|N_i) with the (appropriately normalized) weighted mean of its neighbors. It has shown surprisingly good performance in real networks and has been advocated as a sensible relational classification baseline.\n- **Majority**: This naive method simply chooses the most frequent labels in the training set.\n\n## 6. EXPERIMENTS\nIn this section, we present an experimental analysis of our method. We thoroughly evaluate it on a number of multi-label classification tasks and analyze its sensitivity across several parameters.",
+          "char_count": 860,
+          "semantic_type": "mixed"
+        },
+        {
+          "chunk_id": 9,
+          "content": "### 6.1 Multi-Label Classification\nTo facilitate the comparison between our method and the relevant baselines, we use the exact same datasets and experimental procedure as in previous studies. Specifically, we randomly sample a portion (TR) of the labeled nodes and use them as training data. The rest of the nodes are used as test. We repeat this process 10 times and report the average performance in terms of both Macro-F1 and Micro-F1. When possible, we report the original results here directly.\n\nFor all models, we use a one-vs-rest logistic regression implemented by LibLinear for classification. We present results for DEEPWALK with (γ = 80, W = 10, d = 128).",
+          "char_count": 872,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 10,
+          "content": "The results for (SpectralClustering, Modularity, EdgeCluster) use Tang and Liu's preferred dimensionality; d = 500.\n\n#### 6.1.1 BlogCatalog\nIn this experiment, we increase the training ratio (TR) on the BLOGCATALOG network from 10% to 90%. Our results are presented in Table 2. Numbers in bold represent the highest performance in each column. DEEPWALK performs consistently better than EdgeCluster, Modularity, and wvRN. In fact, when trained with only 20% of the nodes labeled, DEEPWALK performs better than these approaches when they are given 90% of the data.",
+          "char_count": 872,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 11,
+          "content": "The performance of SpectralClustering proves much more competitive, but DEEPWALK still outperforms when labeled data is sparse on both Macro-F1 (TR < 20%) and Micro-F1 (TR < 60%). This strong performance when only small fractions of the graph are labeled is a core strength of our approach. In the following experiments, we investigate the performance of our representations on even more sparsely labeled graphs.\n\n#### 6.1.2 Flickr\nIn this experiment, we vary the training ratio (TR) on the FLICKR network from 1% to 10%. This corresponds to having approximately 800 to 8,000 nodes labeled for classification in the entire network.",
+          "char_count": 867,
+          "semantic_type": "subsection"
+        },
+        {
+          "chunk_id": 12,
+          "content": "Table 3 presents our results, which are consistent with the previous experiment. DEEPWALK outperforms all baselines by at least 3% with respect to Micro-F1. Additionally, its Micro-F1 performance when only 3% of the graph is labeled beats all other methods even when they have been given 10% of the data: In other words, DEEPWALK can outperform the baselines with 60% less training data. It also performs quite well in Macro-F1, initially performing close to SpectralClustering, but distancing itself to a 1% improvement.\n\n#### 6.1.3 YouTube\nThe YouTube network is considerably larger than the previous ones we have experimented on, and its size prevents two of our baseline methods from running on it.",
+          "char_count": 873,
+          "semantic_type": "subsection"
+        }
+      ],
+      "metadata": {
+        "model": "gpt-4o-mini",
+        "timestamp": "2025-12-23T16:21:39.087001",
+        "prompt_tokens": 2744,
+        "completion_tokens": 2241,
+        "total_tokens": 4985,
+        "target_range": {
+          "min_chunks": 12,
+          "max_chunks": 16
+        }
+      }
+    }
+  ],
+  "generated_at": "2025-12-23T16:21:39.089002"
+}

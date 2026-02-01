@@ -1,0 +1,78 @@
+{
+  "quadrant_name": "bottom_right",
+  "page_number": 2,
+  "source_image": "page_2_bottom_right_Farm Financial Health.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 1275,
+  "offset_y": 1650,
+  "crop_box": [
+    1275,
+    1650,
+    2550,
+    3300
+  ],
+  "total_blocks": 4,
+  "min_x": 2550,
+  "max_x": 3601,
+  "min_y": 5733,
+  "max_y": 6191,
+  "blocks": [
+    {
+      "text": "FCA",
+      "start_x": 2795,
+      "end_x": 3421,
+      "start_y": 5733,
+      "end_y": 6017,
+      "mid_x": 3108,
+      "mid_y": 5875,
+      "mid_y_x": 5930.9,
+      "height": 284,
+      "confidence": 0.9998377800230741,
+      "char_count": 3,
+      "word_count": 1
+    },
+    {
+      "text": "L",
+      "start_x": 2550,
+      "end_x": 2634,
+      "start_y": 6012,
+      "end_y": 6155,
+      "mid_x": 2592,
+      "mid_y": 6084,
+      "mid_y_x": 6135.0,
+      "height": 143,
+      "confidence": 0.006337928470339316,
+      "char_count": 1,
+      "word_count": 1
+    },
+    {
+      "text": "Federation canadienne",
+      "start_x": 2802,
+      "end_x": 3601,
+      "start_y": 6008,
+      "end_y": 6099,
+      "mid_x": 3202,
+      "mid_y": 6054,
+      "mid_y_x": 6110.04,
+      "height": 91,
+      "confidence": 0.9654939510723181,
+      "char_count": 21,
+      "word_count": 2
+    },
+    {
+      "text": "de /'agriculture",
+      "start_x": 2799,
+      "end_x": 3332,
+      "start_y": 6088,
+      "end_y": 6191,
+      "mid_x": 3066,
+      "mid_y": 6140,
+      "mid_y_x": 6195.98,
+      "height": 103,
+      "confidence": 0.8667993935046316,
+      "char_count": 16,
+      "word_count": 2
+    }
+  ]
+}

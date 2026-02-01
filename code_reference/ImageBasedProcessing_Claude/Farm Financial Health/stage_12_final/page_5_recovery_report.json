@@ -1,0 +1,75 @@
+{
+  "page_number": "5",
+  "analysis": {
+    "total_buckets": 10,
+    "filtered_buckets": [
+      {
+        "bucket_id": 4,
+        "text": "8",
+        "reason": "too_short"
+      },
+      {
+        "bucket_id": 5,
+        "text": "G",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Recommendations for Action Promote stable and sustainable gr owth: Recommendation #13: Ensure the launch of the Sustain able Agriculture Strategy is inclusive of all agricultural commodities and is accompanied with an ambitious func ling envelope commensurate with the incentives, research, and knowledge transfer activities required to ddress the inter-related demands of environmental, economic and social sustainability:",
+        "confidence": 0.991556091676719,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Recommendation #14: Strengthen Canada's internation al presence in advocating for the elimination of non- tariff barriers to trade in international trade agreements hich are limiting market access for Canadian products. Recommendation #15: Underpinned by supporting legis slation, ensure no additional access to supply-managed sectors in future trade agreements to support a resilient domestic agricultural sector that is vital to national food security and long-term sustainable growth:",
+        "confidence": 0.9937369519832986,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Supporting new entrants and youn g farmers: Recommendation #16: Provide financial support to esta blish a Secretariat that will support implementation of the National Workforce Strategy for Agriculture and Fooc d and Beverage Manufacturing: Recommendation #17: Increase the capital gains exemp tion threshold above S1M to be more in line with current market farmland values:",
+        "confidence": 0.9836512261580381,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Recommendation #18: Build on the Budget 2023 legisla tive amendments to the Income Tax Act which expanded the definition of a 66 child\" to also allow sibling shareholders to pass a non-controlling share of their ownership to the next generation:",
+        "confidence": 0.983402489626556,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "BANK",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Canadian Federa tion of Agriculture 21 Florence Street Ottawa, Ontario KZP OW6",
+        "confidence": 0.961038961038961,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "CFA FCA Canadian Federation of Agriculture",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 9,
+        "text": "de /'agriculture Federation canadienne",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "buckets_recovered": [],
+    "buckets_gibberish": [],
+    "recovery_notes": "No missing buckets"
+  }
+}

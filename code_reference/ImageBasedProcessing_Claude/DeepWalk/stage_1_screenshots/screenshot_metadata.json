@@ -1,0 +1,52 @@
+{
+  "pdf_path": "docs\\DeepWalk.pdf",
+  "pdf_name": "DeepWalk",
+  "total_pages_in_pdf": 10,
+  "pages_processed": 6,
+  "dpi": 300,
+  "timestamp": "20251223_130909",
+  "pages": [
+    {
+      "page_number": 1,
+      "screenshot_file": "page_1_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 2,
+      "screenshot_file": "page_2_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 3,
+      "screenshot_file": "page_3_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 4,
+      "screenshot_file": "page_4_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 5,
+      "screenshot_file": "page_5_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 6,
+      "screenshot_file": "page_6_DeepWalk.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    }
+  ]
+}

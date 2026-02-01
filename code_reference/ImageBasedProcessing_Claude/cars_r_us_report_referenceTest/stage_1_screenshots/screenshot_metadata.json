@@ -1,0 +1,31 @@
+{
+  "pdf_path": "..\\..\\..\\docs\\cars_r_us_report_referenceTest.pdf",
+  "pdf_name": "cars_r_us_report_referenceTest",
+  "total_pages_in_pdf": 3,
+  "pages_processed": 3,
+  "dpi": 300,
+  "timestamp": "20251221_205517",
+  "pages": [
+    {
+      "page_number": 1,
+      "screenshot_file": "page_1_cars_r_us_report_referenceTest.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 2,
+      "screenshot_file": "page_2_cars_r_us_report_referenceTest.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    },
+    {
+      "page_number": 3,
+      "screenshot_file": "page_3_cars_r_us_report_referenceTest.png",
+      "width_px": 2550,
+      "height_px": 3300,
+      "dpi": 300
+    }
+  ]
+}

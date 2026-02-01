@@ -1,0 +1,78 @@
+{
+  "quadrant_name": "top_right",
+  "page_number": 2,
+  "source_image": "page_2_top_right_cars_r_us_report_referenceTest.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 1275,
+  "offset_y": 0,
+  "crop_box": [
+    1275,
+    0,
+    2550,
+    1650
+  ],
+  "total_blocks": 4,
+  "min_x": 2550,
+  "max_x": 4453,
+  "min_y": 653,
+  "max_y": 2690,
+  "blocks": [
+    {
+      "text": "urns, primarily due to warranty issues and customer",
+      "start_x": 2550,
+      "end_x": 4453,
+      "start_y": 653,
+      "end_y": 765,
+      "mid_x": 3502,
+      "mid_y": 709,
+      "mid_y_x": 760.0,
+      "height": 112,
+      "confidence": 0.6688948261784481,
+      "char_count": 51,
+      "word_count": 8
+    },
+    {
+      "text": "ned in Table 2 below; which provides context for",
+      "start_x": 2550,
+      "end_x": 4350,
+      "start_y": 753,
+      "end_y": 866,
+      "mid_x": 3450,
+      "mid_y": 810,
+      "mid_y_x": 861.0,
+      "height": 113,
+      "confidence": 0.8076481389035335,
+      "char_count": 48,
+      "word_count": 9
+    },
+    {
+      "text": "e)",
+      "start_x": 2550,
+      "end_x": 2644,
+      "start_y": 1194,
+      "end_y": 1283,
+      "mid_x": 2597,
+      "mid_y": 1238,
+      "mid_y_x": 1289.0,
+      "height": 89,
+      "confidence": 0.9999668950005018,
+      "char_count": 2,
+      "word_count": 1
+    },
+    {
+      "text": "naze Placeholder",
+      "start_x": 2550,
+      "end_x": 3265,
+      "start_y": 2582,
+      "end_y": 2690,
+      "mid_x": 2908,
+      "mid_y": 2636,
+      "mid_y_x": 2687.0,
+      "height": 108,
+      "confidence": 0.5346230379081373,
+      "char_count": 16,
+      "word_count": 2
+    }
+  ]
+}

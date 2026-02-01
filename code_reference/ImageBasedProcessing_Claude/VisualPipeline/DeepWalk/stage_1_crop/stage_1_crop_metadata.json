@@ -1,0 +1,176 @@
+{
+  "pdf_path": "docs\\DeepWalk.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-23T15:06:17.156760",
+  "total_pages": 6,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 4,
+    "Section-header": 0,
+    "Table": 2,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 1325,
+            "y1": 884,
+            "x2": 2280,
+            "y2": 1240
+          },
+          "left_edge": 52,
+          "top_edge": 27,
+          "right_edge": 89,
+          "bottom_edge": 38,
+          "confidence": 0.8346000909805298,
+          "file_path": "picture\\page_1_picture_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": []
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 243,
+            "y1": 230,
+            "x2": 1181,
+            "y2": 620
+          },
+          "left_edge": 10,
+          "top_edge": 7,
+          "right_edge": 46,
+          "bottom_edge": 19,
+          "confidence": 0.8703579306602478,
+          "file_path": "picture\\page_3_picture_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 219,
+            "y1": 221,
+            "x2": 1222,
+            "y2": 943
+          },
+          "left_edge": 9,
+          "top_edge": 7,
+          "right_edge": 48,
+          "bottom_edge": 29,
+          "confidence": 0.8904268145561218,
+          "file_path": "table\\page_4_table_0.png"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 223,
+            "y1": 241,
+            "x2": 2306,
+            "y2": 857
+          },
+          "left_edge": 9,
+          "top_edge": 7,
+          "right_edge": 90,
+          "bottom_edge": 26,
+          "confidence": 0.8624747395515442,
+          "file_path": "picture\\page_5_picture_0.png"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 1328,
+            "y1": 1169,
+            "x2": 2267,
+            "y2": 1623
+          },
+          "left_edge": 52,
+          "top_edge": 35,
+          "right_edge": 89,
+          "bottom_edge": 49,
+          "confidence": 0.8160043358802795,
+          "file_path": "picture\\page_5_picture_1.png"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Table",
+          "index": 0,
+          "bbox": {
+            "x1": 281,
+            "y1": 220,
+            "x2": 1163,
+            "y2": 447
+          },
+          "left_edge": 11,
+          "top_edge": 7,
+          "right_edge": 46,
+          "bottom_edge": 14,
+          "confidence": 0.8539384603500366,
+          "file_path": "table\\page_6_table_0.png"
+        }
+      ]
+    }
+  ]
+}

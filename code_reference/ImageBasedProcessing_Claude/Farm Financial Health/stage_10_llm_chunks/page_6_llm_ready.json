@@ -1,0 +1,101 @@
+{
+  "page_number": 6,
+  "total_buckets": 4,
+  "last_bucket_previous_page": {
+    "id": 9,
+    "left_edge": 22,
+    "top_edge": 96,
+    "right_edge": 31,
+    "bottom_edge": 98,
+    "position": "left",
+    "width_category": "narrow",
+    "y_group_id": 6,
+    "confidence_avg": 1.0,
+    "char_count": 38,
+    "word_count": 4,
+    "texts": [
+      "de /'agriculture Federation canadienne"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 10,
+      "top_edge": 42,
+      "right_edge": 59,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 0,
+      "confidence_avg": 0.67,
+      "char_count": 25,
+      "word_count": 5,
+      "texts": [
+        "FARM FINANC IAL",
+        "1 ANDCAADE"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 10,
+      "top_edge": 53,
+      "right_edge": 90,
+      "bottom_edge": 84,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 1,
+      "confidence_avg": 0.85,
+      "char_count": 1140,
+      "word_count": 183,
+      "texts": [
+        "In 2022, Canadian farmers saw their total farm cash receipts increase by 14.6% compared to",
+        "2021, because of higher prices for both crops +S7.1 billion) and livestock (+S3.6 billion)",
+        "(Statistics Canada,_2023). However, this increa= se is overshadowed by a 18.6% increase in",
+        "total expenses, pushing realized net income lo wer to S11.8 billion in 2022 from $12.8 billion,",
+        "a 5.9% decrease from 2021 levels (Statistics Ca nada, 2023).",
+        "One of the most significant input costs for Canz dian producers through 2021and 2022 was",
+        "fertilizer According to Statistics Canada, fertiliz er prices began rising rapidly in early 2021",
+        "due predominantly to high natural gas prices a nd Russia's invasion of Ukraine, resulting in a",
+        "54.4% increase in 2022 (Statistics Canada,202 23).",
+        "In addition, successive droughts in Western Ca nada, beginning in 2021, limited the supply of 9",
+        "hay and grain feed contributing to a 20.7% incr ease in commercial feed expenses for",
+        "livestock producers. Further, fuel expenses inc reased by 52.5% in 2022 as demand",
+        "increased with economies opening post-COVIC )-19 and supply decreased because of",
+        "sanctions on large fuel exporters such as Russh"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 8,
+      "top_edge": 94,
+      "right_edge": 29,
+      "bottom_edge": 97,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 1.0,
+      "char_count": 41,
+      "word_count": 6,
+      "texts": [
+        "CFA FCA",
+        "Canadian Federation of Agriculture"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 22,
+      "top_edge": 96,
+      "right_edge": 31,
+      "bottom_edge": 98,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.87,
+      "char_count": 37,
+      "word_count": 4,
+      "texts": [
+        "de |agriculture Federation canadienne"
+      ]
+    }
+  ]
+}

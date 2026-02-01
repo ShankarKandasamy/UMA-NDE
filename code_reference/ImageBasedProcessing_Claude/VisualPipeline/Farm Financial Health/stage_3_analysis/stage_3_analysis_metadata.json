@@ -1,0 +1,862 @@
+{
+  "pdf_path": "C:\\Users\\shank\\OneDrive\\Destiny\\Uma\\UmaAI\\RAG_proto_Claude\\docs\\Farm Financial Health.pdf",
+  "model": "yolov8m-doclaynet.pt",
+  "dpi": 300,
+  "confidence_threshold": 0.5,
+  "target_classes": [
+    "Picture",
+    "Table"
+  ],
+  "timestamp": "2025-12-21T22:01:48.571028",
+  "total_pages": 8,
+  "class_counts": {
+    "Caption": 0,
+    "Footnote": 0,
+    "Formula": 0,
+    "List-item": 0,
+    "Page-footer": 0,
+    "Page-header": 0,
+    "Picture": 13,
+    "Section-header": 0,
+    "Table": 0,
+    "Text": 0,
+    "Title": 0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 1963,
+            "y1": 2820,
+            "x2": 2214,
+            "y2": 3139
+          },
+          "left_edge": 77,
+          "top_edge": 85,
+          "right_edge": 87,
+          "bottom_edge": 95,
+          "confidence": 0.7979499101638794,
+          "file_path": "picture\\page_1_picture_0.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:01:50.340558",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 340,
+            "y1": 2811,
+            "x2": 1526,
+            "y2": 3146
+          },
+          "left_edge": 13,
+          "top_edge": 85,
+          "right_edge": 60,
+          "bottom_edge": 95,
+          "confidence": 0.7837855815887451,
+          "file_path": "picture\\page_1_picture_1.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:01:51.908243",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": []
+    },
+    {
+      "page_number": 3,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 214,
+            "y1": 3034,
+            "x2": 779,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 92,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.6337893605232239,
+          "file_path": "picture\\page_3_picture_0.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:01:53.939444",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 215,
+            "y1": 3055,
+            "x2": 778,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.5979306697845459,
+          "file_path": "picture\\page_4_picture_0.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:01:55.912510",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 213,
+            "y1": 3055,
+            "x2": 778,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 31,
+          "bottom_edge": 97,
+          "confidence": 0.7914476990699768,
+          "file_path": "picture\\page_5_picture_0.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:01:56.932245",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 48,
+            "y1": 1829,
+            "x2": 2456,
+            "y2": 3063
+          },
+          "left_edge": 2,
+          "top_edge": 55,
+          "right_edge": 96,
+          "bottom_edge": 93,
+          "confidence": 0.5196570158004761,
+          "file_path": "picture\\page_5_picture_1.png",
+          "category": "other: infographic: 0.85",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:00.031244",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Infographic",
+            "ocr_text": "Infographic showing financial growth and agricultural elements.",
+            "title_and_subject": {
+              "main_title": "Financial Growth in Agriculture",
+              "subtitle": null,
+              "subject": "Impact of financial strategies on agriculture",
+              "target_message": "Highlighting the importance of financial planning in agriculture."
+            },
+            "statistics": [
+              {
+                "value": "20%",
+                "unit": "percent",
+                "label": "Increase in agricultural revenue",
+                "context": "Represents the growth in revenue due to improved financial strategies.",
+                "emphasis": "headline",
+                "confidence": 0.9
+              }
+            ],
+            "sections": [
+              {
+                "section_id": "section_1",
+                "title": "Key Financial Strategies",
+                "content_type": "list",
+                "items": [
+                  "Investment in technology",
+                  "Diversification of crops",
+                  "Sustainable practices"
+                ],
+                "visual_treatment": "Icons representing each strategy with a green color scheme.",
+                "confidence": 0.9
+              }
+            ],
+            "comparisons": null,
+            "process_flow": {
+              "has_process": false,
+              "steps": null
+            },
+            "embedded_elements": [
+              {
+                "element_type": "icon",
+                "description": "Icons representing financial growth and agricultural elements.",
+                "data_extracted": null,
+                "purpose": "To visually communicate the themes of finance and agriculture."
+              }
+            ],
+            "source_attribution": {
+              "data_sources": [
+                "Canadian Federation of Agriculture"
+              ],
+              "organization": "Canadian Federation of Agriculture",
+              "publication_date": null,
+              "url": null,
+              "disclaimer": null
+            },
+            "miscategorization_check": {
+              "might_be_miscategorized": false,
+              "suggested_category": null,
+              "reason": null
+            },
+            "key_insights": [
+              "Financial strategies significantly impact agricultural revenue.",
+              "Investment in technology is crucial for growth.",
+              "Sustainable practices are becoming increasingly important."
+            ],
+            "summary": "The infographic emphasizes the importance of financial strategies in enhancing agricultural revenue, showcasing key strategies and their impact.",
+            "keywords": [
+              "financial growth",
+              "agriculture",
+              "investment",
+              "sustainability",
+              "revenue"
+            ],
+            "meta": {
+              "extraction_confidence": 0.9,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:02:28.443747",
+              "prompt_tokens": 5012,
+              "completion_tokens": 525,
+              "total_tokens": 5537
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:02:28.443747",
+          "prompt_file": "other_infographic.md",
+          "context_metadata": {
+            "before_tokens": 50,
+            "after_tokens": 32,
+            "total_tokens": 82,
+            "before_text_preview": "Recommendation #18: Build on the Budget 2023 legisla tive amendments to the Income Tax Act which expanded the definition of a 66 child\" to also allow sibling shareholders to pass a non-controlling share of their ownership to the next generation:",
+            "after_text_preview": "Canadian Federa tion of Agriculture 21 Florence Street Ottawa, Ontario KZP OW6\n\nCFA FCA Canadian Federation of Agriculture\n\nde /'agriculture Federation canadienne"
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 212,
+            "y1": 3056,
+            "x2": 777,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 30,
+          "bottom_edge": 97,
+          "confidence": 0.9078896641731262,
+          "file_path": "picture\\page_6_picture_0.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:01.665042",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 2550,
+            "y2": 1356
+          },
+          "left_edge": 0,
+          "top_edge": 0,
+          "right_edge": 100,
+          "bottom_edge": 41,
+          "confidence": 0.6907163858413696,
+          "file_path": "picture\\page_6_picture_1.png",
+          "category": "photograph: identification",
+          "main_category": "photograph",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:06.079258",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Identification",
+            "ocr_text": "",
+            "subject_type": "person",
+            "description": "A man standing in a vineyard, holding a tablet and looking thoughtfully into the distance.",
+            "identification": {
+              "identity": "unknown",
+              "identity_source": "unknown",
+              "confidence": 0.0,
+              "identifiers": {
+                "model_number": null,
+                "serial_code": null,
+                "visible_text_id": null
+              }
+            },
+            "identifying_features": {
+              "distinguishing_characteristics": [
+                "Wearing a plaid shirt",
+                "Holding a tablet",
+                "Standing in a vineyard"
+              ],
+              "visible_text": []
+            },
+            "role_context": {
+              "role": "unknown",
+              "organization": "unknown",
+              "relationship_to_document": "The image likely relates to agricultural practices or farm management."
+            },
+            "setting": {
+              "location_type": "vineyard",
+              "context_clues": [
+                "The background shows rows of grapevines and hills in the distance."
+              ]
+            },
+            "entities_extracted": [],
+            "key_insights": [
+              "The subject is engaged in an agricultural setting.",
+              "The use of technology (tablet) suggests modern farming practices.",
+              "The vineyard context indicates a focus on crop management."
+            ],
+            "summary": "The image depicts a man in a vineyard using a tablet, suggesting a connection to modern agricultural practices.",
+            "meta": {
+              "extraction_confidence": 0.0,
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:02:38.536644",
+              "prompt_tokens": 37732,
+              "completion_tokens": 336,
+              "total_tokens": 38068
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:02:38.537672",
+          "prompt_file": "photograph_identification.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 11,
+            "total_tokens": 11,
+            "before_text_preview": "",
+            "after_text_preview": "FARM FINANC IAL 1 ANDCAADE"
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 239,
+            "y1": 534,
+            "x2": 2270,
+            "y2": 1713
+          },
+          "left_edge": 9,
+          "top_edge": 16,
+          "right_edge": 89,
+          "bottom_edge": 52,
+          "confidence": 0.9399765133857727,
+          "file_path": "picture\\page_7_picture_0.png",
+          "category": "graph/chart: continuous",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:07.728024",
+          "visual_analysis": {
+            "raw_text": "{\n  \"figure_id\": \"page_1_figure_1\",\n  \"subcategory\": \"Continuous Chart\",\n\n  \"ocr_text\": \"Price index (2012=100)\\nYear and Quarter\\nAnimal production\\nCrop production\\nFarm input total\\nFertilizer\\nMachinery fuel\\nPesticides\",\n\n  \"chart_type\": \"continuous\",\n  \"chart_subtype\": \"line\",\n\n  \"titles\": {\n    \"main_title\": \"Price index (2012=100)\",\n    \"x_axis_label\": \"Year and Quarter\",\n    \"y_axis_label\": \"Price index\",\n    \"subtitle\": null\n  },\n\n  \"axes\": {\n    \"x_axis\": {\n      \"label\": \"Year and Quarter\",\n      \"data_type\": \"datetime\",\n      \"scale\": \"linear\",\n      \"range\": {\n        \"min\": \"2020-01-01\",\n        \"max\": \"2023-04-01\"\n      },\n      \"tick_values\": [\"2020 Q1\", \"2020 Q2\", \"2020 Q3\", \"2020 Q4\", \"2021 Q1\", \"2021 Q2\", \"2021 Q3\", \"2021 Q4\", \"2022 Q1\", \"2022 Q2\", \"2022 Q3\", \"2022 Q4\", \"2023 Q1\", \"2023 Q2\"]\n    },\n    \"y_axis\": {\n      \"label\": \"Price index\",\n      \"data_type\": \"numeric\",\n      \"scale\": \"linear\",\n      \"range\": {\n        \"min\": 40,\n        \"max\": 160\n      },\n      \"tick_values\": [40, 60, 80, 100, 120, 140, 160]\n    }\n  },\n\n  \"data_series\": [\n    {\n      \"series_id\": \"series_1\",\n      \"series_label\": \"Animal production\",\n      \"visual_encoding\": {\n        \"color\": \"orange\",\n        \"line_style\": \"solid\",\n        \"marker_shape\": \"none\"\n      },\n      \"data_points\": [\n        {\"x\": \"2020 Q1\", \"y\": 100, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q2\", \"y\": 102, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q3\", \"y\": 104, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q4\", \"y\": 106, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q1\", \"y\": 108, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q2\", \"y\": 110, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q3\", \"y\": 112, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q4\", \"y\": 115, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q1\", \"y\": 120, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q2\", \"y\": 125, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q3\", \"y\": 130, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q4\", \"y\": 135, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2023 Q1\", \"y\": 140, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2023 Q2\", \"y\": 145, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9}\n      ],\n      \"trend\": {\n        \"direction\": \"increasing\",\n        \"rate_of_change\": \"steady growth\",\n        \"notable_patterns\": []\n      }\n    },\n    {\n      \"series_id\": \"series_2\",\n      \"series_label\": \"Crop production\",\n      \"visual_encoding\": {\n        \"color\": \"lightblue\",\n        \"line_style\": \"solid\",\n        \"marker_shape\": \"none\"\n      },\n      \"data_points\": [\n        {\"x\": \"2020 Q1\", \"y\": 80, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q2\", \"y\": 82, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q3\", \"y\": 84, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2020 Q4\", \"y\": 86, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q1\", \"y\": 88, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q2\", \"y\": 90, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q3\", \"y\": 92, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2021 Q4\", \"y\": 95, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q1\", \"y\": 100, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q2\", \"y\": 105, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q3\", \"y\": 110, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2022 Q4\", \"y\": 115, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x\": \"2023 Q1\", \"y\": 120, \"approximate\": false, \"labeled\": false, \"confidence\": 0.9},\n        {\"x",
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:03:07.149268",
+              "prompt_tokens": 39372,
+              "completion_tokens": 1500,
+              "total_tokens": 40872
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:03:07.149268",
+          "prompt_file": "graph_chart_continuous.md",
+          "context_metadata": {
+            "before_tokens": 43,
+            "after_tokens": 96,
+            "total_tokens": 139,
+            "before_text_preview": "The cost of production is higher th an it has ever been: Figure 1: Total Farm Input Price Index Source: Statistics Canada: Table 18-10-0258-01 Farm input price index, quarterly",
+            "after_text_preview": "Avg Hourly Rate Total, all industries Une employment Rate 0Ag Unemployment Rat\n\nYel ar Furthermore, a lack of available workers, and rising inflation rates, are resulting in an increasingly tight labour market, placing upwz rd pressure on labour costs. Since the beginning of 2019 to August 2023, wages als 0 increased from $20.29 to $23.42, further indicating a tight labour market (Statistics _Car ..."
+          }
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 212,
+            "y1": 3056,
+            "x2": 776,
+            "y2": 3213
+          },
+          "left_edge": 8,
+          "top_edge": 93,
+          "right_edge": 30,
+          "bottom_edge": 97,
+          "confidence": 0.9052168130874634,
+          "file_path": "picture\\page_7_picture_1.png",
+          "category": "other: logo",
+          "main_category": "other",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:08.769124",
+          "stage3_skipped": true,
+          "stage3_skip_reason": "No configuration available"
+        },
+        {
+          "type": "Picture",
+          "index": 2,
+          "bbox": {
+            "x1": 579,
+            "y1": 2023,
+            "x2": 1961,
+            "y2": 2719
+          },
+          "left_edge": 23,
+          "top_edge": 61,
+          "right_edge": 77,
+          "bottom_edge": 82,
+          "confidence": 0.8564717173576355,
+          "file_path": "picture\\page_7_picture_2.png",
+          "category": "graph/chart: continuous",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:10.099822",
+          "visual_analysis": {
+            "figure_id": "page_1_figure_1",
+            "subcategory": "Continuous Chart",
+            "ocr_text": "Ag Avg Hourly Rate\nTotal, all industries Unemployment Rate\nAg Unemployment Rate\nWage ($)\nRate (%)\nYear",
+            "chart_type": "continuous",
+            "chart_subtype": "line",
+            "titles": {
+              "main_title": null,
+              "x_axis_label": "Year",
+              "y_axis_label": "Wage ($)",
+              "subtitle": null
+            },
+            "axes": {
+              "x_axis": {
+                "label": "Year",
+                "data_type": "categorical",
+                "scale": "linear",
+                "range": {
+                  "min": 2020,
+                  "max": 2023
+                },
+                "tick_values": [
+                  2020,
+                  2021,
+                  2022,
+                  2023
+                ]
+              },
+              "y_axis": {
+                "label": "Wage ($)",
+                "data_type": "numeric",
+                "scale": "linear",
+                "range": {
+                  "min": 20,
+                  "max": 24
+                },
+                "tick_values": [
+                  20,
+                  21,
+                  22,
+                  23,
+                  24
+                ]
+              }
+            },
+            "data_series": [
+              {
+                "series_id": "series_1",
+                "series_label": "Ag Avg Hourly Rate",
+                "visual_encoding": {
+                  "color": "green",
+                  "line_style": "solid",
+                  "marker_shape": "none"
+                },
+                "data_points": [
+                  {
+                    "x": 2020,
+                    "y": 20.5,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2021,
+                    "y": 21.0,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2022,
+                    "y": 22.0,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2023,
+                    "y": 23.0,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  }
+                ],
+                "trend": {
+                  "direction": "increasing",
+                  "rate_of_change": "steady increase",
+                  "notable_patterns": []
+                }
+              },
+              {
+                "series_id": "series_2",
+                "series_label": "Total, all industries Unemployment Rate",
+                "visual_encoding": {
+                  "color": "gray",
+                  "line_style": "solid",
+                  "marker_shape": "none"
+                },
+                "data_points": [
+                  {
+                    "x": 2020,
+                    "y": 0.07,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2021,
+                    "y": 0.06,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2022,
+                    "y": 0.05,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2023,
+                    "y": 0.04,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "steady decrease",
+                  "notable_patterns": []
+                }
+              },
+              {
+                "series_id": "series_3",
+                "series_label": "Ag Unemployment Rate",
+                "visual_encoding": {
+                  "color": "red",
+                  "line_style": "solid",
+                  "marker_shape": "none"
+                },
+                "data_points": [
+                  {
+                    "x": 2020,
+                    "y": 0.1,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2021,
+                    "y": 0.09,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2022,
+                    "y": 0.08,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  },
+                  {
+                    "x": 2023,
+                    "y": 0.07,
+                    "approximate": true,
+                    "labeled": false,
+                    "label": null,
+                    "confidence": 0.7
+                  }
+                ],
+                "trend": {
+                  "direction": "decreasing",
+                  "rate_of_change": "steady decrease",
+                  "notable_patterns": []
+                }
+              }
+            ],
+            "inflection_points": [],
+            "cross_series_analysis": {
+              "correlation": "negative",
+              "relative_performance": "Ag Avg Hourly Rate is increasing while unemployment rates are decreasing.",
+              "divergence_points": []
+            },
+            "key_insights": [
+              "Ag Avg Hourly Rate shows a steady increase from 2020 to 2023.",
+              "Total unemployment rate and Ag unemployment rate both show a steady decrease over the same period.",
+              "There is a negative correlation between wages and unemployment rates."
+            ],
+            "summary": "From 2020 to 2023, Ag Avg Hourly Rate increased steadily while both total and Ag unemployment rates decreased consistently.",
+            "keywords": [
+              "wage",
+              "unemployment",
+              "agriculture",
+              "trends",
+              "economic indicators"
+            ],
+            "meta": {
+              "extraction_confidence": 0.8,
+              "interpolation_method": "gridline_alignment",
+              "warnings": []
+            },
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:03:42.948588",
+              "prompt_tokens": 39304,
+              "completion_tokens": 1375,
+              "total_tokens": 40679
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:03:42.948588",
+          "prompt_file": "graph_chart_continuous.md",
+          "context_metadata": {
+            "before_tokens": 55,
+            "after_tokens": 15,
+            "total_tokens": 70,
+            "before_text_preview": "Price index Animal production Crop production Farm input total Fertilizer\n\nThe cost of production is higher th an it has ever been: Figure 1: Total Farm Input Price Index Source: Statistics Canada: Table 18-10-0258-01 Farm input price index, quarterly",
+            "after_text_preview": "CFA FCA Canadian Federation of Agriculture\n\nFederation canadienne de |agriculture"
+          }
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "image_size": {
+        "width": 2550,
+        "height": 3300
+      },
+      "detections": [
+        {
+          "type": "Picture",
+          "index": 0,
+          "bbox": {
+            "x1": 255,
+            "y1": 2099,
+            "x2": 2285,
+            "y2": 3051
+          },
+          "left_edge": 10,
+          "top_edge": 64,
+          "right_edge": 90,
+          "bottom_edge": 92,
+          "confidence": 0.9055002927780151,
+          "file_path": "picture\\page_8_picture_0.png",
+          "category": "graph/chart: continuous",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:11.705879",
+          "visual_analysis": {
+            "raw_text": "{\n  \"figure_id\": \"page_1_figure_4\",\n  \"subcategory\": \"Continuous Chart\",\n  \"ocr_text\": \"Figure 4: CPI and Farm Land Value\\nSource: FCC Calculations; Statistics Canada.\\nTable 18-10-0004-03\\nTotal CPI % Change\\nFarm Land % Value Change\",\n  \"chart_type\": \"continuous\",\n  \"chart_subtype\": \"line\",\n  \"titles\": {\n    \"main_title\": \"CPI and Farm Land Value\",\n    \"x_axis_label\": \"Year\",\n    \"y_axis_label\": \"Total CPI % Change and Farm Land % Value Change\",\n    \"subtitle\": null\n  },\n  \"axes\": {\n    \"x_axis\": {\n      \"label\": \"Year\",\n      \"data_type\": \"categorical\",\n      \"scale\": \"linear\",\n      \"range\": {\n        \"min\": 2000,\n        \"max\": 2022\n      },\n      \"tick_values\": [2000, 2005, 2010, 2015, 2020, 2022]\n    },\n    \"y_axis\": {\n      \"label\": \"Total CPI % Change and Farm Land % Value Change\",\n      \"data_type\": \"numeric\",\n      \"scale\": \"linear\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 0.2\n      },\n      \"tick_values\": [0.0, 0.05, 0.10, 0.15, 0.20]\n    }\n  },\n  \"data_series\": [\n    {\n      \"series_id\": \"series_1\",\n      \"series_label\": \"Farm Land % Value Change\",\n      \"visual_encoding\": {\n        \"color\": \"green\",\n        \"line_style\": \"solid\",\n        \"marker_shape\": \"none\"\n      },\n      \"data_points\": [\n        {\n          \"x\": 2000,\n          \"y\": 0.02,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2001,\n          \"y\": 0.03,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2002,\n          \"y\": 0.04,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2003,\n          \"y\": 0.05,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2004,\n          \"y\": 0.05,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2005,\n          \"y\": 0.06,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2006,\n          \"y\": 0.05,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2007,\n          \"y\": 0.06,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2008,\n          \"y\": 0.07,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2009,\n          \"y\": 0.06,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2010,\n          \"y\": 0.08,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2011,\n          \"y\": 0.09,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2012,\n          \"y\": 0.10,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2013,\n          \"y\": 0.12,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2014,\n          \"y\": 0.11,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2015,\n          \"y\": 0.10,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2016,\n          \"y\": 0.09,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2017,\n          \"y\": 0.08,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2018,\n          \"y\": 0.09,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2019,\n          \"y\": 0.10,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2020,\n          \"y\": 0.12,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2021,\n          \"y\": 0.15,\n          \"approximate\": false,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.9\n        },\n        {\n          \"x\": 2022,",
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:04:20.551524",
+              "prompt_tokens": 50659,
+              "completion_tokens": 1500,
+              "total_tokens": 52159
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:04:20.551524",
+          "prompt_file": "graph_chart_continuous.md",
+          "context_metadata": {
+            "before_tokens": 99,
+            "after_tokens": 0,
+            "total_tokens": 99,
+            "before_text_preview": "According to Farm Credit Canada (FCC), Cana dian farmland values have increased on average 10% annually over the last 10 years: In 2022, values rose 12.8%, the highest jump since 2013 (ECC, 2023). In addition, average nnual mortgage payments increased 9.7% per year in the last decade, but 2022 recorded th 2 large jump of 41% due to rising interest rates (ECC,_2023).",
+            "after_text_preview": ""
+          }
+        },
+        {
+          "type": "Picture",
+          "index": 1,
+          "bbox": {
+            "x1": 314,
+            "y1": 499,
+            "x2": 2084,
+            "y2": 1373
+          },
+          "left_edge": 12,
+          "top_edge": 15,
+          "right_edge": 82,
+          "bottom_edge": 42,
+          "confidence": 0.781024694442749,
+          "file_path": "picture\\page_8_picture_1.png",
+          "category": "graph/chart: categorical",
+          "main_category": "graph/chart",
+          "category_model": "gpt-4o-mini",
+          "category_timestamp": "2025-12-21T22:02:13.848046",
+          "visual_analysis": {
+            "raw_text": "{\n  \"figure_id\": \"page_1_figure_1\",\n  \"subcategory\": \"Categorical Chart\",\n  \"ocr_text\": \"Value of Land ($/Acre)\\nOntario\\nQuebec\\nBritish Columbia\\nNewfoundland and Labrador\\nPrince Edward Island\\nAlberta\\nNew Brunswick\\nNova Scotia\\nManitoba\\nSaskatchewan\\nYear\\n2020\\n2021\\n2022\",\n  \"chart_type\": \"categorical\",\n  \"chart_subtype\": \"grouped_bar\",\n  \"titles\": {\n    \"main_title\": \"Value of Land ($/Acre)\",\n    \"x_axis_title\": \"Provinces\",\n    \"y_axis_title\": \"Value of Land ($/Acre)\",\n    \"subtitle\": null\n  },\n  \"axes\": {\n    \"value_axis\": {\n      \"label\": \"Value of Land ($/Acre)\",\n      \"data_type\": \"numeric\",\n      \"scale\": \"linear\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 15000\n      },\n      \"tick_values\": [0, 5000, 10000, 15000],\n      \"unit\": \"$\"\n    },\n    \"category_axis\": {\n      \"label\": \"Provinces\",\n      \"categories\": [\n        \"Ontario\",\n        \"Quebec\",\n        \"British Columbia\",\n        \"Newfoundland and Labrador\",\n        \"Prince Edward Island\",\n        \"Alberta\",\n        \"New Brunswick\",\n        \"Nova Scotia\",\n        \"Manitoba\",\n        \"Saskatchewan\"\n      ]\n    }\n  },\n  \"data_series\": [\n    {\n      \"series_id\": \"series_2020\",\n      \"series_label\": \"2020\",\n      \"visual_encoding\": {\n        \"color\": \"gray\",\n        \"pattern\": \"none\"\n      },\n      \"data_points\": [\n        {\n          \"category\": \"Ontario\",\n          \"value\": 11786,\n          \"approximate\": false,\n          \"labeled\": true,\n          \"label\": \"11,786\",\n          \"confidence\": 0.95\n        },\n        {\n          \"category\": \"Quebec\",\n          \"value\": 10000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"British Columbia\",\n          \"value\": 12000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Newfoundland and Labrador\",\n          \"value\": 8000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Prince Edward Island\",\n          \"value\": 9000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Alberta\",\n          \"value\": 7000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"New Brunswick\",\n          \"value\": 6000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Nova Scotia\",\n          \"value\": 5000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Manitoba\",\n          \"value\": 4000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Saskatchewan\",\n          \"value\": 3000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"confidence\": 0.7\n        }\n      ]\n    },\n    {\n      \"series_id\": \"series_2021\",\n      \"series_label\": \"2021\",\n      \"visual_encoding\": {\n        \"color\": \"lightgray\",\n        \"pattern\": \"none\"\n      },\n      \"data_points\": [\n        {\n          \"category\": \"Ontario\",\n          \"value\": 13000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Quebec\",\n          \"value\": 11000,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"British Columbia\",\n          \"value\": 12500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Newfoundland and Labrador\",\n          \"value\": 8500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Prince Edward Island\",\n          \"value\": 9500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Alberta\",\n          \"value\": 7500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"New Brunswick\",\n          \"value\": 6500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Nova Scotia\",\n          \"value\": 5500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"label\": null,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Manitoba\",\n          \"value\": 4500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"confidence\": 0.7\n        },\n        {\n          \"category\": \"Saskatchewan\",\n          \"value\": 3500,\n          \"approximate\": true,\n          \"labeled\": false,\n          \"confidence\": 0.7\n        }\n      ]\n    },\n    {\n      \"series_id\": \"series_2022\",\n      \"series_label\": \"2022\",\n      \"visual_encoding\": {\n        \"color\": \"green\",\n        \"pattern\": \"none\"\n      },\n      \"data_points\": [\n        {\n          \"category\": \"Ontario\",\n          \"value\": 17962,\n          \"approximate\": false,\n          \"labeled\": true,\n          \"label\": \"",
+            "_stage3_meta": {
+              "model": "gpt-4o-mini",
+              "timestamp": "2025-12-21T22:04:59.837446",
+              "prompt_tokens": 51426,
+              "completion_tokens": 1500,
+              "total_tokens": 52926
+            }
+          },
+          "analysis_model": "gpt-4o-mini",
+          "analysis_timestamp": "2025-12-21T22:04:59.837446",
+          "prompt_file": "graph_chart_categorical.md",
+          "context_metadata": {
+            "before_tokens": 0,
+            "after_tokens": 99,
+            "total_tokens": 99,
+            "before_text_preview": "",
+            "after_text_preview": "According to Farm Credit Canada (FCC), Cana dian farmland values have increased on average 10% annually over the last 10 years: In 2022, values rose 12.8%, the highest jump since 2013 (ECC, 2023). In addition, average nnual mortgage payments increased 9.7% per year in the last decade, but 2022 recorded th 2 large jump of 41% due to rising interest rates (ECC,_2023)."
+          }
+        }
+      ]
+    }
+  ],
+  "stage_2_info": {
+    "model": "gpt-4o-mini",
+    "categories": [
+      "table",
+      "graph/chart",
+      "photograph",
+      "diagram",
+      "other"
+    ],
+    "timestamp": "2025-12-21T22:02:13.949258",
+    "total_images": 13,
+    "total_categorized": 13,
+    "category_counts": {
+      "table": 0,
+      "graph/chart": 4,
+      "photograph": 1,
+      "diagram": 0,
+      "other": 8
+    },
+    "total_tokens": 362086
+  },
+  "stage_3_info": {
+    "prompt_version": "claude",
+    "timestamp": "2025-12-21T22:04:59.938119",
+    "total_images": 13,
+    "total_analyzed": 6,
+    "total_skipped": 7,
+    "skip_reasons": {
+      "No configuration": 7
+    },
+    "category_counts": {
+      "other": 1,
+      "photograph": 1,
+      "graph/chart": 4
+    },
+    "total_tokens": 230241
+  }
+}

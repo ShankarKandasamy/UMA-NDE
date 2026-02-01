@@ -1,0 +1,200 @@
+{
+  "page_number": 5,
+  "total_buckets": 10,
+  "last_bucket_previous_page": {
+    "id": 6,
+    "left_edge": 88,
+    "top_edge": 95,
+    "right_edge": 90,
+    "bottom_edge": 96,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 3,
+    "confidence_avg": 1.0,
+    "char_count": 2,
+    "word_count": 1,
+    "texts": [
+      "iv"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 10,
+      "top_edge": 8,
+      "right_edge": 88,
+      "bottom_edge": 22,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.87,
+      "char_count": 418,
+      "word_count": 56,
+      "texts": [
+        "Recommendations for Action",
+        "Promote stable and sustainable gr owth:",
+        "Recommendation #13: Ensure the launch of the Sustain able Agriculture Strategy is inclusive of all agricultural",
+        "commodities and is accompanied with an ambitious func ling envelope commensurate with the incentives,",
+        "research, and knowledge transfer activities required to ddress the inter-related demands of environmental,",
+        "economic and social sustainability:"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 10,
+      "top_edge": 24,
+      "right_edge": 90,
+      "bottom_edge": 33,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 1,
+      "confidence_avg": 0.87,
+      "char_count": 483,
+      "word_count": 66,
+      "texts": [
+        "Recommendation #14: Strengthen Canada's internation al presence in advocating for the elimination of non-",
+        "tariff barriers to trade in international trade agreements hich are limiting market access for Canadian products.",
+        "Recommendation #15: Underpinned by supporting legis slation, ensure no additional access to supply-managed",
+        "sectors in future trade agreements to support a resilient domestic agricultural sector that is vital to national food",
+        "security and long-term sustainable growth:"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 10,
+      "top_edge": 36,
+      "right_edge": 88,
+      "bottom_edge": 46,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 2,
+      "confidence_avg": 0.86,
+      "char_count": 370,
+      "word_count": 55,
+      "texts": [
+        "Supporting new entrants and youn g farmers:",
+        "Recommendation #16: Provide financial support to esta blish a Secretariat that will support implementation of",
+        "the National Workforce Strategy for Agriculture and Fooc d and Beverage Manufacturing:",
+        "Recommendation #17: Increase the capital gains exemp tion threshold above S1M to be more in line with",
+        "current market farmland values:"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 10,
+      "top_edge": 48,
+      "right_edge": 87,
+      "bottom_edge": 53,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 3,
+      "confidence_avg": 0.81,
+      "char_count": 243,
+      "word_count": 40,
+      "texts": [
+        "Recommendation #18: Build on the Budget 2023 legisla tive amendments to the Income Tax Act which",
+        "expanded the definition of a 66 child\" to also allow sibling shareholders to pass a non-controlling share of their",
+        "ownership to the next generation:"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 36,
+      "top_edge": 66,
+      "right_edge": 41,
+      "bottom_edge": 74,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.4,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "8"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 3,
+      "top_edge": 65,
+      "right_edge": 17,
+      "bottom_edge": 79,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 0.66,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "G"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 59,
+      "top_edge": 84,
+      "right_edge": 61,
+      "bottom_edge": 86,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "BANK"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 39,
+      "top_edge": 94,
+      "right_edge": 61,
+      "bottom_edge": 97,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.86,
+      "char_count": 76,
+      "word_count": 12,
+      "texts": [
+        "Canadian Federa tion of Agriculture",
+        "21 Florence Street Ottawa, Ontario",
+        "KZP OW6"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 8,
+      "top_edge": 94,
+      "right_edge": 29,
+      "bottom_edge": 97,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 1.0,
+      "char_count": 41,
+      "word_count": 6,
+      "texts": [
+        "CFA FCA",
+        "Canadian Federation of Agriculture"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 22,
+      "top_edge": 96,
+      "right_edge": 31,
+      "bottom_edge": 98,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 1.0,
+      "char_count": 38,
+      "word_count": 4,
+      "texts": [
+        "de /'agriculture Federation canadienne"
+      ]
+    }
+  ]
+}

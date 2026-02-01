@@ -1,0 +1,126 @@
+{
+  "page_number": 3,
+  "total_buckets": 5,
+  "last_bucket_previous_page": {
+    "id": 5,
+    "left_edge": 13,
+    "top_edge": 50,
+    "right_edge": 25,
+    "bottom_edge": 51,
+    "position": "left",
+    "width_category": "narrow",
+    "y_group_id": 3,
+    "confidence_avg": 0.56,
+    "char_count": 14,
+    "word_count": 4,
+    "texts": [
+      "Figule C= 0 0_"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 12,
+      "top_edge": 10,
+      "right_edge": 86,
+      "bottom_edge": 21,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.83,
+      "char_count": 392,
+      "word_count": 59,
+      "texts": [
+        "Trend analysis reveals that electric and hybrid mode ls are gaining increasing market share. Table 3",
+        "highlights quarterly trends in hybrid and EV adoptior 1. This aligns with industry-wide movement toward",
+        "sustainability and reduced carbon footprints [3]. Fut ure projections suggest even stronger adoption in",
+        "upcoming years1 _",
+        "Table3: Quarterly_Hybrid & EV Trends [5]",
+        "Quarter Hybrid Sales EV Sales"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 14,
+      "top_edge": 22,
+      "right_edge": 16,
+      "bottom_edge": 30,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.98,
+      "char_count": 8,
+      "word_count": 4,
+      "texts": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 12,
+      "top_edge": 32,
+      "right_edge": 61,
+      "bottom_edge": 49,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 2,
+      "confidence_avg": 0.92,
+      "char_count": 556,
+      "word_count": 90,
+      "texts": [
+        "References",
+        "[1] Cars R Us Annual Market Report DocID: CRU-_ 2024-001 RevA",
+        "[2] Sales Ledger Records DocID: CRU-2024-002 Rev1",
+        "[3] Sustainability & EV Market Study DocID: CRU-_ 2024-003 RevC",
+        "[4] Returns & Warranty Report DocD: CRU-2024- 004 RevB",
+        "[5] Trend & Forecast Analysis DocID: CRU-2024-C 105 Rev2",
+        "* Sales were affected by seasonal weather patterns",
+        "++ Returns slightly decreased compared to 2023.",
+        "1 Trend forecasts may vary depending on policy chz anges:",
+        "2 Customer surveys indicate rising interest in EV me odels.",
+        "3 Global chip shortages may influence future sales"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 21,
+      "top_edge": 22,
+      "right_edge": 24,
+      "bottom_edge": 30,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.88,
+      "char_count": 12,
+      "word_count": 4,
+      "texts": [
+        "200",
+        "280",
+        "320",
+        "300"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 32,
+      "top_edge": 22,
+      "right_edge": 35,
+      "bottom_edge": 30,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.93,
+      "char_count": 12,
+      "word_count": 4,
+      "texts": [
+        "150",
+        "210",
+        "260",
+        "310"
+      ]
+    }
+  ]
+}

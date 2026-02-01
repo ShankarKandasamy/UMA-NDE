@@ -1,0 +1,422 @@
+{
+  "page_number": 8,
+  "total_buckets": 23,
+  "last_bucket_previous_page": {
+    "id": 35,
+    "left_edge": 88,
+    "top_edge": 95,
+    "right_edge": 89,
+    "bottom_edge": 96,
+    "position": "right",
+    "width_category": "narrow",
+    "y_group_id": 9,
+    "confidence_avg": 0.92,
+    "char_count": 1,
+    "word_count": 1,
+    "texts": [
+      "2"
+    ]
+  },
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 10,
+      "top_edge": 8,
+      "right_edge": 85,
+      "bottom_edge": 15,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.82,
+      "char_count": 127,
+      "word_count": 23,
+      "texts": [
+        "Canadian Farmland values have in creased by an average of 10%",
+        "annually over the last 10 years:",
+        "Figure 3: Farm Land Value (S/Acre)"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 15,
+      "top_edge": 18,
+      "right_edge": 18,
+      "bottom_edge": 19,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.32,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "S1SK"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 27,
+      "top_edge": 18,
+      "right_edge": 48,
+      "bottom_edge": 22,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.86,
+      "char_count": 87,
+      "word_count": 17,
+      "texts": [
+        "The value in Ontario increased",
+        "from S11,786 per acre in 2019",
+        "to S17,962 per acre in 2022."
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 55,
+      "top_edge": 20,
+      "right_edge": 59,
+      "bottom_edge": 26,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.85,
+      "char_count": 17,
+      "word_count": 4,
+      "texts": [
+        "Year",
+        "2020",
+        "20z1",
+        "02022"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 14,
+      "top_edge": 24,
+      "right_edge": 18,
+      "bottom_edge": 31,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.71,
+      "char_count": 7,
+      "word_count": 4,
+      "texts": [
+        "]",
+        "5",
+        "1 SSK"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 20,
+      "top_edge": 36,
+      "right_edge": 23,
+      "bottom_edge": 38,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.33,
+      "char_count": 6,
+      "word_count": 1,
+      "texts": [
+        "Onario"
+      ]
+    },
+    {
+      "id": 6,
+      "left_edge": 44,
+      "top_edge": 35,
+      "right_edge": 47,
+      "bottom_edge": 38,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.85,
+      "char_count": 6,
+      "word_count": 1,
+      "texts": [
+        "Istand"
+      ]
+    },
+    {
+      "id": 7,
+      "left_edge": 26,
+      "top_edge": 35,
+      "right_edge": 36,
+      "bottom_edge": 42,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.47,
+      "char_count": 29,
+      "word_count": 4,
+      "texts": [
+        "Quebec Columbia",
+        "Gsh",
+        "Nesoundiand"
+      ]
+    },
+    {
+      "id": 8,
+      "left_edge": 36,
+      "top_edge": 35,
+      "right_edge": 41,
+      "bottom_edge": 39,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.39,
+      "char_count": 11,
+      "word_count": 2,
+      "texts": [
+        "Labracor",
+        "Jnd"
+      ]
+    },
+    {
+      "id": 9,
+      "left_edge": 50,
+      "top_edge": 35,
+      "right_edge": 59,
+      "bottom_edge": 38,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.77,
+      "char_count": 16,
+      "word_count": 2,
+      "texts": [
+        "Aibera Brunsttck"
+      ]
+    },
+    {
+      "id": 10,
+      "left_edge": 60,
+      "top_edge": 35,
+      "right_edge": 71,
+      "bottom_edge": 39,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.43,
+      "char_count": 18,
+      "word_count": 3,
+      "texts": [
+        "Scota Manttoba",
+        "Nov}"
+      ]
+    },
+    {
+      "id": 11,
+      "left_edge": 10,
+      "top_edge": 39,
+      "right_edge": 90,
+      "bottom_edge": 49,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 3,
+      "confidence_avg": 0.83,
+      "char_count": 295,
+      "word_count": 48,
+      "texts": [
+        "Source: Statistics Canada:",
+        "Table 32-10-0047-01",
+        "The value of farmland also saw a significant in crease in 2022. The most prominent increase",
+        "in land value were observed in Ontario, where the average value skyrocketed from $11,786",
+        "per acre in 2019 to $17,962 per acre in 2022 (Statistics Canada, 2023)."
+      ]
+    },
+    {
+      "id": 12,
+      "left_edge": 10,
+      "top_edge": 51,
+      "right_edge": 90,
+      "bottom_edge": 62,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 4,
+      "confidence_avg": 0.68,
+      "char_count": 364,
+      "word_count": 62,
+      "texts": [
+        "According to Farm Credit Canada (FCC), Cana dian farmland values have increased on",
+        "average 10% annually over the last 10 years: In 2022, values rose 12.8%, the highest jump",
+        "since 2013 (ECC, 2023). In addition, average nnual mortgage payments increased 9.7% per",
+        "year in the last decade, but 2022 recorded th 2 large jump of 41% due to rising interest rates",
+        "(ECC,_2023)."
+      ]
+    },
+    {
+      "id": 13,
+      "left_edge": 10,
+      "top_edge": 64,
+      "right_edge": 40,
+      "bottom_edge": 77,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 5,
+      "confidence_avg": 0.76,
+      "char_count": 111,
+      "word_count": 20,
+      "texts": [
+        "Figure 4: CPI and Farm Land Value",
+        "Source: FCC Calculations;",
+        "Statistics Canada:",
+        "Table 18-10-0004-03",
+        "0,20",
+        "1",
+        "8 0.15",
+        "1",
+        "0.10"
+      ]
+    },
+    {
+      "id": 14,
+      "left_edge": 22,
+      "top_edge": 80,
+      "right_edge": 27,
+      "bottom_edge": 83,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.46,
+      "char_count": 5,
+      "word_count": 2,
+      "texts": [
+        "0.05",
+        "8"
+      ]
+    },
+    {
+      "id": 15,
+      "left_edge": 27,
+      "top_edge": 85,
+      "right_edge": 30,
+      "bottom_edge": 86,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.41,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2000"
+      ]
+    },
+    {
+      "id": 16,
+      "left_edge": 39,
+      "top_edge": 85,
+      "right_edge": 42,
+      "bottom_edge": 86,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.47,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2005"
+      ]
+    },
+    {
+      "id": 17,
+      "left_edge": 22,
+      "top_edge": 85,
+      "right_edge": 43,
+      "bottom_edge": 92,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.77,
+      "char_count": 46,
+      "word_count": 10,
+      "texts": [
+        "1",
+        "{Total CPI % Change",
+        "0'Farm Land % Value Change"
+      ]
+    },
+    {
+      "id": 18,
+      "left_edge": 50,
+      "top_edge": 85,
+      "right_edge": 53,
+      "bottom_edge": 86,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.98,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2010"
+      ]
+    },
+    {
+      "id": 19,
+      "left_edge": 52,
+      "top_edge": 86,
+      "right_edge": 56,
+      "bottom_edge": 87,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 7,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "Year"
+      ]
+    },
+    {
+      "id": 20,
+      "left_edge": 62,
+      "top_edge": 85,
+      "right_edge": 65,
+      "bottom_edge": 86,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2015"
+      ]
+    },
+    {
+      "id": 21,
+      "left_edge": 73,
+      "top_edge": 85,
+      "right_edge": 76,
+      "bottom_edge": 86,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 6,
+      "confidence_avg": 0.99,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2020"
+      ]
+    },
+    {
+      "id": 22,
+      "left_edge": 88,
+      "top_edge": 95,
+      "right_edge": 89,
+      "bottom_edge": 96,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 8,
+      "confidence_avg": 1.0,
+      "char_count": 1,
+      "word_count": 1,
+      "texts": [
+        "3"
+      ]
+    }
+  ]
+}

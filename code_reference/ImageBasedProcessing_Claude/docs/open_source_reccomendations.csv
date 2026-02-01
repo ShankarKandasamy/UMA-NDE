@@ -1,0 +1,7 @@
+Task-Specific Model Assignments,,,
+,,,
+Task,Recommended Model,Size,Why This Model
+Main Response Generation,Llama-3.1-8B-Instruct,4.6GB (Q4),"Best instruction-following for RAG, excellent CPU performance"
+Query Preprocessing,DeepSeek-R1-7B,4.2GB (Q4),"Superior reasoning capabilities, context understanding"
+Image Captioning,LLaVA-1.6-7B or Qwen2-VL-7B,4.8GB (Q4),Best vision-language models for detailed captioning
+Text Clustering,BGE-M3 or Llama-3.1-8B,4.6GB (Q4),Excellent semantic understanding for clustering tasks

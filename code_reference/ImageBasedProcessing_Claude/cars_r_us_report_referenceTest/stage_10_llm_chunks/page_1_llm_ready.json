@@ -1,0 +1,103 @@
+{
+  "page_number": 1,
+  "total_buckets": 5,
+  "last_bucket_previous_page": null,
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 12,
+      "top_edge": 10,
+      "right_edge": 87,
+      "bottom_edge": 32,
+      "position": "center",
+      "width_category": "wide",
+      "y_group_id": 0,
+      "confidence_avg": 0.81,
+      "char_count": 517,
+      "word_count": 86,
+      "texts": [
+        "Cars R Us Auto Deal ership Report 2024",
+        "This report provides an overview of Cars R Us deal ership's performance for 2024. The results are",
+        "presented in three sections: Sales Data, Returns Dz ta, and Trend Analysis. Throughout this report; we",
+        "reference detailed data tables (see Table 1 , Table Table 3) . Important supporting evidence is",
+        "referenced from published documents [1], [2], [3], [4 1, [5]: Note that market fluctuations have",
+        "significantly impacted quarterly sales* _",
+        "Table_1: Car Sales Data Summary [2]",
+        "Model",
+        "1,200",
+        "950"
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 14,
+      "top_edge": 28,
+      "right_edge": 28,
+      "bottom_edge": 37,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 1.0,
+      "char_count": 41,
+      "word_count": 9,
+      "texts": [
+        "Sedan",
+        "SUV Pro",
+        "Truck Max 700",
+        "Hybrid Eco 1,100"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 24,
+      "top_edge": 26,
+      "right_edge": 44,
+      "bottom_edge": 36,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 1,
+      "confidence_avg": 0.84,
+      "char_count": 31,
+      "word_count": 8,
+      "texts": [
+        "Units Sold Revenue (SM)",
+        "36",
+        "42",
+        "28",
+        "44"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 40,
+      "top_edge": 47,
+      "right_edge": 64,
+      "bottom_edge": 49,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 2,
+      "confidence_avg": 0.95,
+      "char_count": 26,
+      "word_count": 4,
+      "texts": [
+        "ShowToom [ mge Placeholder"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 13,
+      "top_edge": 57,
+      "right_edge": 41,
+      "bottom_edge": 59,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.98,
+      "char_count": 35,
+      "word_count": 7,
+      "texts": [
+        "Figure 1: Cars R Us Showroom (2024)"
+      ]
+    }
+  ]
+}

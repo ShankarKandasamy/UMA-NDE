@@ -1,0 +1,101 @@
+{
+  "pdf_name": "pdf_sample_invoice_simple",
+  "total_pages": 1,
+  "total_quadrants": 4,
+  "overlap_ratio": 0.0,
+  "upscaled_to_original": true,
+  "timestamp": "20251221_205853",
+  "pages": [
+    {
+      "page_number": 1,
+      "source_screenshot": "page_1_pdf_sample_invoice_simple.png",
+      "full_page_width": 2481,
+      "full_page_height": 3508,
+      "quadrant_width": 1240,
+      "quadrant_height": 1754,
+      "overlap_ratio": 0.0,
+      "quadrants": [
+        {
+          "quadrant_name": "top_left",
+          "page_number": 1,
+          "filename": "page_1_top_left_pdf_sample_invoice_simple.png",
+          "width_px": 2481,
+          "height_px": 3508,
+          "cropped_width_px": 1240,
+          "cropped_height_px": 1754,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 0,
+          "crop_box": [
+            0,
+            0,
+            1240,
+            1754
+          ],
+          "full_page_width": 2481,
+          "full_page_height": 3508
+        },
+        {
+          "quadrant_name": "top_right",
+          "page_number": 1,
+          "filename": "page_1_top_right_pdf_sample_invoice_simple.png",
+          "width_px": 2481,
+          "height_px": 3508,
+          "cropped_width_px": 1241,
+          "cropped_height_px": 1754,
+          "upscaled": true,
+          "offset_x": 1240,
+          "offset_y": 0,
+          "crop_box": [
+            1240,
+            0,
+            2481,
+            1754
+          ],
+          "full_page_width": 2481,
+          "full_page_height": 3508
+        },
+        {
+          "quadrant_name": "bottom_left",
+          "page_number": 1,
+          "filename": "page_1_bottom_left_pdf_sample_invoice_simple.png",
+          "width_px": 2481,
+          "height_px": 3508,
+          "cropped_width_px": 1240,
+          "cropped_height_px": 1754,
+          "upscaled": true,
+          "offset_x": 0,
+          "offset_y": 1754,
+          "crop_box": [
+            0,
+            1754,
+            1240,
+            3508
+          ],
+          "full_page_width": 2481,
+          "full_page_height": 3508
+        },
+        {
+          "quadrant_name": "bottom_right",
+          "page_number": 1,
+          "filename": "page_1_bottom_right_pdf_sample_invoice_simple.png",
+          "width_px": 2481,
+          "height_px": 3508,
+          "cropped_width_px": 1241,
+          "cropped_height_px": 1754,
+          "upscaled": true,
+          "offset_x": 1240,
+          "offset_y": 1754,
+          "crop_box": [
+            1240,
+            1754,
+            2481,
+            3508
+          ],
+          "full_page_width": 2481,
+          "full_page_height": 3508
+        }
+      ]
+    }
+  ]
+}

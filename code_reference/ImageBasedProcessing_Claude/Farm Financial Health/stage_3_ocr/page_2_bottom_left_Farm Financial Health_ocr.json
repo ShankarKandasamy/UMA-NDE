@@ -1,0 +1,64 @@
+{
+  "quadrant_name": "bottom_left",
+  "page_number": 2,
+  "source_image": "page_2_bottom_left_Farm Financial Health.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 0,
+  "offset_y": 1650,
+  "crop_box": [
+    0,
+    1650,
+    1275,
+    3300
+  ],
+  "total_blocks": 3,
+  "min_x": 1508,
+  "max_x": 2243,
+  "min_y": 5737,
+  "max_y": 6187,
+  "blocks": [
+    {
+      "text": "CFA",
+      "start_x": 1609,
+      "end_x": 2241,
+      "start_y": 5737,
+      "end_y": 6005,
+      "mid_x": 1925,
+      "mid_y": 5871,
+      "mid_y_x": 5903.18,
+      "height": 268,
+      "confidence": 0.999983619545306,
+      "char_count": 3,
+      "word_count": 1
+    },
+    {
+      "text": "Canadian Federation",
+      "start_x": 1508,
+      "end_x": 2243,
+      "start_y": 6011,
+      "end_y": 6099,
+      "mid_x": 1876,
+      "mid_y": 6055,
+      "mid_y_x": 6085.16,
+      "height": 88,
+      "confidence": 0.9997945627228383,
+      "char_count": 19,
+      "word_count": 2
+    },
+    {
+      "text": "of Agriculture",
+      "start_x": 1747,
+      "end_x": 2243,
+      "start_y": 6089,
+      "end_y": 6187,
+      "mid_x": 1995,
+      "mid_y": 6138,
+      "mid_y_x": 6172.94,
+      "height": 98,
+      "confidence": 0.9997185132648418,
+      "char_count": 14,
+      "word_count": 2
+    }
+  ]
+}

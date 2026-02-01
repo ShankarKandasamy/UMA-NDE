@@ -1,0 +1,243 @@
+{
+  "page_number": "8",
+  "analysis": {
+    "total_buckets": 23,
+    "filtered_buckets": [
+      {
+        "bucket_id": 22,
+        "text": "3",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Canadian Farmland values have in creased by an average of 10% annually over the last 10 years: Figure 3: Farm Land Value (S/Acre)",
+        "confidence": 0.9877551020408163,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "The value in Ontario increased from S11,786 per acre in 2019 to S17,962 per acre in 2022.",
+        "confidence": 0.9772727272727273,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Year 2020 20z1 02022",
+        "confidence": 0.9,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 11,
+        "text": "Source: Statistics Canada: Table 32-10-0047-01 The value of farmland also saw a significant in crease in 2022. The most prominent increase in land value were observed in Ontario, where the average value skyrocketed from $11,786 per acre in 2019 to $17,962 per acre in 2022 (Statistics Canada, 2023).",
+        "confidence": 0.8823529411764706,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 12,
+        "text": "According to Farm Credit Canada (FCC), Cana dian farmland values have increased on average 10% annually over the last 10 years: In 2022, values rose 12.8%, the highest jump since 2013 (ECC, 2023). In addition, average nnual mortgage payments increased 9.7% per year in the last decade, but 2022 recorded th 2 large jump of 41% due to rising interest rates (ECC,_2023).",
+        "confidence": 0.985632183908046,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 13,
+        "text": "Figure 4: CPI and Farm Land Value Source: FCC Calculations; Statistics Canada: Table 18-10-0004-03 0,20 1 8 0.15 1 0.10",
+        "confidence": 0.8571428571428571,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 14,
+        "text": "0.05 8",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 15,
+        "text": "2000",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 16,
+        "text": "2005",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 17,
+        "text": "1 {Total CPI % Change 0'Farm Land % Value Change",
+        "confidence": 0.9302325581395349,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 18,
+        "text": "2010",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 19,
+        "text": "Year",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 20,
+        "text": "2015",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 21,
+        "text": "2020",
+        "confidence": 1.0,
+        "method": "exact_match"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 1,
+        "text": "S1SK",
+        "texts": [
+          "S1SK"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 1,
+        "confidence_avg": 0.32,
+        "char_count": 4,
+        "word_count": 1,
+        "confidence_missing": 0.5,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 4,
+        "text": "] 5 1 SSK",
+        "texts": [
+          "]",
+          "5",
+          "1 SSK"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.71,
+        "char_count": 7,
+        "word_count": 4,
+        "confidence_missing": 0.4285714285714286,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 5,
+        "text": "Onario",
+        "texts": [
+          "Onario"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.33,
+        "char_count": 6,
+        "word_count": 1,
+        "confidence_missing": 0.16666666666666652,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 6,
+        "text": "Istand",
+        "texts": [
+          "Istand"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.85,
+        "char_count": 6,
+        "word_count": 1,
+        "confidence_missing": 0.33333333333333326,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Quebec Columbia Gsh Nesoundiand",
+        "texts": [
+          "Quebec Columbia",
+          "Gsh",
+          "Nesoundiand"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.47,
+        "char_count": 29,
+        "word_count": 4,
+        "confidence_missing": 0.5806451612903226,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Labracor Jnd",
+        "texts": [
+          "Labracor",
+          "Jnd"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.39,
+        "char_count": 11,
+        "word_count": 2,
+        "confidence_missing": 0.5,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 9,
+        "text": "Aibera Brunsttck",
+        "texts": [
+          "Aibera Brunsttck"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.77,
+        "char_count": 16,
+        "word_count": 2,
+        "confidence_missing": 0.5,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 10,
+        "text": "Scota Manttoba Nov}",
+        "texts": [
+          "Scota Manttoba",
+          "Nov}"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.43,
+        "char_count": 18,
+        "word_count": 3,
+        "confidence_missing": 0.5555555555555556,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "# Canadian Farmland values have increased by an average of 10% annually over the last 10 years.\n\n![Figure 3: Farm Land Value ($/Acre)](https://example.com/figure3)\n\nThe value in Ontario increased from $11,786 per acre in 2019 to $17,962 per acre in 2022.\n\n| Year | 2020 | 2021 | 2022 |\n|------|------|------|------|\n\nThe value of farmland also saw a significant increase in 2022. The most prominent increase in land value were observed in Ontario, where the average value skyrocketed from $11,786 per acre in 2019 to $17,962 per acre in 2022 (Statistics Canada, 2023).\n\nAccording to Farm Credit Canada (FCC), Canadian farmland values have increased on average 10% annually over the last 10 years: In 2022, values rose 12.8%, the highest jump since 2013 (FCC, 2023). In addition, average annual mortgage payments increased 9.7% per year in the last decade, but 2022 recorded the large jump of 41% due to rising interest rates (FCC, 2023).\n\n![Figure 4: CPI and Farm Land Value](https://example.com/figure4)\n\n> Source: FCC Calculations; Statistics Canada: Table 18-10-0004-03\n\n| Year | Total CPI % Change | Farm Land % Value Change |\n|------|--------------------|--------------------------|\n| 2000 | 0.05               |                          |\n| 2005 |                    |                          |\n| 2010 |                    |                          |\n| 2015 |                    |                          |\n| 2020 |                    |                          |",
+    "buckets_recovered": [],
+    "buckets_gibberish": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "recovery_notes": "All missing buckets were identified as gibberish or OCR errors and were not inserted into the markdown."
+  }
+}

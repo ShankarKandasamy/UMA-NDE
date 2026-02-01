@@ -1,0 +1,75 @@
+{
+  "page_number": "2",
+  "analysis": {
+    "total_buckets": 6,
+    "filtered_buckets": [],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "The dealership experienced a moderate level of retc urns, primarily due to warranty issues and customer dissatisfaction with specific models. Details are outli ned in Table 2 below; which provides context for the after-sales service performancet+. Table 2: Returns Data [4] Model",
+        "confidence": 0.985239852398524,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "Units Returned Reason (Top Caus e) 40 30 Truck Max 25 Hybrid Eco 15",
+        "confidence": 0.8571428571428571,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Sedan SUV Pro",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      },
+      {
+        "bucket_id": 3,
+        "text": "Transmission Electronics Suspension Battery",
+        "confidence": 1.0,
+        "method": "word_coverage"
+      }
+    ],
+    "missing_buckets": [
+      {
+        "bucket_id": 4,
+        "text": "Service Cenler naze Placeholder",
+        "texts": [
+          "Service Cenler naze Placeholder"
+        ],
+        "position": "center",
+        "width_category": "narrow",
+        "y_group_id": 2,
+        "confidence_avg": 0.95,
+        "char_count": 31,
+        "word_count": 4,
+        "confidence_missing": 0.12903225806451613,
+        "method_tried": "missing"
+      },
+      {
+        "bucket_id": 5,
+        "text": "Figule C= 0 0_",
+        "texts": [
+          "Figule C= 0 0_"
+        ],
+        "position": "left",
+        "width_category": "narrow",
+        "y_group_id": 3,
+        "confidence_avg": 0.56,
+        "char_count": 14,
+        "word_count": 4,
+        "confidence_missing": 0.33333333333333326,
+        "method_tried": "missing"
+      }
+    ],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "markdown": "Figure 1: Cars R Us Showroom (2024)\n\nThe dealership experienced a moderate level of returns, primarily due to warranty issues and customer dissatisfaction with specific models. Details are outlined in Table 2 below, which provides context for the after-sales service performance.\n\n## Table 2: Returns Data [4]\n| Model     | Units Returned | Reason (Top Cause) |\n|-----------|----------------|---------------------|\n| Sedan X  | 40             | Transmission         |\n| SUV Pro   | 30             | Electronics          |\n| Truck Max | 25             | Suspension           |\n| Hybrid Eco| 15             | Battery              |\n\n> Figure 2: Service Center Operations (2024)\n\nService Center Image Placeholder\n\nFigure 2: Service Center Operations (2024)",
+    "buckets_recovered": [],
+    "buckets_gibberish": [
+      4,
+      5
+    ],
+    "recovery_notes": "Both missing buckets were identified as gibberish. Bucket 4 contained misspellings and errors, while Bucket 5 was nonsensical. No text was inserted into the markdown."
+  }
+}

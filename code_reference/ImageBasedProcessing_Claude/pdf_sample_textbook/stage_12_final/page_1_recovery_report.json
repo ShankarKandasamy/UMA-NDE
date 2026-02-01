@@ -1,0 +1,136 @@
+{
+  "page_number": "1",
+  "analysis": {
+    "total_buckets": 20,
+    "filtered_buckets": [
+      {
+        "bucket_id": 19,
+        "text": "1",
+        "reason": "too_short"
+      }
+    ],
+    "matched_buckets": [
+      {
+        "bucket_id": 0,
+        "text": "Anatomy of the Somz tosensory System",
+        "confidence": 0.9577464788732395,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 1,
+        "text": "FROM WIKIBOOKS 1",
+        "confidence": 0.9375,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 2,
+        "text": "Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joic ts. The re- ceptors in the skin, the so called cutaneous re ceptors, tell us about temperature (thermoreceptors) , pressi 1re and sur - face texture (mechano receptors), and pain (r ociceptors) The receptors in muscles and joints provide = nformation about muscle length, muscle tension, and joint t angles Cutaneous receptors Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force when objects are lifted. These afferents respond vith V~ brief a burst of action potentials when objects move a small dis - tance during the early stages of lifting:   In 1 esponse to",
+        "confidence": 0.9712230215827337,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 3,
+        "text": "This is a sample document to showcase page-based formatting: It contains a chapter from a Wikibook called Sensory Systems. None of the content has been changed in this article; but some content has been removed:",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 4,
+        "text": "Hairy skin",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 5,
+        "text": "Glabrous skin",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 6,
+        "text": "Papillary Ridges",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 7,
+        "text": "Figure 1: Receptors in the hu- man skin: Mechanoreceptors can be free receptors or encapsulated Examples for free receptors are the hair receptors at the roots of hairs. Encapsulated receptors are the Pacinian corpuscles and the receptors in the glabrous (hair- less) skin: Meissner   corpuscles, Ruffini corpuscles and Merkels disks.",
+        "confidence": 0.9937888198757764,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 8,
+        "text": "Epidermis",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 9,
+        "text": "Free nerve ending",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 10,
+        "text": "Septa",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 11,
+        "text": "Merkels receptor",
+        "confidence": 0.9375,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 12,
+        "text": "Meissne rs corpuscl e",
+        "confidence": 0.9047619047619048,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 13,
+        "text": "Sebaceous gland",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 14,
+        "text": "Dermis",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 15,
+        "text": "Ruffinis corpuscle",
+        "confidence": 0.9444444444444444,
+        "method": "fuzzy_match"
+      },
+      {
+        "bucket_id": 16,
+        "text": "Hair receptor",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 17,
+        "text": "Pacinian corpuscle",
+        "confidence": 1.0,
+        "method": "exact_match"
+      },
+      {
+        "bucket_id": 18,
+        "text": "1 The following description is based on lecture notez S from Laszlo Zaborszky, from Rutgers University:",
+        "confidence": 0.9849246231155778,
+        "method": "fuzzy_match"
+      }
+    ],
+    "missing_buckets": [],
+    "llm_reported_missing": []
+  },
+  "recovery": {
+    "buckets_recovered": [],
+    "buckets_gibberish": [],
+    "recovery_notes": "No missing buckets"
+  }
+}

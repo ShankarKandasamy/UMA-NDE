@@ -1,0 +1,108 @@
+{
+  "page_number": 1,
+  "total_buckets": 6,
+  "last_bucket_previous_page": null,
+  "buckets": [
+    {
+      "id": 0,
+      "left_edge": 12,
+      "top_edge": 19,
+      "right_edge": 46,
+      "bottom_edge": 31,
+      "position": "left",
+      "width_category": "narrow",
+      "y_group_id": 0,
+      "confidence_avg": 0.72,
+      "char_count": 6,
+      "word_count": 3,
+      "texts": [
+        "[",
+        "ari ("
+      ]
+    },
+    {
+      "id": 1,
+      "left_edge": 21,
+      "top_edge": 32,
+      "right_edge": 77,
+      "bottom_edge": 50,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 1,
+      "confidence_avg": 0.61,
+      "char_count": 10,
+      "word_count": 3,
+      "texts": [
+        "Jnan clal",
+        "2"
+      ]
+    },
+    {
+      "id": 2,
+      "left_edge": 40,
+      "top_edge": 50,
+      "right_edge": 91,
+      "bottom_edge": 67,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 2,
+      "confidence_avg": 0.88,
+      "char_count": 15,
+      "word_count": 3,
+      "texts": [
+        "R",
+        "eport",
+        "2023-2024"
+      ]
+    },
+    {
+      "id": 3,
+      "left_edge": 13,
+      "top_edge": 88,
+      "right_edge": 56,
+      "bottom_edge": 95,
+      "position": "center",
+      "width_category": "medium",
+      "y_group_id": 3,
+      "confidence_avg": 1.0,
+      "char_count": 42,
+      "word_count": 7,
+      "texts": [
+        "CFA FC A",
+        "Canadian Federation of Agriculture"
+      ]
+    },
+    {
+      "id": 4,
+      "left_edge": 42,
+      "top_edge": 92,
+      "right_edge": 60,
+      "bottom_edge": 95,
+      "position": "center",
+      "width_category": "narrow",
+      "y_group_id": 3,
+      "confidence_avg": 0.99,
+      "char_count": 42,
+      "word_count": 6,
+      "texts": [
+        "de |'agricl Federatior 1 canadienne Ilture"
+      ]
+    },
+    {
+      "id": 5,
+      "left_edge": 80,
+      "top_edge": 95,
+      "right_edge": 84,
+      "bottom_edge": 97,
+      "position": "right",
+      "width_category": "narrow",
+      "y_group_id": 4,
+      "confidence_avg": 1.0,
+      "char_count": 4,
+      "word_count": 1,
+      "texts": [
+        "2023"
+      ]
+    }
+  ]
+}

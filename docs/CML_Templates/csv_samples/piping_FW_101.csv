@@ -1,0 +1,16 @@
+Circuit_ID,CML,Component,NPS,Schedule,Nominal_mm,t_min_mm,Reading_1,Reading_2,Reading_3,Reading_4,Min_mm,Prev_mm,Prev_Date,Corr_Rate_mm_yr,Remaining_Life_yr,Condition,Service,Material
+FW-101,001,Tee-Run,8,40,8.18,4.09,7.04,7.0,7.03,6.86,6.86,6.94,2024-09-04,0.05,55.4,Good,Boiler Feedwater,A106 Gr.B
+FW-101,002,Tee-Run,6,80,7.11,3.56,6.54,6.55,6.59,6.55,6.54,6.73,2024-09-04,0.12,24.9,Good,Boiler Feedwater,A106 Gr.B
+FW-101,003,Tee-Branch,4,80,6.02,3.01,4.44,4.48,4.5,4.46,4.44,4.56,2024-09-04,0.05,28.6,Good,Boiler Feedwater,A106 Gr.B
+FW-101,004,Tee-Run,4,80,6.02,3.01,5.58,5.49,5.5,5.56,5.49,5.67,2024-09-04,0.07,35.4,Good,Boiler Feedwater,A106 Gr.B
+FW-101,005,90° Elbow,8,40,8.18,4.09,7.56,7.56,7.56,7.55,7.55,7.69,2024-09-04,0.07,49.4,Good,Boiler Feedwater,A106 Gr.B
+FW-101,006,Reducer,6,80,7.11,3.56,6.7,6.46,,,6.46,6.57,2024-09-04,0.04,72.6,Good,Boiler Feedwater,A106 Gr.B
+FW-101,007,Weldolet,2,80,3.91,1.96,2.72,2.65,,,2.65,2.83,2024-09-04,0.1,6.9,ALERT,Boiler Feedwater,A106 Gr.B
+FW-101,008,Tee-Run,8,40,8.18,4.09,7.48,7.27,7.48,7.36,7.27,7.49,2024-09-04,0.11,28.9,Good,Boiler Feedwater,A106 Gr.B
+FW-101,009,Control Valve,8,40,8.18,4.09,5.28,5.36,5.45,5.33,5.28,5.4,2024-09-04,0.07,17.0,Fair,Boiler Feedwater,A106 Gr.B
+FW-101,010,90° Elbow,4,80,6.02,3.01,5.31,5.17,5.09,5.25,5.09,5.26,2024-09-04,0.08,26.0,Good,Boiler Feedwater,A106 Gr.B
+FW-101,011,Control Valve,4,80,6.02,3.01,5.45,5.37,5.62,5.64,5.37,5.59,2024-09-04,0.09,26.2,Good,Boiler Feedwater,A106 Gr.B
+FW-101,012,Straight,6,80,7.11,3.56,6.16,5.99,,,5.99,6.17,2024-09-04,0.11,22.1,Good,Boiler Feedwater,A106 Gr.B
+FW-101,013,Reducer,6,80,7.11,3.56,6.64,6.59,,,6.59,6.75,2024-09-04,0.07,43.4,Good,Boiler Feedwater,A106 Gr.B
+FW-101,014,Flange,2,80,3.91,1.96,3.25,3.36,,,3.25,3.38,2024-09-04,0.06,21.6,Good,Boiler Feedwater,A106 Gr.B
+FW-101,015,Flange,4,80,6.02,3.01,5.26,5.29,,,5.26,5.49,2024-09-04,0.13,17.3,Fair,Boiler Feedwater,A106 Gr.B

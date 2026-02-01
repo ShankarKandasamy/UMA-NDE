@@ -1,0 +1,78 @@
+{
+  "quadrant_name": "bottom_left",
+  "page_number": 2,
+  "source_image": "page_2_bottom_left_cars_r_us_report_referenceTest.png",
+  "image_width": 2550,
+  "image_height": 3300,
+  "offset_x": 0,
+  "offset_y": 1650,
+  "crop_box": [
+    0,
+    1650,
+    1275,
+    3300
+  ],
+  "total_blocks": 4,
+  "min_x": 647,
+  "max_x": 2253,
+  "min_y": 3300,
+  "max_y": 3361,
+  "blocks": [
+    {
+      "text": "Figule",
+      "start_x": 647,
+      "end_x": 894,
+      "start_y": 3300,
+      "end_y": 3359,
+      "mid_x": 770,
+      "mid_y": 3330,
+      "mid_y_x": 3342.94,
+      "height": 59,
+      "confidence": 0.31547647712510807,
+      "char_count": 6,
+      "word_count": 1
+    },
+    {
+      "text": "C=",
+      "start_x": 908,
+      "end_x": 970,
+      "start_y": 3300,
+      "end_y": 3345,
+      "mid_x": 939,
+      "mid_y": 3322,
+      "mid_y_x": 3340.16,
+      "height": 45,
+      "confidence": 0.5313228213269855,
+      "char_count": 2,
+      "word_count": 1
+    },
+    {
+      "text": "Oci Vice",
+      "start_x": 999,
+      "end_x": 1284,
+      "start_y": 3300,
+      "end_y": 3341,
+      "mid_x": 1142,
+      "mid_y": 3320,
+      "mid_y_x": 3339.98,
+      "height": 41,
+      "confidence": 0.09263685663953408,
+      "char_count": 8,
+      "word_count": 2
+    },
+    {
+      "text": "Ueiilei Upelaliuns (Cuct)",
+      "start_x": 1299,
+      "end_x": 2253,
+      "start_y": 3300,
+      "end_y": 3361,
+      "mid_x": 1776,
+      "mid_y": 3330,
+      "mid_y_x": 3355.98,
+      "height": 61,
+      "confidence": 0.11739673266849814,
+      "char_count": 25,
+      "word_count": 3
+    }
+  ]
+}
