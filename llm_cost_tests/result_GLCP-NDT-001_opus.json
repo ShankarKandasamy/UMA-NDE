@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-6",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "summary": "This document (GLCP-NDT-001, Revision 3) establishes site-specific Non-Destructive Examination (NDE) requirements for the Great Lakes Chemical Processing Hamilton Plant. It covers all NDE activities including ultrasonic thickness measurement (UT), magnetic particle testing (MT), liquid penetrant testing (PT), visual inspection (VT), and radiographic testing (RT) on pressure-containing equipment and piping systems. The specification defines personnel qualification requirements, mandating ASNT SNT-TC-1A or CP-189 certification with minimum Level II for most activities and specific industry experience. Equipment requirements include UT gauge specifications, calibration intervals (12-month for most equipment), and daily verification procedures with \u00b10.002 inch acceptable deviation. UT measurement procedures specify minimum four readings per CML location, material velocity settings for various alloys, and surface preparation standards. Alert thresholds classify findings as Critical (below t-min requiring immediate stop-work), Alert (below 110% t-min), Monitor (corrosion rate above 10 mpy), or Acceptable. Safety requirements include work permits, H2S monitoring in the Amine Treating Unit with alarm setpoints at 10/15 ppm, and comprehensive PPE requirements including FR clothing. Documentation must be electronic with photographic evidence for all critical findings.",
+  "tokens": {
+    "input": 13059,
+    "output": 298,
+    "total": 13357
+  },
+  "cost_usd": {
+    "input": 0.195885,
+    "output": 0.02235,
+    "total": 0.218235
+  },
+  "time_seconds": 13.16
+}

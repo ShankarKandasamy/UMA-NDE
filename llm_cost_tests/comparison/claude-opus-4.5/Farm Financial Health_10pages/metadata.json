@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-5-20251101",
+  "pdf_file": "Farm Financial Health_10pages.pdf",
+  "pdf_size_bytes": 7855311,
+  "parse_ok": true,
+  "tokens": {
+    "input": 16416,
+    "output": 4577,
+    "total": 20993
+  },
+  "cost_usd": {
+    "input": 0.08208,
+    "output": 0.114425,
+    "total": 0.196505
+  },
+  "time_seconds": 131.88
+}

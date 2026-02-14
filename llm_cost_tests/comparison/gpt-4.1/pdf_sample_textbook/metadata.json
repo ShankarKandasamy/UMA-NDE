@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "pdf_sample_textbook.pdf",
+  "pdf_size_bytes": 135171,
+  "parse_ok": true,
+  "tokens": {
+    "input": 2698,
+    "output": 1532,
+    "total": 4230
+  },
+  "cost_usd": {
+    "input": 0.005396,
+    "output": 0.012256,
+    "total": 0.017652
+  },
+  "time_seconds": 110.75
+}

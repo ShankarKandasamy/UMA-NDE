@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "parse_ok": true,
+  "tokens": {
+    "input": 2617,
+    "output": 2706,
+    "total": 5323
+  },
+  "cost_usd": {
+    "input": 0.005234,
+    "output": 0.021648,
+    "total": 0.026882
+  },
+  "time_seconds": 43.23
+}

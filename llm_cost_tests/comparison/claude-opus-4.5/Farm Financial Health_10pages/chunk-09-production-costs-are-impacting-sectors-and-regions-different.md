@@ -1,0 +1,7 @@
+# Production costs are impacting sectors and regions differently across Canada
+
+While expenses increased to record levels throughout Canada in 2022 (21.2% increase), the Farm Input Price Index (FIPI) revealed distinct regional variations. The FIPI is a measure of change in input costs faced by Canadian farmers and provides insights into the financial pressures on agricultural operations. For example, Western Canada (MB, SK, AB, BC) experienced a slightly higher increase in total farm input price rises from Q1 2019 to Q4 2022 (38%) vs. Eastern Canada (NL, PEI, NS, NB, QC, ON) (34%). Furthermore, while the cost of fuel was higher in Eastern Canada (72% vs 43%), Western Canada experienced higher feed prices (63% vs 49%).
+
+Even within the agriculture sector, certain commodities are being disproportionately impacted by financial pressures. For example, Canada's fruit and vegetable sector reported a 40% increase in input costs with fertilizer leading the way (72% increase since 2020).
+
+Labour costs have also increased by 20% and shipping by 42%. As a result, as of January 2023, 44% of fruit and vegetable producers reported that they were selling at a loss (Farmers Forum). In addition, Canada's pork industry is constrained by decreasing processor capacity and increasing non-tariff barriers to trade which means many producers are currently absorbing losses of $40 to $50 a head (RealAgriculture).

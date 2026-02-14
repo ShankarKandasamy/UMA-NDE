@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4o-mini",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "parse_ok": true,
+  "tokens": {
+    "input": 2617,
+    "output": 777,
+    "total": 3394
+  },
+  "cost_usd": {
+    "input": 0.000393,
+    "output": 0.000466,
+    "total": 0.000859
+  },
+  "time_seconds": 15.53
+}

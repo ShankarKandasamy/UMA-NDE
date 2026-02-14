@@ -1,0 +1,200 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "parse_ok": true,
+  "extraction": {
+    "title": "Site-Specific NDE Requirements (GLCP-NDT-001)",
+    "pages": 7,
+    "summary": "This is a technical procedure document issued by the Great Lakes Chemical Processing (GLCP) Hamilton Plant, titled 'Site-Specific NDE Requirements' (Document Number: GLCP-NDT-001, Revision 3, effective January 15, 2024). It sets forth mandatory protocols for Non-Destructive Examination (NDE) activities\u2014including ultrasonic thickness measurement, magnetic particle testing, liquid penetrant testing, visual inspection, and radiographic testing\u2014on pressure-containing equipment and piping systems. The document details qualifications required for NDE personnel, equipment and calibration standards, data collection and reporting procedures, acceptance thresholds, safety (including H2S monitoring and PPE), permit requirements, and incident notification protocols. It references API and ASME codes, as well as site-specific safety and work permit protocols. This document would help answer queries on site-specific NDE compliance, required certifications and equipment, inspection documentation, acceptance/rejection criteria, and related site procedures and safety requirements.",
+    "sections": [
+      {
+        "heading": "1. PURPOSE AND SCOPE",
+        "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein.\n1.1 Applicability\nThis specification applies to all NDE activities including but not limited to: ultrasonic thickness measurement (UT), magnetic particle testing (MT), liquid penetrant testing (PT), visual inspection (VT), and radiographic testing (RT) performed on pressure-containing equipment and piping systems."
+      },
+      {
+        "heading": "2. REFERENCE DOCUMENTS",
+        "text": "Code/Standard Title\nAPI 570 Piping Inspection Code\nAPI 574 Inspection Practices for Piping System Components\nAPI 510 Pressure Vessel Inspection Code\nASME B31.3 Process Piping\nASME Section V Nondestructive Examination\nASNT SNT-TC-1A Personnel Qualification and Certification in NDT\nGLCP-SAFE-001 Contractor Safety Requirements\nGLCP-WORK-002 Work Permit Procedures"
+      },
+      {
+        "heading": "3. PERSONNEL QUALIFICATIONS",
+        "text": "3.1 General Requirements\nAll NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization.\n3.2 Minimum Qualification Levels\nActivity Minimum Level Experience Required\nUT Thickness Measurement Level II 2 years refinery/petrochemical\nUT Flaw Detection Level II 3 years, specific training required\nMT/PT Surface Examination Level II 1 year\nVT Piping Inspection Level II 2 years refinery/petrochemical\nRT Interpretation Level II 2 years\nLead Inspector/Supervisor Level II or III 5 years refinery/petrochemical\n3.3 Site-Specific Training\nAll contractor personnel shall complete GLCP site-specific safety orientation (minimum 4 hours) prior to commencing work. This includes: H2S awareness training, emergency response procedures, permit-to-work system overview, and unit-specific hazards. Orientation is valid for 3 years from completion date."
+      },
+      {
+        "heading": "4. EQUIPMENT REQUIREMENTS",
+        "text": "4.1 Ultrasonic Thickness Gauges\nAll UT thickness gauges shall meet the following minimum requirements: \u2022 Digital display with minimum resolution of 0.001 inch \u2022 Data logging capability with minimum 1000 reading storage \u2022 Capable of operating in temperature range 32\u00b0F to 120\u00b0F \u2022 Battery life sufficient for full shift operation (minimum 8 hours) \u2022 Dual or multi-element transducer capability for high-temperature applications\n4.2 Calibration Requirements\nAll measurement equipment shall have current calibration traceable to NIST or equivalent national standards body. Calibration certificates shall be provided showing calibration date, due date, and standards used.\nEquipment Type Calibration Interval Verification Frequency\nUT Thickness Gauge 12 months Daily (before use)\nUT Transducers 12 months Daily (with gauge)\nCalibration Blocks 24 months N/A\nYoke/Prod (MT) 12 months Before each use\n4.3 Daily Calibration Verification\nUT thickness gauges shall be verified at the start of each work shift using a multi-step calibration block. Verification shall be performed on steps bracketing the expected measurement range. Acceptable deviation is \u00b10.002 inch. Verification shall be documented with date, time, operator, and readings."
+      },
+      {
+        "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+        "text": "5.1 Surface Preparation\nThe measurement surface shall be prepared to remove loose scale, rust, paint, or other materials that may interfere with coupling. Preparation methods may include wire brushing, grinding, or scraping. Surface shall be smooth enough to achieve consistent couplant contact. For painted surfaces, paint removal is required unless coating thickness is less than 10 mils and consistent.\n5.2 Couplant\nWater-based or glycerin-based couplant shall be used. For elevated temperature surfaces (above 150\u00b0F), high-temperature couplant rated for the service temperature shall be used. Couplant shall be removed after measurement to prevent interference with coatings or corrosion protection systems.\n5.3 Measurement Technique\nA minimum of four (4) readings shall be taken at each CML location, spaced approximately 90\u00b0 apart around the circumference. The minimum reading shall be recorded as the official measurement. For suspected localized corrosion, additional readings in a grid pattern may be required.\n5.4 Material Velocity Settings\nMaterial Velocity (in/\u00b5s) Notes\nCarbon Steel (A106, A53) 0.2330 Default for CS piping\n316/304 Stainless Steel 0.2260 Austenitic SS\nDuplex Stainless Steel 0.2290 Verify with material cert\nChrome-Moly Steel 0.2330 Same as CS\nAluminum 0.2500 Verify alloy"
+      },
+      {
+        "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+        "text": "6.1 Minimum Thickness (t-min)\nMinimum required thickness shall be calculated in accordance with ASME B31.3 or the original design code. t-min values for each piping circuit are provided in the inspection data packages. Readings below t-min require immediate notification per Section 6.3.\n6.2 Alert Thresholds\nCondition Threshold Required Action\nCRITICAL Reading < t-min STOP - Immediate notification to GLCP\nAlert Reading < 110% of t-min Notify GLCP within same shift\nMonitor Corrosion rate > 10 mpy Document in report, recommend action\nAcceptable All other readings Document in report\n6.3 Notification Procedures\nFor CRITICAL findings (readings below t-min), the contractor shall: 1. Immediately cease work at the affected location 2. Verify the reading with repeat measurement 3. Contact GLCP Inspection Coordinator by radio or phone 4. Do not leave the area until GLCP representative arrives 5. Document the finding with photographs and detailed notes 6. Confirm reading with GLCP representative present\nGLCP Inspection Coordinator: Jennifer Walsh, (905) 555-0147, Radio Channel 3"
+      },
+      {
+        "heading": "7. DOCUMENTATION REQUIREMENTS",
+        "text": "7.1 Data Recording\nAll thickness readings shall be recorded electronically using data logging equipment. Manual recording is not acceptable except as backup. Data shall include: CML identification, reading value, date, time, operator ID, and equipment serial number.\n7.2 Photographic Documentation\nPhotographs are required for: \u2022 Each CML location showing tag/identification \u2022 Gauge display for all CRITICAL and Alert readings \u2022 Surface condition for any unusual findings \u2022 Inaccessible locations with explanation \u2022 Daily calibration verification setup\n7.3 Report Format\nInspection reports shall include as a minimum: executive summary, scope of work, equipment and personnel used, inspection results tabulated by line and CML, trending comparison with historical data, list of all findings by category, recommendations, and appendices with raw data and photographs."
+      },
+      {
+        "heading": "8. SAFETY REQUIREMENTS",
+        "text": "8.1 Permits\nAll inspection work requires a valid General Work Permit. Additional permits (Elevated Work, Hot Work, Confined Space) may be required depending on location and activities. Permits shall be obtained from the Control Room before starting work each day.\n8.2 H2S Monitoring\nAll personnel working in the Amine Treating Unit shall carry a personal H2S monitor. Monitors are provided by GLCP and issued daily at the Control Room. Alarm setpoints: Low alarm at 10 ppm, High alarm at 15 ppm. Upon high alarm, evacuate upwind immediately and report to muster point.\n8.3 PPE Requirements\n\u2022 Hard hat (GLCP-issued sticker required)\n\u2022 Safety glasses (side shields required)\n\u2022 Steel-toed boots (minimum 6-inch height)\n\u2022 FR clothing (minimum ATPV 8 cal/cm\u00b2)\n\u2022 Work gloves (leather or equivalent)\n\u2022 H2S monitor (GLCP-provided)\n\u2022 Hearing protection (required in designated areas)"
+      },
+      {
+        "heading": "REVISION HISTORY",
+        "text": "Rev Date Description Author\n0 Mar 2018 Initial issue J. Walsh\n1 Jan 2020 Updated calibration requirements J. Walsh\n2 Jun 2022 Added H2S monitoring requirements M. Sullivan\n3 Jan 2024 Updated alert thresholds, added photo requirements J. Walsh"
+      }
+    ],
+    "tables": [
+      {
+        "title": "Minimum Qualification Levels",
+        "headers": [
+          "Activity",
+          "Minimum Level",
+          "Experience Required"
+        ],
+        "rows": [
+          [
+            "UT Thickness Measurement",
+            "Level II",
+            "2 years refinery/petrochemical"
+          ],
+          [
+            "UT Flaw Detection",
+            "Level II",
+            "3 years, specific training required"
+          ],
+          [
+            "MT/PT Surface Examination",
+            "Level II",
+            "1 year"
+          ],
+          [
+            "VT Piping Inspection",
+            "Level II",
+            "2 years refinery/petrochemical"
+          ],
+          [
+            "RT Interpretation",
+            "Level II",
+            "2 years"
+          ],
+          [
+            "Lead Inspector/Supervisor",
+            "Level II or III",
+            "5 years refinery/petrochemical"
+          ]
+        ]
+      },
+      {
+        "title": "Ultrasonic Thickness Gauge Calibration Requirements",
+        "headers": [
+          "Equipment Type",
+          "Calibration Interval",
+          "Verification Frequency"
+        ],
+        "rows": [
+          [
+            "UT Thickness Gauge",
+            "12 months",
+            "Daily (before use)"
+          ],
+          [
+            "UT Transducers",
+            "12 months",
+            "Daily (with gauge)"
+          ],
+          [
+            "Calibration Blocks",
+            "24 months",
+            "N/A"
+          ],
+          [
+            "Yoke/Prod (MT)",
+            "12 months",
+            "Before each use"
+          ]
+        ]
+      },
+      {
+        "title": "Material Velocity Settings",
+        "headers": [
+          "Material",
+          "Velocity (in/\u00b5s)",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "Carbon Steel (A106, A53)",
+            "0.2330",
+            "Default for CS piping"
+          ],
+          [
+            "316/304 Stainless Steel",
+            "0.2260",
+            "Austenitic SS"
+          ],
+          [
+            "Duplex Stainless Steel",
+            "0.2290",
+            "Verify with material cert"
+          ],
+          [
+            "Chrome-Moly Steel",
+            "0.2330",
+            "Same as CS"
+          ],
+          [
+            "Aluminum",
+            "0.2500",
+            "Verify alloy"
+          ]
+        ]
+      },
+      {
+        "title": "Acceptance Criteria (Thickness/Corrosion Monitoring)",
+        "headers": [
+          "Condition",
+          "Threshold",
+          "Required Action"
+        ],
+        "rows": [
+          [
+            "CRITICAL",
+            "Reading < t-min",
+            "STOP - Immediate notification to GLCP"
+          ],
+          [
+            "Alert",
+            "Reading < 110% of t-min",
+            "Notify GLCP within same shift"
+          ],
+          [
+            "Monitor",
+            "Corrosion rate > 10 mpy",
+            "Document in report, recommend action"
+          ],
+          [
+            "Acceptable",
+            "All other readings",
+            "Document in report"
+          ]
+        ]
+      }
+    ],
+    "images": [],
+    "charts": []
+  },
+  "tokens": {
+    "input": 2617,
+    "output": 2706,
+    "total": 5323
+  },
+  "cost_usd": {
+    "input": 0.005234,
+    "output": 0.021648,
+    "total": 0.026882
+  },
+  "time_seconds": 43.23,
+  "display_name": "GPT-4.1"
+}

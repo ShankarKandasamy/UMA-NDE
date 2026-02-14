@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-6",
+  "pdf_file": "pdf_sample_textbook.pdf",
+  "pdf_size_bytes": 135171,
+  "parse_ok": true,
+  "tokens": {
+    "input": 8725,
+    "output": 1990,
+    "total": 10715
+  },
+  "cost_usd": {
+    "input": 0.043625,
+    "output": 0.04975,
+    "total": 0.093375
+  },
+  "time_seconds": 47.57
+}

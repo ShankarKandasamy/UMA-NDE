@@ -1,0 +1,207 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "GLCP-RFQ-2024-089.pdf",
+  "pdf_size_bytes": 9994,
+  "parse_ok": true,
+  "extraction": {
+    "title": "Request for Quotation: Ultrasonic Thickness Survey Services for Amine Treating Unit (ATU-100) - Great Lakes Chemical Processing",
+    "pages": 5,
+    "summary": "This document is an official Request for Quotation (RFQ) issued by Great Lakes Chemical Processing (GLCP) for ultrasonic thickness (UT) survey services on piping systems within the Amine Treating Unit (ATU-100) at their Hamilton, ON facility. It targets qualified Non-Destructive Examination (NDE) contractors, detailing the scope of work, deliverables, technical and safety requirements, schedule, personnel qualifications, and proposal submission criteria in alignment with API and ASME standards. The document includes quantitative data, such as the number of piping lines and CMLs, detailed schedules, and required deliverables, along with a comprehensive piping line list (materials, services, sizes, and Condition Monitoring Locations). It could answer questions on bid process, UT survey requirements, applicable standards, schedule milestones, required documentation, safety protocols, and specifics about the piping systems and their inspection sites.",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+      },
+      {
+        "heading": "Scope of Work",
+        "text": "2.1 General Requirements\nThe Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. The work shall be performed in accordance with the requirements specified herein and the applicable codes and standards.\n2.2 Specific Tasks\n\u2022 Perform ultrasonic thickness measurements at all designated CML locations\n\u2022 Record thickness readings using digital data logging equipment\n\u2022 Photograph each CML location and gauge display for critical readings\n\u2022 Compare current readings to historical data (2019 survey) provided by GLCP\n\u2022 Calculate corrosion rates based on historical trending\n\u2022 Identify any readings below minimum required thickness (t-min)\n\u2022 Prepare comprehensive inspection report with findings and recommendations\n\u2022 Provide all raw data in electronic format (CSV/Excel)"
+      },
+      {
+        "heading": "Scope Summary",
+        "text": "Item Quantity\nTotal Piping Lines 18\nTotal CML Locations 150\nEstimated Field Days 4\nPrevious Survey Date October 2019"
+      },
+      {
+        "heading": "Technical Requirements",
+        "text": "4.1 Applicable Codes and Standards\n\u2022 API 570 - Piping Inspection Code\n\u2022 API 574 - Inspection Practices for Piping System Components\n\u2022 ASME B31.3 - Process Piping (for t-min calculations)\n\u2022 ASME Section V, Article 5 - Ultrasonic Examination Methods\n\u2022 GLCP-NDT-001 - Site-Specific NDE Requirements (Attachment B)\n4.2 Equipment Requirements\nAll ultrasonic thickness gauges shall be digital instruments capable of 0.001\" resolution with data logging capability. Calibration shall be verified daily using NIST-traceable step blocks. Current calibration certificates shall be provided prior to mobilization.\n4.3 Personnel Qualifications\nAll inspection personnel shall be qualified to ASNT SNT-TC-1A or equivalent. Minimum qualification: UT Level II. Lead inspector shall have minimum 5 years experience in refinery/petrochemical piping inspection. All personnel shall complete GLCP site-specific safety orientation prior to work commencement."
+      },
+      {
+        "heading": "Schedule",
+        "text": "Milestone Date\nRFQ Issue Date October 15, 2024\nQuestions Due October 18, 2024\nProposal Due Date October 22, 2024\nAnticipated Award October 25, 2024\nKick-off Meeting October 29, 2024\nField Work Window November 4-7, 2024\nDraft Report Due November 14, 2024\nFinal Report Due November 21, 2024"
+      },
+      {
+        "heading": "Deliverables",
+        "text": "The Contractor shall provide the following deliverables:\nDraft Inspection Report Within 5 business days of field work completion\nFinal Inspection Report (PDF) Within 2 business days of GLCP comments\nRaw Data Files (CSV/Excel) With draft report\nPhotographs (organized by CML) With draft report\nCalibration Certificates Prior to mobilization\nPersonnel Certifications Prior to mobilization\nDaily Field Reports End of each work day"
+      },
+      {
+        "heading": "Safety Requirements",
+        "text": "All Contractor personnel shall comply with GLCP safety requirements including but not limited to: completion of site-specific safety orientation, daily Job Safety Analysis (JSA) review, valid work permits for all activities, and adherence to all posted safety signage and procedures. Personal protective equipment requirements include: hard hat, safety glasses, steel-toed boots, FR clothing, and H2S monitor (provided by GLCP)."
+      },
+      {
+        "heading": "Proposal Requirements",
+        "text": "Proposals shall include the following:\n\u2022 Company qualifications and relevant experience\n\u2022 Proposed inspection team with certifications\n\u2022 Equipment list with calibration status\n\u2022 Detailed work plan and schedule\n\u2022 Lump sum pricing with breakdown by task\n\u2022 Rate schedule for potential additional work\n\u2022 Sample inspection report from similar project\n\u2022 Three (3) references from similar projects\n\u2022 Proof of insurance ($2M general liability minimum)"
+      },
+      {
+        "heading": "Attachments",
+        "text": "\u2022 Attachment A - Piping Line List and CML Summary\n\u2022 Attachment B - GLCP-NDT-001 Site-Specific Requirements\n\u2022 Attachment C - Previous Survey Data (2019)\n\u2022 Attachment D - Piping Isometrics with CML Locations\n\u2022 Attachment E - Unit Plot Plan"
+      },
+      {
+        "heading": "Piping Line List and CML Summary",
+        "text": "Line Number Service Size Material CMLs\n2-RF-102 Reflux 2\" 316SS 7\n2-RV-102 Regen Overhead 2\" A106 Gr.B 6\n2-ST-101 Reboiler Steam 2\" A106 Gr.B 6\n3-CW-101 Amine Cooler CW 3\" A106 Gr.B 6\n3-CW-102 Amine Cooler CW 3\" A106 Gr.B 5\n3-RF-101 Reflux 3\" 316SS 9\n3-RV-101 Regen Overhead 3\" A106 Gr.B 8\n4-LA-101 Lean Amine Supply 4\" A106 Gr.B 9\n4-LA-102 Lean Amine Supply 4\" A106 Gr.B 8\n4-LA-104 L/R Exchanger 4\" A106 Gr.B 10\n4-RA-101 Rich Amine 4\" A106 Gr.B 12\n4-RA-102 Rich Amine 4\" A106 Gr.B 11\n4-RA-104 L/R Exchanger 4\" A106 Gr.B 8\n6-LA-103 Lean Amine Header 6\" A106 Gr.B 10\n6-RA-103 Rich Amine Header 6\" A106 Gr.B 14\n6-SG-101 Sour Gas Inlet 6\" A106 Gr.B 8\n6-SG-102 Sour Gas Inlet 6\" A106 Gr.B 6\n8-TG-101 Treated Gas 8\" A106 Gr.B 7\nTOTAL 150\nNotes:\n\u2022 All piping is carbon steel (A106 Gr.B) except 3-RF-101 and 2-RF-102 which are 316SS\n\u2022 Rich Amine lines (RA) are Schedule 80 due to corrosive service\n\u2022 CML locations shown on isometric drawings in Attachment D"
+      }
+    ],
+    "tables": [
+      {
+        "title": "Piping Line List and CML Summary",
+        "headers": [
+          "Line Number",
+          "Service",
+          "Size",
+          "Material",
+          "CMLs"
+        ],
+        "rows": [
+          [
+            "2-RF-102",
+            "Reflux",
+            "2\"",
+            "316SS",
+            "7"
+          ],
+          [
+            "2-RV-102",
+            "Regen Overhead",
+            "2\"",
+            "A106 Gr.B",
+            "6"
+          ],
+          [
+            "2-ST-101",
+            "Reboiler Steam",
+            "2\"",
+            "A106 Gr.B",
+            "6"
+          ],
+          [
+            "3-CW-101",
+            "Amine Cooler CW",
+            "3\"",
+            "A106 Gr.B",
+            "6"
+          ],
+          [
+            "3-CW-102",
+            "Amine Cooler CW",
+            "3\"",
+            "A106 Gr.B",
+            "5"
+          ],
+          [
+            "3-RF-101",
+            "Reflux",
+            "3\"",
+            "316SS",
+            "9"
+          ],
+          [
+            "3-RV-101",
+            "Regen Overhead",
+            "3\"",
+            "A106 Gr.B",
+            "8"
+          ],
+          [
+            "4-LA-101",
+            "Lean Amine Supply",
+            "4\"",
+            "A106 Gr.B",
+            "9"
+          ],
+          [
+            "4-LA-102",
+            "Lean Amine Supply",
+            "4\"",
+            "A106 Gr.B",
+            "8"
+          ],
+          [
+            "4-LA-104",
+            "L/R Exchanger",
+            "4\"",
+            "A106 Gr.B",
+            "10"
+          ],
+          [
+            "4-RA-101",
+            "Rich Amine",
+            "4\"",
+            "A106 Gr.B",
+            "12"
+          ],
+          [
+            "4-RA-102",
+            "Rich Amine",
+            "4\"",
+            "A106 Gr.B",
+            "11"
+          ],
+          [
+            "4-RA-104",
+            "L/R Exchanger",
+            "4\"",
+            "A106 Gr.B",
+            "8"
+          ],
+          [
+            "6-LA-103",
+            "Lean Amine Header",
+            "6\"",
+            "A106 Gr.B",
+            "10"
+          ],
+          [
+            "6-RA-103",
+            "Rich Amine Header",
+            "6\"",
+            "A106 Gr.B",
+            "14"
+          ],
+          [
+            "6-SG-101",
+            "Sour Gas Inlet",
+            "6\"",
+            "A106 Gr.B",
+            "8"
+          ],
+          [
+            "6-SG-102",
+            "Sour Gas Inlet",
+            "6\"",
+            "A106 Gr.B",
+            "6"
+          ],
+          [
+            "8-TG-101",
+            "Treated Gas",
+            "8\"",
+            "A106 Gr.B",
+            "7"
+          ]
+        ]
+      }
+    ],
+    "images": [],
+    "charts": []
+  },
+  "tokens": {
+    "input": 2323,
+    "output": 2215,
+    "total": 4538
+  },
+  "cost_usd": {
+    "input": 0.004646,
+    "output": 0.01772,
+    "total": 0.022366
+  },
+  "time_seconds": 31.47,
+  "display_name": "GPT-4.1"
+}

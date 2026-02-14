@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4o-mini",
+  "pdf_file": "pdf_sample_textbook.pdf",
+  "pdf_size_bytes": 135171,
+  "parse_ok": true,
+  "tokens": {
+    "input": 2698,
+    "output": 821,
+    "total": 3519
+  },
+  "cost_usd": {
+    "input": 0.000405,
+    "output": 0.000493,
+    "total": 0.000897
+  },
+  "time_seconds": 24.9
+}

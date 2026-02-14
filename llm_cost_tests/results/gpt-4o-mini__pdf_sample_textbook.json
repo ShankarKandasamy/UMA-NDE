@@ -1,0 +1,91 @@
+{
+  "model": "gpt-4o-mini",
+  "pdf_file": "pdf_sample_textbook.pdf",
+  "pdf_size_bytes": 135171,
+  "parse_ok": true,
+  "extraction": {
+    "title": "Anatomy of the Somatosensory System",
+    "pages": 4,
+    "summary": "This document is a chapter from a Wikibook detailing the anatomy and functions of the somatosensory system. It covers the different types of sensory receptors (cutaneous, nociceptors, muscle spindles, and joint receptors) and their roles in perceiving stimuli such as temperature, pressure, pain, and body position. Key subjects include mechanoreceptors, muscle spindle functions, and the distinction between rapidly and slowly adapting receptors. The content contains descriptive diagrams and tables illustrating receptor functions and properties. It answers questions regarding how different receptors contribute to sensory perception and motor activities.",
+    "sections": [
+      {
+        "heading": "Cutaneous receptors",
+        "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force when objects are lifted. These afferents respond with a brief burst of action potentials when objects move a small distance during the early stages of lifting. The slowly adapting Merkel\u2019s receptors are responsible for form and texture perception, while rapidly adapting Pacinian corpuscles give a feeling of vibration."
+      },
+      {
+        "heading": "Nociceptors",
+        "text": "Nociceptors have free nerve endings. Functionally, skin nociceptors are either high-threshold mechanoreceptors or polymodal receptors. They respond to intense mechanical stimuli, heat, and noxious chemicals. Pain signals can be categorized into first, second, and third pain, based on their transmission speed and localization."
+      },
+      {
+        "heading": "Muscle Spindles",
+        "text": "Muscle spindles are long stretch receptors scattered throughout striated muscle. They consist of intrafusal fibers surrounded by a capsule. These spindles play an essential role in proprioception by responding to muscle stretch and facilitating reflexive adjustments in muscle force."
+      },
+      {
+        "heading": "Joint receptors",
+        "text": "Joint receptors are low-threshold mechanoreceptors divided into four groups signaling different aspects of joint function, including position and movement."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Surface vs Deep Receptors",
+        "headers": [
+          "Type",
+          "Example",
+          "Function"
+        ],
+        "rows": [
+          [
+            "Rapidly adapting",
+            "Hair receptor, Meissner\u2019s corpuscle",
+            "Detect an insect or fine vibration; recognize texture."
+          ],
+          [
+            "Slowly adapting",
+            "Merkel\u2019s receptor",
+            "Used for spatial details, e.g., a round surface edge."
+          ],
+          [
+            "Deep receptor",
+            "Pacinian corpuscle",
+            "Detect 'diffuse vibration'."
+          ],
+          [
+            "Deep receptor",
+            "Ruffini\u2019s corpuscle",
+            "Detect 'skin stretch' and used for joint position."
+          ]
+        ]
+      }
+    ],
+    "images": [
+      {
+        "page": 1,
+        "ocr_text": "Figure 1: Receptors in the human skin: Mechanoreceptors can be free receptors or encapsulated.",
+        "description": "An illustration of various skin receptors, detailing mechanoreceptors such as hair receptors, Pacinian corpuscles, Meissner corpuscles, and others, highlighting their locations and types."
+      },
+      {
+        "page": 2,
+        "ocr_text": "Figure 2: Mammalian muscle spindle showing typical position in a muscle.",
+        "description": "A diagram illustrating the structure of a muscle spindle, including its neuronal connections and components. It visually explains how the muscle spindle functions as a stretch receptor."
+      },
+      {
+        "page": 4,
+        "ocr_text": "Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements.",
+        "description": "A diagram showcasing feedback loops for proprioceptive signals that help control limb movements, indicating connections and types of signals involved."
+      }
+    ],
+    "charts": []
+  },
+  "tokens": {
+    "input": 2698,
+    "output": 821,
+    "total": 3519
+  },
+  "cost_usd": {
+    "input": 0.000405,
+    "output": 0.000493,
+    "total": 0.000897
+  },
+  "time_seconds": 24.9,
+  "display_name": "GPT-4o-mini"
+}

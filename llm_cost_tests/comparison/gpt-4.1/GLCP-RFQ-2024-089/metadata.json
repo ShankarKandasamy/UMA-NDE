@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "GLCP-RFQ-2024-089.pdf",
+  "pdf_size_bytes": 9994,
+  "parse_ok": true,
+  "tokens": {
+    "input": 2323,
+    "output": 2215,
+    "total": 4538
+  },
+  "cost_usd": {
+    "input": 0.004646,
+    "output": 0.01772,
+    "total": 0.022366
+  },
+  "time_seconds": 31.47
+}

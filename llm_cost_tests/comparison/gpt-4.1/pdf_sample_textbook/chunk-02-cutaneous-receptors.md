@@ -1,0 +1,3 @@
+# Cutaneous receptors
+
+Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force during object manipulation. These receptors respond with brief bursts of action potentials when encountering small surface movements. Merkel’s receptors, which adapt slowly, are responsible for form and texture perception and are denser in the digits and around the mouth, but decrease in density with age. Pacinian corpuscles register vibration, while Ruffini corpuscles detect skin stretch. The distribution and depth of these receptors in hairy and glabrous skin is discussed.

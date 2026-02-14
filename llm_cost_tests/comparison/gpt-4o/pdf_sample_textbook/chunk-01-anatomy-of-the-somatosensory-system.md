@@ -1,0 +1,3 @@
+# Anatomy of the Somatosensory System
+
+Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, the so-called cutaneous receptors, tell us about temperature, pressure, and pain. The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles. Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force. The slowly adapting Merkel’s receptors are responsible for form and texture perception, while Pacinian corpuscles give a feeling of vibration. Nociceptors are either high-threshold mechanoreceptors or polymodal receptors.

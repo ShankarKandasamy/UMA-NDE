@@ -1,0 +1,131 @@
+{
+  "model": "gpt-4o",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "parse_ok": true,
+  "extraction": {
+    "title": "Site-Specific NDE Requirements",
+    "pages": 7,
+    "summary": "This document, titled Site-Specific NDE Requirements, pertains to the Great Lakes Chemical Processing Hamilton Plant and sets forth specific requirements for Non-Destructive Examination (NDE) activities. It outlines qualifications for personnel, equipment specifications, procedures for ultrasonic thickness measurement, acceptance criteria, documentation requirements, and safety protocols. Key codes and standards referenced include API 570, ASME B31.3, and ASNT SNT-TC-1A. This document answers queries regarding NDE qualifications, testing methods, calibration, safety measures, and reporting in industrial settings. It includes detailed tables on personnel qualifications, equipment requirements, and calibration intervals, providing essential guidelines for contractors operating within the plant.",
+    "sections": [
+      {
+        "heading": "1. PURPOSE AND SCOPE",
+        "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards."
+      },
+      {
+        "heading": "2. REFERENCE DOCUMENTS",
+        "text": "Key codes and standards referenced include API 570, API 574, API 510, ASME B31.3, ASME Section V, ASNT SNT-TC-1A, GLCP-SAFE-001, and GLCP-WORK-002."
+      },
+      {
+        "heading": "3. PERSONNEL QUALIFICATIONS",
+        "text": "All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization."
+      },
+      {
+        "heading": "4. EQUIPMENT REQUIREMENTS",
+        "text": "All UT thickness gauges must have a digital display, data logging capability, and be able to operate in a specified temperature range. Calibration certificates must be provided for all equipment."
+      },
+      {
+        "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+        "text": "Surface preparation involves removing materials that may interfere with coupling. Water-based or glycerin-based couplant shall be used for measurement. A minimum of four readings must be taken at each CML location."
+      },
+      {
+        "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+        "text": "Minimum required thickness is based on ASME B31.3. There are specified actions depending on readings, such as notifying GLCP immediately for readings below the threshold."
+      },
+      {
+        "heading": "7. DOCUMENTATION REQUIREMENTS",
+        "text": "All thickness readings must be recorded electronically and documented with photographs for critical readings. The report must include an executive summary and inspection results."
+      },
+      {
+        "heading": "8. SAFETY REQUIREMENTS",
+        "text": "Requires a valid General Work Permit, personal H2S monitors, and specific PPE. Any high alarms require evacuation and reporting to a muster point."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Personnel Qualifications",
+        "headers": [
+          "Activity",
+          "Minimum Level",
+          "Experience Required"
+        ],
+        "rows": [
+          [
+            "UT Thickness Measurement",
+            "Level II",
+            "2 years refinery/petrochemical"
+          ],
+          [
+            "UT Flaw Detection",
+            "Level II",
+            "3 years, specific training required"
+          ],
+          [
+            "MT/PT Surface Examination",
+            "Level II",
+            "1 year"
+          ],
+          [
+            "VT Piping Inspection",
+            "Level II",
+            "2 years refinery/petrochemical"
+          ],
+          [
+            "RT Interpretation",
+            "Level II",
+            "2 years"
+          ],
+          [
+            "Lead Inspector/Supervisor",
+            "Level II or III",
+            "5 years refinery/petrochemical"
+          ]
+        ]
+      },
+      {
+        "title": "Equipment Calibration Requirements",
+        "headers": [
+          "Equipment Type",
+          "Calibration Interval",
+          "Verification Frequency"
+        ],
+        "rows": [
+          [
+            "UT Thickness Gauge",
+            "12 months",
+            "Daily (before use)"
+          ],
+          [
+            "UT Transducers",
+            "12 months",
+            "Daily (with gauge)"
+          ],
+          [
+            "Calibration Blocks",
+            "24 months",
+            "N/A"
+          ],
+          [
+            "Yoke/Prod (MT)",
+            "12 months",
+            "Before each use"
+          ]
+        ]
+      }
+    ],
+    "images": [],
+    "charts": []
+  },
+  "tokens": {
+    "input": 2617,
+    "output": 933,
+    "total": 3550
+  },
+  "cost_usd": {
+    "input": 0.006542,
+    "output": 0.00933,
+    "total": 0.015872
+  },
+  "time_seconds": 25.76,
+  "display_name": "GPT-4o"
+}

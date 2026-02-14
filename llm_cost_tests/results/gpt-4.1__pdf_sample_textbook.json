@@ -1,0 +1,108 @@
+{
+  "model": "gpt-4.1",
+  "pdf_file": "pdf_sample_textbook.pdf",
+  "pdf_size_bytes": 135171,
+  "parse_ok": true,
+  "extraction": {
+    "title": "Anatomy of the Somatosensory System",
+    "pages": 4,
+    "summary": "This document, extracted from a Wikibook chapter on sensory systems, provides a detailed overview of the anatomy and physiology of the somatosensory system, incorporating content and diagrams from authoritative academic sources. Subjects covered include types and functions of sensory receptors in the skin (cutaneous receptors), muscles (muscle spindles), and joints (joint receptors), as well as pain pathways and proprioceptive feedback. The document specifies the mechanisms, roles, locations, and types of mechanoreceptors, thermoreceptors, and nociceptors, along with their contributions to sensory input and motor activity. It includes labeled anatomical diagrams, a comprehensive table categorizing receptor properties, and an infographic summarizing feedback loops, making it useful for answering questions about sensory receptor function, proprioception, pain transmission, and somatosensory neuroanatomy.",
+    "sections": [
+      {
+        "heading": "Introduction and Overview",
+        "text": "This is a sample document to showcase page-based formatting. It contains a chapter from a Wikibook called Sensory Systems. None of the content has been changed in this article, but some content has been removed. Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, called cutaneous receptors, inform us about temperature (thermoreceptors), pressure and surface texture (mechanoreceptors), and pain (nociceptors). The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles."
+      },
+      {
+        "heading": "Cutaneous receptors",
+        "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force during object manipulation. These receptors respond with brief bursts of action potentials when encountering small surface movements. Merkel\u2019s receptors, which adapt slowly, are responsible for form and texture perception and are denser in the digits and around the mouth, but decrease in density with age. Pacinian corpuscles register vibration, while Ruffini corpuscles detect skin stretch. The distribution and depth of these receptors in hairy and glabrous skin is discussed."
+      },
+      {
+        "heading": "Nociceptors",
+        "text": "Nociceptors have free nerve endings and are classified as high-threshold mechanoreceptors or polymodal receptors. These respond to mechanical damage, heat, and noxious chemicals, with signal magnitudes depending on tissue deformation. Pain signals are categorized into first pain (localized, rapid), second pain (burning, poorly localized), and third pain (deep, chronic, referred)."
+      },
+      {
+        "heading": "Muscle Spindles",
+        "text": "Muscle spindles are stretch receptors distributed throughout striated muscles, composed of intrafusal fibers and surrounded by a capsule. When the muscle stretches, the spindle's central region extends, triggering sensory activity. These spindles receive both alpha (extrafusal) and gamma (intrafusal) motor neuron innervation, which helps maintain spindle sensitivity across various muscle lengths."
+      },
+      {
+        "heading": "Joint receptors",
+        "text": "Joint receptors are low-threshold mechanoreceptors classified into four groups that monitor joint position, movement, direction, and speed. Type 4 joint receptors are nociceptors associated with pain signaling. The section summarizes their roles in proprioception."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Properties of Skin Receptors",
+        "headers": [
+          "",
+          "Rapidly adapting",
+          "Slowly adapting"
+        ],
+        "rows": [
+          [
+            "Surface receptor / small receptive field",
+            "Hair receptor, Meissner\u2019s corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture.",
+            "Merkel\u2019s receptor: Used for spatial details, e.g. a round surface edge or \u201can X\u201d in brail."
+          ],
+          [
+            "Deep receptor / large receptive field",
+            "Pacinian corpuscle: \u201cA diffuse vibration\u201d e.g. tapping with a pencil.",
+            "Ruffini\u2019s corpuscle: \u201cA skin stretch\u201d. Used for joint position in fingers."
+          ]
+        ]
+      }
+    ],
+    "images": [
+      {
+        "page": 1,
+        "ocr_text": "Figure 1: Receptors in the human skin: Mechanoreceptors can be free receptors or encapsulated. Examples for free receptors are the hair receptors at the roots of hairs. Encapsulated receptors are the Pacinian corpuscles and the receptors in the glabrous (hairless) skin: Meissner corpuscles, Ruffini corpuscles and Merkel\u2019s disks.\nHairy skin Glabrous skin Epidermis Dermis Pacinian corpuscle Papillary Ridges Septa Ruffini\u2019s corpuscle Hair receptor Meissner\u2019s corpuscle Sebaceous gland Free nerve ending Merkel\u2019s receptor",
+        "description": "Diagram showing cross-sections of human hairy and glabrous skin, labeling the various mechanoreceptors such as Pacinian corpuscles, Meissner corpuscles, Ruffini corpuscles, Merkel\u2019s disks, hair and free nerve endings. It contextualizes the discussion on cutaneous receptors."
+      },
+      {
+        "page": 2,
+        "ocr_text": "Figure 2: Mammalian muscle spindle showing typical position in a muscle (left), neuronal connections in spinal cord (middle) and expanded schematic (right). The spindle is a stretch receptor with its own motor supply consisting of several intrafusal muscle fibres. The sensory endings of a primary (group Ia) afferent and a secondary (group II) afferent coil around the non-contractile central portions of the intrafusal fibres.",
+        "description": "Three-part schematic illustrating the anatomy of a mammalian muscle spindle, its neuronal connections, and a close-up schematic, supporting the explanation of muscle spindles as stretch receptors."
+      },
+      {
+        "page": 4,
+        "ocr_text": "Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements. Arrows indicate excitatory connections; filled circles inhibitory connections.",
+        "description": "A flowchart-style diagram visualizing neural feedback pathways for proprioceptive signals in limb movement, correlating with the text's explanation of force, length, and velocity feedback in neuromuscular control."
+      }
+    ],
+    "charts": [
+      {
+        "page": 4,
+        "type": "diagram",
+        "title": "Feedback loops for proprioceptive signals",
+        "data": {
+          "elements": [
+            "Force control signal",
+            "Driving signal",
+            "Length control signal",
+            "Load (external forces)",
+            "Tendon organs",
+            "Spindles",
+            "Gamma bias",
+            "Alpha motor neuron",
+            "Force (Golgi tendon organ)",
+            "Muscle",
+            "Interneurons (excitatory/inhibitory)"
+          ],
+          "connections": "Arrows indicate excitatory; filled circles indicate inhibitory."
+        },
+        "insights": "The diagram maps complex neural feedback involved in proprioceptive limb control. Force and length feedback from muscle spindles and Golgi tendon organs interact with motor neurons and interneurons to regulate movement and maintain limb position against external loads."
+      }
+    ]
+  },
+  "tokens": {
+    "input": 2698,
+    "output": 1532,
+    "total": 4230
+  },
+  "cost_usd": {
+    "input": 0.005396,
+    "output": 0.012256,
+    "total": 0.017652
+  },
+  "time_seconds": 110.75,
+  "display_name": "GPT-4.1"
+}

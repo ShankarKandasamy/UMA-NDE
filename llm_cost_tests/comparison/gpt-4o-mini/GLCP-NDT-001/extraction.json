@@ -1,0 +1,105 @@
+{
+  "title": "Site-Specific NDE Requirements",
+  "pages": 7,
+  "summary": "This document outlines the site-specific Non-Destructive Examination (NDE) requirements for the Great Lakes Chemical Processing Hamilton Plant, focusing on various inspection methods including ultrasonic thickness measurement and magnetic particle testing. It details personnel qualifications, equipment requirements, and specific procedures for conducting inspections on pressure-containing equipment and piping systems. The document emphasizes safety protocols, including H2S monitoring and required personal protective equipment. It serves as a guideline for contractors ensuring compliance with industry standards, thereby addressing potential questions regarding NDE procedures, personnel qualifications, and safety requirements.",
+  "sections": [
+    {
+      "heading": "1. PURPOSE AND SCOPE",
+      "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein."
+    },
+    {
+      "heading": "3. PERSONNEL QUALIFICATIONS",
+      "text": "All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization. Minimum Qualification Levels for various activities and site-specific training requirements are also detailed."
+    },
+    {
+      "heading": "4. EQUIPMENT REQUIREMENTS",
+      "text": "All UT thickness gauges shall meet specified requirements including digital display and data logging capability, along with calibration requirements ensuring traceability to national standards. Daily calibration verification procedures are also specified."
+    },
+    {
+      "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+      "text": "This section specifies surface preparation, couplant types, measurement techniques, and material velocity settings for various steel types to ensure accurate thickness measurements."
+    },
+    {
+      "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+      "text": "Details on minimum thickness calculations, alert thresholds, and notification procedures for critical findings are laid out to ensure immediate corrective actions are taken when necessary."
+    },
+    {
+      "heading": "8. SAFETY REQUIREMENTS",
+      "text": "The document outlines safety requirements including permits, H2S monitoring protocols, and personal protective equipment standards necessary for field personnel."
+    }
+  ],
+  "tables": [
+    {
+      "title": "Minimum Qualification Levels",
+      "headers": [
+        "Activity",
+        "Minimum Level",
+        "Experience Required"
+      ],
+      "rows": [
+        [
+          "UT Thickness Measurement",
+          "Level II",
+          "2 years refinery/petrochemical"
+        ],
+        [
+          "UT Flaw Detection",
+          "Level II",
+          "3 years, specific training required"
+        ],
+        [
+          "MT/PT Surface Examination",
+          "Level II",
+          "1 year"
+        ],
+        [
+          "VT Piping Inspection",
+          "Level II",
+          "2 years refinery/petrochemical"
+        ],
+        [
+          "RT Interpretation",
+          "Level II",
+          "2 years"
+        ],
+        [
+          "Lead Inspector/Supervisor",
+          "Level II or III",
+          "5 years refinery/petrochemical"
+        ]
+      ]
+    },
+    {
+      "title": "Calibration Requirements",
+      "headers": [
+        "Equipment Type",
+        "Calibration Interval",
+        "Verification Frequency"
+      ],
+      "rows": [
+        [
+          "UT Thickness Gauge",
+          "12 months",
+          "Daily (before use)"
+        ],
+        [
+          "UT Transducers",
+          "12 months",
+          "Daily (with gauge)"
+        ],
+        [
+          "Calibration Blocks",
+          "24 months",
+          "N/A"
+        ],
+        [
+          "Yoke/Prod (MT)",
+          "12 months",
+          "Before each use"
+        ]
+      ]
+    }
+  ],
+  "images": [],
+  "charts": []
+}

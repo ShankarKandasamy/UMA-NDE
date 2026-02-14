@@ -1,0 +1,3 @@
+# Introduction and Overview
+
+This is a sample document to showcase page-based formatting. It contains a chapter from a Wikibook called Sensory Systems. None of the content has been changed in this article, but some content has been removed. Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, called cutaneous receptors, inform us about temperature (thermoreceptors), pressure and surface texture (mechanoreceptors), and pain (nociceptors). The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles.

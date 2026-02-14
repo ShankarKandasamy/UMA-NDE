@@ -1,0 +1,17 @@
+{
+  "model": "gpt-4o-mini",
+  "pdf_file": "Farm Financial Health_10pages.pdf",
+  "pdf_size_bytes": 7855311,
+  "parse_ok": true,
+  "tokens": {
+    "input": 1860,
+    "output": 999,
+    "total": 2859
+  },
+  "cost_usd": {
+    "input": 0.000279,
+    "output": 0.000599,
+    "total": 0.000878
+  },
+  "time_seconds": 26.43
+}

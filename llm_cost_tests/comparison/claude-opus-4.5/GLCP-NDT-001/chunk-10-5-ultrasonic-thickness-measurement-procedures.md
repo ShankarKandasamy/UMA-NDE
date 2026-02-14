@@ -1,0 +1,7 @@
+# 5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES
+
+5.1 Surface Preparation: The measurement surface shall be prepared to remove loose scale, rust, paint, or other materials that may interfere with coupling. Preparation methods may include wire brushing, grinding, or scraping. Surface shall be smooth enough to achieve consistent couplant contact. For painted surfaces, paint removal is required unless coating thickness is less than 10 mils and consistent.
+
+5.2 Couplant: Water-based or glycerin-based couplant shall be used. For elevated temperature surfaces (above 150°F), high-temperature couplant rated for the service temperature shall be used. Couplant shall be removed after measurement to prevent interference with coatings or corrosion protection systems.
+
+5.3 Measurement Technique: A minimum of four (4) readings shall be taken at each CML location, spaced approximately 90° apart around the circumference. The minimum reading shall be recorded as the official measurement. For suspected localized corrosion, additional readings in a grid pattern may be required.

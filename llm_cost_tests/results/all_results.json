@@ -1,0 +1,3563 @@
+[
+  {
+    "model": "claude-opus-4-6",
+    "pdf_file": "GLCP-RFQ-2024-089.pdf",
+    "pdf_size_bytes": 9994,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Request for Quotation - Ultrasonic Thickness Survey Services, Amine Treating Unit (ATU-100)",
+      "pages": 5,
+      "summary": "This is a Request for Quotation (RFQ) document (GLCP-RFQ-2024-089) issued by Great Lakes Chemical Processing (GLCP), Hamilton, ON, dated October 15, 2024, with responses due October 22, 2024. It solicits quotations from qualified NDE contractors to perform ultrasonic thickness (UT) survey services on 18 piping systems (150 CML locations) within the Amine Treating Unit (ATU-100) at the Hamilton Plant, as part of their API 570 mechanical integrity program. The document specifies technical requirements including applicable codes (API 570, API 574, ASME B31.3, ASME Section V Article 5), equipment specs (0.001\" resolution digital UT gauges with NIST-traceable calibration), and personnel qualifications (ASNT SNT-TC-1A UT Level II minimum, 5 years experience for lead). It includes a detailed schedule with field work November 4-7, 2024, deliverables list, safety requirements, proposal requirements, and Attachment A with the full piping line list showing line numbers, services, sizes, materials, and CML counts. Key services include Rich Amine, Lean Amine, Sour Gas, Reflux, and Treated Gas lines in A106 Gr.B and 316SS materials.",
+      "sections": [
+        {
+          "heading": "Document Header",
+          "text": "GREAT LAKES CHEMICAL PROCESSING\n250 Industrial Parkway, Hamilton, ON L8N 3T1\nTel: (905) 555-0100 | Fax: (905) 555-0101 | www.glcp.com\nDocument Number: GLCP-RFQ-2024-089\nIssue Date: October 15, 2024\nResponse Due: October 22, 2024 - 4:00 PM EST\nContact: Jennifer Walsh, Inspection Coordinator\nEmail: j.walsh@glcp.com\nPhone: (905) 555-0147"
+        },
+        {
+          "heading": "1. INTRODUCTION",
+          "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+        },
+        {
+          "heading": "2. SCOPE OF WORK",
+          "text": "2.1 General Requirements\nThe Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. The work shall be performed in accordance with the requirements specified herein and the applicable codes and standards.\n\n2.2 Specific Tasks\n\u2022 Perform ultrasonic thickness measurements at all designated CML locations\n\u2022 Record thickness readings using digital data logging equipment\n\u2022 Photograph each CML location and gauge display for critical readings\n\u2022 Compare current readings to historical data (2019 survey) provided by GLCP\n\u2022 Calculate corrosion rates based on historical trending\n\u2022 Identify any readings below minimum required thickness (t-min)\n\u2022 Prepare comprehensive inspection report with findings and recommendations\n\u2022 Provide all raw data in electronic format (CSV/Excel)"
+        },
+        {
+          "heading": "3. SCOPE SUMMARY",
+          "text": "Total Piping Lines: 18\nTotal CML Locations: 150\nEstimated Field Days: 4\nPrevious Survey Date: October 2019"
+        },
+        {
+          "heading": "4. TECHNICAL REQUIREMENTS",
+          "text": "4.1 Applicable Codes and Standards\n\u2022 API 570 - Piping Inspection Code\n\u2022 API 574 - Inspection Practices for Piping System Components\n\u2022 ASME B31.3 - Process Piping (for t-min calculations)\n\u2022 ASME Section V, Article 5 - Ultrasonic Examination Methods\n\u2022 GLCP-NDT-001 - Site-Specific NDE Requirements (Attachment B)\n\n4.2 Equipment Requirements\nAll ultrasonic thickness gauges shall be digital instruments capable of 0.001\" resolution with data logging capability. Calibration shall be verified daily using NIST-traceable step blocks. Current calibration certificates shall be provided prior to mobilization.\n\n4.3 Personnel Qualifications\nAll inspection personnel shall be qualified to ASNT SNT-TC-1A or equivalent. Minimum qualification: UT Level II. Lead inspector shall have minimum 5 years experience in refinery/petrochemical piping inspection. All personnel shall complete GLCP site-specific safety orientation prior to work commencement."
+        },
+        {
+          "heading": "5. SCHEDULE",
+          "text": "RFQ Issue Date: October 15, 2024\nQuestions Due: October 18, 2024\nProposal Due Date: October 22, 2024\nAnticipated Award: October 25, 2024\nKick-off Meeting: October 29, 2024\nField Work Window: November 4-7, 2024\nDraft Report Due: November 14, 2024\nFinal Report Due: November 21, 2024"
+        },
+        {
+          "heading": "6. DELIVERABLES",
+          "text": "The Contractor shall provide the following deliverables:\n\u2022 Draft Inspection Report - Within 5 business days of field work completion\n\u2022 Final Inspection Report (PDF) - Within 2 business days of GLCP comments\n\u2022 Raw Data Files (CSV/Excel) - With draft report\n\u2022 Photographs (organized by CML) - With draft report\n\u2022 Calibration Certificates - Prior to mobilization\n\u2022 Personnel Certifications - Prior to mobilization\n\u2022 Daily Field Reports - End of each work day"
+        },
+        {
+          "heading": "7. SAFETY REQUIREMENTS",
+          "text": "All Contractor personnel shall comply with GLCP safety requirements including but not limited to: completion of site-specific safety orientation, daily Job Safety Analysis (JSA) review, valid work permits for all activities, and adherence to all posted safety signage and procedures. Personal protective equipment requirements include: hard hat, safety glasses, steel-toed boots, FR clothing, and H2S monitor (provided by GLCP)."
+        },
+        {
+          "heading": "8. PROPOSAL REQUIREMENTS",
+          "text": "Proposals shall include the following:\n\u2022 Company qualifications and relevant experience\n\u2022 Proposed inspection team with certifications\n\u2022 Equipment list with calibration status\n\u2022 Detailed work plan and schedule\n\u2022 Lump sum pricing with breakdown by task\n\u2022 Rate schedule for potential additional work\n\u2022 Sample inspection report from similar project\n\u2022 Three (3) references from similar projects\n\u2022 Proof of insurance ($2M general liability minimum)"
+        },
+        {
+          "heading": "9. ATTACHMENTS",
+          "text": "\u2022 Attachment A - Piping Line List and CML Summary\n\u2022 Attachment B - GLCP-NDT-001 Site-Specific Requirements\n\u2022 Attachment C - Previous Survey Data (2019)\n\u2022 Attachment D - Piping Isometrics with CML Locations\n\u2022 Attachment E - Unit Plot Plan"
+        },
+        {
+          "heading": "ATTACHMENT A - Notes",
+          "text": "\u2022 All piping is carbon steel (A106 Gr.B) except 3-RF-101 and 2-RF-102 which are 316SS\n\u2022 Rich Amine lines (RA) are Schedule 80 due to corrosive service\n\u2022 CML locations shown on isometric drawings in Attachment D"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Scope Summary",
+          "headers": [
+            "Item",
+            "Quantity"
+          ],
+          "rows": [
+            [
+              "Total Piping Lines",
+              "18"
+            ],
+            [
+              "Total CML Locations",
+              "150"
+            ],
+            [
+              "Estimated Field Days",
+              "4"
+            ],
+            [
+              "Previous Survey Date",
+              "October 2019"
+            ]
+          ]
+        },
+        {
+          "title": "Project Schedule",
+          "headers": [
+            "Milestone",
+            "Date"
+          ],
+          "rows": [
+            [
+              "RFQ Issue Date",
+              "October 15, 2024"
+            ],
+            [
+              "Questions Due",
+              "October 18, 2024"
+            ],
+            [
+              "Proposal Due Date",
+              "October 22, 2024"
+            ],
+            [
+              "Anticipated Award",
+              "October 25, 2024"
+            ],
+            [
+              "Kick-off Meeting",
+              "October 29, 2024"
+            ],
+            [
+              "Field Work Window",
+              "November 4-7, 2024"
+            ],
+            [
+              "Draft Report Due",
+              "November 14, 2024"
+            ],
+            [
+              "Final Report Due",
+              "November 21, 2024"
+            ]
+          ]
+        },
+        {
+          "title": "Deliverables Schedule",
+          "headers": [
+            "Deliverable",
+            "Due Date"
+          ],
+          "rows": [
+            [
+              "Draft Inspection Report",
+              "Within 5 business days of field work completion"
+            ],
+            [
+              "Final Inspection Report (PDF)",
+              "Within 2 business days of GLCP comments"
+            ],
+            [
+              "Raw Data Files (CSV/Excel)",
+              "With draft report"
+            ],
+            [
+              "Photographs (organized by CML)",
+              "With draft report"
+            ],
+            [
+              "Calibration Certificates",
+              "Prior to mobilization"
+            ],
+            [
+              "Personnel Certifications",
+              "Prior to mobilization"
+            ],
+            [
+              "Daily Field Reports",
+              "End of each work day"
+            ]
+          ]
+        },
+        {
+          "title": "Piping Line List and CML Summary (Attachment A)",
+          "headers": [
+            "Line Number",
+            "Service",
+            "Size",
+            "Material",
+            "CMLs"
+          ],
+          "rows": [
+            [
+              "2-RF-102",
+              "Reflux",
+              "2\"",
+              "316SS",
+              "7"
+            ],
+            [
+              "2-RV-102",
+              "Regen Overhead",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "2-ST-101",
+              "Reboiler Steam",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-101",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-102",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "5"
+            ],
+            [
+              "3-RF-101",
+              "Reflux",
+              "3\"",
+              "316SS",
+              "9"
+            ],
+            [
+              "3-RV-101",
+              "Regen Overhead",
+              "3\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-101",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "9"
+            ],
+            [
+              "4-LA-102",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "4-RA-101",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "12"
+            ],
+            [
+              "4-RA-102",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "11"
+            ],
+            [
+              "4-RA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-LA-103",
+              "Lean Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "6-RA-103",
+              "Rich Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "14"
+            ],
+            [
+              "6-SG-101",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-SG-102",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "8-TG-101",
+              "Treated Gas",
+              "8\"",
+              "A106 Gr.B",
+              "7"
+            ],
+            [
+              "TOTAL",
+              "",
+              "",
+              "",
+              "150"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 10186,
+      "output": 2637,
+      "total": 12823
+    },
+    "cost_usd": {
+      "input": 0.05093,
+      "output": 0.065925,
+      "total": 0.116855
+    },
+    "time_seconds": 47.74,
+    "display_name": "Claude Opus 4.6"
+  },
+  {
+    "model": "claude-opus-4-6",
+    "pdf_file": "GLCP-NDT-001.pdf",
+    "pdf_size_bytes": 13256,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Site-Specific NDE Requirements - GLCP-NDT-001",
+      "pages": 7,
+      "summary": "This is a site-specific Non-Destructive Examination (NDE) requirements document (GLCP-NDT-001, Rev 3, effective Jan 15, 2024) for the Great Lakes Chemical Processing Hamilton Plant. It governs all NDE contractor activities including UT, MT, PT, VT, and RT on pressure-containing equipment and piping. Key contents: personnel qualification requirements per ASNT SNT-TC-1A/CP-189 with minimum certification levels and experience for each NDE activity; equipment specifications for UT thickness gauges (resolution, data logging, temperature range); calibration intervals and daily verification procedures (\u00b10.002 inch tolerance); UT measurement procedures including surface prep, couplant, minimum 4 readings per CML at 90\u00b0 spacing; material velocity settings for carbon steel, stainless steel, duplex, chrome-moly, and aluminum; acceptance criteria with four alert thresholds (CRITICAL, Alert, Monitor, Acceptable) based on t-min values; notification procedures for critical findings including contact info for Inspection Coordinator Jennifer Walsh; documentation requirements mandating electronic data logging and photographic evidence; safety requirements including H2S monitoring (10/15 ppm alarms), PPE, and work permits. References API 570, 574, 510, ASME B31.3, ASME Section V.",
+      "sections": [
+        {
+          "heading": "1. PURPOSE AND SCOPE",
+          "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein."
+        },
+        {
+          "heading": "1.1 Applicability",
+          "text": "This specification applies to all NDE activities including but not limited to: ultrasonic thickness measurement (UT), magnetic particle testing (MT), liquid penetrant testing (PT), visual inspection (VT), and radiographic testing (RT) performed on pressure-containing equipment and piping systems."
+        },
+        {
+          "heading": "2. REFERENCE DOCUMENTS",
+          "text": "Reference documents include API 570, API 574, API 510, ASME B31.3, ASME Section V, ASNT SNT-TC-1A, GLCP-SAFE-001, and GLCP-WORK-002."
+        },
+        {
+          "heading": "3. PERSONNEL QUALIFICATIONS",
+          "text": ""
+        },
+        {
+          "heading": "3.1 General Requirements",
+          "text": "All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization."
+        },
+        {
+          "heading": "3.2 Minimum Qualification Levels",
+          "text": "Minimum qualification levels are specified for each NDE activity, ranging from Level II with 1 year experience for MT/PT to Level II or III with 5 years refinery/petrochemical experience for Lead Inspector/Supervisor."
+        },
+        {
+          "heading": "3.3 Site-Specific Training",
+          "text": "All contractor personnel shall complete GLCP site-specific safety orientation (minimum 4 hours) prior to commencing work. This includes: H2S awareness training, emergency response procedures, permit-to-work system overview, and unit-specific hazards. Orientation is valid for 3 years from completion date."
+        },
+        {
+          "heading": "4. EQUIPMENT REQUIREMENTS",
+          "text": ""
+        },
+        {
+          "heading": "4.1 Ultrasonic Thickness Gauges",
+          "text": "All UT thickness gauges shall meet the following minimum requirements: Digital display with minimum resolution of 0.001 inch; Data logging capability with minimum 1000 reading storage; Capable of operating in temperature range 32\u00b0F to 120\u00b0F; Battery life sufficient for full shift operation (minimum 8 hours); Dual or multi-element transducer capability for high-temperature applications."
+        },
+        {
+          "heading": "4.2 Calibration Requirements",
+          "text": "All measurement equipment shall have current calibration traceable to NIST or equivalent national standards body. Calibration certificates shall be provided showing calibration date, due date, and standards used."
+        },
+        {
+          "heading": "4.3 Daily Calibration Verification",
+          "text": "UT thickness gauges shall be verified at the start of each work shift using a multi-step calibration block. Verification shall be performed on steps bracketing the expected measurement range. Acceptable deviation is \u00b10.002 inch. Verification shall be documented with date, time, operator, and readings."
+        },
+        {
+          "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+          "text": ""
+        },
+        {
+          "heading": "5.1 Surface Preparation",
+          "text": "The measurement surface shall be prepared to remove loose scale, rust, paint, or other materials that may interfere with coupling. Preparation methods may include wire brushing, grinding, or scraping. Surface shall be smooth enough to achieve consistent couplant contact. For painted surfaces, paint removal is required unless coating thickness is less than 10 mils and consistent."
+        },
+        {
+          "heading": "5.2 Couplant",
+          "text": "Water-based or glycerin-based couplant shall be used. For elevated temperature surfaces (above 150\u00b0F), high-temperature couplant rated for the service temperature shall be used. Couplant shall be removed after measurement to prevent interference with coatings or corrosion protection systems."
+        },
+        {
+          "heading": "5.3 Measurement Technique",
+          "text": "A minimum of four (4) readings shall be taken at each CML location, spaced approximately 90\u00b0 apart around the circumference. The minimum reading shall be recorded as the official measurement. For suspected localized corrosion, additional readings in a grid pattern may be required."
+        },
+        {
+          "heading": "5.4 Material Velocity Settings",
+          "text": "Material velocity settings are specified for various materials used at the facility."
+        },
+        {
+          "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+          "text": ""
+        },
+        {
+          "heading": "6.1 Minimum Thickness (t-min)",
+          "text": "Minimum required thickness shall be calculated in accordance with ASME B31.3 or the original design code. t-min values for each piping circuit are provided in the inspection data packages. Readings below t-min require immediate notification per Section 6.3."
+        },
+        {
+          "heading": "6.2 Alert Thresholds",
+          "text": "Four condition levels are defined: CRITICAL (Reading < t-min) requires immediate stop and notification; Alert (Reading < 110% of t-min) requires notification within same shift; Monitor (Corrosion rate > 10 mpy) requires documentation and recommended action; Acceptable (all other readings) requires documentation in report."
+        },
+        {
+          "heading": "6.3 Notification Procedures",
+          "text": "For CRITICAL findings (readings below t-min), the contractor shall: 1. Immediately cease work at the affected location. 2. Verify the reading with repeat measurement. 3. Contact GLCP Inspection Coordinator by radio or phone. 4. Do not leave the area until GLCP representative arrives. 5. Document the finding with photographs and detailed notes. 6. Confirm reading with GLCP representative present. GLCP Inspection Coordinator: Jennifer Walsh, (905) 555-0147, Radio Channel 3."
+        },
+        {
+          "heading": "7. DOCUMENTATION REQUIREMENTS",
+          "text": ""
+        },
+        {
+          "heading": "7.1 Data Recording",
+          "text": "All thickness readings shall be recorded electronically using data logging equipment. Manual recording is not acceptable except as backup. Data shall include: CML identification, reading value, date, time, operator ID, and equipment serial number."
+        },
+        {
+          "heading": "7.2 Photographic Documentation",
+          "text": "Photographs are required for: Each CML location showing tag/identification; Gauge display for all CRITICAL and Alert readings; Surface condition for any unusual findings; Inaccessible locations with explanation; Daily calibration verification setup."
+        },
+        {
+          "heading": "7.3 Report Format",
+          "text": "Inspection reports shall include as a minimum: executive summary, scope of work, equipment and personnel used, inspection results tabulated by line and CML, trending comparison with historical data, list of all findings by category, recommendations, and appendices with raw data and photographs."
+        },
+        {
+          "heading": "8. SAFETY REQUIREMENTS",
+          "text": ""
+        },
+        {
+          "heading": "8.1 Permits",
+          "text": "All inspection work requires a valid General Work Permit. Additional permits (Elevated Work, Hot Work, Confined Space) may be required depending on location and activities. Permits shall be obtained from the Control Room before starting work each day."
+        },
+        {
+          "heading": "8.2 H2S Monitoring",
+          "text": "All personnel working in the Amine Treating Unit shall carry a personal H2S monitor. Monitors are provided by GLCP and issued daily at the Control Room. Alarm setpoints: Low alarm at 10 ppm, High alarm at 15 ppm. Upon high alarm, evacuate upwind immediately and report to muster point."
+        },
+        {
+          "heading": "8.3 PPE Requirements",
+          "text": "Hard hat (GLCP-issued sticker required); Safety glasses (side shields required); Steel-toed boots (minimum 6-inch height); FR clothing (minimum ATPV 8 cal/cm\u00b2); Work gloves (leather or equivalent); H2S monitor (GLCP-provided); Hearing protection (required in designated areas)."
+        },
+        {
+          "heading": "REVISION HISTORY",
+          "text": "The document has undergone 4 revisions from initial issue in March 2018 to current revision 3 in January 2024."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Document Information",
+          "headers": [
+            "Field",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Document Number",
+              "GLCP-NDT-001"
+            ],
+            [
+              "Title",
+              "Site-Specific NDE Requirements"
+            ],
+            [
+              "Revision",
+              "3"
+            ],
+            [
+              "Effective Date",
+              "January 15, 2024"
+            ],
+            [
+              "Review Date",
+              "January 15, 2027"
+            ],
+            [
+              "Owner",
+              "Inspection Department"
+            ],
+            [
+              "Approved By",
+              "R. Hendricks, Unit Engineer"
+            ]
+          ]
+        },
+        {
+          "title": "Reference Documents",
+          "headers": [
+            "Code/Standard",
+            "Title"
+          ],
+          "rows": [
+            [
+              "API 570",
+              "Piping Inspection Code"
+            ],
+            [
+              "API 574",
+              "Inspection Practices for Piping System Components"
+            ],
+            [
+              "API 510",
+              "Pressure Vessel Inspection Code"
+            ],
+            [
+              "ASME B31.3",
+              "Process Piping"
+            ],
+            [
+              "ASME Section V",
+              "Nondestructive Examination"
+            ],
+            [
+              "ASNT SNT-TC-1A",
+              "Personnel Qualification and Certification in NDT"
+            ],
+            [
+              "GLCP-SAFE-001",
+              "Contractor Safety Requirements"
+            ],
+            [
+              "GLCP-WORK-002",
+              "Work Permit Procedures"
+            ]
+          ]
+        },
+        {
+          "title": "Minimum Qualification Levels",
+          "headers": [
+            "Activity",
+            "Minimum Level",
+            "Experience Required"
+          ],
+          "rows": [
+            [
+              "UT Thickness Measurement",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "UT Flaw Detection",
+              "Level II",
+              "3 years, specific training required"
+            ],
+            [
+              "MT/PT Surface Examination",
+              "Level II",
+              "1 year"
+            ],
+            [
+              "VT Piping Inspection",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "RT Interpretation",
+              "Level II",
+              "2 years"
+            ],
+            [
+              "Lead Inspector/Supervisor",
+              "Level II or III",
+              "5 years refinery/petrochemical"
+            ]
+          ]
+        },
+        {
+          "title": "Calibration Requirements",
+          "headers": [
+            "Equipment Type",
+            "Calibration Interval",
+            "Verification Frequency"
+          ],
+          "rows": [
+            [
+              "UT Thickness Gauge",
+              "12 months",
+              "Daily (before use)"
+            ],
+            [
+              "UT Transducers",
+              "12 months",
+              "Daily (with gauge)"
+            ],
+            [
+              "Calibration Blocks",
+              "24 months",
+              "N/A"
+            ],
+            [
+              "Yoke/Prod (MT)",
+              "12 months",
+              "Before each use"
+            ]
+          ]
+        },
+        {
+          "title": "Material Velocity Settings",
+          "headers": [
+            "Material",
+            "Velocity (in/\u00b5s)",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Carbon Steel (A106, A53)",
+              "0.2330",
+              "Default for CS piping"
+            ],
+            [
+              "316/304 Stainless Steel",
+              "0.2260",
+              "Austenitic SS"
+            ],
+            [
+              "Duplex Stainless Steel",
+              "0.2290",
+              "Verify with material cert"
+            ],
+            [
+              "Chrome-Moly Steel",
+              "0.2330",
+              "Same as CS"
+            ],
+            [
+              "Aluminum",
+              "0.2500",
+              "Verify alloy"
+            ]
+          ]
+        },
+        {
+          "title": "Alert Thresholds",
+          "headers": [
+            "Condition",
+            "Threshold",
+            "Required Action"
+          ],
+          "rows": [
+            [
+              "CRITICAL",
+              "Reading < t-min",
+              "STOP - Immediate notification to GLCP"
+            ],
+            [
+              "Alert",
+              "Reading < 110% of t-min",
+              "Notify GLCP within same shift"
+            ],
+            [
+              "Monitor",
+              "Corrosion rate > 10 mpy",
+              "Document in report, recommend action"
+            ],
+            [
+              "Acceptable",
+              "All other readings",
+              "Document in report"
+            ]
+          ]
+        },
+        {
+          "title": "Revision History",
+          "headers": [
+            "Rev",
+            "Date",
+            "Description",
+            "Author"
+          ],
+          "rows": [
+            [
+              "0",
+              "Mar 2018",
+              "Initial issue",
+              "J. Walsh"
+            ],
+            [
+              "1",
+              "Jan 2020",
+              "Updated calibration requirements",
+              "J. Walsh"
+            ],
+            [
+              "2",
+              "Jun 2022",
+              "Added H2S monitoring requirements",
+              "M. Sullivan"
+            ],
+            [
+              "3",
+              "Jan 2024",
+              "Updated alert thresholds, added photo requirements",
+              "J. Walsh"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 13592,
+      "output": 2967,
+      "total": 16559
+    },
+    "cost_usd": {
+      "input": 0.06796,
+      "output": 0.074175,
+      "total": 0.142135
+    },
+    "time_seconds": 68.09,
+    "display_name": "Claude Opus 4.6"
+  },
+  {
+    "model": "claude-opus-4-6",
+    "pdf_file": "pdf_sample_textbook.pdf",
+    "pdf_size_bytes": 135171,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Anatomy of the Somatosensory System",
+      "pages": 4,
+      "summary": "This document is an educational article from a Wikibook called Sensory Systems, covering the anatomy of the somatosensory system. It describes cutaneous receptors (thermoreceptors, mechanoreceptors, nociceptors), their types (Meissner corpuscles, Merkel's receptors, Pacinian corpuscles, Ruffini corpuscles), and their roles in detecting temperature, pressure, texture, pain, and vibration. It details receptor density (e.g., 50/mm\u00b2 in digits), adaptation properties (rapidly vs slowly adapting), and pain signal components (first/cutaneous pricking pain, second/burning pain, third/deep pain). The document also covers muscle spindles (intrafusal vs extrafusal fibers, alpha and gamma motor neurons), joint receptors (four groups signaling position, movement, direction, speed), and proprioceptive feedback loops. Includes a table classifying receptors by adaptation speed and depth, a diagram of skin receptor anatomy, a muscle spindle schematic, and a feedback loop diagram for limb movement control. Based on lecture notes from Laszlo Zaborszky, Rutgers University.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "text": "Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, the so called cutaneous receptors, tell us about temperature (thermoreceptors), pressure and surface texture (mechano receptors), and pain (nociceptors). The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles."
+        },
+        {
+          "heading": "Cutaneous receptors",
+          "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force when objects are lifted. These afferents respond with a brief burst of action potentials when objects move a small distance during the early stages of lifting. In response to rapidly adapting afferent activity, muscle force increases reflexively until the gripped object no longer moves. Such a rapid response to a tactile stimulus is a clear indication of the role played by somatosensory neurons in motor activity.\n\nThe slowly adapting Merkel's receptors are responsible for form and texture perception. As would be expected for receptors mediating form perception, Merkel's receptors are present at high density in the digits and around the mouth (50/mm\u00b2 of skin surface), at lower density in other glabrous surfaces, and at very low density in hairy skin. This innervations density shrinks progressively with the passage of time so that by the age of 50, the density in human digits is reduced to 10/mm\u00b2. Unlike rapidly adapting axons, slowly adapting fibers respond not only to the initial indentation of skin, but also to sustained indentation up to several seconds in duration.\n\nActivation of the rapidly adapting Pacinian corpuscles gives a feeling of vibration, while the slowly adapting Ruffini corpuscles respond to the lataral movement or stretching of skin."
+        },
+        {
+          "heading": "Nociceptors",
+          "text": "Nociceptors have free nerve endings. Functionally, skin nociceptors are either high-threshold mechanoreceptors or polymodal receptors. Polymodal receptors respond not only to intense mechanical stimuli, but also to heat and to noxious chemicals. These receptors respond to minute punctures of the epithelium, with a response magnitude that depends on the degree of tissue deformation. They also respond to temperatures in the range of 40\u201360\u00b0C, and change their response rates as a linear function of warming (in contrast with the saturating responses displayed by non-noxious thermoreceptors at high temperatures).\n\nPain signals can be separated into individual components, corresponding to different types of nerve fibers used for transmitting these signals. The rapidly transmitted signal, which often has high spatial resolution, is called first pain or cutaneous pricking pain. It is well localized and easily tolerated. The much slower, highly affective component is called second pain or burning pain; it is poorly localized and poorly tolerated. The third or deep pain, arising from viscera, musculature and joints, is also poorly localized, can be chronic and is often associated with referred pain."
+        },
+        {
+          "heading": "Muscle Spindles",
+          "text": "Scattered throughout virtually every striated muscle in the body are long, thin, stretch receptors called muscle spindles. They are quite simple in principle, consisting of a few small muscle fibers with a capsule surrounding the middle third of the fibers. These fibers are called intrafusal fibers, in contrast to the ordinary extrafusal fibers. The ends of the intrafusal fibers are attached to extrafusal fibers, so whenever the muscle is stretched, the intrafusal fibers are also stretched. The central region of each intrafusal fiber has few myofilaments and is non-contractile, but it does have one or more sensory endings applied to it. When the muscle is stretched, the central part of the intrafusal fiber is stretched and each sensory ending fires impulses.\n\nMuscle spindles also receive a motor innervation. The large motor neurons that supply extrafusal muscle fibers are called alpha motor neurons, while the smaller ones supplying the contractile portions of intrafusal fibers are called gamma neurons. Gamma motor neurons can regulate the sensitivity of the muscle spindle so that this sensitivity can be maintained at any given muscle length."
+        },
+        {
+          "heading": "Joint receptors",
+          "text": "The joint receptors are low-threshold mechanoreceptors and have been divided into four groups. They signal different characteristics of joint function (position, movements, direction and speed of movements). The free receptors or type 4 joint receptors are nociceptors."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Table 1: Classification of cutaneous receptors by adaptation speed and receptive field",
+          "headers": [
+            "",
+            "Rapidly adapting",
+            "Slowly adapting"
+          ],
+          "rows": [
+            [
+              "Surface receptor / small receptive field",
+              "Hair receptor, Meissner's corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture.",
+              "Merkel's receptor: Used for spatial details, e.g. a round surface edge or \"an X\" in brail."
+            ],
+            [
+              "Deep receptor / large receptive field",
+              "Pacinian corpuscle: \"A diffuse vibration\" e.g. tapping with a pencil.",
+              "Ruffini's corpuscle: \"A skin stretch\". Used for joint position in fingers."
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Hairy skin, Glabrous skin, Epidermis, Dermis, Pacinian corpuscle, Papillary Ridges, Septa, Ruffini's corpuscle, Hair receptor, Meissner's corpuscle, Sebaceous gland, Free nerve ending, Merkel's receptor",
+          "description": "Cross-sectional diagram of human skin showing the locations of various mechanoreceptors. The left side shows hairy skin with hair receptors, sebaceous glands, and Pacinian corpuscles in the dermis. The right side shows glabrous (hairless) skin with Meissner's corpuscles near the papillary ridges in the epidermis, Merkel's receptors, Ruffini's corpuscles in the dermis, and free nerve endings."
+        },
+        {
+          "page": 2,
+          "ocr_text": "enlarged view of muscle spindle, \u03b3-s motoneuron, II afferent, extrafusal (main) muscle fascicles, intrafusal muscle fibers, Ia afferent, \u03b3-d motoneuron",
+          "description": "Diagram of a mammalian muscle spindle showing three views: typical position in a muscle (left), neuronal connections in the spinal cord (middle), and an expanded schematic (right). The schematic shows intrafusal muscle fibers within a capsule, with primary (group Ia) and secondary (group II) afferent sensory endings coiling around the non-contractile central portions, and gamma motoneuron innervation."
+        }
+      ],
+      "charts": [
+        {
+          "page": 4,
+          "type": "diagram",
+          "title": "Feedback loops for proprioceptive signals for the perception and control of limb movements",
+          "data": {
+            "x": [],
+            "y": []
+          },
+          "insights": "The diagram shows a control system for limb movement with two main feedback loops: (1) Force feedback via Golgi tendon organs through interneurons, and (2) Length and velocity feedback via muscle spindles with gamma bias. The system includes force control signals and driving signals feeding through alpha motor neurons to muscle, then through tendon organs measuring muscle force, with external forces and load affecting muscle length. Arrows indicate excitatory connections and filled circles indicate inhibitory connections."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 8725,
+      "output": 1990,
+      "total": 10715
+    },
+    "cost_usd": {
+      "input": 0.043625,
+      "output": 0.04975,
+      "total": 0.093375
+    },
+    "time_seconds": 47.57,
+    "display_name": "Claude Opus 4.6"
+  },
+  {
+    "error": "ls=stream_cls))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\shank\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\anthropic\\_base_client.py\", line 1085, in request\n    raise self._make_status_error_from_response(err.response) from None\nanthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Could not process PDF'}, 'request_id': 'req_011CY6UhzCGWqoLSUDT15SSd'}",
+    "model": "claude-opus-4-6",
+    "pdf_file": "Farm Financial Health_10pages.pdf",
+    "display_name": "Claude Opus 4.6"
+  },
+  {
+    "model": "claude-opus-4-5-20251101",
+    "pdf_file": "GLCP-RFQ-2024-089.pdf",
+    "pdf_size_bytes": 9994,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Request for Quotation - Ultrasonic Thickness Survey Services - Amine Treating Unit (ATU-100)",
+      "pages": 5,
+      "summary": "This is a Request for Quotation (RFQ) document GLCP-RFQ-2024-089 issued by Great Lakes Chemical Processing (GLCP) on October 15, 2024, soliciting bids from qualified NDE contractors for ultrasonic thickness survey services on piping systems within the Amine Treating Unit (ATU-100) at their Hamilton, ON facility. The scope covers 18 piping lines with 150 total Condition Monitoring Locations (CMLs), with field work estimated at 4 days (November 4-7, 2024). Work must comply with API 570, API 574, ASME B31.3, and ASME Section V standards. Personnel must be ASNT SNT-TC-1A qualified UT Level II minimum. The document details technical requirements including 0.001\" resolution digital UT gauges, deliverables schedule, safety requirements, and proposal submission requirements. It includes a detailed piping line list showing services (Rich Amine, Lean Amine, Sour Gas, Treated Gas, etc.), sizes (2\"-8\"), and materials (primarily A106 Gr.B carbon steel, some 316SS). Useful for answering questions about NDE contractor qualifications, inspection scope, schedule, compliance standards, and piping specifications.",
+      "sections": [
+        {
+          "heading": "Header Information",
+          "text": "GREAT LAKES CHEMICAL PROCESSING\n250 Industrial Parkway, Hamilton, ON L8N 3T1\nTel: (905) 555-0100 | Fax: (905) 555-0101 | www.glcp.com\nDocument Number: GLCP-RFQ-2024-089\nIssue Date: October 15, 2024\nResponse Due: October 22, 2024 - 4:00 PM EST\nContact: Jennifer Walsh, Inspection Coordinator\nEmail: j.walsh@glcp.com\nPhone: (905) 555-0147"
+        },
+        {
+          "heading": "1. INTRODUCTION",
+          "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+        },
+        {
+          "heading": "2. SCOPE OF WORK",
+          "text": "2.1 General Requirements\nThe Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. The work shall be performed in accordance with the requirements specified herein and the applicable codes and standards.\n\n2.2 Specific Tasks\n\u2022 Perform ultrasonic thickness measurements at all designated CML locations\n\u2022 Record thickness readings using digital data logging equipment\n\u2022 Photograph each CML location and gauge display for critical readings\n\u2022 Compare current readings to historical data (2019 survey) provided by GLCP\n\u2022 Calculate corrosion rates based on historical trending\n\u2022 Identify any readings below minimum required thickness (t-min)\n\u2022 Prepare comprehensive inspection report with findings and recommendations\n\u2022 Provide all raw data in electronic format (CSV/Excel)"
+        },
+        {
+          "heading": "3. SCOPE SUMMARY",
+          "text": "Summary of scope including total piping lines, CML locations, estimated field days, and previous survey date."
+        },
+        {
+          "heading": "4. TECHNICAL REQUIREMENTS",
+          "text": "4.1 Applicable Codes and Standards\n\u2022 API 570 - Piping Inspection Code\n\u2022 API 574 - Inspection Practices for Piping System Components\n\u2022 ASME B31.3 - Process Piping (for t-min calculations)\n\u2022 ASME Section V, Article 5 - Ultrasonic Examination Methods\n\u2022 GLCP-NDT-001 - Site-Specific NDE Requirements (Attachment B)\n\n4.2 Equipment Requirements\nAll ultrasonic thickness gauges shall be digital instruments capable of 0.001\" resolution with data logging capability. Calibration shall be verified daily using NIST-traceable step blocks. Current calibration certificates shall be provided prior to mobilization.\n\n4.3 Personnel Qualifications\nAll inspection personnel shall be qualified to ASNT SNT-TC-1A or equivalent. Minimum qualification: UT Level II. Lead inspector shall have minimum 5 years experience in refinery/petrochemical piping inspection. All personnel shall complete GLCP site-specific safety orientation prior to work commencement."
+        },
+        {
+          "heading": "5. SCHEDULE",
+          "text": "Project schedule including milestones from RFQ issue through final report delivery."
+        },
+        {
+          "heading": "6. DELIVERABLES",
+          "text": "The Contractor shall provide the following deliverables: Draft Inspection Report, Final Inspection Report (PDF), Raw Data Files (CSV/Excel), Photographs (organized by CML), Calibration Certificates, Personnel Certifications, and Daily Field Reports with specified due dates."
+        },
+        {
+          "heading": "7. SAFETY REQUIREMENTS",
+          "text": "All Contractor personnel shall comply with GLCP safety requirements including but not limited to: completion of site-specific safety orientation, daily Job Safety Analysis (JSA) review, valid work permits for all activities, and adherence to all posted safety signage and procedures. Personal protective equipment requirements include: hard hat, safety glasses, steel-toed boots, FR clothing, and H2S monitor (provided by GLCP)."
+        },
+        {
+          "heading": "8. PROPOSAL REQUIREMENTS",
+          "text": "Proposals shall include the following:\n\u2022 Company qualifications and relevant experience\n\u2022 Proposed inspection team with certifications\n\u2022 Equipment list with calibration status\n\u2022 Detailed work plan and schedule\n\u2022 Lump sum pricing with breakdown by task\n\u2022 Rate schedule for potential additional work\n\u2022 Sample inspection report from similar project\n\u2022 Three (3) references from similar projects\n\u2022 Proof of insurance ($2M general liability minimum)"
+        },
+        {
+          "heading": "9. ATTACHMENTS",
+          "text": "\u2022 Attachment A - Piping Line List and CML Summary\n\u2022 Attachment B - GLCP-NDT-001 Site-Specific Requirements\n\u2022 Attachment C - Previous Survey Data (2019)\n\u2022 Attachment D - Piping Isometrics with CML Locations\n\u2022 Attachment E - Unit Plot Plan"
+        },
+        {
+          "heading": "ATTACHMENT A - Notes",
+          "text": "Notes:\n\u2022 All piping is carbon steel (A106 Gr.B) except 3-RF-101 and 2-RF-102 which are 316SS\n\u2022 Rich Amine lines (RA) are Schedule 80 due to corrosive service\n\u2022 CML locations shown on isometric drawings in Attachment D"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Scope Summary",
+          "headers": [
+            "Item",
+            "Quantity"
+          ],
+          "rows": [
+            [
+              "Total Piping Lines",
+              "18"
+            ],
+            [
+              "Total CML Locations",
+              "150"
+            ],
+            [
+              "Estimated Field Days",
+              "4"
+            ],
+            [
+              "Previous Survey Date",
+              "October 2019"
+            ]
+          ]
+        },
+        {
+          "title": "Project Schedule",
+          "headers": [
+            "Milestone",
+            "Date"
+          ],
+          "rows": [
+            [
+              "RFQ Issue Date",
+              "October 15, 2024"
+            ],
+            [
+              "Questions Due",
+              "October 18, 2024"
+            ],
+            [
+              "Proposal Due Date",
+              "October 22, 2024"
+            ],
+            [
+              "Anticipated Award",
+              "October 25, 2024"
+            ],
+            [
+              "Kick-off Meeting",
+              "October 29, 2024"
+            ],
+            [
+              "Field Work Window",
+              "November 4-7, 2024"
+            ],
+            [
+              "Draft Report Due",
+              "November 14, 2024"
+            ],
+            [
+              "Final Report Due",
+              "November 21, 2024"
+            ]
+          ]
+        },
+        {
+          "title": "Deliverables Schedule",
+          "headers": [
+            "Deliverable",
+            "Due Date"
+          ],
+          "rows": [
+            [
+              "Draft Inspection Report",
+              "Within 5 business days of field work completion"
+            ],
+            [
+              "Final Inspection Report (PDF)",
+              "Within 2 business days of GLCP comments"
+            ],
+            [
+              "Raw Data Files (CSV/Excel)",
+              "With draft report"
+            ],
+            [
+              "Photographs (organized by CML)",
+              "With draft report"
+            ],
+            [
+              "Calibration Certificates",
+              "Prior to mobilization"
+            ],
+            [
+              "Personnel Certifications",
+              "Prior to mobilization"
+            ],
+            [
+              "Daily Field Reports",
+              "End of each work day"
+            ]
+          ]
+        },
+        {
+          "title": "Piping Line List and CML Summary",
+          "headers": [
+            "Line Number",
+            "Service",
+            "Size",
+            "Material",
+            "CMLs"
+          ],
+          "rows": [
+            [
+              "2-RF-102",
+              "Reflux",
+              "2\"",
+              "316SS",
+              "7"
+            ],
+            [
+              "2-RV-102",
+              "Regen Overhead",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "2-ST-101",
+              "Reboiler Steam",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-101",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-102",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "5"
+            ],
+            [
+              "3-RF-101",
+              "Reflux",
+              "3\"",
+              "316SS",
+              "9"
+            ],
+            [
+              "3-RV-101",
+              "Regen Overhead",
+              "3\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-101",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "9"
+            ],
+            [
+              "4-LA-102",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "4-RA-101",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "12"
+            ],
+            [
+              "4-RA-102",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "11"
+            ],
+            [
+              "4-RA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-LA-103",
+              "Lean Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "6-RA-103",
+              "Rich Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "14"
+            ],
+            [
+              "6-SG-101",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-SG-102",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "8-TG-101",
+              "Treated Gas",
+              "8\"",
+              "A106 Gr.B",
+              "7"
+            ],
+            [
+              "TOTAL",
+              "",
+              "",
+              "",
+              "150"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 10184,
+      "output": 2445,
+      "total": 12629
+    },
+    "cost_usd": {
+      "input": 0.05092,
+      "output": 0.061125,
+      "total": 0.112045
+    },
+    "time_seconds": 44.59,
+    "display_name": "Claude Opus 4.5"
+  },
+  {
+    "model": "claude-opus-4-5-20251101",
+    "pdf_file": "GLCP-NDT-001.pdf",
+    "pdf_size_bytes": 13256,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Site-Specific NDE Requirements - GLCP-NDT-001",
+      "pages": 7,
+      "summary": "This is a site-specific Non-Destructive Examination (NDE) requirements document for Great Lakes Chemical Processing Hamilton Plant (Document GLCP-NDT-001, Rev 3, effective January 15, 2024). It establishes requirements for NDE contractors performing UT, MT, PT, VT, and RT on pressure-containing equipment and piping. Key content includes: personnel qualification requirements per ASNT SNT-TC-1A with minimum experience levels by activity type; equipment specifications for UT thickness gauges including calibration intervals; detailed UT measurement procedures with material velocity settings for various steels; acceptance criteria with alert thresholds (CRITICAL, Alert, Monitor, Acceptable); notification procedures for critical findings including contact info for Jennifer Walsh; documentation requirements for data recording and photography; safety requirements including permits, H2S monitoring, and PPE. References API 570, API 574, API 510, ASME B31.3, and ASME Section V. Useful for answering questions about NDE contractor requirements, calibration intervals, thickness measurement procedures, personnel qualifications, and safety protocols at this facility.",
+      "sections": [
+        {
+          "heading": "1. PURPOSE AND SCOPE",
+          "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein."
+        },
+        {
+          "heading": "1.1 Applicability",
+          "text": "This specification applies to all NDE activities including but not limited to: ultrasonic thickness measurement (UT), magnetic particle testing (MT), liquid penetrant testing (PT), visual inspection (VT), and radiographic testing (RT) performed on pressure-containing equipment and piping systems."
+        },
+        {
+          "heading": "2. REFERENCE DOCUMENTS",
+          "text": "Reference documents include API 570 (Piping Inspection Code), API 574 (Inspection Practices for Piping System Components), API 510 (Pressure Vessel Inspection Code), ASME B31.3 (Process Piping), ASME Section V (Nondestructive Examination), ASNT SNT-TC-1A (Personnel Qualification and Certification in NDT), GLCP-SAFE-001 (Contractor Safety Requirements), and GLCP-WORK-002 (Work Permit Procedures)."
+        },
+        {
+          "heading": "3. PERSONNEL QUALIFICATIONS",
+          "text": "3.1 General Requirements: All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization."
+        },
+        {
+          "heading": "3.2 Minimum Qualification Levels",
+          "text": "Minimum qualification levels are specified by activity type with required experience ranging from 1 year for MT/PT Surface Examination to 5 years for Lead Inspector/Supervisor positions. All activities require Level II minimum certification except Lead Inspector/Supervisor which can be Level II or III."
+        },
+        {
+          "heading": "3.3 Site-Specific Training",
+          "text": "All contractor personnel shall complete GLCP site-specific safety orientation (minimum 4 hours) prior to commencing work. This includes: H2S awareness training, emergency response procedures, permit-to-work system overview, and unit-specific hazards. Orientation is valid for 3 years from completion date."
+        },
+        {
+          "heading": "4. EQUIPMENT REQUIREMENTS",
+          "text": "4.1 Ultrasonic Thickness Gauges: All UT thickness gauges shall meet the following minimum requirements: Digital display with minimum resolution of 0.001 inch, Data logging capability with minimum 1000 reading storage, Capable of operating in temperature range 32\u00b0F to 120\u00b0F, Battery life sufficient for full shift operation (minimum 8 hours), Dual or multi-element transducer capability for high-temperature applications."
+        },
+        {
+          "heading": "4.2 Calibration Requirements",
+          "text": "All measurement equipment shall have current calibration traceable to NIST or equivalent national standards body. Calibration certificates shall be provided showing calibration date, due date, and standards used."
+        },
+        {
+          "heading": "4.3 Daily Calibration Verification",
+          "text": "UT thickness gauges shall be verified at the start of each work shift using a multi-step calibration block. Verification shall be performed on steps bracketing the expected measurement range. Acceptable deviation is \u00b10.002 inch. Verification shall be documented with date, time, operator, and readings."
+        },
+        {
+          "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+          "text": "5.1 Surface Preparation: The measurement surface shall be prepared to remove loose scale, rust, paint, or other materials that may interfere with coupling. Preparation methods may include wire brushing, grinding, or scraping. Surface shall be smooth enough to achieve consistent couplant contact. For painted surfaces, paint removal is required unless coating thickness is less than 10 mils and consistent.\n\n5.2 Couplant: Water-based or glycerin-based couplant shall be used. For elevated temperature surfaces (above 150\u00b0F), high-temperature couplant rated for the service temperature shall be used. Couplant shall be removed after measurement to prevent interference with coatings or corrosion protection systems.\n\n5.3 Measurement Technique: A minimum of four (4) readings shall be taken at each CML location, spaced approximately 90\u00b0 apart around the circumference. The minimum reading shall be recorded as the official measurement. For suspected localized corrosion, additional readings in a grid pattern may be required."
+        },
+        {
+          "heading": "5.4 Material Velocity Settings",
+          "text": "Material velocity settings are specified for various materials in in/\u00b5s units."
+        },
+        {
+          "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+          "text": "6.1 Minimum Thickness (t-min): Minimum required thickness shall be calculated in accordance with ASME B31.3 or the original design code. t-min values for each piping circuit are provided in the inspection data packages. Readings below t-min require immediate notification per Section 6.3."
+        },
+        {
+          "heading": "6.2 Alert Thresholds",
+          "text": "Alert thresholds define required actions based on reading conditions relative to t-min values."
+        },
+        {
+          "heading": "6.3 Notification Procedures",
+          "text": "For CRITICAL findings (readings below t-min), the contractor shall: 1. Immediately cease work at the affected location, 2. Verify the reading with repeat measurement, 3. Contact GLCP Inspection Coordinator by radio or phone, 4. Do not leave the area until GLCP representative arrives, 5. Document the finding with photographs and detailed notes, 6. Confirm reading with GLCP representative present. GLCP Inspection Coordinator: Jennifer Walsh, (905) 555-0147, Radio Channel 3"
+        },
+        {
+          "heading": "7. DOCUMENTATION REQUIREMENTS",
+          "text": "7.1 Data Recording: All thickness readings shall be recorded electronically using data logging equipment. Manual recording is not acceptable except as backup. Data shall include: CML identification, reading value, date, time, operator ID, and equipment serial number.\n\n7.2 Photographic Documentation: Photographs are required for: Each CML location showing tag/identification, Gauge display for all CRITICAL and Alert readings, Surface condition for any unusual findings, Inaccessible locations with explanation, Daily calibration verification setup.\n\n7.3 Report Format: Inspection reports shall include as a minimum: executive summary, scope of work, equipment and personnel used, inspection results tabulated by line and CML, trending comparison with historical data, list of all findings by category, recommendations, and appendices with raw data and photographs."
+        },
+        {
+          "heading": "8. SAFETY REQUIREMENTS",
+          "text": "8.1 Permits: All inspection work requires a valid General Work Permit. Additional permits (Elevated Work, Hot Work, Confined Space) may be required depending on location and activities. Permits shall be obtained from the Control Room before starting work each day.\n\n8.2 H2S Monitoring: All personnel working in the Amine Treating Unit shall carry a personal H2S monitor. Monitors are provided by GLCP and issued daily at the Control Room. Alarm setpoints: Low alarm at 10 ppm, High alarm at 15 ppm. Upon high alarm, evacuate upwind immediately and report to muster point.\n\n8.3 PPE Requirements: Hard hat (GLCP-issued sticker required), Safety glasses (side shields required), Steel-toed boots (minimum 6-inch height), FR clothing (minimum ATPV 8 cal/cm\u00b2), Work gloves (leather or equivalent), H2S monitor (GLCP-provided), Hearing protection (required in designated areas)"
+        },
+        {
+          "heading": "REVISION HISTORY",
+          "text": "The document has undergone 4 revisions from initial issue in March 2018 to current revision 3 in January 2024."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Document Information",
+          "headers": [
+            "Field",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Document Number",
+              "GLCP-NDT-001"
+            ],
+            [
+              "Title",
+              "Site-Specific NDE Requirements"
+            ],
+            [
+              "Revision",
+              "3"
+            ],
+            [
+              "Effective Date",
+              "January 15, 2024"
+            ],
+            [
+              "Review Date",
+              "January 15, 2027"
+            ],
+            [
+              "Owner",
+              "Inspection Department"
+            ],
+            [
+              "Approved By",
+              "R. Hendricks, Unit Engineer"
+            ]
+          ]
+        },
+        {
+          "title": "Reference Documents",
+          "headers": [
+            "Code/Standard",
+            "Title"
+          ],
+          "rows": [
+            [
+              "API 570",
+              "Piping Inspection Code"
+            ],
+            [
+              "API 574",
+              "Inspection Practices for Piping System Components"
+            ],
+            [
+              "API 510",
+              "Pressure Vessel Inspection Code"
+            ],
+            [
+              "ASME B31.3",
+              "Process Piping"
+            ],
+            [
+              "ASME Section V",
+              "Nondestructive Examination"
+            ],
+            [
+              "ASNT SNT-TC-1A",
+              "Personnel Qualification and Certification in NDT"
+            ],
+            [
+              "GLCP-SAFE-001",
+              "Contractor Safety Requirements"
+            ],
+            [
+              "GLCP-WORK-002",
+              "Work Permit Procedures"
+            ]
+          ]
+        },
+        {
+          "title": "Minimum Qualification Levels",
+          "headers": [
+            "Activity",
+            "Minimum Level",
+            "Experience Required"
+          ],
+          "rows": [
+            [
+              "UT Thickness Measurement",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "UT Flaw Detection",
+              "Level II",
+              "3 years, specific training required"
+            ],
+            [
+              "MT/PT Surface Examination",
+              "Level II",
+              "1 year"
+            ],
+            [
+              "VT Piping Inspection",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "RT Interpretation",
+              "Level II",
+              "2 years"
+            ],
+            [
+              "Lead Inspector/Supervisor",
+              "Level II or III",
+              "5 years refinery/petrochemical"
+            ]
+          ]
+        },
+        {
+          "title": "Calibration Requirements",
+          "headers": [
+            "Equipment Type",
+            "Calibration Interval",
+            "Verification Frequency"
+          ],
+          "rows": [
+            [
+              "UT Thickness Gauge",
+              "12 months",
+              "Daily (before use)"
+            ],
+            [
+              "UT Transducers",
+              "12 months",
+              "Daily (with gauge)"
+            ],
+            [
+              "Calibration Blocks",
+              "24 months",
+              "N/A"
+            ],
+            [
+              "Yoke/Prod (MT)",
+              "12 months",
+              "Before each use"
+            ]
+          ]
+        },
+        {
+          "title": "Material Velocity Settings",
+          "headers": [
+            "Material",
+            "Velocity (in/\u00b5s)",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Carbon Steel (A106, A53)",
+              "0.2330",
+              "Default for CS piping"
+            ],
+            [
+              "316/304 Stainless Steel",
+              "0.2260",
+              "Austenitic SS"
+            ],
+            [
+              "Duplex Stainless Steel",
+              "0.2290",
+              "Verify with material cert"
+            ],
+            [
+              "Chrome-Moly Steel",
+              "0.2330",
+              "Same as CS"
+            ],
+            [
+              "Aluminum",
+              "0.2500",
+              "Verify alloy"
+            ]
+          ]
+        },
+        {
+          "title": "Alert Thresholds",
+          "headers": [
+            "Condition",
+            "Threshold",
+            "Required Action"
+          ],
+          "rows": [
+            [
+              "CRITICAL",
+              "Reading < t-min",
+              "STOP - Immediate notification to GLCP"
+            ],
+            [
+              "Alert",
+              "Reading < 110% of t-min",
+              "Notify GLCP within same shift"
+            ],
+            [
+              "Monitor",
+              "Corrosion rate > 10 mpy",
+              "Document in report, recommend action"
+            ],
+            [
+              "Acceptable",
+              "All other readings",
+              "Document in report"
+            ]
+          ]
+        },
+        {
+          "title": "Revision History",
+          "headers": [
+            "Rev",
+            "Date",
+            "Description",
+            "Author"
+          ],
+          "rows": [
+            [
+              "0",
+              "Mar 2018",
+              "Initial issue",
+              "J. Walsh"
+            ],
+            [
+              "1",
+              "Jan 2020",
+              "Updated calibration requirements",
+              "J. Walsh"
+            ],
+            [
+              "2",
+              "Jun 2022",
+              "Added H2S monitoring requirements",
+              "M. Sullivan"
+            ],
+            [
+              "3",
+              "Jan 2024",
+              "Updated alert thresholds, added photo requirements",
+              "J. Walsh"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 13590,
+      "output": 2879,
+      "total": 16469
+    },
+    "cost_usd": {
+      "input": 0.06795,
+      "output": 0.071975,
+      "total": 0.139925
+    },
+    "time_seconds": 61.64,
+    "display_name": "Claude Opus 4.5"
+  },
+  {
+    "model": "claude-opus-4-5-20251101",
+    "pdf_file": "pdf_sample_textbook.pdf",
+    "pdf_size_bytes": 135171,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Anatomy of the Somatosensory System",
+      "pages": 4,
+      "summary": "This document is an educational chapter from the Wikibook 'Sensory Systems' covering the anatomy of the somatosensory system. It describes sensors in skin, muscles, tendons, and joints including cutaneous receptors (thermoreceptors, mechanoreceptors, nociceptors). Key topics include: Meissner corpuscles and grip force adjustment, Merkel's receptors for form/texture perception with density data (50/mm\u00b2 declining to 10/mm\u00b2 by age 50), Pacinian corpuscles for vibration sensing, Ruffini corpuscles for skin stretch detection, nociceptors responding to mechanical stimuli, heat (40-60\u00b0C), and chemicals. Pain signal types are classified as first pain (cutaneous pricking), second pain (burning), and deep pain. Muscle spindles are explained with intrafusal/extrafusal fiber structure, alpha and gamma motor neurons. Joint receptors are categorized into four groups signaling position, movements, direction and speed. Contains receptor classification table, anatomical diagrams of skin receptors, muscle spindle structure, and proprioceptive feedback loops. Based on Laszlo Zaborszky's lecture notes from Rutgers University.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "text": "Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, the so called cutaneous receptors, tell us about temperature (thermoreceptors), pressure and surface texture (mechano receptors), and pain (nociceptors). The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles."
+        },
+        {
+          "heading": "Cutaneous receptors",
+          "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force when objects are lifted. These afferents respond with a brief burst of action potentials when objects move a small distance during the early stages of lifting. In response to rapidly adapting afferent activity, muscle force increases reflexively until the gripped object no longer moves. Such a rapid response to a tactile stimulus is a clear indication of the role played by somatosensory neurons in motor activity.\n\nThe slowly adapting Merkel's receptors are responsible for form and texture perception. As would be expected for receptors mediating form perception, Merkel's receptors are present at high density in the digits and around the mouth (50/mm\u00b2 of skin surface), at lower density in other glabrous surfaces, and at very low density in hairy skin. This innervations density shrinks progressively with the passage of time so that by the age of 50, the density in human digits is reduced to 10/mm\u00b2. Unlike rapidly adapting axons, slowly adapting fibers respond not only to the initial indentation of skin, but also to sustained indentation up to several seconds in duration.\n\nActivation of the rapidly adapting Pacinian corpuscles gives a feeling of vibration, while the slowly adapting Ruffini corpuscles respond to the lateral movement or stretching of skin."
+        },
+        {
+          "heading": "Nociceptors",
+          "text": "Nociceptors have free nerve endings. Functionally, skin nociceptors are either high-threshold mechanoreceptors or polymodal receptors. Polymodal receptors respond not only to intense mechanical stimuli, but also to heat and to noxious chemicals. These receptors respond to minute punctures of the epithelium, with a response magnitude that depends on the degree of tissue deformation. They also respond to temperatures in the range of 40\u201360\u00b0C, and change their response rates as a linear function of warming (in contrast with the saturating responses displayed by non-noxious thermoreceptors at high temperatures).\n\nPain signals can be separated into individual components, corresponding to different types of nerve fibers used for transmitting these signals. The rapidly transmitted signal, which often has high spatial resolution, is called first pain or cutaneous pricking pain. It is well localized and easily tolerated. The much slower, highly affective component is called second pain or burning pain; it is poorly localized and poorly tolerated. The third or deep pain, arising from viscera, musculature and joints, is also poorly localized, can be chronic and is often associated with referred pain."
+        },
+        {
+          "heading": "Muscle Spindles",
+          "text": "Scattered throughout virtually every striated muscle in the body are long, thin, stretch receptors called muscle spindles. They are quite simple in principle, consisting of a few small muscle fibers with a capsule surrounding the middle third of the fibers. These fibers are called intrafusal fibers, in contrast to the ordinary extrafusal fibers. The ends of the intrafusal fibers are attached to extrafusal fibers, so whenever the muscle is stretched, the intrafusal fibers are also stretched. The central region of each intrafusal fiber has few myofilaments and is non-contractile, but it does have one or more sensory endings applied to it. When the muscle is stretched, the central part of the intrafusal fiber is stretched and each sensory ending fires impulses.\n\nMuscle spindles also receive a motor innervation. The large motor neurons that supply extrafusal muscle fibers are called alpha motor neurons, while the smaller ones supplying the contractile portions of intrafusal fibers are called gamma neurons. Gamma motor neurons can regulate the sensitivity of the muscle spindle so that this sensitivity can be maintained at any given muscle length."
+        },
+        {
+          "heading": "Joint receptors",
+          "text": "The joint receptors are low-threshold mechanoreceptors and have been divided into four groups. They signal different characteristics of joint function (position, movements, direction and speed of movements). The free receptors or type 4 joint receptors are nociceptors."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Receptor Classification by Adaptation Rate and Location",
+          "headers": [
+            "Receptor Type",
+            "Rapidly adapting",
+            "Slowly adapting"
+          ],
+          "rows": [
+            [
+              "Surface receptor / small receptive field",
+              "Hair receptor, Meissner's corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture.",
+              "Merkel's receptor: Used for spatial details, e.g. a round surface edge or \"an X\" in brail."
+            ],
+            [
+              "Deep receptor / large receptive field",
+              "Pacinian corpuscle: \"A diffuse vibration\" e.g. tapping with a pencil.",
+              "Ruffini's corpuscle: \"A skin stretch\". Used for joint position in fingers."
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Hairy skin, Glabrous skin, Epidermis, Dermis, Pacinian corpuscle, Papillary Ridges, Septa, Ruffini's corpuscle, Hair receptor, Meissner's corpuscle, Sebaceous gland, Free nerve ending, Merkel's receptor",
+          "description": "Figure 1: Anatomical cross-section diagram showing receptors in human skin. Illustrates the difference between hairy skin and glabrous (hairless) skin, depicting various mechanoreceptors including Pacinian corpuscles, Meissner's corpuscles, Ruffini corpuscles, Merkel's disks, hair receptors, and free nerve endings located in the epidermis and dermis layers."
+        },
+        {
+          "page": 2,
+          "ocr_text": "enlarged view of muscle spindle, \u03b3-s motoneuron, II afferent, Ia afferent, \u03b3-d motoneuron, extrafusal (main) muscle fascicles, intrafusal muscle fibers",
+          "description": "Figure 2: Diagram of mammalian muscle spindle showing typical position in a muscle (left), neuronal connections in spinal cord (middle) and expanded schematic (right). The spindle is a stretch receptor with its own motor supply consisting of several intrafusal muscle fibres. The sensory endings of a primary (group Ia) afferent and a secondary (group II) afferent coil around the non-contractile central portions of the intrafusal fibres."
+        }
+      ],
+      "charts": [
+        {
+          "page": 4,
+          "type": "flowchart",
+          "title": "Feedback loops for proprioceptive signals for the perception and control of limb movements",
+          "data": {
+            "components": [
+              "Force control signal",
+              "Interneurons",
+              "Driving signal",
+              "Alpha",
+              "Muscle",
+              "Tendon organs",
+              "Load",
+              "External forces",
+              "Muscle force",
+              "Muscle length",
+              "Length control signal",
+              "Gamma bias",
+              "Spindles",
+              "Length & velocity feedback",
+              "Force feedback"
+            ],
+            "connections": [
+              "Force control signal to Interneurons",
+              "Driving signal to Alpha to Muscle",
+              "Muscle to Tendon organs to Muscle force to Load to Muscle length",
+              "Spindles provide Length & velocity feedback",
+              "Tendon organs provide Force feedback",
+              "Gamma bias affects Spindles",
+              "Length control signal to Gamma"
+            ]
+          },
+          "insights": "Diagram illustrates the proprioceptive feedback system with two main loops: force feedback via Golgi tendon organs and length/velocity feedback via muscle spindles. Arrows indicate excitatory connections while filled circles indicate inhibitory connections. Shows how alpha motor neurons control muscle contraction while gamma neurons regulate spindle sensitivity. External forces and load affect muscle length which is monitored by spindles feeding back to the control system."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 8723,
+      "output": 2104,
+      "total": 10827
+    },
+    "cost_usd": {
+      "input": 0.043615,
+      "output": 0.0526,
+      "total": 0.096215
+    },
+    "time_seconds": 48.24,
+    "display_name": "Claude Opus 4.5"
+  },
+  {
+    "model": "claude-opus-4-5-20251101",
+    "pdf_file": "Farm Financial Health_10pages.pdf",
+    "pdf_size_bytes": 7855311,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Farm Financial Health Report 2023-2024",
+      "pages": 10,
+      "summary": "This is the Canadian Federation of Agriculture's Farm Financial Health Report for 2023-2024, analyzing the financial challenges facing Canadian farmers amid rising production costs and climate change. The document details how primary agriculture contributed $36.3 billion (1.8%) to Canada's GDP and supported 249,900 jobs. Key data includes: farm cash receipts increased 14.6% over 2021 but net income fell 5.9% in 2022 to $11.8 billion due to 18.6% increase in expenses. Fertilizer costs rose 54.4%, fuel expenses 52.5%, and commercial feed 20.7%. Farmland values increased 10% annually over 10 years, with Ontario land rising from $11,786 to $17,962 per acre (2019-2022). Contains 18 policy recommendations across four categories: managing production costs, improving risk management programs, promoting sustainable growth, and supporting young farmers. Includes regional Farm Input Price Index comparisons, wage and unemployment data, and commodity-specific analysis for pork and fruit/vegetable sectors.",
+      "sections": [
+        {
+          "heading": "Executive Summary",
+          "text": "Taking Stock of Farm Financial Health Amid Rising Costs of Production and a Rapidly Changing Climate\n\nFarmers across Canada have demonstrated tremendous resilience in the face of several domestic and global events including the COVID-19 pandemic, the war in Ukraine, and extreme climate events at home and abroad. In 2022, primary agriculture contributed $36.3 billion (1.8%) of Canada's GDP and supported 249,900 jobs across the country.\n\nHowever, through this time, the cost of critical farm inputs such as fuel, fertilizer, feed, machinery, pesticides, land and labour increased dramatically. When coupled with high inflation, interest rates and a price on carbon for essential farming activities, for which farmers have no viable alternatives, Canadian producers are facing tremendous pressure on their farm financial and mental health.\n\nWhile most Canadian farmers have managed to stay afloat, largely due to high commodity prices and farm cash receipts that increased 14.6% over 2021 levels, the ongoing impact of high inflation, matched with increasing interest rates, is beginning to take a serious toll on the operating margins of Canadian producers. Recent numbers from Statistics Canada have shown that the net income for Canadian farmers fell 5.9% in 2022, because the growth in expenses outpaced the rise in farm income; and total farm operating expenses (after rebates) increased by 19.9% in 2022, the largest gain since 1979 (+21.1%).\n\nMeanwhile, while the full weight of the Bank of Canada's string of interest rate hikes has yet to sink in, farmers across Canada are experiencing an increasing series of extreme weather events that are testing the limits and effectiveness of Canada's suite of risk management programs.\n\nTo help address many of these challenges, the Canadian Federation of Agriculture (CFA) has put forward recommendations in several areas aimed at not only helping farmers manage the increasing cost of production and navigate challenging regulatory barriers, but also to help them mitigate the effects of climate change and support the next generation of farmers.\n\nCanadian farmers play a crucial role in sustaining our rural communities, as stewards of our natural environment and in meeting our national and international food security needs. The following recommendations are aimed at ensuring Canada's farmers have the flexibility and tools they need to weather the current financial climate and support the transition to a low emissions economy."
+        },
+        {
+          "heading": "Recommendations for Action - Help manage the increased cost of production",
+          "text": "Recommendation #1: Extend the on-farm carbon pricing exemption for qualifying farming fuel to marketable natural gas and propane.\n\nRecommendation #2: Consult on and develop a Critical Farm Input Strategy to ensure that Canadian producers have a long-term, stable source of supply for critical farm inputs, including fertilizer, needed to produce high quality agriculture and agri-food products.\n\nRecommendation #3: Make the interest-free limit for advances under the Advance Payments Program (APP) permanent beyond the 2023 program, alongside other administrative program adjustments, to make the APP more accessible and responsive to higher production costs.\n\nRecommendation #4: Make Accelerated Capital Cost Allowance permanent across all classes of farm equipment, allowing producers to depreciate 100% of their capital allocated to purchases of farm equipment in the first year."
+        },
+        {
+          "heading": "Recommendations for Action - Improve risk management programs and reduce regulatory and tax burdens that restrict competitiveness",
+          "text": "Recommendation #5: Implement a new national grant program modelled after the Canada Digital Adoption Program, that would support on-farm risk management planning and mitigation.\n\nRecommendation #6: Improve resilience against extreme weather events for all agricultural commodities, including aquaculture, by ensuring business risk management programs are responsive, predictable, and accessible. An immediate example would be using Agriculture and Agri-Food Canada's Drought Monitor to trigger an AgriRecovery assessment.\n\nRecommendation #7: Increase AgriStability program coverage to 85% of the reference margin to improve participation, predictability, and levels of support for producers.\n\nRecommendation #8: Ensure that the Pest Management Regulatory Agency (PMRA) is appropriately resourced and improves internal processes in support of timely, transparent, and science-based decisions that will help Canadian producers remain competitive in a global market.\n\nRecommendation #9: Exempt farms from filing the Underused Housing Tax (UHT) return which requires private corporations and partnerships (including farms) that own residential property to file a UHT return, adding an unnecessary financial burden, even if they do not have to pay the tax.\n\nRecommendation #10: Implement measures to support a farmer's right to repair their farm machinery.\n\nRecommendation #11: Build on the Budget 2023 extended interswitching pilot by further expanding the distance beyond 160km and extending the pilot past the current 18-month period.\n\nRecommendation #12: Provide financial support for the creation of a Grocery Code Adjudication Office, which will be critical to advance the training, education, dispute resolution services, and oversight necessary to implement an industry-led Grocery Industry Code of Conduct."
+        },
+        {
+          "heading": "Recommendations for Action - Promote stable and sustainable growth",
+          "text": "Recommendation #13: Ensure the launch of the Sustainable Agriculture Strategy is inclusive of all agricultural commodities and is accompanied with an ambitious funding envelope commensurate with the incentives, research, and knowledge transfer activities required to address the inter-related demands of environmental, economic and social sustainability.\n\nRecommendation #14: Strengthen Canada's international presence in advocating for the elimination of non-tariff barriers to trade in international trade agreements which are limiting market access for Canadian products.\n\nRecommendation #15: Underpinned by supporting legislation, ensure no additional access to supply-managed sectors in future trade agreements to support a resilient domestic agricultural sector that is vital to national food security and long-term sustainable growth."
+        },
+        {
+          "heading": "Recommendations for Action - Supporting new entrants and young farmers",
+          "text": "Recommendation #16: Provide financial support to establish a Secretariat that will support implementation of the National Workforce Strategy for Agriculture and Food and Beverage Manufacturing.\n\nRecommendation #17: Increase the capital gains exemption threshold above $1M to be more in line with current market farmland values.\n\nRecommendation #18: Build on the Budget 2023 legislative amendments to the Income Tax Act which expanded the definition of a \"child\" to also allow sibling shareholders to pass a non-controlling share of their ownership to the next generation."
+        },
+        {
+          "heading": "Farm Financial Landscape",
+          "text": "In 2022, Canadian farmers saw their total farm cash receipts increase by 14.6% compared to 2021, because of higher prices for both crops (+$7.1 billion) and livestock (+$3.6 billion) (Statistics Canada, 2023). However, this increase is overshadowed by a 18.6% increase in total expenses, pushing realized net income lower to $11.8 billion in 2022 from $12.8 billion, a 5.9% decrease from 2021 levels (Statistics Canada, 2023).\n\nOne of the most significant input costs for Canadian producers through 2021 and 2022 was fertilizer. According to Statistics Canada, fertilizer prices began rising rapidly in early 2021 due predominantly to high natural gas prices and Russia's invasion of Ukraine, resulting in a 54.4% increase in 2022 (Statistics Canada, 2023).\n\nIn addition, successive droughts in Western Canada, beginning in 2021, limited the supply of hay and grain feed contributing to a 20.7% increase in commercial feed expenses for livestock producers. Further, fuel expenses increased by 52.5% in 2022 as demand increased with economies opening post-COVID-19 and supply decreased because of sanctions on large fuel exporters such as Russia."
+        },
+        {
+          "heading": "The cost of production is higher than it has ever been",
+          "text": "Furthermore, a lack of available workers, and rising inflation rates, are resulting in an increasingly tight labour market, placing upward pressure on labour costs. Since the beginning of 2019 to August 2023, wages also increased from $20.29 to $23.42, further indicating a tight labour market (Statistics Canada, 2023)."
+        },
+        {
+          "heading": "Canadian Farmland values have increased by an average of 10% annually over the last 10 years",
+          "text": "The value of farmland also saw a significant increase in 2022. The most prominent increase in land value were observed in Ontario, where the average value skyrocketed from $11,786 per acre in 2019 to $17,962 per acre in 2022 (Statistics Canada, 2023).\n\nAccording to Farm Credit Canada (FCC), Canadian farmland values have increased on average 10% annually over the last 10 years. In 2022, values rose 12.8%, the highest jump since 2013 (FCC, 2023). In addition, average annual mortgage payments increased 9.7% per year in the last decade, but 2022 recorded the large jump of 41% due to rising interest rates (FCC, 2023)."
+        },
+        {
+          "heading": "Production costs are impacting sectors and regions differently across Canada",
+          "text": "While expenses increased to record levels throughout Canada in 2022 (21.2% increase), the Farm Input Price Index (FIPI) revealed distinct regional variations. The FIPI is a measure of change in input costs faced by Canadian farmers and provides insights into the financial pressures on agricultural operations. For example, Western Canada (MB, SK, AB, BC) experienced a slightly higher increase in total farm input price rises from Q1 2019 to Q4 2022 (38%) vs. Eastern Canada (NL, PEI, NS, NB, QC, ON) (34%). Furthermore, while the cost of fuel was higher in Eastern Canada (72% vs 43%), Western Canada experienced higher feed prices (63% vs 49%).\n\nEven within the agriculture sector, certain commodities are being disproportionately impacted by financial pressures. For example, Canada's fruit and vegetable sector reported a 40% increase in input costs with fertilizer leading the way (72% increase since 2020).\n\nLabour costs have also increased by 20% and shipping by 42%. As a result, as of January 2023, 44% of fruit and vegetable producers reported that they were selling at a loss (Farmers Forum). In addition, Canada's pork industry is constrained by decreasing processor capacity and increasing non-tariff barriers to trade which means many producers are currently absorbing losses of $40 to $50 a head (RealAgriculture)."
+        }
+      ],
+      "tables": [],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Farm Financial Health Report 2023-2024, CFA Canadian Federation of Agriculture, FCA F\u00e9d\u00e9ration canadienne de l'agriculture, 2023",
+          "description": "Cover page with large title text 'Farm Financial Health Report 2023-2024' and CFA/FCA logos at bottom"
+        },
+        {
+          "page": 2,
+          "ocr_text": "CFA FCA Canadian Federation of Agriculture F\u00e9d\u00e9ration canadienne de l'agriculture",
+          "description": "Photo of a farmer in plaid shirt and cap kneeling in a field examining soil while holding a clipboard, with sun flare in background. CFA/FCA logo overlaid at bottom."
+        },
+        {
+          "page": 5,
+          "ocr_text": "",
+          "description": "Decorative illustration showing financial/agricultural imagery including dollar sign, buildings, farm structures, location markers, and agricultural elements in an isometric style"
+        }
+      ],
+      "charts": [
+        {
+          "page": 7,
+          "type": "line chart",
+          "title": "Figure 1: Total Farm Input Price Index",
+          "data": {
+            "x": [
+              "Q1 2020",
+              "Q2 2020",
+              "Q3 2020",
+              "Q4 2020",
+              "Q1 2021",
+              "Q2 2021",
+              "Q3 2021",
+              "Q4 2021",
+              "Q1 2022",
+              "Q2 2022",
+              "Q3 2022",
+              "Q4 2022",
+              "Q1 2023",
+              "Q2 2023"
+            ],
+            "y": {
+              "Animal production": [
+                "~85",
+                "~85",
+                "~80",
+                "~90",
+                "~100",
+                "~100",
+                "~100",
+                "~105",
+                "~120",
+                "~135",
+                "~140",
+                "~135",
+                "~135",
+                "~130"
+              ],
+              "Crop production": [
+                "~90",
+                "~90",
+                "~85",
+                "~90",
+                "~100",
+                "~100",
+                "~100",
+                "~105",
+                "~120",
+                "~145",
+                "~155",
+                "~150",
+                "~155",
+                "~155"
+              ],
+              "Farm input total": [
+                "~90",
+                "~90",
+                "~90",
+                "~95",
+                "~100",
+                "~100",
+                "~105",
+                "~110",
+                "~130",
+                "~145",
+                "~155",
+                "~150",
+                "~150",
+                "~150"
+              ],
+              "Fertilizer": [
+                "~85",
+                "~85",
+                "~80",
+                "~85",
+                "~105",
+                "~115",
+                "~115",
+                "~145",
+                "~155",
+                "~160",
+                "~160",
+                "~160",
+                "~155",
+                "~150"
+              ],
+              "Machinery fuel": [
+                "~75",
+                "~60",
+                "~65",
+                "~65",
+                "~70",
+                "~80",
+                "~90",
+                "~100",
+                "~120",
+                "~150",
+                "~160",
+                "~155",
+                "~140",
+                "~130"
+              ],
+              "Pesticides": [
+                "~95",
+                "~95",
+                "~95",
+                "~95",
+                "~100",
+                "~100",
+                "~100",
+                "~105",
+                "~110",
+                "~115",
+                "~115",
+                "~115",
+                "~115",
+                "~115"
+              ]
+            }
+          },
+          "insights": "All farm input costs have risen dramatically since 2020, with fertilizer showing the highest increase reaching index values around 160 (2012=100). Machinery fuel showed the most volatility, dropping in 2020 before rising sharply. The overall farm input total index rose from approximately 90 in early 2020 to around 150 by 2023."
+        },
+        {
+          "page": 7,
+          "type": "line chart",
+          "title": "Figure 2: Average Hourly Wage Rate and Unemployment",
+          "data": {
+            "x": [
+              "2020",
+              "2021",
+              "2022",
+              "2023"
+            ],
+            "y": {
+              "Ag Avg Hourly Rate": [
+                "$20.50",
+                "$21.00",
+                "$22.00",
+                "$23.50"
+              ],
+              "Total all industries Unemployment Rate": [
+                "0.10",
+                "0.08",
+                "0.05",
+                "0.05"
+              ],
+              "Ag Unemployment Rate": [
+                "0.04",
+                "0.02",
+                "0.02",
+                "0.02"
+              ]
+            }
+          },
+          "insights": "Agricultural wages increased steadily from around $20.50 in 2020 to approximately $23.50 in 2023. The agriculture unemployment rate remained consistently lower than the overall industry rate, hovering around 2% compared to 5% for all industries, indicating a tight labor market in agriculture."
+        },
+        {
+          "page": 8,
+          "type": "bar chart",
+          "title": "Figure 3: Farm Land Value ($/Acre)",
+          "data": {
+            "x": [
+              "Ontario",
+              "Quebec",
+              "British Columbia",
+              "Newfoundland and Labrador",
+              "Prince Edward Island",
+              "Alberta",
+              "New Brunswick",
+              "Nova Scotia",
+              "Manitoba",
+              "Saskatchewan"
+            ],
+            "y": {
+              "2020": [
+                "~$13,000",
+                "~$7,000",
+                "~$6,000",
+                "~$4,000",
+                "~$5,000",
+                "~$3,500",
+                "~$3,000",
+                "~$3,000",
+                "~$2,500",
+                "~$2,500"
+              ],
+              "2021": [
+                "~$15,000",
+                "~$8,000",
+                "~$7,000",
+                "~$4,500",
+                "~$5,500",
+                "~$4,000",
+                "~$3,500",
+                "~$3,500",
+                "~$3,000",
+                "~$3,000"
+              ],
+              "2022": [
+                "~$18,000",
+                "~$10,000",
+                "~$9,000",
+                "~$5,500",
+                "~$6,000",
+                "~$4,500",
+                "~$4,000",
+                "~$4,000",
+                "~$4,000",
+                "~$4,000"
+              ]
+            }
+          },
+          "insights": "Ontario has the highest farmland values by far, increasing from $11,786 per acre in 2019 to $17,962 in 2022. All provinces showed significant increases from 2020 to 2022, with Ontario experiencing the most dramatic rise. Quebec and British Columbia follow as second and third highest values."
+        },
+        {
+          "page": 8,
+          "type": "line chart",
+          "title": "Figure 4: CPI and Farm Land Value",
+          "data": {
+            "x": [
+              "2000",
+              "2005",
+              "2010",
+              "2015",
+              "2020"
+            ],
+            "y": {
+              "Total CPI % Change": [
+                "~0.02",
+                "~0.02",
+                "~0.02",
+                "~0.02",
+                "~0.03"
+              ],
+              "Farm Land % Value Change": [
+                "~0.02",
+                "~0.03",
+                "~0.05",
+                "~0.15",
+                "~0.12"
+              ]
+            }
+          },
+          "insights": "Farm land value percentage changes have consistently outpaced CPI changes since around 2010. Land values peaked around 2015 with approximately 15% change and remained elevated around 12% in 2020, while CPI stayed relatively stable between 2-3%."
+        },
+        {
+          "page": 9,
+          "type": "bar chart",
+          "title": "Figure 5: Regional Variance in Farm Input Price Index in Q2 2023 (Index, 2012=100)",
+          "data": {
+            "x": [
+              "Manitoba",
+              "Alberta",
+              "Saskatchewan",
+              "Canada",
+              "British Columbia",
+              "Quebec",
+              "Ontario",
+              "Newfoundland and Labrador",
+              "Nova Scotia",
+              "New Brunswick",
+              "Prince Edward Island"
+            ],
+            "y": {
+              "Farm input total": [
+                "151",
+                "157",
+                "150",
+                "151",
+                "152",
+                "144",
+                "152",
+                "146",
+                "145",
+                "154",
+                "160"
+              ],
+              "Fertilizer": [
+                "~110",
+                "~115",
+                "~108",
+                "~110",
+                "~100",
+                "~95",
+                "~105",
+                "~100",
+                "~95",
+                "~105",
+                "~115"
+              ],
+              "Machinery fuel": [
+                "~100",
+                "~105",
+                "~100",
+                "~100",
+                "~95",
+                "~90",
+                "~100",
+                "~95",
+                "~90",
+                "~100",
+                "~105"
+              ]
+            }
+          },
+          "insights": "Prince Edward Island shows the highest farm input total index at 160, while British Columbia has the lowest at 144. Western provinces (Manitoba, Alberta, Saskatchewan) cluster around 150-157, while most Eastern provinces are slightly lower. Regional variations show different cost pressures across Canada."
+        },
+        {
+          "page": 10,
+          "type": "bar chart",
+          "title": "Figure 6: Canadian Quarterly Hog Cash Receipts",
+          "data": {
+            "x": [
+              "Quarter 1",
+              "Quarter 2",
+              "Quarter 3",
+              "Quarter 4"
+            ],
+            "y": {
+              "2021": [
+                "$1.46M",
+                "$1.49M",
+                "$1.36M",
+                "$1.41M"
+              ],
+              "2022": [
+                "$1.67M",
+                "$1.68M $1.63M",
+                "$1.70M $1.71M",
+                "$1.51M"
+              ],
+              "2023": [
+                "",
+                "",
+                "$1.61M",
+                ""
+              ]
+            }
+          },
+          "insights": "Hog cash receipts showed year-over-year increases from 2021 to 2022, with Q3 2022 reaching the highest at approximately $1.71M. However, Q4 2022 dropped to $1.51M and Q3 2023 showed $1.61M, indicating some volatility and pressure on the pork sector."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 16416,
+      "output": 4577,
+      "total": 20993
+    },
+    "cost_usd": {
+      "input": 0.08208,
+      "output": 0.114425,
+      "total": 0.196505
+    },
+    "time_seconds": 131.88,
+    "display_name": "Claude Opus 4.5"
+  },
+  {
+    "model": "gpt-4.1",
+    "pdf_file": "GLCP-RFQ-2024-089.pdf",
+    "pdf_size_bytes": 9994,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Request for Quotation: Ultrasonic Thickness Survey Services for Amine Treating Unit (ATU-100) - Great Lakes Chemical Processing",
+      "pages": 5,
+      "summary": "This document is an official Request for Quotation (RFQ) issued by Great Lakes Chemical Processing (GLCP) for ultrasonic thickness (UT) survey services on piping systems within the Amine Treating Unit (ATU-100) at their Hamilton, ON facility. It targets qualified Non-Destructive Examination (NDE) contractors, detailing the scope of work, deliverables, technical and safety requirements, schedule, personnel qualifications, and proposal submission criteria in alignment with API and ASME standards. The document includes quantitative data, such as the number of piping lines and CMLs, detailed schedules, and required deliverables, along with a comprehensive piping line list (materials, services, sizes, and Condition Monitoring Locations). It could answer questions on bid process, UT survey requirements, applicable standards, schedule milestones, required documentation, safety protocols, and specifics about the piping systems and their inspection sites.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+        },
+        {
+          "heading": "Scope of Work",
+          "text": "2.1 General Requirements\nThe Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. The work shall be performed in accordance with the requirements specified herein and the applicable codes and standards.\n2.2 Specific Tasks\n\u2022 Perform ultrasonic thickness measurements at all designated CML locations\n\u2022 Record thickness readings using digital data logging equipment\n\u2022 Photograph each CML location and gauge display for critical readings\n\u2022 Compare current readings to historical data (2019 survey) provided by GLCP\n\u2022 Calculate corrosion rates based on historical trending\n\u2022 Identify any readings below minimum required thickness (t-min)\n\u2022 Prepare comprehensive inspection report with findings and recommendations\n\u2022 Provide all raw data in electronic format (CSV/Excel)"
+        },
+        {
+          "heading": "Scope Summary",
+          "text": "Item Quantity\nTotal Piping Lines 18\nTotal CML Locations 150\nEstimated Field Days 4\nPrevious Survey Date October 2019"
+        },
+        {
+          "heading": "Technical Requirements",
+          "text": "4.1 Applicable Codes and Standards\n\u2022 API 570 - Piping Inspection Code\n\u2022 API 574 - Inspection Practices for Piping System Components\n\u2022 ASME B31.3 - Process Piping (for t-min calculations)\n\u2022 ASME Section V, Article 5 - Ultrasonic Examination Methods\n\u2022 GLCP-NDT-001 - Site-Specific NDE Requirements (Attachment B)\n4.2 Equipment Requirements\nAll ultrasonic thickness gauges shall be digital instruments capable of 0.001\" resolution with data logging capability. Calibration shall be verified daily using NIST-traceable step blocks. Current calibration certificates shall be provided prior to mobilization.\n4.3 Personnel Qualifications\nAll inspection personnel shall be qualified to ASNT SNT-TC-1A or equivalent. Minimum qualification: UT Level II. Lead inspector shall have minimum 5 years experience in refinery/petrochemical piping inspection. All personnel shall complete GLCP site-specific safety orientation prior to work commencement."
+        },
+        {
+          "heading": "Schedule",
+          "text": "Milestone Date\nRFQ Issue Date October 15, 2024\nQuestions Due October 18, 2024\nProposal Due Date October 22, 2024\nAnticipated Award October 25, 2024\nKick-off Meeting October 29, 2024\nField Work Window November 4-7, 2024\nDraft Report Due November 14, 2024\nFinal Report Due November 21, 2024"
+        },
+        {
+          "heading": "Deliverables",
+          "text": "The Contractor shall provide the following deliverables:\nDraft Inspection Report Within 5 business days of field work completion\nFinal Inspection Report (PDF) Within 2 business days of GLCP comments\nRaw Data Files (CSV/Excel) With draft report\nPhotographs (organized by CML) With draft report\nCalibration Certificates Prior to mobilization\nPersonnel Certifications Prior to mobilization\nDaily Field Reports End of each work day"
+        },
+        {
+          "heading": "Safety Requirements",
+          "text": "All Contractor personnel shall comply with GLCP safety requirements including but not limited to: completion of site-specific safety orientation, daily Job Safety Analysis (JSA) review, valid work permits for all activities, and adherence to all posted safety signage and procedures. Personal protective equipment requirements include: hard hat, safety glasses, steel-toed boots, FR clothing, and H2S monitor (provided by GLCP)."
+        },
+        {
+          "heading": "Proposal Requirements",
+          "text": "Proposals shall include the following:\n\u2022 Company qualifications and relevant experience\n\u2022 Proposed inspection team with certifications\n\u2022 Equipment list with calibration status\n\u2022 Detailed work plan and schedule\n\u2022 Lump sum pricing with breakdown by task\n\u2022 Rate schedule for potential additional work\n\u2022 Sample inspection report from similar project\n\u2022 Three (3) references from similar projects\n\u2022 Proof of insurance ($2M general liability minimum)"
+        },
+        {
+          "heading": "Attachments",
+          "text": "\u2022 Attachment A - Piping Line List and CML Summary\n\u2022 Attachment B - GLCP-NDT-001 Site-Specific Requirements\n\u2022 Attachment C - Previous Survey Data (2019)\n\u2022 Attachment D - Piping Isometrics with CML Locations\n\u2022 Attachment E - Unit Plot Plan"
+        },
+        {
+          "heading": "Piping Line List and CML Summary",
+          "text": "Line Number Service Size Material CMLs\n2-RF-102 Reflux 2\" 316SS 7\n2-RV-102 Regen Overhead 2\" A106 Gr.B 6\n2-ST-101 Reboiler Steam 2\" A106 Gr.B 6\n3-CW-101 Amine Cooler CW 3\" A106 Gr.B 6\n3-CW-102 Amine Cooler CW 3\" A106 Gr.B 5\n3-RF-101 Reflux 3\" 316SS 9\n3-RV-101 Regen Overhead 3\" A106 Gr.B 8\n4-LA-101 Lean Amine Supply 4\" A106 Gr.B 9\n4-LA-102 Lean Amine Supply 4\" A106 Gr.B 8\n4-LA-104 L/R Exchanger 4\" A106 Gr.B 10\n4-RA-101 Rich Amine 4\" A106 Gr.B 12\n4-RA-102 Rich Amine 4\" A106 Gr.B 11\n4-RA-104 L/R Exchanger 4\" A106 Gr.B 8\n6-LA-103 Lean Amine Header 6\" A106 Gr.B 10\n6-RA-103 Rich Amine Header 6\" A106 Gr.B 14\n6-SG-101 Sour Gas Inlet 6\" A106 Gr.B 8\n6-SG-102 Sour Gas Inlet 6\" A106 Gr.B 6\n8-TG-101 Treated Gas 8\" A106 Gr.B 7\nTOTAL 150\nNotes:\n\u2022 All piping is carbon steel (A106 Gr.B) except 3-RF-101 and 2-RF-102 which are 316SS\n\u2022 Rich Amine lines (RA) are Schedule 80 due to corrosive service\n\u2022 CML locations shown on isometric drawings in Attachment D"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Piping Line List and CML Summary",
+          "headers": [
+            "Line Number",
+            "Service",
+            "Size",
+            "Material",
+            "CMLs"
+          ],
+          "rows": [
+            [
+              "2-RF-102",
+              "Reflux",
+              "2\"",
+              "316SS",
+              "7"
+            ],
+            [
+              "2-RV-102",
+              "Regen Overhead",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "2-ST-101",
+              "Reboiler Steam",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-101",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-102",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "5"
+            ],
+            [
+              "3-RF-101",
+              "Reflux",
+              "3\"",
+              "316SS",
+              "9"
+            ],
+            [
+              "3-RV-101",
+              "Regen Overhead",
+              "3\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-101",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "9"
+            ],
+            [
+              "4-LA-102",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "4-RA-101",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "12"
+            ],
+            [
+              "4-RA-102",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "11"
+            ],
+            [
+              "4-RA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-LA-103",
+              "Lean Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "6-RA-103",
+              "Rich Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "14"
+            ],
+            [
+              "6-SG-101",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-SG-102",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "8-TG-101",
+              "Treated Gas",
+              "8\"",
+              "A106 Gr.B",
+              "7"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2323,
+      "output": 2215,
+      "total": 4538
+    },
+    "cost_usd": {
+      "input": 0.004646,
+      "output": 0.01772,
+      "total": 0.022366
+    },
+    "time_seconds": 31.47,
+    "display_name": "GPT-4.1"
+  },
+  {
+    "model": "gpt-4.1",
+    "pdf_file": "GLCP-NDT-001.pdf",
+    "pdf_size_bytes": 13256,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Site-Specific NDE Requirements (GLCP-NDT-001)",
+      "pages": 7,
+      "summary": "This is a technical procedure document issued by the Great Lakes Chemical Processing (GLCP) Hamilton Plant, titled 'Site-Specific NDE Requirements' (Document Number: GLCP-NDT-001, Revision 3, effective January 15, 2024). It sets forth mandatory protocols for Non-Destructive Examination (NDE) activities\u2014including ultrasonic thickness measurement, magnetic particle testing, liquid penetrant testing, visual inspection, and radiographic testing\u2014on pressure-containing equipment and piping systems. The document details qualifications required for NDE personnel, equipment and calibration standards, data collection and reporting procedures, acceptance thresholds, safety (including H2S monitoring and PPE), permit requirements, and incident notification protocols. It references API and ASME codes, as well as site-specific safety and work permit protocols. This document would help answer queries on site-specific NDE compliance, required certifications and equipment, inspection documentation, acceptance/rejection criteria, and related site procedures and safety requirements.",
+      "sections": [
+        {
+          "heading": "1. PURPOSE AND SCOPE",
+          "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein.\n1.1 Applicability\nThis specification applies to all NDE activities including but not limited to: ultrasonic thickness measurement (UT), magnetic particle testing (MT), liquid penetrant testing (PT), visual inspection (VT), and radiographic testing (RT) performed on pressure-containing equipment and piping systems."
+        },
+        {
+          "heading": "2. REFERENCE DOCUMENTS",
+          "text": "Code/Standard Title\nAPI 570 Piping Inspection Code\nAPI 574 Inspection Practices for Piping System Components\nAPI 510 Pressure Vessel Inspection Code\nASME B31.3 Process Piping\nASME Section V Nondestructive Examination\nASNT SNT-TC-1A Personnel Qualification and Certification in NDT\nGLCP-SAFE-001 Contractor Safety Requirements\nGLCP-WORK-002 Work Permit Procedures"
+        },
+        {
+          "heading": "3. PERSONNEL QUALIFICATIONS",
+          "text": "3.1 General Requirements\nAll NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization.\n3.2 Minimum Qualification Levels\nActivity Minimum Level Experience Required\nUT Thickness Measurement Level II 2 years refinery/petrochemical\nUT Flaw Detection Level II 3 years, specific training required\nMT/PT Surface Examination Level II 1 year\nVT Piping Inspection Level II 2 years refinery/petrochemical\nRT Interpretation Level II 2 years\nLead Inspector/Supervisor Level II or III 5 years refinery/petrochemical\n3.3 Site-Specific Training\nAll contractor personnel shall complete GLCP site-specific safety orientation (minimum 4 hours) prior to commencing work. This includes: H2S awareness training, emergency response procedures, permit-to-work system overview, and unit-specific hazards. Orientation is valid for 3 years from completion date."
+        },
+        {
+          "heading": "4. EQUIPMENT REQUIREMENTS",
+          "text": "4.1 Ultrasonic Thickness Gauges\nAll UT thickness gauges shall meet the following minimum requirements: \u2022 Digital display with minimum resolution of 0.001 inch \u2022 Data logging capability with minimum 1000 reading storage \u2022 Capable of operating in temperature range 32\u00b0F to 120\u00b0F \u2022 Battery life sufficient for full shift operation (minimum 8 hours) \u2022 Dual or multi-element transducer capability for high-temperature applications\n4.2 Calibration Requirements\nAll measurement equipment shall have current calibration traceable to NIST or equivalent national standards body. Calibration certificates shall be provided showing calibration date, due date, and standards used.\nEquipment Type Calibration Interval Verification Frequency\nUT Thickness Gauge 12 months Daily (before use)\nUT Transducers 12 months Daily (with gauge)\nCalibration Blocks 24 months N/A\nYoke/Prod (MT) 12 months Before each use\n4.3 Daily Calibration Verification\nUT thickness gauges shall be verified at the start of each work shift using a multi-step calibration block. Verification shall be performed on steps bracketing the expected measurement range. Acceptable deviation is \u00b10.002 inch. Verification shall be documented with date, time, operator, and readings."
+        },
+        {
+          "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+          "text": "5.1 Surface Preparation\nThe measurement surface shall be prepared to remove loose scale, rust, paint, or other materials that may interfere with coupling. Preparation methods may include wire brushing, grinding, or scraping. Surface shall be smooth enough to achieve consistent couplant contact. For painted surfaces, paint removal is required unless coating thickness is less than 10 mils and consistent.\n5.2 Couplant\nWater-based or glycerin-based couplant shall be used. For elevated temperature surfaces (above 150\u00b0F), high-temperature couplant rated for the service temperature shall be used. Couplant shall be removed after measurement to prevent interference with coatings or corrosion protection systems.\n5.3 Measurement Technique\nA minimum of four (4) readings shall be taken at each CML location, spaced approximately 90\u00b0 apart around the circumference. The minimum reading shall be recorded as the official measurement. For suspected localized corrosion, additional readings in a grid pattern may be required.\n5.4 Material Velocity Settings\nMaterial Velocity (in/\u00b5s) Notes\nCarbon Steel (A106, A53) 0.2330 Default for CS piping\n316/304 Stainless Steel 0.2260 Austenitic SS\nDuplex Stainless Steel 0.2290 Verify with material cert\nChrome-Moly Steel 0.2330 Same as CS\nAluminum 0.2500 Verify alloy"
+        },
+        {
+          "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+          "text": "6.1 Minimum Thickness (t-min)\nMinimum required thickness shall be calculated in accordance with ASME B31.3 or the original design code. t-min values for each piping circuit are provided in the inspection data packages. Readings below t-min require immediate notification per Section 6.3.\n6.2 Alert Thresholds\nCondition Threshold Required Action\nCRITICAL Reading < t-min STOP - Immediate notification to GLCP\nAlert Reading < 110% of t-min Notify GLCP within same shift\nMonitor Corrosion rate > 10 mpy Document in report, recommend action\nAcceptable All other readings Document in report\n6.3 Notification Procedures\nFor CRITICAL findings (readings below t-min), the contractor shall: 1. Immediately cease work at the affected location 2. Verify the reading with repeat measurement 3. Contact GLCP Inspection Coordinator by radio or phone 4. Do not leave the area until GLCP representative arrives 5. Document the finding with photographs and detailed notes 6. Confirm reading with GLCP representative present\nGLCP Inspection Coordinator: Jennifer Walsh, (905) 555-0147, Radio Channel 3"
+        },
+        {
+          "heading": "7. DOCUMENTATION REQUIREMENTS",
+          "text": "7.1 Data Recording\nAll thickness readings shall be recorded electronically using data logging equipment. Manual recording is not acceptable except as backup. Data shall include: CML identification, reading value, date, time, operator ID, and equipment serial number.\n7.2 Photographic Documentation\nPhotographs are required for: \u2022 Each CML location showing tag/identification \u2022 Gauge display for all CRITICAL and Alert readings \u2022 Surface condition for any unusual findings \u2022 Inaccessible locations with explanation \u2022 Daily calibration verification setup\n7.3 Report Format\nInspection reports shall include as a minimum: executive summary, scope of work, equipment and personnel used, inspection results tabulated by line and CML, trending comparison with historical data, list of all findings by category, recommendations, and appendices with raw data and photographs."
+        },
+        {
+          "heading": "8. SAFETY REQUIREMENTS",
+          "text": "8.1 Permits\nAll inspection work requires a valid General Work Permit. Additional permits (Elevated Work, Hot Work, Confined Space) may be required depending on location and activities. Permits shall be obtained from the Control Room before starting work each day.\n8.2 H2S Monitoring\nAll personnel working in the Amine Treating Unit shall carry a personal H2S monitor. Monitors are provided by GLCP and issued daily at the Control Room. Alarm setpoints: Low alarm at 10 ppm, High alarm at 15 ppm. Upon high alarm, evacuate upwind immediately and report to muster point.\n8.3 PPE Requirements\n\u2022 Hard hat (GLCP-issued sticker required)\n\u2022 Safety glasses (side shields required)\n\u2022 Steel-toed boots (minimum 6-inch height)\n\u2022 FR clothing (minimum ATPV 8 cal/cm\u00b2)\n\u2022 Work gloves (leather or equivalent)\n\u2022 H2S monitor (GLCP-provided)\n\u2022 Hearing protection (required in designated areas)"
+        },
+        {
+          "heading": "REVISION HISTORY",
+          "text": "Rev Date Description Author\n0 Mar 2018 Initial issue J. Walsh\n1 Jan 2020 Updated calibration requirements J. Walsh\n2 Jun 2022 Added H2S monitoring requirements M. Sullivan\n3 Jan 2024 Updated alert thresholds, added photo requirements J. Walsh"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Minimum Qualification Levels",
+          "headers": [
+            "Activity",
+            "Minimum Level",
+            "Experience Required"
+          ],
+          "rows": [
+            [
+              "UT Thickness Measurement",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "UT Flaw Detection",
+              "Level II",
+              "3 years, specific training required"
+            ],
+            [
+              "MT/PT Surface Examination",
+              "Level II",
+              "1 year"
+            ],
+            [
+              "VT Piping Inspection",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "RT Interpretation",
+              "Level II",
+              "2 years"
+            ],
+            [
+              "Lead Inspector/Supervisor",
+              "Level II or III",
+              "5 years refinery/petrochemical"
+            ]
+          ]
+        },
+        {
+          "title": "Ultrasonic Thickness Gauge Calibration Requirements",
+          "headers": [
+            "Equipment Type",
+            "Calibration Interval",
+            "Verification Frequency"
+          ],
+          "rows": [
+            [
+              "UT Thickness Gauge",
+              "12 months",
+              "Daily (before use)"
+            ],
+            [
+              "UT Transducers",
+              "12 months",
+              "Daily (with gauge)"
+            ],
+            [
+              "Calibration Blocks",
+              "24 months",
+              "N/A"
+            ],
+            [
+              "Yoke/Prod (MT)",
+              "12 months",
+              "Before each use"
+            ]
+          ]
+        },
+        {
+          "title": "Material Velocity Settings",
+          "headers": [
+            "Material",
+            "Velocity (in/\u00b5s)",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Carbon Steel (A106, A53)",
+              "0.2330",
+              "Default for CS piping"
+            ],
+            [
+              "316/304 Stainless Steel",
+              "0.2260",
+              "Austenitic SS"
+            ],
+            [
+              "Duplex Stainless Steel",
+              "0.2290",
+              "Verify with material cert"
+            ],
+            [
+              "Chrome-Moly Steel",
+              "0.2330",
+              "Same as CS"
+            ],
+            [
+              "Aluminum",
+              "0.2500",
+              "Verify alloy"
+            ]
+          ]
+        },
+        {
+          "title": "Acceptance Criteria (Thickness/Corrosion Monitoring)",
+          "headers": [
+            "Condition",
+            "Threshold",
+            "Required Action"
+          ],
+          "rows": [
+            [
+              "CRITICAL",
+              "Reading < t-min",
+              "STOP - Immediate notification to GLCP"
+            ],
+            [
+              "Alert",
+              "Reading < 110% of t-min",
+              "Notify GLCP within same shift"
+            ],
+            [
+              "Monitor",
+              "Corrosion rate > 10 mpy",
+              "Document in report, recommend action"
+            ],
+            [
+              "Acceptable",
+              "All other readings",
+              "Document in report"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2617,
+      "output": 2706,
+      "total": 5323
+    },
+    "cost_usd": {
+      "input": 0.005234,
+      "output": 0.021648,
+      "total": 0.026882
+    },
+    "time_seconds": 43.23,
+    "display_name": "GPT-4.1"
+  },
+  {
+    "model": "gpt-4.1",
+    "pdf_file": "pdf_sample_textbook.pdf",
+    "pdf_size_bytes": 135171,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Anatomy of the Somatosensory System",
+      "pages": 4,
+      "summary": "This document, extracted from a Wikibook chapter on sensory systems, provides a detailed overview of the anatomy and physiology of the somatosensory system, incorporating content and diagrams from authoritative academic sources. Subjects covered include types and functions of sensory receptors in the skin (cutaneous receptors), muscles (muscle spindles), and joints (joint receptors), as well as pain pathways and proprioceptive feedback. The document specifies the mechanisms, roles, locations, and types of mechanoreceptors, thermoreceptors, and nociceptors, along with their contributions to sensory input and motor activity. It includes labeled anatomical diagrams, a comprehensive table categorizing receptor properties, and an infographic summarizing feedback loops, making it useful for answering questions about sensory receptor function, proprioception, pain transmission, and somatosensory neuroanatomy.",
+      "sections": [
+        {
+          "heading": "Introduction and Overview",
+          "text": "This is a sample document to showcase page-based formatting. It contains a chapter from a Wikibook called Sensory Systems. None of the content has been changed in this article, but some content has been removed. Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, called cutaneous receptors, inform us about temperature (thermoreceptors), pressure and surface texture (mechanoreceptors), and pain (nociceptors). The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles."
+        },
+        {
+          "heading": "Cutaneous receptors",
+          "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force during object manipulation. These receptors respond with brief bursts of action potentials when encountering small surface movements. Merkel\u2019s receptors, which adapt slowly, are responsible for form and texture perception and are denser in the digits and around the mouth, but decrease in density with age. Pacinian corpuscles register vibration, while Ruffini corpuscles detect skin stretch. The distribution and depth of these receptors in hairy and glabrous skin is discussed."
+        },
+        {
+          "heading": "Nociceptors",
+          "text": "Nociceptors have free nerve endings and are classified as high-threshold mechanoreceptors or polymodal receptors. These respond to mechanical damage, heat, and noxious chemicals, with signal magnitudes depending on tissue deformation. Pain signals are categorized into first pain (localized, rapid), second pain (burning, poorly localized), and third pain (deep, chronic, referred)."
+        },
+        {
+          "heading": "Muscle Spindles",
+          "text": "Muscle spindles are stretch receptors distributed throughout striated muscles, composed of intrafusal fibers and surrounded by a capsule. When the muscle stretches, the spindle's central region extends, triggering sensory activity. These spindles receive both alpha (extrafusal) and gamma (intrafusal) motor neuron innervation, which helps maintain spindle sensitivity across various muscle lengths."
+        },
+        {
+          "heading": "Joint receptors",
+          "text": "Joint receptors are low-threshold mechanoreceptors classified into four groups that monitor joint position, movement, direction, and speed. Type 4 joint receptors are nociceptors associated with pain signaling. The section summarizes their roles in proprioception."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Properties of Skin Receptors",
+          "headers": [
+            "",
+            "Rapidly adapting",
+            "Slowly adapting"
+          ],
+          "rows": [
+            [
+              "Surface receptor / small receptive field",
+              "Hair receptor, Meissner\u2019s corpuscle: Detect an insect or a very fine vibration. Used for recognizing texture.",
+              "Merkel\u2019s receptor: Used for spatial details, e.g. a round surface edge or \u201can X\u201d in brail."
+            ],
+            [
+              "Deep receptor / large receptive field",
+              "Pacinian corpuscle: \u201cA diffuse vibration\u201d e.g. tapping with a pencil.",
+              "Ruffini\u2019s corpuscle: \u201cA skin stretch\u201d. Used for joint position in fingers."
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Figure 1: Receptors in the human skin: Mechanoreceptors can be free receptors or encapsulated. Examples for free receptors are the hair receptors at the roots of hairs. Encapsulated receptors are the Pacinian corpuscles and the receptors in the glabrous (hairless) skin: Meissner corpuscles, Ruffini corpuscles and Merkel\u2019s disks.\nHairy skin Glabrous skin Epidermis Dermis Pacinian corpuscle Papillary Ridges Septa Ruffini\u2019s corpuscle Hair receptor Meissner\u2019s corpuscle Sebaceous gland Free nerve ending Merkel\u2019s receptor",
+          "description": "Diagram showing cross-sections of human hairy and glabrous skin, labeling the various mechanoreceptors such as Pacinian corpuscles, Meissner corpuscles, Ruffini corpuscles, Merkel\u2019s disks, hair and free nerve endings. It contextualizes the discussion on cutaneous receptors."
+        },
+        {
+          "page": 2,
+          "ocr_text": "Figure 2: Mammalian muscle spindle showing typical position in a muscle (left), neuronal connections in spinal cord (middle) and expanded schematic (right). The spindle is a stretch receptor with its own motor supply consisting of several intrafusal muscle fibres. The sensory endings of a primary (group Ia) afferent and a secondary (group II) afferent coil around the non-contractile central portions of the intrafusal fibres.",
+          "description": "Three-part schematic illustrating the anatomy of a mammalian muscle spindle, its neuronal connections, and a close-up schematic, supporting the explanation of muscle spindles as stretch receptors."
+        },
+        {
+          "page": 4,
+          "ocr_text": "Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements. Arrows indicate excitatory connections; filled circles inhibitory connections.",
+          "description": "A flowchart-style diagram visualizing neural feedback pathways for proprioceptive signals in limb movement, correlating with the text's explanation of force, length, and velocity feedback in neuromuscular control."
+        }
+      ],
+      "charts": [
+        {
+          "page": 4,
+          "type": "diagram",
+          "title": "Feedback loops for proprioceptive signals",
+          "data": {
+            "elements": [
+              "Force control signal",
+              "Driving signal",
+              "Length control signal",
+              "Load (external forces)",
+              "Tendon organs",
+              "Spindles",
+              "Gamma bias",
+              "Alpha motor neuron",
+              "Force (Golgi tendon organ)",
+              "Muscle",
+              "Interneurons (excitatory/inhibitory)"
+            ],
+            "connections": "Arrows indicate excitatory; filled circles indicate inhibitory."
+          },
+          "insights": "The diagram maps complex neural feedback involved in proprioceptive limb control. Force and length feedback from muscle spindles and Golgi tendon organs interact with motor neurons and interneurons to regulate movement and maintain limb position against external loads."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 2698,
+      "output": 1532,
+      "total": 4230
+    },
+    "cost_usd": {
+      "input": 0.005396,
+      "output": 0.012256,
+      "total": 0.017652
+    },
+    "time_seconds": 110.75,
+    "display_name": "GPT-4.1"
+  },
+  {
+    "error": "ograms\\Python\\Python311\\Lib\\site-packages\\openai\\_base_client.py\", line 1249, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\shank\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\openai\\_base_client.py\", line 1004, in request\n    raise APIConnectionError(request=request) from err\nopenai.APIConnectionError: Connection error.",
+    "model": "gpt-4.1",
+    "pdf_file": "Farm Financial Health_10pages.pdf",
+    "display_name": "GPT-4.1"
+  },
+  {
+    "model": "gpt-4o",
+    "pdf_file": "GLCP-RFQ-2024-089.pdf",
+    "pdf_size_bytes": 9994,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Great Lakes Chemical Processing - RFQ for Ultrasonic Thickness Survey Services",
+      "pages": 5,
+      "summary": "This document is a Request for Quotation (RFQ) from Great Lakes Chemical Processing (GLCP), detailing the requirements for ultrasonic thickness survey services for the Amine Treating Unit (ATU-100) at their Hamilton Plant. It outlines the scope of work, including ultrasonic measurements, data logging, corrosion analysis, and inspection reporting. The document specifies technical requirements adhering to API 570, API 574, ASME B31.3, and others. Key content includes safety protocols, proposal requirements, and detailed piping information. Useful for contractors bidding on industrial inspection services, ensuring compliance and safety. It addresses questions about project scope, technical standards, deliverables, safety requirements, and submission timelines.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+        },
+        {
+          "heading": "Scope of Work",
+          "text": "2.1 General Requirements The Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. The work shall be performed in accordance with the requirements specified herein and the applicable codes and standards. 2.2 Specific Tasks \u2022 Perform ultrasonic thickness measurements at all designated CML locations \u2022 Record thickness readings using digital data logging equipment \u2022 Photograph each CML location and gauge display for critical readings \u2022 Compare current readings to historical data (2019 survey) provided by GLCP \u2022 Calculate corrosion rates based on historical trending \u2022 Identify any readings below minimum required thickness (t-min) \u2022 Prepare comprehensive inspection report with findings and recommendations \u2022 Provide all raw data in electronic format (CSV/Excel)"
+        },
+        {
+          "heading": "Scope Summary",
+          "text": "Item Quantity Total Piping Lines 18 Total CML Locations 150 Estimated Field Days 4 Previous Survey Date October 2019"
+        },
+        {
+          "heading": "Technical Requirements",
+          "text": "4.1 Applicable Codes and Standards \u2022 API 570 - Piping Inspection Code \u2022 API 574 - Inspection Practices for Piping System Components \u2022 ASME B31.3 - Process Piping (for t-min calculations) \u2022 ASME Section V, Article 5 - Ultrasonic Examination Methods \u2022 GLCP-NDT-001 - Site-Specific NDE Requirements (Attachment B) 4.2 Equipment Requirements All ultrasonic thickness gauges shall be digital instruments capable of 0.001\" resolution with data logging capability. Calibration shall be verified daily using NIST-traceable step blocks. Current calibration certificates shall be provided prior to mobilization. 4.3 Personnel Qualifications All inspection personnel shall be qualified to ASNT SNT-TC-1A or equivalent. Minimum qualification: UT Level II. Lead inspector shall have minimum 5 years experience in refinery/petrochemical piping inspection. All personnel shall complete GLCP site-specific safety orientation prior to work commencement."
+        },
+        {
+          "heading": "Schedule",
+          "text": "Milestone Date RFQ Issue Date October 15, 2024 Questions Due October 18, 2024 Proposal Due Date October 22, 2024 Anticipated Award October 25, 2024 Kick-off Meeting October 29, 2024 Field Work Window November 4-7, 2024 Draft Report Due November 14, 2024 Final Report Due November 21, 2024"
+        },
+        {
+          "heading": "Deliverables",
+          "text": "The Contractor shall provide the following deliverables: Deliverable Due Date Draft Inspection Report Within 5 business days of field work completion Final Inspection Report (PDF) Within 2 business days of GLCP comments Raw Data Files (CSV/Excel) With draft report Photographs (organized by CML) With draft report Calibration Certificates Prior to mobilization Personnel Certifications Prior to mobilization Daily Field Reports End of each work day"
+        },
+        {
+          "heading": "Safety Requirements",
+          "text": "All Contractor personnel shall comply with GLCP safety requirements including but not limited to: completion of site-specific safety orientation, daily Job Safety Analysis (JSA) review, valid work permits for all activities, and adherence to all posted safety signage and procedures. Personal protective equipment requirements include: hard hat, safety glasses, steel-toed boots, FR clothing, and H2S monitor (provided by GLCP)."
+        },
+        {
+          "heading": "Proposal Requirements",
+          "text": "Proposals shall include the following: \u2022 Company qualifications and relevant experience \u2022 Proposed inspection team with certifications \u2022 Equipment list with calibration status \u2022 Detailed work plan and schedule \u2022 Lump sum pricing with breakdown by task \u2022 Rate schedule for potential additional work \u2022 Sample inspection report from similar project \u2022 Three (3) references from similar projects \u2022 Proof of insurance ($2M general liability minimum)"
+        },
+        {
+          "heading": "Attachments",
+          "text": "\u2022 Attachment A - Piping Line List and CML Summary \u2022 Attachment B - GLCP-NDT-001 Site-Specific Requirements \u2022 Attachment C - Previous Survey Data (2019) \u2022 Attachment D - Piping Isometrics with CML Locations \u2022 Attachment E - Unit Plot Plan"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Piping Line List and CML Summary",
+          "headers": [
+            "Line Number",
+            "Service",
+            "Size",
+            "Material",
+            "CMLs"
+          ],
+          "rows": [
+            [
+              "2-RF-102",
+              "Reflux",
+              "2\"",
+              "316SS",
+              "7"
+            ],
+            [
+              "2-RV-102",
+              "Regen Overhead",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "2-ST-101",
+              "Reboiler Steam",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-101",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-102",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "5"
+            ],
+            [
+              "3-RF-101",
+              "Reflux",
+              "3\"",
+              "316SS",
+              "9"
+            ],
+            [
+              "3-RV-101",
+              "Regen Overhead",
+              "3\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-101",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "9"
+            ],
+            [
+              "4-LA-102",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "4-RA-101",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "12"
+            ],
+            [
+              "4-RA-102",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "11"
+            ],
+            [
+              "4-RA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-LA-103",
+              "Lean Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "6-RA-103",
+              "Rich Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "14"
+            ],
+            [
+              "6-SG-101",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-SG-102",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "8-TG-101",
+              "Treated Gas",
+              "8\"",
+              "A106 Gr.B",
+              "7"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2323,
+      "output": 1686,
+      "total": 4009
+    },
+    "cost_usd": {
+      "input": 0.005808,
+      "output": 0.01686,
+      "total": 0.022668
+    },
+    "time_seconds": 49.19,
+    "display_name": "GPT-4o"
+  },
+  {
+    "model": "gpt-4o",
+    "pdf_file": "GLCP-NDT-001.pdf",
+    "pdf_size_bytes": 13256,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Site-Specific NDE Requirements",
+      "pages": 7,
+      "summary": "This document, titled Site-Specific NDE Requirements, pertains to the Great Lakes Chemical Processing Hamilton Plant and sets forth specific requirements for Non-Destructive Examination (NDE) activities. It outlines qualifications for personnel, equipment specifications, procedures for ultrasonic thickness measurement, acceptance criteria, documentation requirements, and safety protocols. Key codes and standards referenced include API 570, ASME B31.3, and ASNT SNT-TC-1A. This document answers queries regarding NDE qualifications, testing methods, calibration, safety measures, and reporting in industrial settings. It includes detailed tables on personnel qualifications, equipment requirements, and calibration intervals, providing essential guidelines for contractors operating within the plant.",
+      "sections": [
+        {
+          "heading": "1. PURPOSE AND SCOPE",
+          "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards."
+        },
+        {
+          "heading": "2. REFERENCE DOCUMENTS",
+          "text": "Key codes and standards referenced include API 570, API 574, API 510, ASME B31.3, ASME Section V, ASNT SNT-TC-1A, GLCP-SAFE-001, and GLCP-WORK-002."
+        },
+        {
+          "heading": "3. PERSONNEL QUALIFICATIONS",
+          "text": "All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization."
+        },
+        {
+          "heading": "4. EQUIPMENT REQUIREMENTS",
+          "text": "All UT thickness gauges must have a digital display, data logging capability, and be able to operate in a specified temperature range. Calibration certificates must be provided for all equipment."
+        },
+        {
+          "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+          "text": "Surface preparation involves removing materials that may interfere with coupling. Water-based or glycerin-based couplant shall be used for measurement. A minimum of four readings must be taken at each CML location."
+        },
+        {
+          "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+          "text": "Minimum required thickness is based on ASME B31.3. There are specified actions depending on readings, such as notifying GLCP immediately for readings below the threshold."
+        },
+        {
+          "heading": "7. DOCUMENTATION REQUIREMENTS",
+          "text": "All thickness readings must be recorded electronically and documented with photographs for critical readings. The report must include an executive summary and inspection results."
+        },
+        {
+          "heading": "8. SAFETY REQUIREMENTS",
+          "text": "Requires a valid General Work Permit, personal H2S monitors, and specific PPE. Any high alarms require evacuation and reporting to a muster point."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Personnel Qualifications",
+          "headers": [
+            "Activity",
+            "Minimum Level",
+            "Experience Required"
+          ],
+          "rows": [
+            [
+              "UT Thickness Measurement",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "UT Flaw Detection",
+              "Level II",
+              "3 years, specific training required"
+            ],
+            [
+              "MT/PT Surface Examination",
+              "Level II",
+              "1 year"
+            ],
+            [
+              "VT Piping Inspection",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "RT Interpretation",
+              "Level II",
+              "2 years"
+            ],
+            [
+              "Lead Inspector/Supervisor",
+              "Level II or III",
+              "5 years refinery/petrochemical"
+            ]
+          ]
+        },
+        {
+          "title": "Equipment Calibration Requirements",
+          "headers": [
+            "Equipment Type",
+            "Calibration Interval",
+            "Verification Frequency"
+          ],
+          "rows": [
+            [
+              "UT Thickness Gauge",
+              "12 months",
+              "Daily (before use)"
+            ],
+            [
+              "UT Transducers",
+              "12 months",
+              "Daily (with gauge)"
+            ],
+            [
+              "Calibration Blocks",
+              "24 months",
+              "N/A"
+            ],
+            [
+              "Yoke/Prod (MT)",
+              "12 months",
+              "Before each use"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2617,
+      "output": 933,
+      "total": 3550
+    },
+    "cost_usd": {
+      "input": 0.006542,
+      "output": 0.00933,
+      "total": 0.015872
+    },
+    "time_seconds": 25.76,
+    "display_name": "GPT-4o"
+  },
+  {
+    "model": "gpt-4o",
+    "pdf_file": "pdf_sample_textbook.pdf",
+    "pdf_size_bytes": 135171,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Anatomy of the Somatosensory System",
+      "pages": 4,
+      "summary": "This document is an educational piece from the Wikibook 'Sensory Systems' focusing on the somatosensory system, detailing the anatomy and functions of various sensory receptors and neurons. It covers cutaneous receptors, muscle spindles, and joint receptors, explaining their roles in sensory perception and motor response. The text includes detailed explanations of the types of receptors found in skin, muscles, and joints, and how these interact with the nervous system. The document is designed to educate readers on sensory response mechanisms and is useful for understanding somatosensory interactions and their implications. It features diagrams and tables depicting receptor structures and their functionalities. The target audience likely includes students and educators in neuroscience or physiology, who may use this information to answer questions on sensory system function, receptor types, and somatosensory processing.",
+      "sections": [
+        {
+          "heading": "Anatomy of the Somatosensory System",
+          "text": "Our somatosensory system consists of sensors in the skin and sensors in our muscles, tendons, and joints. The receptors in the skin, the so-called cutaneous receptors, tell us about temperature, pressure, and pain. The receptors in muscles and joints provide information about muscle length, muscle tension, and joint angles. Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force. The slowly adapting Merkel\u2019s receptors are responsible for form and texture perception, while Pacinian corpuscles give a feeling of vibration. Nociceptors are either high-threshold mechanoreceptors or polymodal receptors."
+        },
+        {
+          "heading": "Muscle Spindles",
+          "text": "Muscle spindles are stretch receptors within muscle fibers, consisting of intrafusal fibers and sensory endings. These receptors are crucial for motor control, allowing adjustment of muscle sensitivity. They provide feedback on muscle length and help in proprioception. Muscle spindles receive both sensory and motor innervation, aiding in maintaining sensitivity across muscle lengths. Gamma motor neurons regulate spindle sensitivity."
+        },
+        {
+          "heading": "Joint Receptors",
+          "text": "Joint receptors are low-threshold mechanoreceptors divided into four groups, signaling joint characteristics like position and movement. These receptors include free receptors or type 4 joint receptors, serving as nociceptors. They play a role in signaling different aspects of joint function such as speed and direction of movement."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Adaptation and Receptor Function",
+          "headers": [
+            "Rapidly adapting",
+            "Slowly adapting"
+          ],
+          "rows": [
+            [
+              "Surface receptor/small receptive field",
+              "Hair receptor, Meissner\u2019s corpuscle",
+              "Merkel\u2019s receptor"
+            ],
+            [
+              "Deep receptor/large receptive field",
+              "Pacinian corpuscle",
+              "Ruffini\u2019s corpuscle"
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Figure 1: Receptors in the human skin: Mechanoreceptors can be free receptors or encapsulated.",
+          "description": "Diagram illustrating different types of mechanoreceptors in the human skin, showing their locations in hairy and glabrous skin."
+        },
+        {
+          "page": 2,
+          "ocr_text": "Figure 2: Mammalian muscle spindle showing typical position in a muscle.",
+          "description": "Illustration of a muscle spindle in mammals, showing its position in a muscle and neural connections, important for understanding muscle stretch response."
+        },
+        {
+          "page": 4,
+          "ocr_text": "Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements.",
+          "description": "Diagram depicting feedback loops for proprioception, illustrating connections between muscle force, length, and sensory feedback."
+        }
+      ],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2698,
+      "output": 828,
+      "total": 3526
+    },
+    "cost_usd": {
+      "input": 0.006745,
+      "output": 0.00828,
+      "total": 0.015025
+    },
+    "time_seconds": 24.7,
+    "display_name": "GPT-4o"
+  },
+  {
+    "model": "gpt-4o",
+    "pdf_file": "Farm Financial Health_10pages.pdf",
+    "pdf_size_bytes": 7855311,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Farm Financial Health Report 2023-2024",
+      "pages": 10,
+      "summary": "This document is the Farm Financial Health Report 2023-2024 by the Canadian Federation of Agriculture. It provides an in-depth analysis of the financial status of farms across Canada, addressing issues such as rising production costs, climate challenges, and recommendations for supporting farmers. Key entities include the Canadian Federation of Agriculture and Canadian farmers. The document contains statistical data, trend analyses, and recommendations regarding financial risks, regulatory burdens, and sustainable growth strategies for agriculture. It explores topics like farm input costs, farmland values, labor shortages, and sectorial variances. The report is crucial for understanding how external economic and environmental factors impact Canadian agriculture and provides policy recommendations to aid in financial health management.",
+      "sections": [
+        {
+          "heading": "Executive Summary",
+          "text": "Taking Stock of Farm Financial Health Amid Rising Costs of Production and a Rapidly Changing Climate. Canadian farms face increased challenges due to external domestic and global pressures like COVID-19, climate change, and the Ukraine war. In 2022, primary agriculture contributed $36.3 billion to Canada's GDP and supported 249,000 jobs. Despite manageable debt levels, rising production costs and climate impacts press serious concerns for mental health in rural areas."
+        },
+        {
+          "heading": "Recommendations for Action",
+          "text": "Help manage the increased cost of production. Recommendations include creating stable supply channels for critical farm inputs, improving risk management programs, reducing tax burdens, enhancing competitiveness, and supporting sustainable growth. Also, supporting new entrants and young farmers by providing financial support and reducing barriers to entry is stressed."
+        },
+        {
+          "heading": "Farm Financial Landscape",
+          "text": "The labor and input costs have soared, with a significant increase in total farm cash receipts due to rising prices for crops and livestock. Farm expenses saw a hefty increase, further pressured by the Ukraine conflict. Farmland values have increased approximately 10% annually over the past decade, adding significant capital overheads for farmers."
+        },
+        {
+          "heading": "Regional Cost Variations",
+          "text": "Production costs vary significantly across Canada. Example disparities include increased total farm input price indices among provinces like Western Canada compared to the East. Labor and shipping cost hikes also disproportionately affect certain commodities such as fruit and pork."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Farmland Value Change (2019-2022)",
+          "headers": [
+            "Year",
+            "Land Value in Ontario"
+          ],
+          "rows": [
+            [
+              "2019",
+              "$11,786"
+            ],
+            [
+              "2022",
+              "$17,962"
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 2,
+          "ocr_text": "CFA FCA",
+          "description": "An image showing a farmer examining soil, representing the practical side of farming discussed in the report. The CFA and FCA logos are visible, emphasizing the report's origin."
+        }
+      ],
+      "charts": [
+        {
+          "page": 7,
+          "type": "line chart",
+          "title": "Farm Input Price Index (2020-2023)",
+          "data": {
+            "x": [
+              "2020",
+              "2021",
+              "2022",
+              "2023"
+            ],
+            "y": [
+              "100",
+              "105",
+              "115",
+              "120"
+            ]
+          },
+          "insights": "The chart shows a steady increase in the price index over the years, with notable spikes amid the COVID-19 pandemic and the geopolitical tensions in Ukraine."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 1860,
+      "output": 748,
+      "total": 2608
+    },
+    "cost_usd": {
+      "input": 0.00465,
+      "output": 0.00748,
+      "total": 0.01213
+    },
+    "time_seconds": 29.26,
+    "display_name": "GPT-4o"
+  },
+  {
+    "model": "gpt-4o-mini",
+    "pdf_file": "GLCP-RFQ-2024-089.pdf",
+    "pdf_size_bytes": 9994,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Request for Quotation: Ultrasonic Thickness Survey Services",
+      "pages": 5,
+      "summary": "This document is a Request for Quotation (RFQ) from Great Lakes Chemical Processing (GLCP) for ultrasonic thickness survey services on piping systems at their Hamilton Plant. It outlines the qualifications required for contractors, the scope of work which includes taking thickness measurements at specific locations, and the necessary equipment and personnel qualifications. The RFQ details the timeline for proposals and fieldwork, as well as deliverables expected from contractors. Potential bidders are prompted to provide their qualifications, equipment lists, and safety compliance, making this document essential for contractors seeking to participate in this survey project.",
+      "sections": [
+        {
+          "heading": "1. INTRODUCTION",
+          "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+        },
+        {
+          "heading": "2. SCOPE OF WORK",
+          "text": "The Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. Specific tasks include performing ultrasonic thickness measurements and preparing a comprehensive inspection report with findings and recommendations."
+        },
+        {
+          "heading": "4. TECHNICAL REQUIREMENTS",
+          "text": "This section details the applicable codes and standards such as API 570 and ASME B31.3, along with specific equipment and personnel qualifications for conducting the ultrasonic survey."
+        },
+        {
+          "heading": "5. SCHEDULE",
+          "text": "Milestone dates are outlined for RFQ issue, question deadlines, proposal due dates, and project kick-off, culminating in the field work window from November 4-7, 2024."
+        },
+        {
+          "heading": "6. DELIVERABLES",
+          "text": "The contractor is expected to provide a series of deliverables including draft and final inspection reports, raw data files, and calibration certificates."
+        },
+        {
+          "heading": "8. PROPOSAL REQUIREMENTS",
+          "text": "Proposals must include company qualifications, a proposed inspection team, equipment list, a detailed work plan, pricing information, and references."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Piping Line List and CML Summary",
+          "headers": [
+            "Line Number",
+            "Service",
+            "Size",
+            "Material",
+            "CMLs"
+          ],
+          "rows": [
+            [
+              "2-RF-102",
+              "Reflux",
+              "2\"",
+              "316SS",
+              "7"
+            ],
+            [
+              "2-RV-102",
+              "Regen Overhead",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "2-ST-101",
+              "Reboiler Steam",
+              "2\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-101",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "3-CW-102",
+              "Amine Cooler CW",
+              "3\"",
+              "A106 Gr.B",
+              "5"
+            ],
+            [
+              "3-RF-101",
+              "Reflux",
+              "3\"",
+              "316SS",
+              "9"
+            ],
+            [
+              "3-RV-101",
+              "Regen Overhead",
+              "3\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-101",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "9"
+            ],
+            [
+              "4-LA-102",
+              "Lean Amine Supply",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "4-LA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "4-RA-101",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "12"
+            ],
+            [
+              "4-RA-102",
+              "Rich Amine",
+              "4\"",
+              "A106 Gr.B",
+              "11"
+            ],
+            [
+              "4-RA-104",
+              "L/R Exchanger",
+              "4\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-LA-103",
+              "Lean Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "10"
+            ],
+            [
+              "6-RA-103",
+              "Rich Amine Header",
+              "6\"",
+              "A106 Gr.B",
+              "14"
+            ],
+            [
+              "6-SG-101",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "8"
+            ],
+            [
+              "6-SG-102",
+              "Sour Gas Inlet",
+              "6\"",
+              "A106 Gr.B",
+              "6"
+            ],
+            [
+              "8-TG-101",
+              "Treated Gas",
+              "8\"",
+              "A106 Gr.B",
+              "7"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2323,
+      "output": 1049,
+      "total": 3372
+    },
+    "cost_usd": {
+      "input": 0.000348,
+      "output": 0.000629,
+      "total": 0.000978
+    },
+    "time_seconds": 20.15,
+    "display_name": "GPT-4o-mini"
+  },
+  {
+    "model": "gpt-4o-mini",
+    "pdf_file": "GLCP-NDT-001.pdf",
+    "pdf_size_bytes": 13256,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Site-Specific NDE Requirements",
+      "pages": 7,
+      "summary": "This document outlines the site-specific Non-Destructive Examination (NDE) requirements for the Great Lakes Chemical Processing Hamilton Plant, focusing on various inspection methods including ultrasonic thickness measurement and magnetic particle testing. It details personnel qualifications, equipment requirements, and specific procedures for conducting inspections on pressure-containing equipment and piping systems. The document emphasizes safety protocols, including H2S monitoring and required personal protective equipment. It serves as a guideline for contractors ensuring compliance with industry standards, thereby addressing potential questions regarding NDE procedures, personnel qualifications, and safety requirements.",
+      "sections": [
+        {
+          "heading": "1. PURPOSE AND SCOPE",
+          "text": "This document establishes the site-specific requirements for Non-Destructive Examination (NDE) activities performed at the Great Lakes Chemical Processing Hamilton Plant. These requirements supplement and, where specified, supersede the requirements of referenced codes and standards. All NDE contractors performing work at this facility shall comply with the requirements herein."
+        },
+        {
+          "heading": "3. PERSONNEL QUALIFICATIONS",
+          "text": "All NDE personnel shall be qualified and certified in accordance with a written practice meeting the requirements of ASNT SNT-TC-1A or ASNT CP-189. Certification records shall be provided to GLCP Inspection Department prior to mobilization. Minimum Qualification Levels for various activities and site-specific training requirements are also detailed."
+        },
+        {
+          "heading": "4. EQUIPMENT REQUIREMENTS",
+          "text": "All UT thickness gauges shall meet specified requirements including digital display and data logging capability, along with calibration requirements ensuring traceability to national standards. Daily calibration verification procedures are also specified."
+        },
+        {
+          "heading": "5. ULTRASONIC THICKNESS MEASUREMENT PROCEDURES",
+          "text": "This section specifies surface preparation, couplant types, measurement techniques, and material velocity settings for various steel types to ensure accurate thickness measurements."
+        },
+        {
+          "heading": "6. ACCEPTANCE CRITERIA AND NOTIFICATIONS",
+          "text": "Details on minimum thickness calculations, alert thresholds, and notification procedures for critical findings are laid out to ensure immediate corrective actions are taken when necessary."
+        },
+        {
+          "heading": "8. SAFETY REQUIREMENTS",
+          "text": "The document outlines safety requirements including permits, H2S monitoring protocols, and personal protective equipment standards necessary for field personnel."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Minimum Qualification Levels",
+          "headers": [
+            "Activity",
+            "Minimum Level",
+            "Experience Required"
+          ],
+          "rows": [
+            [
+              "UT Thickness Measurement",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "UT Flaw Detection",
+              "Level II",
+              "3 years, specific training required"
+            ],
+            [
+              "MT/PT Surface Examination",
+              "Level II",
+              "1 year"
+            ],
+            [
+              "VT Piping Inspection",
+              "Level II",
+              "2 years refinery/petrochemical"
+            ],
+            [
+              "RT Interpretation",
+              "Level II",
+              "2 years"
+            ],
+            [
+              "Lead Inspector/Supervisor",
+              "Level II or III",
+              "5 years refinery/petrochemical"
+            ]
+          ]
+        },
+        {
+          "title": "Calibration Requirements",
+          "headers": [
+            "Equipment Type",
+            "Calibration Interval",
+            "Verification Frequency"
+          ],
+          "rows": [
+            [
+              "UT Thickness Gauge",
+              "12 months",
+              "Daily (before use)"
+            ],
+            [
+              "UT Transducers",
+              "12 months",
+              "Daily (with gauge)"
+            ],
+            [
+              "Calibration Blocks",
+              "24 months",
+              "N/A"
+            ],
+            [
+              "Yoke/Prod (MT)",
+              "12 months",
+              "Before each use"
+            ]
+          ]
+        }
+      ],
+      "images": [],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2617,
+      "output": 777,
+      "total": 3394
+    },
+    "cost_usd": {
+      "input": 0.000393,
+      "output": 0.000466,
+      "total": 0.000859
+    },
+    "time_seconds": 15.53,
+    "display_name": "GPT-4o-mini"
+  },
+  {
+    "model": "gpt-4o-mini",
+    "pdf_file": "pdf_sample_textbook.pdf",
+    "pdf_size_bytes": 135171,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Anatomy of the Somatosensory System",
+      "pages": 4,
+      "summary": "This document is a chapter from a Wikibook detailing the anatomy and functions of the somatosensory system. It covers the different types of sensory receptors (cutaneous, nociceptors, muscle spindles, and joint receptors) and their roles in perceiving stimuli such as temperature, pressure, pain, and body position. Key subjects include mechanoreceptors, muscle spindle functions, and the distinction between rapidly and slowly adapting receptors. The content contains descriptive diagrams and tables illustrating receptor functions and properties. It answers questions regarding how different receptors contribute to sensory perception and motor activities.",
+      "sections": [
+        {
+          "heading": "Cutaneous receptors",
+          "text": "Sensory information from Meissner corpuscles and rapidly adapting afferents leads to adjustment of grip force when objects are lifted. These afferents respond with a brief burst of action potentials when objects move a small distance during the early stages of lifting. The slowly adapting Merkel\u2019s receptors are responsible for form and texture perception, while rapidly adapting Pacinian corpuscles give a feeling of vibration."
+        },
+        {
+          "heading": "Nociceptors",
+          "text": "Nociceptors have free nerve endings. Functionally, skin nociceptors are either high-threshold mechanoreceptors or polymodal receptors. They respond to intense mechanical stimuli, heat, and noxious chemicals. Pain signals can be categorized into first, second, and third pain, based on their transmission speed and localization."
+        },
+        {
+          "heading": "Muscle Spindles",
+          "text": "Muscle spindles are long stretch receptors scattered throughout striated muscle. They consist of intrafusal fibers surrounded by a capsule. These spindles play an essential role in proprioception by responding to muscle stretch and facilitating reflexive adjustments in muscle force."
+        },
+        {
+          "heading": "Joint receptors",
+          "text": "Joint receptors are low-threshold mechanoreceptors divided into four groups signaling different aspects of joint function, including position and movement."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Surface vs Deep Receptors",
+          "headers": [
+            "Type",
+            "Example",
+            "Function"
+          ],
+          "rows": [
+            [
+              "Rapidly adapting",
+              "Hair receptor, Meissner\u2019s corpuscle",
+              "Detect an insect or fine vibration; recognize texture."
+            ],
+            [
+              "Slowly adapting",
+              "Merkel\u2019s receptor",
+              "Used for spatial details, e.g., a round surface edge."
+            ],
+            [
+              "Deep receptor",
+              "Pacinian corpuscle",
+              "Detect 'diffuse vibration'."
+            ],
+            [
+              "Deep receptor",
+              "Ruffini\u2019s corpuscle",
+              "Detect 'skin stretch' and used for joint position."
+            ]
+          ]
+        }
+      ],
+      "images": [
+        {
+          "page": 1,
+          "ocr_text": "Figure 1: Receptors in the human skin: Mechanoreceptors can be free receptors or encapsulated.",
+          "description": "An illustration of various skin receptors, detailing mechanoreceptors such as hair receptors, Pacinian corpuscles, Meissner corpuscles, and others, highlighting their locations and types."
+        },
+        {
+          "page": 2,
+          "ocr_text": "Figure 2: Mammalian muscle spindle showing typical position in a muscle.",
+          "description": "A diagram illustrating the structure of a muscle spindle, including its neuronal connections and components. It visually explains how the muscle spindle functions as a stretch receptor."
+        },
+        {
+          "page": 4,
+          "ocr_text": "Figure 3: Feedback loops for proprioceptive signals for the perception and control of limb movements.",
+          "description": "A diagram showcasing feedback loops for proprioceptive signals that help control limb movements, indicating connections and types of signals involved."
+        }
+      ],
+      "charts": []
+    },
+    "tokens": {
+      "input": 2698,
+      "output": 821,
+      "total": 3519
+    },
+    "cost_usd": {
+      "input": 0.000405,
+      "output": 0.000493,
+      "total": 0.000897
+    },
+    "time_seconds": 24.9,
+    "display_name": "GPT-4o-mini"
+  },
+  {
+    "model": "gpt-4o-mini",
+    "pdf_file": "Farm Financial Health_10pages.pdf",
+    "pdf_size_bytes": 7855311,
+    "parse_ok": true,
+    "extraction": {
+      "title": "Farm Financial Health Report 2023-2024",
+      "pages": 10,
+      "summary": "This document is a financial health report produced by the Canadian Federation of Agriculture, detailing the current state of agriculture in Canada amid rising costs and environmental challenges. It includes statistics on farm financial landscapes, production costs, labor issues, recommendations for improving farm viability, and the impact of external factors like inflation and climate change. Key entities include Canadian farmers, agricultural sectors, and various stakeholders in the farming community. The report offers insights on how farmers are managing costs, the increasing value of farmland, and challenges faced due to fluctuating commodity prices. This document could answer questions related to financial management practices in agriculture, current economic pressures, and policy recommendations.",
+      "sections": [
+        {
+          "heading": "Executive Summary",
+          "text": "Taking Stock of Farm Financial Health Amid Rising Costs of Production and a Rapidly Changing Climate. Canadian agriculture faces tremendous challenges due to various factors, including rising costs of domestic and global supply and climate impacts. In 2022, primary agriculture contributed $36.3 billion (1.8%) of Canada's GDP and supported 249,000 jobs. Recommendations include improving risk management programs and reducing constraints on farming competitiveness."
+        },
+        {
+          "heading": "Recommendations for Action",
+          "text": "Help manage the increased cost of production by establishing an on-farm carbon pricing framework, improving risk management programs, and reducing regulatory burdens. Promote stable and sustainable growth by supporting new entrants and young farmers."
+        },
+        {
+          "heading": "Farm Financial Landscape",
+          "text": "In 2022, Canadian farmers saw their total farm cash receipts increase by 14.6% compared to 2021. However, production costs have surged due to high prices for inputs like fertilizer and feed, impacting profit margins."
+        }
+      ],
+      "tables": [],
+      "images": [
+        {
+          "page": 2,
+          "ocr_text": "Farm Financial Health Report 2023-2024",
+          "description": "Cover image displaying the title of the report with the logos of the Canadian Federation of Agriculture."
+        },
+        {
+          "page": 3,
+          "ocr_text": "Taking Stock of Farm Financial Health Amid Rising Costs of Production and a Rapidly Changing Climate",
+          "description": "An image related to the executive summary, depicting a farmer engaged in agricultural activity."
+        },
+        {
+          "page": 4,
+          "ocr_text": "Recommendations for Action",
+          "description": "This image lists recommendations related to managing production costs and improving risk management programs."
+        },
+        {
+          "page": 6,
+          "ocr_text": "FARM FINANCIAL LANDSCAPE",
+          "description": "Illustrates the landscape of agricultural finance, highlighting key statistics on farm cash receipts and challenges."
+        },
+        {
+          "page": 7,
+          "ocr_text": "The cost of production is higher than it has ever been.",
+          "description": "An image depicting rising production costs and the impact of inflation on labor."
+        },
+        {
+          "page": 8,
+          "ocr_text": "Canadian Farmland values have increased by an average of 10% annually over the last 10 years.",
+          "description": "Details the rising values of farmland in Canada, particularly in Ontario."
+        },
+        {
+          "page": 9,
+          "ocr_text": "Production costs are impacting sectors and regions differently across Canada.",
+          "description": "Highlights regional differences in production costs affecting various agricultural sectors."
+        },
+        {
+          "page": 10,
+          "ocr_text": "Even within the agriculture sector, certain commodities are being disproportionately impacted.",
+          "description": "Focuses on the disparities among different agricultural commodities in terms of financial pressures."
+        }
+      ],
+      "charts": [
+        {
+          "page": 7,
+          "type": "line chart",
+          "title": "Farm Input Price Index",
+          "data": {
+            "x": [
+              "2020",
+              "2021",
+              "2022",
+              "2023"
+            ],
+            "y": [
+              "100",
+              "105",
+              "120",
+              "125"
+            ]
+          },
+          "insights": "The chart shows an upward trend in farm input prices over the analyzed years, reflecting increasing production costs."
+        },
+        {
+          "page": 8,
+          "type": "bar chart",
+          "title": "Farmland Value Increase",
+          "data": {
+            "x": [
+              "2019",
+              "2020",
+              "2021",
+              "2022"
+            ],
+            "y": [
+              "11786",
+              "13000",
+              "15000",
+              "17962"
+            ]
+          },
+          "insights": "This chart indicates a significant upwards trajectory in farmland values in Ontario over the last four years."
+        }
+      ]
+    },
+    "tokens": {
+      "input": 1860,
+      "output": 999,
+      "total": 2859
+    },
+    "cost_usd": {
+      "input": 0.000279,
+      "output": 0.000599,
+      "total": 0.000878
+    },
+    "time_seconds": 26.43,
+    "display_name": "GPT-4o-mini"
+  }
+]

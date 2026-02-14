@@ -1,0 +1,173 @@
+{
+  "title": "Request for Quotation: Ultrasonic Thickness Survey Services",
+  "pages": 5,
+  "summary": "This document is a Request for Quotation (RFQ) from Great Lakes Chemical Processing (GLCP) for ultrasonic thickness survey services on piping systems at their Hamilton Plant. It outlines the qualifications required for contractors, the scope of work which includes taking thickness measurements at specific locations, and the necessary equipment and personnel qualifications. The RFQ details the timeline for proposals and fieldwork, as well as deliverables expected from contractors. Potential bidders are prompted to provide their qualifications, equipment lists, and safety compliance, making this document essential for contractors seeking to participate in this survey project.",
+  "sections": [
+    {
+      "heading": "1. INTRODUCTION",
+      "text": "Great Lakes Chemical Processing (GLCP) is soliciting quotations from qualified Non-Destructive Examination (NDE) contractors to perform ultrasonic thickness (UT) survey services on piping systems within our Amine Treating Unit (ATU-100) at the Hamilton Plant facility. This survey is part of our ongoing mechanical integrity program in compliance with API 570 requirements."
+    },
+    {
+      "heading": "2. SCOPE OF WORK",
+      "text": "The Contractor shall provide all personnel, equipment, and materials necessary to perform ultrasonic thickness measurements at designated Condition Monitoring Locations (CMLs) on the piping systems listed in Attachment A. Specific tasks include performing ultrasonic thickness measurements and preparing a comprehensive inspection report with findings and recommendations."
+    },
+    {
+      "heading": "4. TECHNICAL REQUIREMENTS",
+      "text": "This section details the applicable codes and standards such as API 570 and ASME B31.3, along with specific equipment and personnel qualifications for conducting the ultrasonic survey."
+    },
+    {
+      "heading": "5. SCHEDULE",
+      "text": "Milestone dates are outlined for RFQ issue, question deadlines, proposal due dates, and project kick-off, culminating in the field work window from November 4-7, 2024."
+    },
+    {
+      "heading": "6. DELIVERABLES",
+      "text": "The contractor is expected to provide a series of deliverables including draft and final inspection reports, raw data files, and calibration certificates."
+    },
+    {
+      "heading": "8. PROPOSAL REQUIREMENTS",
+      "text": "Proposals must include company qualifications, a proposed inspection team, equipment list, a detailed work plan, pricing information, and references."
+    }
+  ],
+  "tables": [
+    {
+      "title": "Piping Line List and CML Summary",
+      "headers": [
+        "Line Number",
+        "Service",
+        "Size",
+        "Material",
+        "CMLs"
+      ],
+      "rows": [
+        [
+          "2-RF-102",
+          "Reflux",
+          "2\"",
+          "316SS",
+          "7"
+        ],
+        [
+          "2-RV-102",
+          "Regen Overhead",
+          "2\"",
+          "A106 Gr.B",
+          "6"
+        ],
+        [
+          "2-ST-101",
+          "Reboiler Steam",
+          "2\"",
+          "A106 Gr.B",
+          "6"
+        ],
+        [
+          "3-CW-101",
+          "Amine Cooler CW",
+          "3\"",
+          "A106 Gr.B",
+          "6"
+        ],
+        [
+          "3-CW-102",
+          "Amine Cooler CW",
+          "3\"",
+          "A106 Gr.B",
+          "5"
+        ],
+        [
+          "3-RF-101",
+          "Reflux",
+          "3\"",
+          "316SS",
+          "9"
+        ],
+        [
+          "3-RV-101",
+          "Regen Overhead",
+          "3\"",
+          "A106 Gr.B",
+          "8"
+        ],
+        [
+          "4-LA-101",
+          "Lean Amine Supply",
+          "4\"",
+          "A106 Gr.B",
+          "9"
+        ],
+        [
+          "4-LA-102",
+          "Lean Amine Supply",
+          "4\"",
+          "A106 Gr.B",
+          "8"
+        ],
+        [
+          "4-LA-104",
+          "L/R Exchanger",
+          "4\"",
+          "A106 Gr.B",
+          "10"
+        ],
+        [
+          "4-RA-101",
+          "Rich Amine",
+          "4\"",
+          "A106 Gr.B",
+          "12"
+        ],
+        [
+          "4-RA-102",
+          "Rich Amine",
+          "4\"",
+          "A106 Gr.B",
+          "11"
+        ],
+        [
+          "4-RA-104",
+          "L/R Exchanger",
+          "4\"",
+          "A106 Gr.B",
+          "8"
+        ],
+        [
+          "6-LA-103",
+          "Lean Amine Header",
+          "6\"",
+          "A106 Gr.B",
+          "10"
+        ],
+        [
+          "6-RA-103",
+          "Rich Amine Header",
+          "6\"",
+          "A106 Gr.B",
+          "14"
+        ],
+        [
+          "6-SG-101",
+          "Sour Gas Inlet",
+          "6\"",
+          "A106 Gr.B",
+          "8"
+        ],
+        [
+          "6-SG-102",
+          "Sour Gas Inlet",
+          "6\"",
+          "A106 Gr.B",
+          "6"
+        ],
+        [
+          "8-TG-101",
+          "Treated Gas",
+          "8\"",
+          "A106 Gr.B",
+          "7"
+        ]
+      ]
+    }
+  ],
+  "images": [],
+  "charts": []
+}

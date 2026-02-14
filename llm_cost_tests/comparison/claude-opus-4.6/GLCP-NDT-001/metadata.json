@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-6",
+  "pdf_file": "GLCP-NDT-001.pdf",
+  "pdf_size_bytes": 13256,
+  "parse_ok": true,
+  "tokens": {
+    "input": 13592,
+    "output": 2967,
+    "total": 16559
+  },
+  "cost_usd": {
+    "input": 0.06796,
+    "output": 0.074175,
+    "total": 0.142135
+  },
+  "time_seconds": 68.09
+}

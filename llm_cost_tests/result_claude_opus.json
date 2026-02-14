@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-6",
+  "pdf_file": "GLCP-RFQ-2024-089.pdf",
+  "pdf_size_bytes": 9994,
+  "summary": "This document is a Request for Quotation (RFQ) issued by Great Lakes Chemical Processing (GLCP) in Hamilton, Ontario, seeking qualified NDE contractors to perform ultrasonic thickness (UT) survey services on piping systems within their Amine Treating Unit (ATU-100). The scope covers 150 Condition Monitoring Locations (CMLs) across 18 piping lines over an estimated 4 field days scheduled for November 4-7, 2024. The work is part of GLCP's mechanical integrity program per API 570 requirements. Piping ranges from 2\" to 8\" diameter, primarily carbon steel (A106 Gr.B) with two 316SS reflux lines. Services include rich amine, lean amine, sour gas, treated gas, cooling water, steam, and regenerator overhead. Contractors must provide UT Level II certified personnel (ASNT SNT-TC-1A), digital thickness gauges with 0.001\" resolution, and compare results against 2019 baseline survey data to calculate corrosion rates. Deliverables include a comprehensive inspection report with corrosion rate trending, photographs, raw data files, and identification of any readings below minimum required thickness. Proposals are due October 22, 2024.",
+  "tokens": {
+    "input": 9653,
+    "output": 293,
+    "total": 9946
+  },
+  "cost_usd": {
+    "input": 0.144795,
+    "output": 0.021975,
+    "total": 0.16677
+  },
+  "time_seconds": 11.27
+}

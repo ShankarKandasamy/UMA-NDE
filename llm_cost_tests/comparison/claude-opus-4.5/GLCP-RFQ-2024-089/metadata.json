@@ -1,0 +1,17 @@
+{
+  "model": "claude-opus-4-5-20251101",
+  "pdf_file": "GLCP-RFQ-2024-089.pdf",
+  "pdf_size_bytes": 9994,
+  "parse_ok": true,
+  "tokens": {
+    "input": 10184,
+    "output": 2445,
+    "total": 12629
+  },
+  "cost_usd": {
+    "input": 0.05092,
+    "output": 0.061125,
+    "total": 0.112045
+  },
+  "time_seconds": 44.59
+}
