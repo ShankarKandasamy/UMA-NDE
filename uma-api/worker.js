@@ -31,7 +31,8 @@ export default {
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, X-API-Key',
+      'Access-Control-Allow-Headers': 'Content-Type, X-API-Key, X-Anthropic-Key, X-OpenAI-Key',
+      'Access-Control-Expose-Headers': 'X-Custom-Metadata',
     };
 
     // Handle preflight
@@ -59,6 +60,16 @@ export default {
     // Route: GET /file/* - Get a specific file
     if (request.method === 'GET' && path.startsWith('/file/')) {
       return handleGetFile(request, env, corsHeaders);
+    }
+
+    // Route: POST /llm/anthropic - Proxy to Anthropic Messages API
+    if (request.method === 'POST' && path === '/llm/anthropic') {
+      return handleAnthropicProxy(request, env, corsHeaders);
+    }
+
+    // Route: POST /llm/openai - Proxy to OpenAI Chat Completions API
+    if (request.method === 'POST' && path === '/llm/openai') {
+      return handleOpenAIProxy(request, env, corsHeaders);
     }
 
     // Route: POST /upload or POST / - Upload files
@@ -90,7 +101,7 @@ async function handleList(request, env, corsHeaders) {
     const cursor = url.searchParams.get('cursor') || undefined;
     const limit = Math.min(parseInt(url.searchParams.get('limit') || '100'), 1000);
 
-    const listOptions = { prefix, limit, cursor };
+    const listOptions = { prefix, limit, cursor, include: ['customMetadata', 'httpMetadata'] };
     if (delimiter) {
       listOptions.delimiter = delimiter;
     }
@@ -276,6 +287,98 @@ async function handleUpload(request, env, corsHeaders) {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
     }
+}
+
+/**
+ * POST /llm/anthropic - Proxy requests to the Anthropic Messages API.
+ * The client sends its Anthropic API key in the X-Anthropic-Key header.
+ * Body is forwarded as-is to https://api.anthropic.com/v1/messages.
+ */
+async function handleAnthropicProxy(request, env, corsHeaders) {
+  try {
+    const anthropicKey = request.headers.get('X-Anthropic-Key');
+    if (!anthropicKey) {
+      return new Response(JSON.stringify({ error: 'Missing X-Anthropic-Key header' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    const body = await request.text();
+
+    const anthropicResp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': anthropicKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'pdfs-2024-09-25',
+      },
+      body,
+    });
+
+    const respBody = await anthropicResp.text();
+
+    return new Response(respBody, {
+      status: anthropicResp.status,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error('Anthropic proxy error:', error);
+    return new Response(JSON.stringify({
+      error: 'Anthropic proxy failed',
+      details: error.message
+    }), {
+      status: 500,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+/**
+ * POST /llm/openai - Proxy requests to the OpenAI Chat Completions API.
+ * The client sends its OpenAI API key in the X-OpenAI-Key header.
+ * Body is forwarded as-is to https://api.openai.com/v1/chat/completions.
+ */
+async function handleOpenAIProxy(request, env, corsHeaders) {
+  try {
+    const openaiKey = request.headers.get('X-OpenAI-Key');
+    if (!openaiKey) {
+      return new Response(JSON.stringify({ error: 'Missing X-OpenAI-Key header' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    const body = await request.text();
+
+    const openaiResp = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${openaiKey}`,
+      },
+      body,
+    });
+
+    const respBody = await openaiResp.text();
+
+    return new Response(respBody, {
+      status: openaiResp.status,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error('OpenAI proxy error:', error);
+    return new Response(JSON.stringify({
+      error: 'OpenAI proxy failed',
+      details: error.message
+    }), {
+      status: 500,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+  }
 }
 
 function generateSessionId() {

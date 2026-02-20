@@ -1,0 +1,258 @@
+===============================================================================
+                        PRECISION NDE SERVICES INC.
+                           DAILY FIELD NOTES
+                    
+                    Work Order: WO-20241025-031
+                    Client: Great Lakes Chemical Processing
+                    Location: Hamilton Plant - ATU-100
+===============================================================================
+
+------------------------------------------------------------------------------
+DAY 1 - Monday, November 4, 2024
+Weather: Partly cloudy, 48°F/35°F
+Crew: M. Chen (Lead), S. Thompson
+------------------------------------------------------------------------------
+
+07:00 - Arrived at GLCP gate. Completed daily sign-in and obtained visitor 
+        badges. Met with Mike Sullivan (GLCP Safety) for daily permit review.
+        
+07:30 - Safety orientation/tailgate meeting at staging area. Reviewed JSA with
+        Tom Bradley (Area Operator). H2S monitors issued and tested.
+        
+08:00 - Started inspection at Sour Gas Inlet lines (6-SG-101, 6-SG-102).
+        Good access at grade level. All CMLs accessible.
+        
+09:45 - Completed 6-SG-101 (8 CMLs). No issues. Readings within expected range.
+        
+10:30 - Started 6-SG-102. NOTE: CML 6-SG-102-04 - forgot to take photo of gauge
+        display. Will need to note in report.  [ERROR - missing photo]
+        
+11:30 - Completed 6-SG-102 (6 CMLs). Started on Lean Amine lines 4-LA-101.
+        
+12:00 - LUNCH BREAK (at Gate 2 cafeteria)
+
+13:00 - Resumed work on 4-LA-101 and 4-LA-102. Working from scaffolding at
+        elevated locations near pipe rack.
+        
+14:30 - Sarah noticed one reading entry may have had wrong format - will need 
+        to check data export. CML 4-LA-102-03 entered without dashes.
+        
+15:45 - Completed Day 1 scope. 40 CMLs total.
+        
+16:00 - End of shift. Cleaned up staging area. Returned H2S monitors to 
+        control room.
+
+Daily Summary:
+- CMLs Completed: 40
+- Lines Completed: 6-SG-101, 6-SG-102, 4-LA-101, 4-LA-102
+- Issues: Missing photo at 6-SG-102-04, possible data format issue
+- All readings acceptable, no critical findings today
+
+
+------------------------------------------------------------------------------
+DAY 2 - Tuesday, November 5, 2024
+Weather: Rain in AM, clearing by noon, 52°F/41°F
+Crew: M. Chen (Lead), S. Thompson
+------------------------------------------------------------------------------
+
+07:00 - Arrived on site. Rain continuing from overnight.
+
+07:30 - Tailgate meeting. Decision to delay outdoor elevated work until rain
+        stops. Started with grade-level CMLs on 6-LA-103 that are under pipe
+        rack cover.
+        
+08:15 - Working on 6-LA-103 Lean Amine Header. Good coverage under pipe rack.
+
+09:30 - ISSUE: CML 6-LA-103-08 - scaffold could not reach location due to
+        obstruction from instrument junction box. Photographed location and 
+        documented as inaccessible. Will need to note in report.
+        
+10:45 - Rain stopped. Moved to elevated work on Rich Amine lines.
+
+11:00 - Started 4-RA-101 (high priority line per GLCP). Taking extra care
+        documenting all readings.
+        
+11:45 - *** CRITICAL FINDING *** 
+        CML 4-RA-101-06: Reading 0.142" which is BELOW t-min of 0.150"
+        Immediately notified Jennifer Walsh (GLCP Inspection Coordinator)
+        via radio. She came to location to verify.
+        Re-measured 3 times, confirmed reading. Multiple photos taken.
+        Jennifer initiating fitness-for-service evaluation.
+        
+12:30 - LUNCH BREAK
+
+13:30 - Continued 4-RA-101. Remaining CMLs within acceptable range.
+
+14:15 - Started 4-RA-102. Sarah handling this line while I finish 4-RA-101.
+
+15:00 - Note: Sarah reported possible duplicate entry at 4-RA-102-05. 
+        Re-measured and got slightly different reading. Keeping both in data
+        for transparency - will note in report.
+        
+15:30 - CML 4-RA-102-09 reading at 0.161" - this is alert threshold (t-min
+        is 0.150"). Marked for 1-year reinspection. Notified Jennifer Walsh.
+
+16:00 - End of shift. Critical finding paperwork completed with GLCP.
+
+Daily Summary:
+- CMLs Completed: 40 (+ 1 inaccessible documented)
+- Lines Completed: 6-LA-103, 4-RA-101, 4-RA-102 (partial)
+- CRITICAL: 4-RA-101-06 below t-min (0.142" vs 0.150")
+- ALERT: 4-RA-102-09 approaching t-min (0.161")
+- Inaccessible: 6-LA-103-08 (scaffold access issue)
+- Weather delay in morning, made up time in afternoon
+
+
+------------------------------------------------------------------------------
+DAY 3 - Wednesday, November 6, 2024
+Weather: Overcast, 45°F/33°F
+Crew: M. Chen (Lead), S. Thompson
+------------------------------------------------------------------------------
+
+07:00 - Site arrival. Jennifer Walsh met us to discuss yesterday's critical 
+        finding. Engineering review in progress for 4-RA-101-06.
+        
+07:30 - Tailgate meeting. Extra focus on remaining Rich Amine lines due to
+        findings from yesterday.
+
+08:00 - Completing 4-RA-102 (remaining CMLs from yesterday).
+
+09:00 - Started 6-RA-103 Rich Amine Header. This is main header feeding
+        multiple branch lines.
+        
+10:30 - CML 6-RA-103-11 showing localized thin area: 0.168" vs t-min 0.180"
+        Not quite critical but flagged for engineering review. Multiple
+        circumferential readings taken to map thinning extent.
+        
+11:00 - Note from Marcus: One of my entries looks like I wrote "6-RA103-07"
+        instead of "6-RA-103-07" (missing dash). Will correct in final data.
+        
+12:00 - LUNCH BREAK
+
+13:00 - Started Regenerator Overhead lines (3-RV-101, 2-RV-102). These are
+        high-temperature acid gas service - known to be aggressive.
+        
+14:00 - Several readings on 2-RV-102 showing accelerated corrosion rates
+        compared to 2019 data. Multiple CMLs in "Monitor" category.
+        
+14:45 - CML 3-RV-101-04 showing 0.195" with calculated rate of 12 mpy. 
+        This is higher than expected 5 mpy for this service. Flagged for
+        process review - possible upset conditions?
+        
+15:15 - Sarah noticed she may have transposed digits on one reading for
+        6-LA-103-05 earlier. Going back to verify tomorrow if time permits.
+
+16:00 - End of shift.
+
+Daily Summary:
+- CMLs Completed: 41 (including spurious entry that needs cleanup)
+- Lines Completed: 4-RA-102, 6-RA-103, 3-RV-101, 2-RV-102
+- Alert: 6-RA-103-11 localized thin area (engineering review)
+- Monitor: 3-RV-101-04 accelerated corrosion rate
+- Several 2-RV-102 CMLs showing elevated rates
+- Data entry issue identified (format inconsistency)
+
+
+------------------------------------------------------------------------------
+DAY 4 - Thursday, November 7, 2024  
+Weather: Clear, frost in AM, 43°F/30°F
+Crew: M. Chen (Lead), S. Thompson
+------------------------------------------------------------------------------
+
+07:00 - Arrived on site. Frost on grating - extra caution on elevated areas
+        until sun melts it (~08:30).
+
+07:30 - Tailgate meeting. Focus on completing remaining lines: Reflux lines,
+        Steam line, and Cooling Water lines.
+        
+08:00 - Started Reflux lines (3-RF-101, 2-RF-102). These are 316SS material,
+        using different velocity setting on gauge (0.2260 in/μs vs 0.2330 
+        for carbon steel).
+        
+09:15 - Note: Sarah's entry for 3-RF-101-04 looks wrong - showing 1.87" which
+        is impossible (nominal wall is only 0.216"). Likely decimal error,
+        should be 0.187". Will correct in data.
+        
+10:00 - 2-RF-102 showing several readings below t-min. This line may need
+        more attention from GLCP - flagging for report.
+
+10:45 - Started Steam line 2-ST-101.
+
+11:15 - CML 2-ST-101-03 is insulated. Requested insulation removal from GLCP
+        but Robert Hendricks (Unit Engineer) declined - prefers to schedule
+        full CUI inspection during next turnaround. Documented as inaccessible.
+        
+11:45 - Completed steam line. Started Cooling Water lines.
+
+12:00 - LUNCH BREAK
+
+13:00 - Continuing CW lines (3-CW-101, 3-CW-102).
+
+13:30 - UNUSUAL FINDING on 3-CW-101: Several readings coming in HIGHER than
+        nominal wall thickness (0.228", 0.231", 0.225" vs 0.216" nominal).
+        This suggests internal deposit (scale buildup) rather than metal loss.
+        Verified calibration - gauge is correct. Taking extra photos.
+        Recommend internal inspection during next opportunity.
+
+14:30 - Completed 3-CW-102. All CMLs done!
+
+15:00 - Re-verified questionable reading from Day 3 (6-LA-103-05). Original
+        reading stands - it was just unusual surface condition.
+        
+15:30 - Final walkdown of all areas. Cleanup of staging area. 
+        Returned all GLCP-issued equipment (H2S monitors, radios).
+
+16:00 - End of field work. Met with Jennifer Walsh for closeout discussion.
+        Draft report to be delivered by November 14.
+
+Daily Summary:
+- CMLs Completed: 29
+- Lines Completed: 3-RF-101, 2-RF-102, 2-ST-101, 3-CW-101, 3-CW-102
+- CRITICAL findings on 2-RF-102 (below t-min)
+- Inaccessible: 2-ST-101-03 (insulated, client declined removal)  
+- Anomaly: 3-CW-101 showing scale buildup (readings > nominal)
+- Data entry error identified (decimal place on 3-RF-101-04)
+
+===============================================================================
+                        FIELD WORK COMPLETION SUMMARY
+===============================================================================
+
+Total CMLs in Scope:        150
+CMLs Inspected:             148
+Inaccessible CMLs:            2 (6-LA-103-08, 2-ST-101-03)
+
+Critical Findings:            7 (readings below t-min)
+Alert Findings:               3 (approaching t-min)
+Monitor (elevated rate):     23
+Acceptable:                 115
+
+Data Quality Issues Identified:
+- 1 missing photo (6-SG-102-04)
+- 1 duplicate entry (4-RA-102-05) 
+- 2 format inconsistencies (CML ID formatting)
+- 1 decimal error (3-RF-101-04: 1.87 should be 0.187)
+- 1 possible transposition (needs verification)
+
+Anomalies:
+- 3-CW-101: Scale buildup causing high readings - internal inspection recommended
+
+Weather Impact:
+- Day 2: ~3 hour delay due to rain, made up by working efficiently
+
+Client Notifications Made:
+- Day 2: Critical finding 4-RA-101-06 to Jennifer Walsh
+- Day 2: Alert finding 4-RA-102-09 to Jennifer Walsh
+- Day 3: 6-RA-103-11 localized thinning to Jennifer Walsh
+- Day 4: Scale anomaly on 3-CW-101 to Jennifer Walsh
+
+Next Steps:
+1. Download all gauge data and reconcile with field notes
+2. Compare with 2019 historical data for corrosion rate calculations
+3. Prepare draft report by November 14, 2024
+4. Address all data quality issues before finalizing
+
+                            --- END OF FIELD NOTES ---
+
+Inspector Signature: _________________________  Date: Nov 7, 2024
+                     Marcus Chen, UT Level II
+                     Precision NDE Services Inc.

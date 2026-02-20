@@ -1,7 +1,8 @@
-const CACHE_NAME = 'uma-viewer-v2';
+const CACHE_NAME = 'uma-viewer-v5';
 const ASSETS = [
   '/viewer/',
   '/viewer/index.html',
+  '/viewer/prompts.js',
   '/viewer/manifest.json'
 ];
 
@@ -26,19 +27,22 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch - serve from cache, fallback to network
+// Fetch - try network first, fallback to cache (so updates appear immediately)
 self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => cached || fetch(event.request))
+    fetch(event.request)
+      .then(response => {
+        // Update cache with fresh response
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        return response;
+      })
       .catch(() => {
-        // Offline fallback for navigation
-        if (event.request.mode === 'navigate') {
-          return caches.match('/viewer/index.html');
-        }
+        // Offline - serve from cache
+        return caches.match(event.request);
       })
   );
 });

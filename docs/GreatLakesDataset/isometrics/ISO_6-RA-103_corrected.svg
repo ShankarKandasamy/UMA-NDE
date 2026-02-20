@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <defs>
+    <style>
+      .pipe { stroke: #2c5530; stroke-width: 8; fill: none; }
+      .pipe-thin { stroke: #2c5530; stroke-width: 4; fill: none; }
+      .cml-normal { fill: #4a90d9; stroke: #1a4a7a; stroke-width: 1; }
+      .cml-critical { fill: #e53935; stroke: #b71c1c; stroke-width: 2; }
+      .cml-alert { fill: #ff9800; stroke: #e65100; stroke-width: 1; }
+      .cml-monitor { fill: #ffeb3b; stroke: #f57f17; stroke-width: 1; }
+      .cml-label { font-family: Arial, sans-serif; font-size: 9px; fill: #333; font-weight: bold; }
+      .cml-reading { font-family: Arial, sans-serif; font-size: 8px; fill: #666; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 11px; fill: #4a5568; }
+      .label { font-family: Arial, sans-serif; font-size: 10px; fill: #333; }
+      .dimension { font-family: Arial, sans-serif; font-size: 8px; fill: #666; }
+      .equipment { fill: #e0e0e0; stroke: #666; stroke-width: 1; }
+      .equipment-label { font-family: Arial, sans-serif; font-size: 10px; fill: #333; font-weight: bold; }
+      .legend-box { fill: white; stroke: #ccc; stroke-width: 1; }
+      .branch-label { font-family: Arial, sans-serif; font-size: 8px; fill: #2c5530; font-style: italic; }
+      .text-bg { fill: white; fill-opacity: 0.85; }
+    </style>
+    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c5530"/>
+    </marker>
+  </defs>
+  
+  <!-- Title Block -->
+  <rect x="10" y="10" width="880" height="50" fill="#f5f5f5" stroke="#ccc"/>
+  <text x="20" y="35" class="title">PIPING ISOMETRIC - LINE 6-RA-103</text>
+  <text x="20" y="50" class="subtitle">Rich Amine Header | 6" A106 Gr.B Sch 80 | ATU-100 Amine Treating Unit</text>
+  <text x="680" y="30" class="label">Drawing: GLCP-ISO-ATU-6RA103</text>
+  <text x="680" y="45" class="label">Rev: 0 | Date: Oct 2024</text>
+  
+  <!-- North Arrow -->
+  <g transform="translate(840, 85)">
+    <polygon points="0,-20 -8,10 0,5 8,10" fill="#333"/>
+    <text x="0" y="25" text-anchor="middle" class="label">N</text>
+  </g>
+  
+  <!-- Main Header pipe - runs horizontally with branches -->
+  
+  <!-- Left section from pump area -->
+  <line x1="80" y1="250" x2="150" y2="250" class="pipe" marker-end="url(#arrow2)"/>
+  <text x="90" y="235" class="branch-label">From P-105A/B</text>
+  
+  <!-- Main header horizontal run -->
+  <line x1="150" y1="250" x2="700" y2="250" class="pipe"/>
+  
+  <!-- Branch connections (tees) -->
+  <!-- Branch 1 - to V-101 -->
+  <line x1="200" y1="250" x2="200" y2="180" class="pipe-thin"/>
+  <text x="210" y="175" class="branch-label">To V-101</text>
+  
+  <!-- Branch 2 - to E-103 -->
+  <line x1="350" y1="250" x2="350" y2="320" class="pipe-thin"/>
+  <text x="360" y="335" class="branch-label">To E-103</text>
+  
+  <!-- Branch 3 - to T-102 -->
+  <line x1="500" y1="250" x2="500" y2="180" class="pipe-thin"/>
+  <text x="510" y="175" class="branch-label">To T-102</text>
+  
+  <!-- End of header - to surge drum -->
+  <line x1="700" y1="250" x2="780" y2="250" class="pipe" marker-end="url(#arrow2)"/>
+  <text x="750" y="235" class="branch-label">To D-106</text>
+  
+  <!-- Reducer at end -->
+  <path d="M 780 245 L 800 248 L 800 252 L 780 255" class="pipe" fill="#2c5530"/>
+  
+  <!-- CML Circles Layer -->
+  <circle cx="120" cy="250" r="8" class="cml-monitor"/>
+  <circle cx="160" cy="250" r="8" class="cml-monitor"/>
+  <circle cx="200" cy="215" r="8" class="cml-monitor"/>
+  <circle cx="240" cy="250" r="8" class="cml-monitor"/>
+  <circle cx="290" cy="250" r="8" class="cml-monitor"/>
+  <circle cx="350" cy="285" r="7" class="cml-normal"/>
+  <circle cx="390" cy="250" r="7" class="cml-normal"/>
+  <circle cx="430" cy="250" r="7" class="cml-normal"/>
+  <circle cx="470" cy="250" r="7" class="cml-normal"/>
+  <circle cx="500" cy="215" r="7" class="cml-normal"/>
+  <circle cx="550" cy="250" r="10" class="cml-critical"/>
+  <circle cx="600" cy="250" r="7" class="cml-normal"/>
+  <circle cx="650" cy="250" r="8" class="cml-monitor"/>
+  <circle cx="720" cy="250" r="7" class="cml-normal"/>
+
+  <!-- CML Labels with background rectangles for readability -->
+  <!-- All labels positioned BELOW the pipe (y > 260) to avoid obscuring -->
+  
+  <!-- CML 01 - below pipe -->
+  <g>
+    <rect x="104" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="120" y="277" text-anchor="middle" class="cml-label">01</text>
+    <text x="120" y="287" text-anchor="middle" class="cml-reading">0.313"</text>
+  </g>
+  
+  <!-- CML 02 - above pipe (moved higher to clear) -->
+  <g>
+    <rect x="144" y="205" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="160" y="217" text-anchor="middle" class="cml-label">02</text>
+    <text x="160" y="227" text-anchor="middle" class="cml-reading">0.330"</text>
+  </g>
+  
+  <!-- CML 03 - on branch, position to the right of branch -->
+  <g>
+    <rect x="210" y="200" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="226" y="212" text-anchor="middle" class="cml-label">03</text>
+    <text x="226" y="222" text-anchor="middle" class="cml-reading">0.300"</text>
+  </g>
+  
+  <!-- CML 04 - above pipe -->
+  <g>
+    <rect x="224" y="205" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="240" y="217" text-anchor="middle" class="cml-label">04</text>
+    <text x="240" y="227" text-anchor="middle" class="cml-reading">0.276"</text>
+  </g>
+  
+  <!-- CML 05 - below pipe -->
+  <g>
+    <rect x="274" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="290" y="277" text-anchor="middle" class="cml-label">05</text>
+    <text x="290" y="287" text-anchor="middle" class="cml-reading">0.310"</text>
+  </g>
+  
+  <!-- CML 06 - on downward branch, position to right of branch -->
+  <g>
+    <rect x="358" y="275" width="36" height="24" class="text-bg" rx="2"/>
+    <text x="376" y="287" text-anchor="middle" class="cml-label">06</text>
+    <text x="376" y="297" text-anchor="middle" class="cml-reading">0.336"</text>
+  </g>
+  
+  <!-- CML 07 - below pipe -->
+  <g>
+    <rect x="374" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="390" y="277" text-anchor="middle" class="cml-label">07</text>
+    <text x="390" y="287" text-anchor="middle" class="cml-reading">0.345"</text>
+  </g>
+  
+  <!-- CML 08 - above pipe -->
+  <g>
+    <rect x="414" y="205" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="430" y="217" text-anchor="middle" class="cml-label">08</text>
+    <text x="430" y="227" text-anchor="middle" class="cml-reading">0.360"</text>
+  </g>
+  
+  <!-- CML 09 - below pipe -->
+  <g>
+    <rect x="454" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="470" y="277" text-anchor="middle" class="cml-label">09</text>
+    <text x="470" y="287" text-anchor="middle" class="cml-reading">0.370"</text>
+  </g>
+  
+  <!-- CML 10 - on upward branch, position to right -->
+  <g>
+    <rect x="510" y="200" width="36" height="24" class="text-bg" rx="2"/>
+    <text x="528" y="212" text-anchor="middle" class="cml-label">10</text>
+    <text x="528" y="222" text-anchor="middle" class="cml-reading">0.351"</text>
+  </g>
+  
+  <!-- CML 11 (CRITICAL) - below pipe -->
+  <g>
+    <rect x="534" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="550" y="277" text-anchor="middle" class="cml-label">11</text>
+    <text x="550" y="287" text-anchor="middle" class="cml-reading">0.168"</text>
+  </g>
+  
+  <!-- CML 12 - above pipe -->
+  <g>
+    <rect x="584" y="205" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="600" y="217" text-anchor="middle" class="cml-label">12</text>
+    <text x="600" y="227" text-anchor="middle" class="cml-reading">0.355"</text>
+  </g>
+  
+  <!-- CML 13 - below pipe -->
+  <g>
+    <rect x="634" y="265" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="650" y="277" text-anchor="middle" class="cml-label">13</text>
+    <text x="650" y="287" text-anchor="middle" class="cml-reading">0.309"</text>
+  </g>
+  
+  <!-- CML 14 - above pipe (moved higher and left to avoid To D-106 label) -->
+  <g>
+    <rect x="704" y="205" width="32" height="24" class="text-bg" rx="2"/>
+    <text x="720" y="217" text-anchor="middle" class="cml-label">14</text>
+    <text x="720" y="227" text-anchor="middle" class="cml-reading">0.353"</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="50" y="400" width="250" height="150" class="legend-box"/>
+  <text x="60" y="420" class="label" font-weight="bold">LEGEND</text>
+  
+  <circle cx="70" cy="445" r="7" class="cml-normal"/>
+  <text x="85" y="449" class="cml-label">CML - Acceptable</text>
+  
+  <circle cx="70" cy="470" r="8" class="cml-monitor"/>
+  <text x="85" y="474" class="cml-label">CML - Monitor (elevated rate)</text>
+  
+  <circle cx="70" cy="495" r="9" class="cml-alert"/>
+  <text x="85" y="499" class="cml-label">CML - Alert (near t-min)</text>
+  
+  <circle cx="70" cy="520" r="10" class="cml-critical"/>
+  <text x="85" y="524" class="cml-label">CML - CRITICAL (below t-min)</text>
+  
+  <!-- Line info box -->
+  <rect x="350" y="400" width="250" height="150" class="legend-box"/>
+  <text x="360" y="420" class="label" font-weight="bold">LINE DATA</text>
+  <text x="360" y="440" class="dimension">Line Number: 6-RA-103</text>
+  <text x="360" y="455" class="dimension">Service: Rich Amine Header</text>
+  <text x="360" y="470" class="dimension">Size: 6" NPS</text>
+  <text x="360" y="485" class="dimension">Schedule: 80 (0.432" nominal)</text>
+  <text x="360" y="500" class="dimension">Material: A106 Gr.B Carbon Steel</text>
+  <text x="360" y="515" class="dimension">Design: 125 psig @ 180°F</text>
+  <text x="360" y="530" class="dimension">t-min: 0.180" (ASME B31.3)</text>
+  
+  <!-- Notes -->
+  <rect x="650" y="400" width="230" height="150" class="legend-box"/>
+  <text x="660" y="420" class="label" font-weight="bold">NOTES</text>
+  <text x="660" y="440" class="dimension">1. Total CMLs: 14</text>
+  <text x="660" y="455" class="dimension">2. Flow direction: West to East</text>
+  <text x="660" y="470" class="dimension">3. CML-11: Localized thin area</text>
+  <text x="660" y="485" class="dimension">   identified - eng. review req'd</text>
+  <text x="660" y="500" class="dimension">4. Survey date: Nov 2024</text>
+  <text x="660" y="515" class="dimension">5. Previous survey: Oct 2019</text>
+  
+</svg>

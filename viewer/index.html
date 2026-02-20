@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,8 +96,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* Tab Bar */
@@ -255,6 +263,111 @@
             transform: rotate(90deg);
         }
 
+        .file-tree-item {
+            display: flex;
+            align-items: center;
+            padding: 0.35rem 1rem 0.35rem 2.5rem;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .file-tree-item:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .file-tree-item.active {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .file-tree-item.nested-2 {
+            padding-left: 3.5rem;
+        }
+
+        .file-tree-item .file-tree-icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .file-tree-item .file-tree-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .inline-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            padding: 1rem;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .inline-preview img {
+            max-width: 100%;
+            flex: 1;
+            min-height: 0;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .inline-preview iframe {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .inline-preview .preview-info {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .inline-preview .file-label {
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .inline-preview .user-notes {
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-style: italic;
+            max-width: 90%;
+            word-break: break-word;
+        }
+
+        .inline-preview-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: var(--text-secondary);
+            gap: 0.75rem;
+        }
+
+        .inline-preview-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.4;
+        }
+
         .sidebar-footer {
             padding: 0.75rem 1rem;
             border-top: 1px solid var(--border);
@@ -353,6 +466,12 @@
             align-content: start;
         }
 
+        .file-grid:has(.inline-preview),
+        .file-grid:has(.inline-preview-placeholder) {
+            display: flex;
+            flex-direction: column;
+        }
+
         .file-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -401,8 +520,13 @@
         }
 
         @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
 
         .file-name {
@@ -515,7 +639,7 @@
         .gallery-item-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(transparent 60%, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7));
             opacity: 0;
             transition: opacity 0.15s ease;
             display: flex;
@@ -723,6 +847,15 @@
             color: var(--text-secondary);
         }
 
+        .preview-notes {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
         .preview-footer {
             padding: 1rem;
             display: flex;
@@ -872,16 +1005,26 @@
             opacity: 1;
         }
 
-        .toast.success { border-color: var(--success); }
-        .toast.error { border-color: var(--error); }
+        .toast.success {
+            border-color: var(--success);
+        }
+
+        .toast.error {
+            border-color: var(--error);
+        }
 
         .toast svg {
             width: 18px;
             height: 18px;
         }
 
-        .toast.success svg { color: var(--success); }
-        .toast.error svg { color: var(--error); }
+        .toast.success svg {
+            color: var(--success);
+        }
+
+        .toast.error svg {
+            color: var(--error);
+        }
 
         /* Loading Spinner */
         .spinner {
@@ -894,7 +1037,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive */
@@ -929,6 +1074,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -944,25 +1090,28 @@
     <!-- Tab Bar -->
     <nav class="tab-bar">
         <button class="tab active" data-tab="browse">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
             </svg>
             Browse
         </button>
         <button class="tab" data-tab="gallery">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
             </svg>
             Gallery
         </button>
         <button class="tab" data-tab="reports">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
             </svg>
             Reports
         </button>
@@ -991,8 +1140,8 @@
                     <div class="toolbar-actions">
                         <button class="toolbar-btn" id="refreshBtn">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 4 23 10 17 10"/>
-                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                                <polyline points="23 4 23 10 17 10" />
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
                             </svg>
                             Refresh
                         </button>
@@ -1027,30 +1176,39 @@
         <section id="reports-tab" class="tab-content">
             <div class="reports-placeholder">
                 <div class="reports-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
                     </svg>
                 </div>
                 <h2>AI Reports</h2>
                 <p>Generate AI-assisted inspection reports from your uploaded data. Coming soon.</p>
                 <ul class="reports-features">
                     <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
                         Select inspection images and data
                     </li>
                     <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
                         Choose report templates (UT, MT/PT, Visual)
                     </li>
                     <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
                         Generate formatted inspection reports
                     </li>
                     <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
                         Export to PDF or Word format
                     </li>
                 </ul>
@@ -1068,12 +1226,13 @@
             <div class="preview-body" id="previewBody">
                 <!-- Content loaded dynamically -->
             </div>
+            <div class="preview-notes" id="previewNotes" style="display:none;"></div>
             <div class="preview-footer">
                 <button class="preview-btn" id="previewDownload">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
                     Download
                 </button>
@@ -1096,6 +1255,10 @@
                 <label>API Key</label>
                 <input type="password" id="apiKey" placeholder="Enter your API key">
             </div>
+            <div class="setting-item">
+                <label>Anthropic API Key</label>
+                <input type="password" id="anthropicKey" placeholder="sk-ant-... (for Claude PDF extraction)">
+            </div>
             <button class="save-settings-btn" id="saveSettings">Save Settings</button>
         </div>
     </div>
@@ -1103,11 +1266,12 @@
     <!-- Toast -->
     <div class="toast" id="toast">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 6 9 17 4 12"/>
+            <polyline points="20 6 9 17 4 12" />
         </svg>
         <span id="toastMessage">Success</span>
     </div>
 
+    <script src="prompts.js"></script>
     <script>
         // ============================================
         // State Management
@@ -1121,13 +1285,248 @@
             selectedFile: null,
             isLoading: false,
             isConnected: false,
-            pollInterval: null
+            pollInterval: null,
+            devFolders: [],       // Subfolders inside Development
+            devExpanded: false,   // Whether Development folder is expanded in sidebar
+            syncingToDev: false,  // Whether a Dev sync is currently in progress
+            expandedFolders: {},    // Maps R2 folder path → fetched file list (expanded flag + cache)
+            expandedDevFolders: {}, // Maps Dev subfolder name → file list (expanded flag + cache)
+            selectedFileKey: null   // Tracks which file is selected for inline preview
         };
+
+        // Track which R2 file keys have already been synced to Development
+        const processedFileKeys = new Set(
+            JSON.parse(localStorage.getItem('uma_processed_keys') || '[]')
+        );
+
+        function saveProcessedKeys() {
+            localStorage.setItem('uma_processed_keys', JSON.stringify([...processedFileKeys]));
+        }
+
+        // ============================================
+        // IndexedDB - Local Storage for Development
+        // ============================================
+        const DevDB = {
+            DB_NAME: 'uma_development',
+            DB_VERSION: 1,
+            STORE_FILES: 'files',
+            STORE_META: 'metadata',
+
+            _db: null,
+
+            async open() {
+                if (this._db) return this._db;
+                return new Promise((resolve, reject) => {
+                    const req = indexedDB.open(this.DB_NAME, this.DB_VERSION);
+                    req.onupgradeneeded = (e) => {
+                        const db = e.target.result;
+                        // Store uploaded files: key = "subfolder/filename"
+                        if (!db.objectStoreNames.contains(this.STORE_FILES)) {
+                            db.createObjectStore(this.STORE_FILES, { keyPath: 'key' });
+                        }
+                        // Store extraction metadata: key = subfolder name
+                        if (!db.objectStoreNames.contains(this.STORE_META)) {
+                            db.createObjectStore(this.STORE_META, { keyPath: 'folder' });
+                        }
+                    };
+                    req.onsuccess = (e) => {
+                        this._db = e.target.result;
+                        resolve(this._db);
+                    };
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async listSubfolders() {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_FILES, 'readonly');
+                    const store = tx.objectStore(this.STORE_FILES);
+                    const req = store.getAllKeys();
+                    req.onsuccess = () => {
+                        const folders = new Set();
+                        req.result.forEach(key => {
+                            const parts = key.split('/');
+                            if (parts.length > 1) folders.add(parts[0]);
+                        });
+                        resolve([...folders].sort());
+                    };
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async listFiles(subfolder) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_FILES, 'readonly');
+                    const store = tx.objectStore(this.STORE_FILES);
+                    const req = store.getAll();
+                    req.onsuccess = () => {
+                        const prefix = subfolder ? subfolder + '/' : '';
+                        const files = req.result.filter(f => {
+                            if (!prefix) return true;
+                            return f.key.startsWith(prefix);
+                        });
+                        resolve(files);
+                    };
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async putFile(key, blob, originalName) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_FILES, 'readwrite');
+                    const store = tx.objectStore(this.STORE_FILES);
+                    store.put({
+                        key,
+                        blob,
+                        originalName,
+                        size: blob.size,
+                        type: blob.type,
+                        uploaded: new Date().toISOString()
+                    });
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async getFile(key) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_FILES, 'readonly');
+                    const store = tx.objectStore(this.STORE_FILES);
+                    const req = store.get(key);
+                    req.onsuccess = () => resolve(req.result || null);
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async deleteFile(key) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_FILES, 'readwrite');
+                    const store = tx.objectStore(this.STORE_FILES);
+                    store.delete(key);
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async putMetadata(folder, extraction) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_META, 'readwrite');
+                    const store = tx.objectStore(this.STORE_META);
+                    store.put({ folder, extraction, updated: new Date().toISOString() });
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async getMetadata(folder) {
+                const db = await this.open();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(this.STORE_META, 'readonly');
+                    const store = tx.objectStore(this.STORE_META);
+                    const req = store.get(folder);
+                    req.onsuccess = () => resolve(req.result || null);
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            }
+        };
+
+        // ============================================
+        // LLM Extraction
+        // ============================================
+        // Prompts loaded from prompts.js: EXTRACTION_SYSTEM_MSG, PDF_EXTRACTION_PROMPT, IMAGE_EXTRACTION_PROMPT
+
+        async function extractWithLLM(filename, blob) {
+            if (!settings.anthropicKey) {
+                console.warn('[LLM] No Anthropic API key configured, skipping extraction');
+                return null;
+            }
+            if (!settings.apiEndpoint) {
+                console.warn('[LLM] No API endpoint configured, skipping extraction (needed as Anthropic CORS proxy)');
+                return null;
+            }
+
+            // Convert blob to base64
+            const base64 = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const dataUrl = reader.result;
+                    resolve(dataUrl.split(',')[1]);
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+
+            const isPdf = blob.type === 'application/pdf' || filename.toLowerCase().endsWith('.pdf');
+            const contentBlock = isPdf
+                ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } }
+                : { type: 'image', source: { type: 'base64', media_type: blob.type || 'image/jpeg', data: base64 } };
+            const promptText = isPdf ? PDF_EXTRACTION_PROMPT : IMAGE_EXTRACTION_PROMPT;
+
+            const body = {
+                model: 'claude-opus-4-5-20251101',
+                max_tokens: 16384,
+                system: EXTRACTION_SYSTEM_MSG,
+                messages: [
+                    {
+                        role: 'user',
+                        content: [
+                            contentBlock,
+                            { type: 'text', text: promptText }
+                        ]
+                    }
+                ]
+            };
+
+            // Proxy through our Cloudflare Worker (Anthropic API doesn't support CORS)
+            const proxyUrl = `${settings.apiEndpoint}/llm/anthropic`;
+
+            const response = await fetch(proxyUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-Key': settings.apiKey,
+                    'X-Anthropic-Key': settings.anthropicKey
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(`Anthropic API error ${response.status}: ${errText}`);
+            }
+
+            const data = await response.json();
+            const rawText = data.content[0].text;
+
+            // Log token usage
+            if (data.usage) {
+                console.log(`[LLM] Tokens — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
+            }
+
+            // Parse JSON, handling possible markdown fences
+            try {
+                return JSON.parse(rawText);
+            } catch {
+                let cleaned = rawText.trim();
+                if (cleaned.startsWith('```')) {
+                    cleaned = cleaned.split('\n').slice(1).join('\n');
+                    cleaned = cleaned.replace(/```\s*$/, '');
+                }
+                return JSON.parse(cleaned);
+            }
+        }
 
         // Settings from localStorage
         const settings = {
             apiEndpoint: localStorage.getItem('uma_api_endpoint') || '',
-            apiKey: localStorage.getItem('uma_api_key') || ''
+            apiKey: localStorage.getItem('uma_api_key') || '',
+            anthropicKey: localStorage.getItem('uma_anthropic_key') || ''
         };
 
         // ============================================
@@ -1147,6 +1546,7 @@
             previewModal: document.getElementById('previewModal'),
             previewTitle: document.getElementById('previewTitle'),
             previewBody: document.getElementById('previewBody'),
+            previewNotes: document.getElementById('previewNotes'),
             settingsModal: document.getElementById('settingsModal'),
             toast: document.getElementById('toast'),
             toastMessage: document.getElementById('toastMessage')
@@ -1221,7 +1621,199 @@
 
             } catch (error) {
                 console.error('Failed to load folders:', error);
-                elements.folderTree.innerHTML = '<div class="empty-state"><p>Failed to load folders</p></div>';
+                // Still render folder tree with Development even if R2 fails
+                state.folders = [];
+                renderFolderTree([]);
+            }
+        }
+
+        async function loadDevFolders() {
+            try {
+                state.devFolders = await DevDB.listSubfolders();
+            } catch (error) {
+                console.error('Failed to load dev folders:', error);
+                state.devFolders = [];
+            }
+        }
+
+        async function loadDevFiles(path) {
+            try {
+                state.isLoading = true;
+
+                if (path.length === 1) {
+                    // At Development root — show subfolders as folder cards
+                    const subfolders = state.devFolders;
+                    if (subfolders.length === 0) {
+                        renderEmptyState('No projects yet');
+                        return;
+                    }
+
+                    elements.fileCount.textContent = `${subfolders.length} project${subfolders.length !== 1 ? 's' : ''}`;
+                    let html = '';
+                    subfolders.forEach(sub => {
+                        html += `
+                            <div class="file-card" data-key="Development/${sub}" data-name="${sub}" data-dev-folder="true">
+                                <div class="file-thumb">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="file-name">${sub}</div>
+                                <div class="file-meta">Project</div>
+                            </div>
+                        `;
+                    });
+
+                    elements.fileGrid.innerHTML = html;
+
+                    // Click navigates into subfolder
+                    elements.fileGrid.querySelectorAll('.file-card').forEach(card => {
+                        card.addEventListener('click', () => {
+                            const sub = card.dataset.name;
+                            navigateToPath(['Development', sub]);
+                        });
+                    });
+                } else {
+                    // Inside a subfolder — show files from IndexedDB
+                    const subfolder = path[1];
+                    const files = await DevDB.listFiles(subfolder);
+
+                    if (files.length === 0) {
+                        renderEmptyState('No files in this project');
+                        return;
+                    }
+
+                    // Convert to the same shape renderFileGrid expects
+                    const objects = files.map(f => ({
+                        key: f.key,
+                        size: f.size,
+                        uploaded: f.uploaded,
+                        customMetadata: { originalName: f.originalName },
+                        _local: true
+                    }));
+
+                    state.files = objects;
+                    renderFileGrid(objects);
+                }
+            } catch (error) {
+                console.error('Failed to load dev files:', error);
+                renderEmptyState('Failed to load local files');
+            } finally {
+                state.isLoading = false;
+            }
+        }
+
+        // ============================================
+        // Auto-sync new R2 files to Development folder
+        // ============================================
+        async function syncNewFilesToDev(r2Files) {
+            if (state.syncingToDev || !r2Files || r2Files.length === 0) return;
+
+            // Find files not yet synced
+            const newFiles = r2Files.filter(f => !processedFileKeys.has(f.key));
+            if (newFiles.length === 0) return;
+
+            state.syncingToDev = true;
+            console.log(`[Dev Sync] Found ${newFiles.length} new file(s) to sync`);
+
+            try {
+                for (const file of newFiles) {
+                    const originalName = file.customMetadata?.originalName || file.key.split('/').pop();
+                    const uncategorizedKey = `Uncategorized/${originalName}`;
+
+                    try {
+                        // Fetch the file blob from R2
+                        const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(file.key)}`;
+                        const response = await fetch(fileUrl, {
+                            headers: { 'X-API-Key': settings.apiKey }
+                        });
+
+                        if (!response.ok) {
+                            console.warn(`[Dev Sync] Failed to fetch ${file.key}: ${response.status}`);
+                            continue;
+                        }
+
+                        const blob = await response.blob();
+
+                        // Store initially under Development/Uncategorized/{originalName}
+                        await DevDB.putFile(uncategorizedKey, blob, originalName);
+
+                        // Mark as processed
+                        processedFileKeys.add(file.key);
+                        console.log(`[Dev Sync] Synced: ${file.key} → Development/${uncategorizedKey}`);
+
+                        // Trigger LLM extraction (async, non-blocking) — moves file to category folder on success
+                        const isExtractable = /\.(pdf|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif)$/i.test(originalName);
+                        if (!isExtractable) {
+                            console.log(`[Dev Sync] Skipping extraction for non-extractable file: ${originalName}`);
+                        } else if (!settings.anthropicKey) {
+                            console.warn(`[Dev Sync] Skipping extraction — no Anthropic API key configured`);
+                            showToast('LLM extraction skipped — set Anthropic key in Settings', 'error');
+                        }
+                        if (isExtractable && settings.anthropicKey) {
+                            const _fileName = originalName;
+                            const _uncatKey = uncategorizedKey;
+                            const _blob = blob;
+                            (async () => {
+                                try {
+                                    showToast(`Extracting: ${_fileName}...`, 'success');
+                                    console.log(`[LLM] Starting extraction for ${_fileName}`);
+                                    const extraction = await extractWithLLM(_fileName, _blob);
+                                    if (!extraction) {
+                                        console.warn(`[LLM] Extraction returned null for ${_fileName}`);
+                                    }
+                                    if (extraction) {
+                                        // Determine category folder from LLM result
+                                        const category = (extraction.category && extraction.category.trim()) || 'Uncategorized';
+                                        console.log(`[LLM] Category for ${_fileName}: "${category}" (raw: "${extraction.category}")`);
+                                        const baseName = _fileName.replace(/\.[^.]+$/, '');
+                                        const extractionName = `${baseName}_extraction.json`;
+                                        const jsonBlob = new Blob(
+                                            [JSON.stringify(extraction, null, 2)],
+                                            { type: 'application/json' }
+                                        );
+
+                                        // Save extraction JSON under category folder
+                                        await DevDB.putFile(`${category}/${extractionName}`, jsonBlob, extractionName);
+                                        console.log(`[LLM] Extraction saved: ${category}/${extractionName}`);
+
+                                        // Move original file from Uncategorized to category folder
+                                        if (category !== 'Uncategorized') {
+                                            await DevDB.putFile(`${category}/${_fileName}`, _blob, _fileName);
+                                            await DevDB.deleteFile(_uncatKey);
+                                            console.log(`[Dev Sync] Moved: ${_uncatKey} → ${category}/${_fileName}`);
+                                        }
+
+                                        showToast(`Extraction complete: ${_fileName} → ${category}`, 'success');
+
+                                        // Refresh sidebar — clear cached expansion so folders re-fetch
+                                        state.expandedDevFolders = {};
+                                        await loadDevFolders();
+                                        renderFolderTree(state.folders);
+                                    }
+                                } catch (err) {
+                                    console.error(`[LLM] Extraction failed for ${_fileName}:`, err);
+                                    showToast(`Extraction failed: ${_fileName}`, 'error');
+                                }
+                            })();
+                        }
+                    } catch (err) {
+                        console.warn(`[Dev Sync] Error syncing ${file.key}:`, err);
+                    }
+                }
+
+                // Persist processed keys
+                saveProcessedKeys();
+
+                // Refresh Development folder list in sidebar
+                await loadDevFolders();
+                renderFolderTree(state.folders);
+
+                if (newFiles.length > 0) {
+                    showToast(`${newFiles.length} file(s) synced to Development`, 'success');
+                }
+            } finally {
+                state.syncingToDev = false;
             }
         }
 
@@ -1237,29 +1829,397 @@
                 </div>
             `;
 
-            // Add date folders
+            // Add date folders (from R2) — expandable inline tree
             folders.forEach(folder => {
                 const folderName = folder.replace(/\/$/, '');
                 const isActive = state.currentPath[0] === folderName;
+                const isExpanded = state.expandedFolders.hasOwnProperty(folderName);
                 html += `
-                    <div class="folder-item ${isActive ? 'active' : ''}" data-path="${folderName}">
+                    <div class="folder-item ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}" data-path="${folderName}" data-date-folder="true">
+                        <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
                         <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                         </svg>
                         <span class="folder-name">${folderName}</span>
                     </div>
                 `;
+                // Render nested file items if this folder is expanded
+                if (isExpanded && Array.isArray(state.expandedFolders[folderName])) {
+                    state.expandedFolders[folderName].forEach(file => {
+                        const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
+                        const isSelected = state.selectedFileKey === file.key;
+                        html += `
+                            <div class="file-tree-item ${isSelected ? 'active' : ''}" data-file-key="${file.key}" data-file-name="${fileName}">
+                                <svg class="file-tree-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span class="file-tree-name">${fileName}</span>
+                            </div>
+                        `;
+                    });
+                }
             });
+
+            // Separator between R2 date folders and Development
+            html += `<div style="border-top: 1px solid var(--border); margin: 0.25rem 0;"></div>`;
+
+            // Add Development folder (local, expandable)
+            const devActive = state.currentPath[0] === 'Development';
+            html += `
+                <div class="folder-item ${devActive && state.currentPath.length === 1 ? 'active' : ''} ${state.devExpanded ? 'expanded' : ''}" data-path="Development" data-dev="true">
+                    <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span class="folder-name">Development</span>
+                    <span class="folder-count">${state.devFolders.length}</span>
+                </div>
+            `;
+
+            // Add Development subfolders if expanded
+            if (state.devExpanded) {
+                state.devFolders.forEach(sub => {
+                    const subActive = devActive && state.currentPath[1] === sub;
+                    const isSubExpanded = state.expandedDevFolders.hasOwnProperty(sub);
+                    html += `
+                        <div class="folder-item nested ${subActive ? 'active' : ''} ${isSubExpanded ? 'expanded' : ''}" data-path="Development/${sub}" data-dev="true" data-dev-sub="true">
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                            <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span class="folder-name">${sub}</span>
+                        </div>
+                    `;
+                    // Render nested file items if this dev subfolder is expanded
+                    if (isSubExpanded && Array.isArray(state.expandedDevFolders[sub])) {
+                        state.expandedDevFolders[sub].forEach(file => {
+                            const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
+                            const isSelected = state.selectedFileKey === file.key;
+                            html += `
+                                <div class="file-tree-item nested-2 ${isSelected ? 'active' : ''}" data-file-key="${file.key}" data-file-name="${fileName}" data-local="true">
+                                    <svg class="file-tree-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    <span class="file-tree-name">${fileName}</span>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+            }
 
             elements.folderTree.innerHTML = html;
 
-            // Add click handlers
+            // Add click handlers for folder items
             elements.folderTree.querySelectorAll('.folder-item').forEach(item => {
-                item.addEventListener('click', () => {
+                item.addEventListener('click', (e) => {
                     const path = item.dataset.path;
+
+                    // Handle Development folder expand/collapse
+                    if (path === 'Development' && item.dataset.dev && !item.dataset.devSub) {
+                        state.devExpanded = !state.devExpanded;
+                        if (!state.devExpanded) {
+                            state.expandedDevFolders = {};
+                            state.selectedFileKey = null;
+                        }
+                        renderFolderTree(state.folders);
+                        navigateToPath(['Development']);
+                        return;
+                    }
+
+                    // Handle Development subfolder expand/collapse
+                    if (item.dataset.devSub) {
+                        const sub = path.split('/')[1];
+                        toggleDevSubfolder(sub);
+                        return;
+                    }
+
+                    // Handle other Development items
+                    if (item.dataset.dev) {
+                        navigateToPath(path.split('/'));
+                        return;
+                    }
+
+                    // Handle date folder expand/collapse
+                    if (item.dataset.dateFolder) {
+                        toggleDateFolder(path);
+                        return;
+                    }
+
+                    // Handle "Recent" — collapse all expanded folders
+                    state.expandedFolders = {};
+                    state.expandedDevFolders = {};
+                    state.selectedFileKey = null;
                     navigateToPath(path ? [path] : []);
+                    renderFolderTree(state.folders);
                 });
             });
+
+            // Add click handlers for file tree items
+            elements.folderTree.querySelectorAll('.file-tree-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const fileKey = item.dataset.fileKey;
+                    const fileName = item.dataset.fileName;
+                    const isLocal = item.dataset.local === 'true';
+                    state.selectedFileKey = fileKey;
+                    // Update active states in tree
+                    elements.folderTree.querySelectorAll('.file-tree-item').forEach(el => el.classList.remove('active'));
+                    item.classList.add('active');
+                    // Show inline preview in the right pane
+                    if (isLocal) {
+                        renderInlinePreviewLocal(fileKey, fileName);
+                    } else {
+                        renderInlinePreview(fileKey, fileName);
+                    }
+                });
+            });
+        }
+
+        async function toggleDateFolder(folderName) {
+            if (state.expandedFolders.hasOwnProperty(folderName)) {
+                // Collapse: remove from expanded
+                delete state.expandedFolders[folderName];
+                if (state.selectedFileKey && state.selectedFileKey.startsWith(folderName + '/')) {
+                    state.selectedFileKey = null;
+                }
+            } else {
+                // Collapse any other expanded folder (single-expand behavior)
+                state.expandedFolders = {};
+                state.selectedFileKey = null;
+                // Fetch files for this folder
+                try {
+                    const data = await api(`/list?prefix=${encodeURIComponent(folderName + '/')}`);
+                    const files = (data.objects || []).filter(obj => !obj.key.endsWith('_metadata.json'));
+                    state.expandedFolders[folderName] = files;
+                } catch (err) {
+                    console.error('Failed to load folder files:', err);
+                    state.expandedFolders[folderName] = [];
+                }
+            }
+            // Update breadcrumbs and right pane
+            state.currentPath = [folderName];
+            renderBreadcrumbs([folderName]);
+            renderFolderTree(state.folders);
+            // Show placeholder or keep selection
+            if (state.selectedFileKey) {
+                const files = state.expandedFolders[folderName] || [];
+                const file = files.find(f => f.key === state.selectedFileKey);
+                if (file) {
+                    const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
+                    renderInlinePreview(file.key, fileName);
+                }
+            } else if (state.expandedFolders.hasOwnProperty(folderName)) {
+                renderSelectFilePlaceholder();
+            } else {
+                // Collapsed — show normal file grid
+                loadFiles([folderName]);
+            }
+        }
+
+        function renderSelectFilePlaceholder() {
+            const count = Object.values(state.expandedFolders).flat().length;
+            elements.fileCount.textContent = `${count} item${count !== 1 ? 's' : ''}`;
+            elements.fileGrid.innerHTML = `
+                <div class="inline-preview-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    <p>Select a file to preview</p>
+                </div>
+            `;
+        }
+
+        async function renderInlinePreview(fileKey, fileName) {
+            const folderName = fileKey.split('/')[0];
+            const files = state.expandedFolders[folderName] || [];
+            const file = files.find(f => f.key === fileKey);
+            elements.fileCount.textContent = fileName;
+
+            // Update breadcrumbs to show folder > file
+            renderBreadcrumbs([folderName, fileName]);
+
+            const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(fileKey)}`;
+
+            if (isImageFile(fileName)) {
+                elements.fileGrid.innerHTML = `<div class="inline-preview"><div class="spinner"></div></div>`;
+                try {
+                    const res = await fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } });
+                    const blob = await res.blob();
+                    let notes = file?.customMetadata?.notes || '';
+                    if (!notes) {
+                        try { notes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch {}
+                    }
+                    elements.fileGrid.innerHTML = `
+                        <div class="inline-preview">
+                            <img src="${URL.createObjectURL(blob)}" alt="${fileName}">
+                            <div class="file-label">${fileName}${file ? ' — ' + formatSize(file.size) : ''}</div>
+                            ${notes ? `<div class="user-notes">${notes.replace(/</g, '&lt;')}</div>` : ''}
+                        </div>
+                    `;
+                } catch {
+                    elements.fileGrid.innerHTML = `<div class="inline-preview"><p>Failed to load image</p></div>`;
+                }
+            } else if (fileName.toLowerCase().endsWith('.pdf')) {
+                elements.fileGrid.innerHTML = `<div class="inline-preview"><div class="spinner"></div></div>`;
+                try {
+                    const res = await fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } });
+                    const blob = await res.blob();
+                    const blobUrl = URL.createObjectURL(blob);
+                    let pdfNotes = file?.customMetadata?.notes || '';
+                    if (!pdfNotes) {
+                        try { pdfNotes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch {}
+                    }
+                    elements.fileGrid.innerHTML = `
+                        <div class="inline-preview">
+                            <iframe src="${blobUrl}"></iframe>
+                            <div class="file-label">${fileName}</div>
+                            ${pdfNotes ? `<div class="user-notes">${pdfNotes.replace(/</g, '&lt;')}</div>` : ''}
+                        </div>
+                    `;
+                } catch {
+                    elements.fileGrid.innerHTML = `<div class="inline-preview"><p>Failed to load PDF</p></div>`;
+                }
+            } else {
+                const otherNotes = file?.customMetadata?.notes || '';
+                elements.fileGrid.innerHTML = `
+                    <div class="inline-preview">
+                        <div class="preview-info">
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">File Name</span>
+                                <span>${fileName}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Type</span>
+                                <span>${getFileType(fileName)}</span>
+                            </div>
+                            ${file ? `<div class="preview-info-row">
+                                <span class="preview-info-label">Size</span>
+                                <span>${formatSize(file.size)}</span>
+                            </div>` : ''}
+                            ${otherNotes ? `<div class="preview-info-row">
+                                <span class="preview-info-label">Notes</span>
+                                <span>${otherNotes.replace(/</g, '&lt;')}</span>
+                            </div>` : ''}
+                        </div>
+                        <a href="${fileUrl}" target="_blank" rel="noopener" style="margin-top:1rem;padding:0.5rem 1.5rem;background:var(--accent);color:#000;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;text-decoration:none;display:inline-block;">Download</a>
+                    </div>
+                `;
+            }
+        }
+
+        async function toggleDevSubfolder(subName) {
+            if (state.expandedDevFolders.hasOwnProperty(subName)) {
+                // Collapse
+                delete state.expandedDevFolders[subName];
+                if (state.selectedFileKey && state.selectedFileKey.startsWith(subName + '/')) {
+                    state.selectedFileKey = null;
+                }
+            } else {
+                // Expand — fetch files from IndexedDB
+                try {
+                    const files = await DevDB.listFiles(subName);
+                    state.expandedDevFolders[subName] = files.map(f => ({
+                        key: f.key,
+                        size: f.size,
+                        uploaded: f.uploaded,
+                        customMetadata: { originalName: f.originalName },
+                        _local: true
+                    }));
+                } catch (err) {
+                    console.error('Failed to load dev subfolder files:', err);
+                    state.expandedDevFolders[subName] = [];
+                }
+            }
+            state.currentPath = ['Development', subName];
+            renderBreadcrumbs(['Development', subName]);
+            renderFolderTree(state.folders);
+            if (state.selectedFileKey) {
+                const files = state.expandedDevFolders[subName] || [];
+                const file = files.find(f => f.key === state.selectedFileKey);
+                if (file) {
+                    const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
+                    renderInlinePreviewLocal(file.key, fileName);
+                }
+            } else if (state.expandedDevFolders.hasOwnProperty(subName)) {
+                renderSelectFilePlaceholder();
+            } else {
+                loadDevFiles(['Development', subName]);
+            }
+        }
+
+        async function renderInlinePreviewLocal(fileKey, fileName) {
+            const parts = fileKey.split('/');
+            const subName = parts[0];
+            renderBreadcrumbs(['Development', subName, fileName]);
+            elements.fileCount.textContent = fileName;
+
+            const record = await DevDB.getFile(fileKey);
+            if (!record) {
+                elements.fileGrid.innerHTML = '<div class="inline-preview"><p>File not found</p></div>';
+                return;
+            }
+            const blobUrl = URL.createObjectURL(record.blob);
+
+            if (isImageFile(fileName)) {
+                elements.fileGrid.innerHTML = `
+                    <div class="inline-preview">
+                        <img src="${blobUrl}" alt="${fileName}">
+                        <div class="file-label">${fileName} — ${formatSize(record.size)}</div>
+                    </div>
+                `;
+            } else if (fileName.toLowerCase().endsWith('.pdf')) {
+                elements.fileGrid.innerHTML = `
+                    <div class="inline-preview">
+                        <iframe src="${blobUrl}"></iframe>
+                        <div class="file-label">${fileName}</div>
+                    </div>
+                `;
+            } else if (fileName.toLowerCase().endsWith('.json')) {
+                try {
+                    const text = await record.blob.text();
+                    const formatted = JSON.stringify(JSON.parse(text), null, 2);
+                    elements.fileGrid.innerHTML = `
+                        <div class="inline-preview">
+                            <pre style="padding:1rem;overflow:auto;font-size:0.8rem;color:var(--text-primary);font-family:'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-word;max-width:100%;width:100%;">${formatted.replace(/</g, '&lt;')}</pre>
+                        </div>
+                    `;
+                } catch {
+                    const text = await record.blob.text();
+                    elements.fileGrid.innerHTML = `
+                        <div class="inline-preview">
+                            <pre style="padding:1rem;overflow:auto;font-size:0.8rem;color:var(--text-primary);white-space:pre-wrap;">${text.replace(/</g, '&lt;')}</pre>
+                        </div>
+                    `;
+                }
+            } else {
+                elements.fileGrid.innerHTML = `
+                    <div class="inline-preview">
+                        <div class="preview-info">
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">File Name</span>
+                                <span>${fileName}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Type</span>
+                                <span>${getFileType(fileName)}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Size</span>
+                                <span>${formatSize(record.size)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
         }
 
         // ============================================
@@ -1300,18 +2260,20 @@
             elements.fileCount.textContent = `${files.length} item${files.length !== 1 ? 's' : ''}`;
 
             let html = '';
+            const isLocal = files.length > 0 && files[0]._local;
+
             files.forEach(file => {
                 const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
                 const isImage = isImageFile(fileName);
-                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(file.key)}`;
+                const fileUrl = isLocal ? '' : `${settings.apiEndpoint}/file/${encodeURIComponent(file.key)}`;
 
                 html += `
-                    <div class="file-card" data-key="${file.key}" data-name="${fileName}">
-                        <div class="file-thumb ${isImage ? 'loading' : ''}">
-                            ${isImage
-                                ? `<img data-src="${fileUrl}" alt="${fileName}" onload="this.parentElement.classList.remove('loading')">`
-                                : getFileIcon(fileName)
-                            }
+                    <div class="file-card" data-key="${file.key}" data-name="${fileName}" ${isLocal ? 'data-local="true"' : ''}>
+                        <div class="file-thumb ${isImage && !isLocal ? 'loading' : ''}">
+                            ${isImage && !isLocal
+                        ? `<img data-src="${fileUrl}" alt="${fileName}" onload="this.parentElement.classList.remove('loading')">`
+                        : getFileIcon(fileName)
+                    }
                         </div>
                         <div class="file-name">${fileName}</div>
                         <div class="file-meta">${formatSize(file.size)}</div>
@@ -1321,12 +2283,15 @@
 
             elements.fileGrid.innerHTML = html;
 
-            // Lazy load images
-            lazyLoadImages();
+            // Lazy load images (only for remote files)
+            if (!isLocal) lazyLoadImages();
 
             // Add click handlers
             elements.fileGrid.querySelectorAll('.file-card').forEach(card => {
-                card.addEventListener('click', () => openPreview(card.dataset.key, card.dataset.name));
+                card.addEventListener('click', () => {
+                    const isLocalFile = card.dataset.local === 'true';
+                    openPreview(card.dataset.key, card.dataset.name, isLocalFile);
+                });
             });
         }
 
@@ -1353,14 +2318,14 @@
                         fetch(img.dataset.src, {
                             headers: { 'X-API-Key': settings.apiKey }
                         })
-                        .then(res => res.blob())
-                        .then(blob => {
-                            img.src = URL.createObjectURL(blob);
-                        })
-                        .catch(() => {
-                            img.parentElement.innerHTML = getFileIcon('error.img');
-                            img.parentElement.classList.remove('loading');
-                        });
+                            .then(res => res.blob())
+                            .then(blob => {
+                                img.src = URL.createObjectURL(blob);
+                            })
+                            .catch(() => {
+                                img.parentElement.innerHTML = getFileIcon('error.img');
+                                img.parentElement.classList.remove('loading');
+                            });
                         observer.unobserve(img);
                     }
                 });
@@ -1375,12 +2340,19 @@
         function navigateToPath(path) {
             state.currentPath = path;
             renderBreadcrumbs(path);
-            loadFiles(path);
+
+            // Route to local DB or R2 API
+            if (path[0] === 'Development') {
+                loadDevFiles(path);
+            } else {
+                loadFiles(path);
+            }
 
             // Update active folder in tree
             elements.folderTree.querySelectorAll('.folder-item').forEach(item => {
                 const itemPath = item.dataset.path;
-                item.classList.toggle('active', itemPath === (path[0] || ''));
+                const currentFullPath = path.join('/');
+                item.classList.toggle('active', itemPath === currentFullPath || (!currentFullPath && !itemPath));
             });
         }
 
@@ -1472,10 +2444,10 @@
                         fetch(img.dataset.src, {
                             headers: { 'X-API-Key': settings.apiKey }
                         })
-                        .then(res => res.blob())
-                        .then(blob => {
-                            img.src = URL.createObjectURL(blob);
-                        });
+                            .then(res => res.blob())
+                            .then(blob => {
+                                img.src = URL.createObjectURL(blob);
+                            });
                         observer.unobserve(img);
                     }
                 });
@@ -1492,34 +2464,114 @@
         // ============================================
         // Preview Modal
         // ============================================
-        function openPreview(fileKey, fileName) {
-            state.selectedFile = { key: fileKey, name: fileName };
+        async function openPreview(fileKey, fileName, isLocal = false) {
+            state.selectedFile = { key: fileKey, name: fileName, local: isLocal };
             elements.previewTitle.textContent = fileName;
 
-            const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(fileKey)}`;
-
-            if (isImageFile(fileName)) {
-                elements.previewBody.innerHTML = '<div class="spinner"></div>';
-                fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } })
-                    .then(res => res.blob())
-                    .then(blob => {
-                        elements.previewBody.innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="${fileName}">`;
-                    });
-            } else if (fileName.toLowerCase().endsWith('.pdf')) {
-                elements.previewBody.innerHTML = `<iframe src="${fileUrl}"></iframe>`;
+            // Look up notes from file metadata across all state collections
+            let fileNotes = '';
+            if (!isLocal) {
+                const folderName = fileKey.split('/')[0];
+                const folderFiles = state.expandedFolders[folderName] || [];
+                const fileMeta = folderFiles.find(f => f.key === fileKey)
+                    || (state.files || []).find(f => f.key === fileKey)
+                    || (state.galleryImages || []).find(f => f.key === fileKey);
+                fileNotes = fileMeta?.customMetadata?.notes || '';
+            }
+            if (fileNotes) {
+                elements.previewNotes.textContent = fileNotes;
+                elements.previewNotes.style.display = '';
             } else {
-                elements.previewBody.innerHTML = `
-                    <div class="preview-info">
-                        <div class="preview-info-row">
-                            <span class="preview-info-label">File Name</span>
-                            <span>${fileName}</span>
+                elements.previewNotes.textContent = '';
+                elements.previewNotes.style.display = 'none';
+            }
+
+            if (isLocal) {
+                // Load from IndexedDB
+                const record = await DevDB.getFile(fileKey);
+                if (!record) {
+                    elements.previewBody.innerHTML = '<div class="empty-state"><p>File not found</p></div>';
+                    elements.previewModal.classList.add('active');
+                    return;
+                }
+                const blobUrl = URL.createObjectURL(record.blob);
+
+                if (isImageFile(fileName)) {
+                    elements.previewBody.innerHTML = `<img src="${blobUrl}" alt="${fileName}">`;
+                } else if (fileName.toLowerCase().endsWith('.pdf')) {
+                    elements.previewBody.innerHTML = `<iframe src="${blobUrl}"></iframe>`;
+                } else if (fileName.toLowerCase().endsWith('.json')) {
+                    const text = await record.blob.text();
+                    try {
+                        const formatted = JSON.stringify(JSON.parse(text), null, 2);
+                        elements.previewBody.innerHTML = `<pre style="padding:1rem;overflow:auto;font-size:0.8rem;color:var(--text-primary);font-family:'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-word;">${formatted.replace(/</g, '&lt;')}</pre>`;
+                    } catch {
+                        elements.previewBody.innerHTML = `<pre style="padding:1rem;overflow:auto;font-size:0.8rem;color:var(--text-primary);">${text.replace(/</g, '&lt;')}</pre>`;
+                    }
+                } else {
+                    elements.previewBody.innerHTML = `
+                        <div class="preview-info">
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">File Name</span>
+                                <span>${fileName}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Type</span>
+                                <span>${getFileType(fileName)}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Size</span>
+                                <span>${formatSize(record.size)}</span>
+                            </div>
                         </div>
-                        <div class="preview-info-row">
-                            <span class="preview-info-label">Type</span>
-                            <span>${getFileType(fileName)}</span>
+                    `;
+                }
+            } else {
+                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(fileKey)}`;
+
+                const updateNotesFromResponse = (res) => {
+                    if (!fileNotes) {
+                        try {
+                            const meta = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}');
+                            if (meta.notes) {
+                                elements.previewNotes.textContent = meta.notes;
+                                elements.previewNotes.style.display = '';
+                            }
+                        } catch {}
+                    }
+                    return res;
+                };
+
+                if (isImageFile(fileName)) {
+                    elements.previewBody.innerHTML = '<div class="spinner"></div>';
+                    fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } })
+                        .then(updateNotesFromResponse)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            elements.previewBody.innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="${fileName}">`;
+                        });
+                } else if (fileName.toLowerCase().endsWith('.pdf')) {
+                    elements.previewBody.innerHTML = '<div class="spinner"></div>';
+                    fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } })
+                        .then(updateNotesFromResponse)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            elements.previewBody.innerHTML = `<iframe src="${URL.createObjectURL(blob)}"></iframe>`;
+                        });
+                } else {
+                    elements.previewBody.innerHTML = `
+                        <div class="preview-info">
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">File Name</span>
+                                <span>${fileName}</span>
+                            </div>
+                            <div class="preview-info-row">
+                                <span class="preview-info-label">Type</span>
+                                <span>${getFileType(fileName)}</span>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             }
 
             elements.previewModal.classList.add('active');
@@ -1527,6 +2579,8 @@
 
         function closePreview() {
             elements.previewModal.classList.remove('active');
+            elements.previewNotes.style.display = 'none';
+            elements.previewNotes.textContent = '';
             state.selectedFile = null;
         }
 
@@ -1534,11 +2588,18 @@
             if (!state.selectedFile) return;
 
             try {
-                const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(state.selectedFile.key)}`;
-                const response = await fetch(fileUrl, {
-                    headers: { 'X-API-Key': settings.apiKey }
-                });
-                const blob = await response.blob();
+                let blob;
+                if (state.selectedFile.local) {
+                    const record = await DevDB.getFile(state.selectedFile.key);
+                    if (!record) throw new Error('File not found');
+                    blob = record.blob;
+                } else {
+                    const fileUrl = `${settings.apiEndpoint}/file/${encodeURIComponent(state.selectedFile.key)}`;
+                    const response = await fetch(fileUrl, {
+                        headers: { 'X-API-Key': settings.apiKey }
+                    });
+                    blob = await response.blob();
+                }
 
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
@@ -1557,6 +2618,7 @@
         function openSettings() {
             document.getElementById('apiEndpoint').value = settings.apiEndpoint;
             document.getElementById('apiKey').value = settings.apiKey;
+            document.getElementById('anthropicKey').value = settings.anthropicKey;
             elements.settingsModal.classList.add('active');
         }
 
@@ -1567,9 +2629,11 @@
         function saveSettings() {
             settings.apiEndpoint = document.getElementById('apiEndpoint').value.replace(/\/$/, '');
             settings.apiKey = document.getElementById('apiKey').value;
+            settings.anthropicKey = document.getElementById('anthropicKey').value;
 
             localStorage.setItem('uma_api_endpoint', settings.apiEndpoint);
             localStorage.setItem('uma_api_key', settings.apiKey);
+            localStorage.setItem('uma_anthropic_key', settings.anthropicKey);
 
             closeSettings();
             showToast('Settings saved', 'success');
@@ -1610,6 +2674,15 @@
                 if (state.currentTab === 'browse' && state.currentPath.length === 0) {
                     // Refresh Recent view
                     await loadFiles([]);
+                }
+
+                // Check for new files to sync to Development (runs regardless of current view)
+                try {
+                    const data = await api('/list');
+                    const allFiles = (data.objects || []).filter(obj => !obj.key.endsWith('_metadata.json'));
+                    syncNewFilesToDev(allFiles);
+                } catch (err) {
+                    // Silently ignore sync errors during polling
                 }
             }, 10000);
         }
@@ -1765,6 +2838,10 @@
         async function init() {
             setupEventListeners();
 
+            // Initialize local Development DB
+            await DevDB.open();
+            await loadDevFolders();
+
             // Check if settings are configured
             if (!settings.apiEndpoint || !settings.apiKey) {
                 setConnectionStatus(false);
@@ -1780,6 +2857,15 @@
                 await loadFolderTree();
                 await loadFiles([]);
                 startPolling();
+
+                // Initial sync: check all R2 files and sync any new ones to Development
+                try {
+                    const data = await api('/list');
+                    const allFiles = (data.objects || []).filter(obj => !obj.key.endsWith('_metadata.json'));
+                    syncNewFilesToDev(allFiles);
+                } catch (err) {
+                    console.warn('[Dev Sync] Initial sync failed:', err);
+                }
             }
         }
 
@@ -1792,4 +2878,5 @@
         init();
     </script>
 </body>
+
 </html>

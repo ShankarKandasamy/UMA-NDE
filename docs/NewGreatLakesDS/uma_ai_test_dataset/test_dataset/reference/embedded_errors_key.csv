@@ -1,0 +1,12 @@
+Error Type,CML ID,Description,Expected System Behavior
+Typo,4-RA-101-06,Letter 'O' instead of zero: 4-RA-101-O6,"Fuzzy match to correct CML, flag for confirmation"
+Missing Photo,6-SG-102-04,No photo uploaded for this CML,Flag as missing documentation
+Format,4-LA-102-03,Inconsistent ID format: 4LA10203,Normalize and match to correct CML
+Format,3-RV-101-02,Inconsistent ID format: 3-RV-101-2,Normalize and match to correct CML
+Format,6-RA-103-07,Inconsistent ID format: 6-RA103-07,Normalize and match to correct CML
+Duplicate,4-RA-102-05,Duplicate entry with different reading (0.224),"Flag duplicate, prompt user to select correct value"
+Missing Reading,8-TG-101-05,Blank reading field with note: See photo - display unclear,"Flag as incomplete, allow manual entry"
+Transposed,6-LA-103-05,Digits transposed in reading value,Validation warning if outside expected range
+Wrong Decimal,3-RF-101-04,Wrong decimal placement: 1.87 instead of ~0.187,Flag as out of range (impossible reading > nominal)
+Spurious Entry,4-RA-101-15,Fake CML that doesn't exist in master list. Reading: 0.245,"Flag as unknown CML, require user resolution"
+Date Format Inconsistency,Multiple,"Mixed date formats: YYYY-MM-DD, MM/DD/YYYY, DD-Mon-YYYY, etc.",Parse all common date formats correctly

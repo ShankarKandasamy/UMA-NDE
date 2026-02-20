@@ -1,0 +1,227 @@
+photo_id,filename,cml_id,photo_type,description,inspector,date,timestamp
+IMG_0001,IMG_0001.jpg,6-SG-101-01,cml_location,CML location photo for 6-SG-101-01 - Elbow 45° on 6-SG-101,Marcus Chen,2024-11-04,2024-11-04T07:07:02
+IMG_0002,IMG_0002.jpg,6-SG-101-02,cml_location,CML location photo for 6-SG-101-02 - Elbow 45° on 6-SG-101,Sarah Thompson,2024-11-04,2024-11-04T07:14:18
+IMG_0003,IMG_0003.jpg,6-SG-101-03,cml_location,CML location photo for 6-SG-101-03 - Elbow 90° on 6-SG-101,Marcus Chen,2024-11-04,2024-11-04T07:21:44
+IMG_0004,IMG_0004.jpg,6-SG-101-04,cml_location,CML location photo for 6-SG-101-04 - Weldolet on 6-SG-101,Sarah Thompson,2024-11-04,2024-11-04T07:28:48
+IMG_0005,IMG_0005.jpg,6-SG-101-05,cml_location,CML location photo for 6-SG-101-05 - Flange on 6-SG-101,Marcus Chen,2024-11-04,2024-11-04T08:35:09
+IMG_0006,IMG_0006.jpg,6-SG-101-06,cml_location,CML location photo for 6-SG-101-06 - Tee on 6-SG-101,Sarah Thompson,2024-11-04,2024-11-04T08:42:29
+IMG_0007,IMG_0007.jpg,6-SG-101-07,cml_location,CML location photo for 6-SG-101-07 - Straight Run on 6-SG-101,Marcus Chen,2024-11-04,2024-11-04T08:49:23
+IMG_0008,IMG_0008.jpg,6-SG-101-08,cml_location,CML location photo for 6-SG-101-08 - Straight Run on 6-SG-101,Sarah Thompson,2024-11-04,2024-11-04T08:56:42
+IMG_0009,IMG_0009.jpg,6-SG-102-01,cml_location,CML location photo for 6-SG-102-01 - Straight Run on 6-SG-102,Marcus Chen,2024-11-04,2024-11-04T08:03:44
+IMG_0010,IMG_0010.jpg,6-SG-102-02,cml_location,CML location photo for 6-SG-102-02 - Straight Run on 6-SG-102,Sarah Thompson,2024-11-04,2024-11-04T09:10:50
+IMG_0011,IMG_0011.jpg,6-SG-102-03,cml_location,CML location photo for 6-SG-102-03 - Straight Run on 6-SG-102,Marcus Chen,2024-11-04,2024-11-04T09:17:06
+IMG_0012,IMG_0012.jpg,6-SG-102-04,cml_location,CML location photo for 6-SG-102-04 - Flange on 6-SG-102,Sarah Thompson,2024-11-04,2024-11-04T09:24:29
+IMG_0013,IMG_0013.jpg,6-SG-102-05,cml_location,CML location photo for 6-SG-102-05 - Straight Run on 6-SG-102,Marcus Chen,2024-11-04,2024-11-04T09:31:38
+IMG_0014,IMG_0014.jpg,6-SG-102-06,cml_location,CML location photo for 6-SG-102-06 - Tee on 6-SG-102,Sarah Thompson,2024-11-04,2024-11-04T09:38:31
+IMG_0015,IMG_0015.jpg,8-TG-101-01,cml_location,CML location photo for 8-TG-101-01 - Weldolet on 8-TG-101,Marcus Chen,2024-11-04,2024-11-04T10:45:38
+IMG_0016,IMG_0016.jpg,8-TG-101-02,cml_location,CML location photo for 8-TG-101-02 - Reducer on 8-TG-101,Sarah Thompson,2024-11-04,2024-11-04T10:52:01
+IMG_0017,IMG_0017.jpg,8-TG-101-03,cml_location,CML location photo for 8-TG-101-03 - Reducer on 8-TG-101,Marcus Chen,2024-11-04,2024-11-04T10:59:32
+IMG_0018,IMG_0018.jpg,8-TG-101-04,cml_location,CML location photo for 8-TG-101-04 - Flange on 8-TG-101,Sarah Thompson,2024-11-04,2024-11-04T10:06:27
+IMG_0019,IMG_0019.jpg,8-TG-101-05,cml_location,CML location photo for 8-TG-101-05 - Tee on 8-TG-101,Marcus Chen,2024-11-04,2024-11-04T10:13:36
+IMG_0020,IMG_0020.jpg,8-TG-101-06,cml_location,CML location photo for 8-TG-101-06 - Straight Run on 8-TG-101,Sarah Thompson,2024-11-04,2024-11-04T11:20:23
+IMG_0021,IMG_0021.jpg,8-TG-101-07,cml_location,CML location photo for 8-TG-101-07 - Tee on 8-TG-101,Marcus Chen,2024-11-04,2024-11-04T11:27:39
+IMG_0022,IMG_0022.jpg,4-LA-101-01,cml_location,CML location photo for 4-LA-101-01 - Tee on 4-LA-101,Sarah Thompson,2024-11-04,2024-11-04T11:34:54
+IMG_0023,IMG_0023.jpg,4-LA-101-02,cml_location,CML location photo for 4-LA-101-02 - Straight Run on 4-LA-101,Marcus Chen,2024-11-04,2024-11-04T11:41:35
+IMG_0024,IMG_0024.jpg,4-LA-101-03,cml_location,CML location photo for 4-LA-101-03 - Weldolet on 4-LA-101,Sarah Thompson,2024-11-04,2024-11-04T11:48:56
+IMG_0025,IMG_0025.jpg,4-LA-101-04,cml_location,CML location photo for 4-LA-101-04 - Weldolet on 4-LA-101,Marcus Chen,2024-11-04,2024-11-04T13:55:48
+IMG_0026,IMG_0026.jpg,4-LA-101-05,cml_location,CML location photo for 4-LA-101-05 - Straight Run on 4-LA-101,Sarah Thompson,2024-11-04,2024-11-04T13:02:27
+IMG_0027,IMG_0027.jpg,4-LA-101-06,cml_location,CML location photo for 4-LA-101-06 - Straight Run on 4-LA-101,Marcus Chen,2024-11-04,2024-11-04T13:09:25
+IMG_0028,IMG_0028.jpg,4-LA-101-07,cml_location,CML location photo for 4-LA-101-07 - Straight Run on 4-LA-101,Sarah Thompson,2024-11-04,2024-11-04T13:16:11
+IMG_0029,IMG_0029.jpg,4-LA-101-08,cml_location,CML location photo for 4-LA-101-08 - Tee on 4-LA-101,Marcus Chen,2024-11-04,2024-11-04T13:23:03
+IMG_0030,IMG_0030.jpg,4-LA-101-09,cml_location,CML location photo for 4-LA-101-09 - Straight Run on 4-LA-101,Sarah Thompson,2024-11-04,2024-11-04T14:30:54
+IMG_0031,IMG_0031.jpg,4-LA-102-01,cml_location,CML location photo for 4-LA-102-01 - Straight Run on 4-LA-102,Marcus Chen,2024-11-04,2024-11-04T14:37:06
+IMG_0032,IMG_0032.jpg,4-LA-102-02,cml_location,CML location photo for 4-LA-102-02 - Elbow 45° on 4-LA-102,Sarah Thompson,2024-11-04,2024-11-04T14:44:52
+IMG_0033,IMG_0033.jpg,4-LA-102-03,cml_location,CML location photo for 4-LA-102-03 - Tee on 4-LA-102,Marcus Chen,2024-11-04,2024-11-04T14:51:07
+IMG_0034,IMG_0034.jpg,4-LA-102-04,cml_location,CML location photo for 4-LA-102-04 - Weldolet on 4-LA-102,Sarah Thompson,2024-11-04,2024-11-04T14:58:24
+IMG_0035,IMG_0035.jpg,4-LA-102-05,cml_location,CML location photo for 4-LA-102-05 - Reducer on 4-LA-102,Marcus Chen,2024-11-04,2024-11-04T15:05:09
+IMG_0036,IMG_0036.jpg,4-LA-102-06,cml_location,CML location photo for 4-LA-102-06 - Flange on 4-LA-102,Sarah Thompson,2024-11-04,2024-11-04T15:12:06
+IMG_0037,IMG_0037.jpg,4-LA-102-07,cml_location,CML location photo for 4-LA-102-07 - Straight Run on 4-LA-102,Marcus Chen,2024-11-04,2024-11-04T15:19:10
+IMG_0038,IMG_0038.jpg,4-LA-102-08,cml_location,CML location photo for 4-LA-102-08 - Elbow 45° on 4-LA-102,Sarah Thompson,2024-11-04,2024-11-04T15:26:32
+IMG_0039,IMG_0039.jpg,6-LA-103-01,cml_location,CML location photo for 6-LA-103-01 - Straight Run on 6-LA-103,Marcus Chen,2024-11-04,2024-11-04T15:33:53
+IMG_0040,IMG_0040.jpg,6-LA-103-02,cml_location,CML location photo for 6-LA-103-02 - Weldolet on 6-LA-103,Sarah Thompson,2024-11-04,2024-11-04T16:40:31
+IMG_0041,IMG_0041.jpg,6-LA-103-03,cml_location,CML location photo for 6-LA-103-03 - Reducer on 6-LA-103,Marcus Chen,2024-11-05,2024-11-05T07:07:08
+IMG_0042,IMG_0042.jpg,6-LA-103-04,cml_location,CML location photo for 6-LA-103-04 - Straight Run on 6-LA-103,Sarah Thompson,2024-11-05,2024-11-05T07:14:49
+IMG_0043,IMG_0043.jpg,6-LA-103-05,cml_location,CML location photo for 6-LA-103-05 - Elbow 45° on 6-LA-103,Marcus Chen,2024-11-05,2024-11-05T07:21:24
+IMG_0044,IMG_0044.jpg,6-LA-103-06,cml_location,CML location photo for 6-LA-103-06 - Reducer on 6-LA-103,Sarah Thompson,2024-11-05,2024-11-05T07:28:38
+IMG_0045,IMG_0045.jpg,6-LA-103-07,cml_location,CML location photo for 6-LA-103-07 - Straight Run on 6-LA-103,Marcus Chen,2024-11-05,2024-11-05T08:35:32
+IMG_0046,IMG_0046.jpg,6-LA-103-09,cml_location,CML location photo for 6-LA-103-09 - Elbow 90° on 6-LA-103,Marcus Chen,2024-11-05,2024-11-05T08:42:17
+IMG_0047,IMG_0047.jpg,6-LA-103-10,cml_location,CML location photo for 6-LA-103-10 - Flange on 6-LA-103,Sarah Thompson,2024-11-05,2024-11-05T08:49:36
+IMG_0048,IMG_0048.jpg,4-RA-101-01,cml_location,CML location photo for 4-RA-101-01 - Straight Run on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T08:56:11
+IMG_0049,IMG_0049.jpg,4-RA-101-02,cml_location,CML location photo for 4-RA-101-02 - Flange on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T08:03:24
+IMG_0050,IMG_0050.jpg,4-RA-101-03,cml_location,CML location photo for 4-RA-101-03 - Weldolet on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T09:10:04
+IMG_0051,IMG_0051.jpg,4-RA-101-04,cml_location,CML location photo for 4-RA-101-04 - Elbow 90° on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T09:17:03
+IMG_0052,IMG_0052.jpg,4-RA-101-05,cml_location,CML location photo for 4-RA-101-05 - Elbow 90° on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T09:24:37
+IMG_0053,IMG_0053.jpg,4-RA-101-06,cml_location,CML location photo for 4-RA-101-06 - Elbow 90° on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T09:31:03
+IMG_0054,IMG_0054.jpg,4-RA-101-07,cml_location,CML location photo for 4-RA-101-07 - Elbow 45° on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T09:38:11
+IMG_0055,IMG_0055.jpg,4-RA-101-08,cml_location,CML location photo for 4-RA-101-08 - Reducer on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T10:45:03
+IMG_0056,IMG_0056.jpg,4-RA-101-09,cml_location,CML location photo for 4-RA-101-09 - Weldolet on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T10:52:53
+IMG_0057,IMG_0057.jpg,4-RA-101-10,cml_location,CML location photo for 4-RA-101-10 - Reducer on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T10:59:10
+IMG_0058,IMG_0058.jpg,4-RA-101-11,cml_location,CML location photo for 4-RA-101-11 - Straight Run on 4-RA-101,Marcus Chen,2024-11-05,2024-11-05T10:06:18
+IMG_0059,IMG_0059.jpg,4-RA-101-12,cml_location,CML location photo for 4-RA-101-12 - Elbow 45° on 4-RA-101,Sarah Thompson,2024-11-05,2024-11-05T10:13:17
+IMG_0060,IMG_0060.jpg,4-RA-102-01,cml_location,CML location photo for 4-RA-102-01 - Straight Run on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T11:20:56
+IMG_0061,IMG_0061.jpg,4-RA-102-02,cml_location,CML location photo for 4-RA-102-02 - Flange on 4-RA-102,Sarah Thompson,2024-11-05,2024-11-05T11:27:04
+IMG_0062,IMG_0062.jpg,4-RA-102-03,cml_location,CML location photo for 4-RA-102-03 - Weldolet on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T11:34:33
+IMG_0063,IMG_0063.jpg,4-RA-102-04,cml_location,CML location photo for 4-RA-102-04 - Elbow 45° on 4-RA-102,Sarah Thompson,2024-11-05,2024-11-05T11:41:39
+IMG_0064,IMG_0064.jpg,4-RA-102-05,cml_location,CML location photo for 4-RA-102-05 - Weldolet on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T11:48:06
+IMG_0065,IMG_0065.jpg,4-RA-102-06,cml_location,CML location photo for 4-RA-102-06 - Reducer on 4-RA-102,Sarah Thompson,2024-11-05,2024-11-05T13:55:54
+IMG_0066,IMG_0066.jpg,4-RA-102-07,cml_location,CML location photo for 4-RA-102-07 - Elbow 90° on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T13:02:52
+IMG_0067,IMG_0067.jpg,4-RA-102-08,cml_location,CML location photo for 4-RA-102-08 - Straight Run on 4-RA-102,Sarah Thompson,2024-11-05,2024-11-05T13:09:37
+IMG_0068,IMG_0068.jpg,4-RA-102-09,cml_location,CML location photo for 4-RA-102-09 - Flange on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T13:16:41
+IMG_0069,IMG_0069.jpg,4-RA-102-10,cml_location,CML location photo for 4-RA-102-10 - Elbow 45° on 4-RA-102,Sarah Thompson,2024-11-05,2024-11-05T13:23:59
+IMG_0070,IMG_0070.jpg,4-RA-102-11,cml_location,CML location photo for 4-RA-102-11 - Elbow 90° on 4-RA-102,Marcus Chen,2024-11-05,2024-11-05T14:30:41
+IMG_0071,IMG_0071.jpg,6-RA-103-01,cml_location,CML location photo for 6-RA-103-01 - Elbow 90° on 6-RA-103,Sarah Thompson,2024-11-05,2024-11-05T14:37:43
+IMG_0072,IMG_0072.jpg,6-RA-103-02,cml_location,CML location photo for 6-RA-103-02 - Elbow 90° on 6-RA-103,Marcus Chen,2024-11-05,2024-11-05T14:44:03
+IMG_0073,IMG_0073.jpg,6-RA-103-03,cml_location,CML location photo for 6-RA-103-03 - Straight Run on 6-RA-103,Sarah Thompson,2024-11-05,2024-11-05T14:51:06
+IMG_0074,IMG_0074.jpg,6-RA-103-04,cml_location,CML location photo for 6-RA-103-04 - Tee on 6-RA-103,Marcus Chen,2024-11-05,2024-11-05T14:58:54
+IMG_0075,IMG_0075.jpg,6-RA-103-05,cml_location,CML location photo for 6-RA-103-05 - Tee on 6-RA-103,Sarah Thompson,2024-11-05,2024-11-05T15:05:39
+IMG_0076,IMG_0076.jpg,6-RA-103-06,cml_location,CML location photo for 6-RA-103-06 - Straight Run on 6-RA-103,Marcus Chen,2024-11-05,2024-11-05T15:12:29
+IMG_0077,IMG_0077.jpg,6-RA-103-07,cml_location,CML location photo for 6-RA-103-07 - Tee on 6-RA-103,Sarah Thompson,2024-11-05,2024-11-05T15:19:50
+IMG_0078,IMG_0078.jpg,6-RA-103-08,cml_location,CML location photo for 6-RA-103-08 - Flange on 6-RA-103,Marcus Chen,2024-11-05,2024-11-05T15:26:41
+IMG_0079,IMG_0079.jpg,6-RA-103-09,cml_location,CML location photo for 6-RA-103-09 - Reducer on 6-RA-103,Sarah Thompson,2024-11-05,2024-11-05T15:33:57
+IMG_0080,IMG_0080.jpg,6-RA-103-10,cml_location,CML location photo for 6-RA-103-10 - Elbow 45° on 6-RA-103,Marcus Chen,2024-11-06,2024-11-06T07:07:46
+IMG_0081,IMG_0081.jpg,6-RA-103-11,cml_location,CML location photo for 6-RA-103-11 - Weldolet on 6-RA-103,Sarah Thompson,2024-11-06,2024-11-06T07:14:21
+IMG_0082,IMG_0082.jpg,6-RA-103-12,cml_location,CML location photo for 6-RA-103-12 - Straight Run on 6-RA-103,Marcus Chen,2024-11-06,2024-11-06T07:21:21
+IMG_0083,IMG_0083.jpg,6-RA-103-13,cml_location,CML location photo for 6-RA-103-13 - Straight Run on 6-RA-103,Sarah Thompson,2024-11-06,2024-11-06T07:28:33
+IMG_0084,IMG_0084.jpg,6-RA-103-14,cml_location,CML location photo for 6-RA-103-14 - Weldolet on 6-RA-103,Marcus Chen,2024-11-06,2024-11-06T08:35:42
+IMG_0085,IMG_0085.jpg,3-RV-101-01,cml_location,CML location photo for 3-RV-101-01 - Straight Run on 3-RV-101,Sarah Thompson,2024-11-06,2024-11-06T08:42:44
+IMG_0086,IMG_0086.jpg,3-RV-101-02,cml_location,CML location photo for 3-RV-101-02 - Reducer on 3-RV-101,Marcus Chen,2024-11-06,2024-11-06T08:49:28
+IMG_0087,IMG_0087.jpg,3-RV-101-03,cml_location,CML location photo for 3-RV-101-03 - Straight Run on 3-RV-101,Sarah Thompson,2024-11-06,2024-11-06T08:56:10
+IMG_0088,IMG_0088.jpg,3-RV-101-04,cml_location,CML location photo for 3-RV-101-04 - Straight Run on 3-RV-101,Marcus Chen,2024-11-06,2024-11-06T08:03:08
+IMG_0089,IMG_0089.jpg,3-RV-101-05,cml_location,CML location photo for 3-RV-101-05 - Straight Run on 3-RV-101,Sarah Thompson,2024-11-06,2024-11-06T09:10:54
+IMG_0090,IMG_0090.jpg,3-RV-101-06,cml_location,CML location photo for 3-RV-101-06 - Tee on 3-RV-101,Marcus Chen,2024-11-06,2024-11-06T09:17:05
+IMG_0091,IMG_0091.jpg,3-RV-101-07,cml_location,CML location photo for 3-RV-101-07 - Straight Run on 3-RV-101,Sarah Thompson,2024-11-06,2024-11-06T09:24:49
+IMG_0092,IMG_0092.jpg,3-RV-101-08,cml_location,CML location photo for 3-RV-101-08 - Straight Run on 3-RV-101,Marcus Chen,2024-11-06,2024-11-06T09:31:20
+IMG_0093,IMG_0093.jpg,2-RV-102-01,cml_location,CML location photo for 2-RV-102-01 - Tee on 2-RV-102,Sarah Thompson,2024-11-06,2024-11-06T09:38:03
+IMG_0094,IMG_0094.jpg,2-RV-102-02,cml_location,CML location photo for 2-RV-102-02 - Straight Run on 2-RV-102,Marcus Chen,2024-11-06,2024-11-06T10:45:56
+IMG_0095,IMG_0095.jpg,2-RV-102-03,cml_location,CML location photo for 2-RV-102-03 - Reducer on 2-RV-102,Sarah Thompson,2024-11-06,2024-11-06T10:52:37
+IMG_0096,IMG_0096.jpg,2-RV-102-04,cml_location,CML location photo for 2-RV-102-04 - Flange on 2-RV-102,Marcus Chen,2024-11-06,2024-11-06T10:59:17
+IMG_0097,IMG_0097.jpg,2-RV-102-05,cml_location,CML location photo for 2-RV-102-05 - Reducer on 2-RV-102,Sarah Thompson,2024-11-06,2024-11-06T10:06:23
+IMG_0098,IMG_0098.jpg,2-RV-102-06,cml_location,CML location photo for 2-RV-102-06 - Elbow 90° on 2-RV-102,Marcus Chen,2024-11-06,2024-11-06T10:13:46
+IMG_0099,IMG_0099.jpg,3-RF-101-01,cml_location,CML location photo for 3-RF-101-01 - Straight Run on 3-RF-101,Sarah Thompson,2024-11-06,2024-11-06T11:20:11
+IMG_0100,IMG_0100.jpg,3-RF-101-02,cml_location,CML location photo for 3-RF-101-02 - Elbow 90° on 3-RF-101,Marcus Chen,2024-11-06,2024-11-06T11:27:43
+IMG_0101,IMG_0101.jpg,3-RF-101-03,cml_location,CML location photo for 3-RF-101-03 - Flange on 3-RF-101,Sarah Thompson,2024-11-06,2024-11-06T11:34:38
+IMG_0102,IMG_0102.jpg,3-RF-101-04,cml_location,CML location photo for 3-RF-101-04 - Flange on 3-RF-101,Marcus Chen,2024-11-06,2024-11-06T11:41:04
+IMG_0103,IMG_0103.jpg,3-RF-101-05,cml_location,CML location photo for 3-RF-101-05 - Weldolet on 3-RF-101,Sarah Thompson,2024-11-06,2024-11-06T11:48:35
+IMG_0104,IMG_0104.jpg,3-RF-101-06,cml_location,CML location photo for 3-RF-101-06 - Straight Run on 3-RF-101,Marcus Chen,2024-11-06,2024-11-06T13:55:42
+IMG_0105,IMG_0105.jpg,3-RF-101-07,cml_location,CML location photo for 3-RF-101-07 - Weldolet on 3-RF-101,Sarah Thompson,2024-11-06,2024-11-06T13:02:07
+IMG_0106,IMG_0106.jpg,3-RF-101-08,cml_location,CML location photo for 3-RF-101-08 - Straight Run on 3-RF-101,Marcus Chen,2024-11-06,2024-11-06T13:09:19
+IMG_0107,IMG_0107.jpg,3-RF-101-09,cml_location,CML location photo for 3-RF-101-09 - Tee on 3-RF-101,Sarah Thompson,2024-11-06,2024-11-06T13:16:31
+IMG_0108,IMG_0108.jpg,2-RF-102-01,cml_location,CML location photo for 2-RF-102-01 - Elbow 45° on 2-RF-102,Marcus Chen,2024-11-06,2024-11-06T13:23:57
+IMG_0109,IMG_0109.jpg,2-RF-102-02,cml_location,CML location photo for 2-RF-102-02 - Reducer on 2-RF-102,Sarah Thompson,2024-11-06,2024-11-06T14:30:49
+IMG_0110,IMG_0110.jpg,2-RF-102-03,cml_location,CML location photo for 2-RF-102-03 - Elbow 90° on 2-RF-102,Marcus Chen,2024-11-06,2024-11-06T14:37:46
+IMG_0111,IMG_0111.jpg,2-RF-102-04,cml_location,CML location photo for 2-RF-102-04 - Straight Run on 2-RF-102,Sarah Thompson,2024-11-06,2024-11-06T14:44:23
+IMG_0112,IMG_0112.jpg,2-RF-102-05,cml_location,CML location photo for 2-RF-102-05 - Straight Run on 2-RF-102,Marcus Chen,2024-11-06,2024-11-06T14:51:45
+IMG_0113,IMG_0113.jpg,2-RF-102-06,cml_location,CML location photo for 2-RF-102-06 - Reducer on 2-RF-102,Sarah Thompson,2024-11-06,2024-11-06T14:58:27
+IMG_0114,IMG_0114.jpg,2-RF-102-07,cml_location,CML location photo for 2-RF-102-07 - Straight Run on 2-RF-102,Marcus Chen,2024-11-06,2024-11-06T15:05:02
+IMG_0115,IMG_0115.jpg,4-LA-104-01,cml_location,CML location photo for 4-LA-104-01 - Flange on 4-LA-104,Sarah Thompson,2024-11-06,2024-11-06T15:12:30
+IMG_0116,IMG_0116.jpg,4-LA-104-02,cml_location,CML location photo for 4-LA-104-02 - Straight Run on 4-LA-104,Marcus Chen,2024-11-06,2024-11-06T15:19:26
+IMG_0117,IMG_0117.jpg,4-LA-104-03,cml_location,CML location photo for 4-LA-104-03 - Tee on 4-LA-104,Sarah Thompson,2024-11-06,2024-11-06T15:26:38
+IMG_0118,IMG_0118.jpg,4-LA-104-04,cml_location,CML location photo for 4-LA-104-04 - Reducer on 4-LA-104,Marcus Chen,2024-11-06,2024-11-06T15:33:49
+IMG_0119,IMG_0119.jpg,4-LA-104-05,cml_location,CML location photo for 4-LA-104-05 - Straight Run on 4-LA-104,Sarah Thompson,2024-11-06,2024-11-06T16:40:05
+IMG_0120,IMG_0120.jpg,4-LA-104-06,cml_location,CML location photo for 4-LA-104-06 - Elbow 90° on 4-LA-104,Marcus Chen,2024-11-07,2024-11-07T07:07:22
+IMG_0121,IMG_0121.jpg,4-LA-104-07,cml_location,CML location photo for 4-LA-104-07 - Elbow 90° on 4-LA-104,Sarah Thompson,2024-11-07,2024-11-07T07:14:08
+IMG_0122,IMG_0122.jpg,4-LA-104-08,cml_location,CML location photo for 4-LA-104-08 - Tee on 4-LA-104,Marcus Chen,2024-11-07,2024-11-07T07:21:41
+IMG_0123,IMG_0123.jpg,4-LA-104-09,cml_location,CML location photo for 4-LA-104-09 - Reducer on 4-LA-104,Sarah Thompson,2024-11-07,2024-11-07T07:28:05
+IMG_0124,IMG_0124.jpg,4-LA-104-10,cml_location,CML location photo for 4-LA-104-10 - Elbow 45° on 4-LA-104,Marcus Chen,2024-11-07,2024-11-07T08:35:55
+IMG_0125,IMG_0125.jpg,4-RA-104-01,cml_location,CML location photo for 4-RA-104-01 - Elbow 90° on 4-RA-104,Sarah Thompson,2024-11-07,2024-11-07T08:42:42
+IMG_0126,IMG_0126.jpg,4-RA-104-02,cml_location,CML location photo for 4-RA-104-02 - Straight Run on 4-RA-104,Marcus Chen,2024-11-07,2024-11-07T08:49:46
+IMG_0127,IMG_0127.jpg,4-RA-104-03,cml_location,CML location photo for 4-RA-104-03 - Reducer on 4-RA-104,Sarah Thompson,2024-11-07,2024-11-07T08:56:09
+IMG_0128,IMG_0128.jpg,4-RA-104-04,cml_location,CML location photo for 4-RA-104-04 - Elbow 45° on 4-RA-104,Marcus Chen,2024-11-07,2024-11-07T08:03:36
+IMG_0129,IMG_0129.jpg,4-RA-104-05,cml_location,CML location photo for 4-RA-104-05 - Straight Run on 4-RA-104,Sarah Thompson,2024-11-07,2024-11-07T09:10:51
+IMG_0130,IMG_0130.jpg,4-RA-104-06,cml_location,CML location photo for 4-RA-104-06 - Straight Run on 4-RA-104,Marcus Chen,2024-11-07,2024-11-07T09:17:19
+IMG_0131,IMG_0131.jpg,4-RA-104-07,cml_location,CML location photo for 4-RA-104-07 - Flange on 4-RA-104,Sarah Thompson,2024-11-07,2024-11-07T09:24:06
+IMG_0132,IMG_0132.jpg,4-RA-104-08,cml_location,CML location photo for 4-RA-104-08 - Straight Run on 4-RA-104,Marcus Chen,2024-11-07,2024-11-07T09:31:44
+IMG_0133,IMG_0133.jpg,2-ST-101-01,cml_location,CML location photo for 2-ST-101-01 - Straight Run on 2-ST-101,Sarah Thompson,2024-11-07,2024-11-07T09:38:34
+IMG_0134,IMG_0134.jpg,2-ST-101-02,cml_location,CML location photo for 2-ST-101-02 - Elbow 45° on 2-ST-101,Marcus Chen,2024-11-07,2024-11-07T10:45:27
+IMG_0135,IMG_0135.jpg,2-ST-101-04,cml_location,CML location photo for 2-ST-101-04 - Tee on 2-ST-101,Marcus Chen,2024-11-07,2024-11-07T10:52:28
+IMG_0136,IMG_0136.jpg,2-ST-101-05,cml_location,CML location photo for 2-ST-101-05 - Straight Run on 2-ST-101,Sarah Thompson,2024-11-07,2024-11-07T10:59:37
+IMG_0137,IMG_0137.jpg,2-ST-101-06,cml_location,CML location photo for 2-ST-101-06 - Straight Run on 2-ST-101,Marcus Chen,2024-11-07,2024-11-07T10:06:02
+IMG_0138,IMG_0138.jpg,3-CW-101-01,cml_location,CML location photo for 3-CW-101-01 - Flange on 3-CW-101,Sarah Thompson,2024-11-07,2024-11-07T10:13:09
+IMG_0139,IMG_0139.jpg,3-CW-101-02,cml_location,CML location photo for 3-CW-101-02 - Reducer on 3-CW-101,Marcus Chen,2024-11-07,2024-11-07T11:20:00
+IMG_0140,IMG_0140.jpg,3-CW-101-03,cml_location,CML location photo for 3-CW-101-03 - Straight Run on 3-CW-101,Sarah Thompson,2024-11-07,2024-11-07T11:27:06
+IMG_0141,IMG_0141.jpg,3-CW-101-04,cml_location,CML location photo for 3-CW-101-04 - Weldolet on 3-CW-101,Marcus Chen,2024-11-07,2024-11-07T11:34:57
+IMG_0142,IMG_0142.jpg,3-CW-101-05,cml_location,CML location photo for 3-CW-101-05 - Straight Run on 3-CW-101,Sarah Thompson,2024-11-07,2024-11-07T11:41:50
+IMG_0143,IMG_0143.jpg,3-CW-101-06,cml_location,CML location photo for 3-CW-101-06 - Weldolet on 3-CW-101,Marcus Chen,2024-11-07,2024-11-07T11:48:52
+IMG_0144,IMG_0144.jpg,3-CW-102-01,cml_location,CML location photo for 3-CW-102-01 - Straight Run on 3-CW-102,Sarah Thompson,2024-11-07,2024-11-07T13:55:07
+IMG_0145,IMG_0145.jpg,3-CW-102-02,cml_location,CML location photo for 3-CW-102-02 - Elbow 45° on 3-CW-102,Marcus Chen,2024-11-07,2024-11-07T13:02:08
+IMG_0146,IMG_0146.jpg,3-CW-102-03,cml_location,CML location photo for 3-CW-102-03 - Elbow 90° on 3-CW-102,Sarah Thompson,2024-11-07,2024-11-07T13:09:47
+IMG_0147,IMG_0147.jpg,3-CW-102-04,cml_location,CML location photo for 3-CW-102-04 - Weldolet on 3-CW-102,Marcus Chen,2024-11-07,2024-11-07T13:16:01
+IMG_0148,IMG_0148.jpg,3-CW-102-05,cml_location,CML location photo for 3-CW-102-05 - Flange on 3-CW-102,Sarah Thompson,2024-11-07,2024-11-07T13:23:49
+IMG_0149,IMG_0149.jpg,4-RA-101-01,gauge_display,"Gauge reading 0.187"" for 4-RA-101-01",Marcus Chen,2024-11-05,2024-11-05T16:40:25
+IMG_0150,IMG_0150.jpg,4-RA-101-02,gauge_display,"Gauge reading 0.212"" for 4-RA-101-02",Sarah Thompson,2024-11-05,2024-11-05T16:40:12
+IMG_0151,IMG_0151.jpg,4-RA-101-06,gauge_display,"Gauge reading 0.142"" for 4-RA-101-06",Sarah Thompson,2024-11-05,2024-11-05T16:40:43
+IMG_0152,IMG_0152.jpg,4-RA-101-07,gauge_display,"Gauge reading 0.186"" for 4-RA-101-07",Marcus Chen,2024-11-05,2024-11-05T16:40:59
+IMG_0153,IMG_0153.jpg,4-RA-101-09,gauge_display,"Gauge reading 0.194"" for 4-RA-101-09",Marcus Chen,2024-11-05,2024-11-05T16:40:36
+IMG_0154,IMG_0154.jpg,4-RA-102-02,gauge_display,"Gauge reading 0.203"" for 4-RA-102-02",Sarah Thompson,2024-11-05,2024-11-05T16:40:25
+IMG_0155,IMG_0155.jpg,4-RA-102-03,gauge_display,"Gauge reading 0.199"" for 4-RA-102-03",Marcus Chen,2024-11-05,2024-11-05T16:40:16
+IMG_0156,IMG_0156.jpg,4-RA-102-05,gauge_display,"Gauge reading 0.238"" for 4-RA-102-05",Marcus Chen,2024-11-05,2024-11-05T16:40:38
+IMG_0157,IMG_0157.jpg,4-RA-102-09,gauge_display,"Gauge reading 0.161"" for 4-RA-102-09",Marcus Chen,2024-11-05,2024-11-05T16:40:37
+IMG_0158,IMG_0158.jpg,6-RA-103-01,gauge_display,"Gauge reading 0.313"" for 6-RA-103-01",Sarah Thompson,2024-11-05,2024-11-05T16:40:26
+IMG_0159,IMG_0159.jpg,6-RA-103-02,gauge_display,"Gauge reading 0.33"" for 6-RA-103-02",Marcus Chen,2024-11-05,2024-11-05T16:40:58
+IMG_0160,IMG_0160.jpg,6-RA-103-03,gauge_display,"Gauge reading 0.3"" for 6-RA-103-03",Sarah Thompson,2024-11-05,2024-11-05T16:40:51
+IMG_0161,IMG_0161.jpg,6-RA-103-04,gauge_display,"Gauge reading 0.276"" for 6-RA-103-04",Marcus Chen,2024-11-05,2024-11-05T16:40:20
+IMG_0162,IMG_0162.jpg,6-RA-103-05,gauge_display,"Gauge reading 0.31"" for 6-RA-103-05",Sarah Thompson,2024-11-05,2024-11-05T16:40:25
+IMG_0163,IMG_0163.jpg,6-RA-103-11,gauge_display,"Gauge reading 0.168"" for 6-RA-103-11",Sarah Thompson,2024-11-06,2024-11-06T16:47:22
+IMG_0164,IMG_0164.jpg,6-RA-103-13,gauge_display,"Gauge reading 0.309"" for 6-RA-103-13",Sarah Thompson,2024-11-06,2024-11-06T16:47:03
+IMG_0165,IMG_0165.jpg,3-RV-101-01,gauge_display,"Gauge reading 0.188"" for 3-RV-101-01",Sarah Thompson,2024-11-06,2024-11-06T16:47:11
+IMG_0166,IMG_0166.jpg,3-RV-101-02,gauge_display,"Gauge reading 0.18"" for 3-RV-101-02",Marcus Chen,2024-11-06,2024-11-06T16:47:34
+IMG_0167,IMG_0167.jpg,3-RV-101-04,gauge_display,"Gauge reading 0.195"" for 3-RV-101-04",Marcus Chen,2024-11-06,2024-11-06T16:47:11
+IMG_0168,IMG_0168.jpg,3-RV-101-05,gauge_display,"Gauge reading 0.196"" for 3-RV-101-05",Sarah Thompson,2024-11-06,2024-11-06T16:47:50
+IMG_0169,IMG_0169.jpg,3-RV-101-06,gauge_display,"Gauge reading 0.174"" for 3-RV-101-06",Marcus Chen,2024-11-06,2024-11-06T16:47:52
+IMG_0170,IMG_0170.jpg,3-RV-101-07,gauge_display,"Gauge reading 0.212"" for 3-RV-101-07",Sarah Thompson,2024-11-06,2024-11-06T16:47:12
+IMG_0171,IMG_0171.jpg,2-RV-102-01,gauge_display,"Gauge reading 0.135"" for 2-RV-102-01",Sarah Thompson,2024-11-06,2024-11-06T16:47:45
+IMG_0172,IMG_0172.jpg,2-RV-102-02,gauge_display,"Gauge reading 0.087"" for 2-RV-102-02",Marcus Chen,2024-11-06,2024-11-06T16:47:47
+IMG_0173,IMG_0173.jpg,2-RV-102-04,gauge_display,"Gauge reading 0.098"" for 2-RV-102-04",Marcus Chen,2024-11-06,2024-11-06T16:47:03
+IMG_0174,IMG_0174.jpg,2-RV-102-05,gauge_display,"Gauge reading 0.119"" for 2-RV-102-05",Sarah Thompson,2024-11-06,2024-11-06T16:47:42
+IMG_0175,IMG_0175.jpg,2-RF-102-02,gauge_display,"Gauge reading 0.093"" for 2-RF-102-02",Sarah Thompson,2024-11-06,2024-11-06T16:47:14
+IMG_0176,IMG_0176.jpg,2-RF-102-03,gauge_display,"Gauge reading 0.079"" for 2-RF-102-03",Marcus Chen,2024-11-06,2024-11-06T16:47:19
+IMG_0177,IMG_0177.jpg,2-RF-102-04,gauge_display,"Gauge reading 0.066"" for 2-RF-102-04",Sarah Thompson,2024-11-06,2024-11-06T16:47:14
+IMG_0178,IMG_0178.jpg,2-RF-102-05,gauge_display,"Gauge reading 0.079"" for 2-RF-102-05",Marcus Chen,2024-11-06,2024-11-06T16:47:22
+IMG_0179,IMG_0179.jpg,4-RA-104-01,gauge_display,"Gauge reading 0.221"" for 4-RA-104-01",Sarah Thompson,2024-11-07,2024-11-07T14:30:12
+IMG_0180,IMG_0180.jpg,4-RA-104-02,gauge_display,"Gauge reading 0.235"" for 4-RA-104-02",Marcus Chen,2024-11-07,2024-11-07T14:30:49
+IMG_0181,IMG_0181.jpg,4-RA-104-03,gauge_display,"Gauge reading 0.211"" for 4-RA-104-03",Sarah Thompson,2024-11-07,2024-11-07T14:30:13
+IMG_0182,IMG_0182.jpg,3-CW-101-02,gauge_display,"Gauge reading 0.231"" for 3-CW-101-02",Marcus Chen,2024-11-07,2024-11-07T14:30:24
+IMG_0183,IMG_0183.jpg,3-CW-102-04,gauge_display,"Gauge reading 0.173"" for 3-CW-102-04",Marcus Chen,2024-11-07,2024-11-07T14:30:52
+IMG_0184,IMG_0184.jpg,2-ST-101-01,gauge_display,"Gauge reading 0.111"" for 2-ST-101-01",Sarah Thompson,2024-11-07,2024-11-07T14:30:24
+IMG_0185,IMG_0185.jpg,6-LA-103-06,gauge_display,"Gauge reading 0.232"" for 6-LA-103-06",Sarah Thompson,2024-11-05,2024-11-05T16:40:14
+IMG_0186,IMG_0186.jpg,8-TG-101-02,gauge_display,"Gauge reading 0.304"" for 8-TG-101-02",Sarah Thompson,2024-11-04,2024-11-04T16:47:03
+IMG_0187,IMG_0187.jpg,4-LA-104-08,gauge_display,"Gauge reading 0.186"" for 4-LA-104-08",Marcus Chen,2024-11-07,2024-11-07T14:30:29
+IMG_0188,IMG_0188.jpg,3-RV-101-03,gauge_display,"Gauge reading 0.189"" for 3-RV-101-03",Sarah Thompson,2024-11-06,2024-11-06T16:47:32
+IMG_0189,IMG_0189.jpg,6-RA-103-08,gauge_display,"Gauge reading 0.36"" for 6-RA-103-08",Marcus Chen,2024-11-05,2024-11-05T16:40:03
+IMG_0190,IMG_0190.jpg,4-LA-102-04,gauge_display,"Gauge reading 0.156"" for 4-LA-102-04",Sarah Thompson,2024-11-04,2024-11-04T16:47:06
+IMG_0191,IMG_0191.jpg,4-RA-104-06,gauge_display,"Gauge reading 0.244"" for 4-RA-104-06",Marcus Chen,2024-11-07,2024-11-07T14:30:01
+IMG_0192,IMG_0192.jpg,4-LA-104-06,gauge_display,"Gauge reading 0.165"" for 4-LA-104-06",Marcus Chen,2024-11-07,2024-11-07T14:30:01
+IMG_0193,IMG_0193.jpg,4-RA-102-08,gauge_display,"Gauge reading 0.281"" for 4-RA-102-08",Sarah Thompson,2024-11-05,2024-11-05T16:40:34
+IMG_0194,IMG_0194.jpg,3-CW-101-04,gauge_display,"Gauge reading 0.225"" for 3-CW-101-04",Marcus Chen,2024-11-07,2024-11-07T14:30:55
+IMG_0195,IMG_0195.jpg,3-CW-101-06,gauge_display,"Gauge reading 0.175"" for 3-CW-101-06",Marcus Chen,2024-11-07,2024-11-07T14:30:39
+IMG_0196,IMG_0196.jpg,4-RA-101-05,gauge_display,"Gauge reading 0.237"" for 4-RA-101-05",Marcus Chen,2024-11-05,2024-11-05T16:40:54
+IMG_0197,IMG_0197.jpg,6-SG-102-04,gauge_display,"Gauge reading 0.21"" for 6-SG-102-04",Sarah Thompson,2024-11-04,2024-11-04T16:47:32
+IMG_0198,IMG_0198.jpg,6-SG-101-05,gauge_display,"Gauge reading 0.217"" for 6-SG-101-05",Marcus Chen,2024-11-04,2024-11-04T16:47:56
+IMG_0199,IMG_0199.jpg,4-LA-101-06,gauge_display,"Gauge reading 0.181"" for 4-LA-101-06",Marcus Chen,2024-11-04,2024-11-04T16:47:58
+IMG_0200,IMG_0200.jpg,3-CW-101-05,gauge_display,"Gauge reading 0.195"" for 3-CW-101-05",Sarah Thompson,2024-11-07,2024-11-07T14:30:32
+IMG_0201,IMG_0201.jpg,4-LA-104-03,gauge_display,"Gauge reading 0.179"" for 4-LA-104-03",Sarah Thompson,2024-11-06,2024-11-06T16:47:55
+IMG_0202,IMG_0202.jpg,4-RA-101-06,surface_condition,Surface condition at 4-RA-101-06 - critical finding,Sarah Thompson,2024-11-05,2024-11-05T16:47:32
+IMG_0203,IMG_0203.jpg,6-RA-103-11,surface_condition,Surface condition at 6-RA-103-11 - critical finding,Sarah Thompson,2024-11-06,2024-11-06T16:54:22
+IMG_0204,IMG_0204.jpg,2-RV-102-02,surface_condition,Surface condition at 2-RV-102-02 - critical finding,Marcus Chen,2024-11-06,2024-11-06T16:54:08
+IMG_0205,IMG_0205.jpg,2-RV-102-04,surface_condition,Surface condition at 2-RV-102-04 - critical finding,Marcus Chen,2024-11-06,2024-11-06T16:54:09
+IMG_0206,IMG_0206.jpg,2-RF-102-03,surface_condition,Surface condition at 2-RF-102-03 - critical finding,Marcus Chen,2024-11-06,2024-11-06T16:54:06
+IMG_0207,IMG_0207.jpg,2-RF-102-04,surface_condition,Surface condition at 2-RF-102-04 - critical finding,Sarah Thompson,2024-11-06,2024-11-06T16:54:36
+IMG_0208,IMG_0208.jpg,2-RF-102-05,surface_condition,Surface condition at 2-RF-102-05 - critical finding,Marcus Chen,2024-11-06,2024-11-06T16:54:12
+IMG_0209,IMG_0209.jpg,6-LA-103-08,inaccessible_documentation,Inaccessible CML documentation for 6-LA-103-08,Sarah Thompson,2024-11-05,2024-11-05T16:40:06
+IMG_0210,IMG_0210.jpg,2-ST-101-03,inaccessible_documentation,Inaccessible CML documentation for 2-ST-101-03,Sarah Thompson,2024-11-07,2024-11-07T14:30:00
+IMG_0211,IMG_0211.jpg,3-CW-101-01,anomaly,Scale deposit anomaly at 3-CW-101-01,Sarah Thompson,2024-11-07,2024-11-07T14:30:11
+IMG_0212,IMG_0212.jpg,3-CW-101-02,anomaly,Scale deposit anomaly at 3-CW-101-02,Marcus Chen,2024-11-07,2024-11-07T14:30:24
+IMG_0213,IMG_0213.jpg,3-CW-101-04,anomaly,Scale deposit anomaly at 3-CW-101-04,Marcus Chen,2024-11-07,2024-11-07T14:30:07
+IMG_0214,IMG_0214.jpg,N/A,calibration_check,Daily calibration verification - Marcus Chen - 2024-11-04,Marcus Chen,2024-11-04,2024-11-04T07:00:00
+IMG_0215,IMG_0215.jpg,N/A,calibration_check,Daily calibration verification - Sarah Thompson - 2024-11-04,Sarah Thompson,2024-11-04,2024-11-04T07:00:00
+IMG_0216,IMG_0216.jpg,N/A,calibration_check,Daily calibration verification - Marcus Chen - 2024-11-05,Marcus Chen,2024-11-05,2024-11-05T07:00:00
+IMG_0217,IMG_0217.jpg,N/A,calibration_check,Daily calibration verification - Sarah Thompson - 2024-11-05,Sarah Thompson,2024-11-05,2024-11-05T07:00:00
+IMG_0218,IMG_0218.jpg,N/A,calibration_check,Daily calibration verification - Marcus Chen - 2024-11-06,Marcus Chen,2024-11-06,2024-11-06T07:00:00
+IMG_0219,IMG_0219.jpg,N/A,calibration_check,Daily calibration verification - Sarah Thompson - 2024-11-06,Sarah Thompson,2024-11-06,2024-11-06T07:00:00
+IMG_0220,IMG_0220.jpg,N/A,calibration_check,Daily calibration verification - Marcus Chen - 2024-11-07,Marcus Chen,2024-11-07,2024-11-07T07:00:00
+IMG_0221,IMG_0221.jpg,N/A,calibration_check,Daily calibration verification - Sarah Thompson - 2024-11-07,Sarah Thompson,2024-11-07,2024-11-07T07:00:00
+IMG_0222,IMG_0222.jpg,N/A,general_site,Overview of amine contactor V-101 and associated piping,Marcus Chen,2024-11-04,2024-11-04T07:30:00
+IMG_0223,IMG_0223.jpg,N/A,general_site,Regenerator T-102 and overhead system,Sarah Thompson,2024-11-04,2024-11-04T07:30:00
+IMG_0224,IMG_0224.jpg,N/A,general_site,Lean/Rich amine exchanger E-103 area,Marcus Chen,2024-11-05,2024-11-05T07:30:00
+IMG_0225,IMG_0225.jpg,N/A,general_site,Amine pumps P-105A/B and cooler area,Sarah Thompson,2024-11-06,2024-11-06T07:30:00
+IMG_0226,IMG_0226.jpg,N/A,general_site,Main entrance to ATU-100 inspection work area,Marcus Chen,2024-11-07,2024-11-07T07:30:00
