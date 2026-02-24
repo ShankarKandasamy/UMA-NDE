@@ -820,6 +820,287 @@
             color: var(--accent);
         }
 
+        /* Search Tab */
+        #search-tab {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .search-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .search-input-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-btn {
+            padding: 0.75rem 1.25rem;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            transition: opacity 0.15s ease;
+        }
+
+        .search-btn:hover {
+            opacity: 0.9;
+        }
+
+        .search-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .search-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .search-progress {
+            margin-top: 0.75rem;
+            display: none;
+        }
+
+        .search-progress.active {
+            display: block;
+        }
+
+        .search-progress-bar {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-stage {
+            flex: 1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .search-stage.active {
+            background: var(--accent);
+            animation: pulse 1.5s infinite;
+        }
+
+        .search-stage.done {
+            background: var(--accent);
+        }
+
+        .search-progress-text {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .search-results {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .search-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .search-empty svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .search-empty p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .search-summary {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .search-result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.15s ease;
+        }
+
+        .search-result-card:hover {
+            border-color: var(--accent);
+        }
+
+        .search-result-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-result-file {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .search-type-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .search-type-badge.table {
+            background: #ff884422;
+            color: #ff8844;
+        }
+
+        .search-type-badge.chart {
+            background: #4488ff22;
+            color: #4488ff;
+        }
+
+        .search-type-badge.image {
+            background: #aa44ff22;
+            color: #aa44ff;
+        }
+
+        .search-type-badge.reading {
+            background: #ffaa0022;
+            color: #ffaa00;
+        }
+
+        .search-result-reason {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .search-result-content {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .search-result-content h4 {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .search-result-content p {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .search-result-content pre {
+            background: var(--bg-primary);
+            padding: 0.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .search-result-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .search-result-table th,
+        .search-result-table td {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .search-result-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .search-result-table td {
+            color: var(--text-primary);
+        }
+
+        .search-reading-card {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .search-reading-param {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: capitalize;
+        }
+
+        .search-reading-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+        }
+
+        .search-reading-unit {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
         /* Preview Modal */
         .modal-overlay {
             position: fixed;
@@ -1175,6 +1456,14 @@
             </svg>
             Gallery
         </button>
+        <button class="tab" data-tab="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            Search
+        </button>
         <button class="tab" data-tab="reports">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -1239,6 +1528,40 @@
             <div class="gallery-footer">
                 <span class="gallery-count" id="galleryCount">0 images</span>
                 <button class="load-more-btn" id="loadMoreBtn" style="display: none;">Load More</button>
+            </div>
+        </section>
+
+        <!-- Search Tab -->
+        <section id="search-tab" class="tab-content">
+            <div class="search-header">
+                <div class="search-input-row">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Ask a question about your documents...">
+                    <button class="search-btn" id="searchBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        Search
+                    </button>
+                </div>
+                <div class="search-progress" id="searchProgress">
+                    <div class="search-progress-bar">
+                        <div class="search-stage" id="searchStage1"></div>
+                        <div class="search-stage" id="searchStage2"></div>
+                        <div class="search-stage" id="searchStage3"></div>
+                    </div>
+                    <span class="search-progress-text" id="searchProgressText">Searching...</span>
+                </div>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <p>Search across all your documents using AI.<br>Ask questions like "What are the calibration requirements?" or "Show me thickness readings."</p>
+                </div>
             </div>
         </section>
 
@@ -1329,6 +1652,10 @@
                 <label>Anthropic API Key</label>
                 <input type="password" id="anthropicKey" placeholder="sk-ant-... (for Claude PDF extraction)">
             </div>
+            <div class="setting-item">
+                <label>OpenAI API Key</label>
+                <input type="password" id="openaiKey" placeholder="sk-... (for search scoring)">
+            </div>
             <button class="save-settings-btn" id="saveSettings">Save Settings</button>
         </div>
     </div>
@@ -1350,6 +1677,7 @@
     </div>
 
     <script src="prompts.js"></script>
+    <script src="search.js"></script>
     <script>
         // ============================================
         // State Management
@@ -1805,7 +2133,8 @@
         const settings = {
             apiEndpoint: localStorage.getItem('uma_api_endpoint') || '',
             apiKey: localStorage.getItem('uma_api_key') || '',
-            anthropicKey: localStorage.getItem('uma_anthropic_key') || ''
+            anthropicKey: localStorage.getItem('uma_anthropic_key') || '',
+            openaiKey: localStorage.getItem('uma_openai_key') || ''
         };
 
         // ============================================
@@ -2924,6 +3253,7 @@
             document.getElementById('apiEndpoint').value = settings.apiEndpoint;
             document.getElementById('apiKey').value = settings.apiKey;
             document.getElementById('anthropicKey').value = settings.anthropicKey;
+            document.getElementById('openaiKey').value = settings.openaiKey;
             elements.settingsModal.classList.add('active');
         }
 
@@ -2935,10 +3265,12 @@
             settings.apiEndpoint = document.getElementById('apiEndpoint').value.replace(/\/$/, '');
             settings.apiKey = document.getElementById('apiKey').value;
             settings.anthropicKey = document.getElementById('anthropicKey').value;
+            settings.openaiKey = document.getElementById('openaiKey').value;
 
             localStorage.setItem('uma_api_endpoint', settings.apiEndpoint);
             localStorage.setItem('uma_api_key', settings.apiKey);
             localStorage.setItem('uma_anthropic_key', settings.anthropicKey);
+            localStorage.setItem('uma_openai_key', settings.openaiKey);
 
             closeSettings();
             showToast('Settings saved', 'success');
@@ -3236,6 +3568,159 @@
         }
 
         // ============================================
+        // Search
+        // ============================================
+        let searchInProgress = false;
+
+        async function runSearch() {
+            const input = document.getElementById('searchInput');
+            const query = input.value.trim();
+            if (!query || searchInProgress) return;
+
+            if (!settings.openaiKey) {
+                showToast('OpenAI API key required for search. Add it in Settings.', 'error');
+                return;
+            }
+
+            searchInProgress = true;
+            document.getElementById('searchBtn').disabled = true;
+
+            // Reset progress
+            const progress = document.getElementById('searchProgress');
+            progress.classList.add('active');
+            document.getElementById('searchStage1').className = 'search-stage';
+            document.getElementById('searchStage2').className = 'search-stage';
+            document.getElementById('searchStage3').className = 'search-stage';
+
+            try {
+                const result = await Search.search(query, (p) => {
+                    document.getElementById('searchProgressText').textContent = p.message;
+                    if (p.stage >= 1) document.getElementById('searchStage1').className = 'search-stage ' + (p.stage > 1 ? 'done' : 'active');
+                    if (p.stage >= 2) document.getElementById('searchStage2').className = 'search-stage ' + (p.stage > 2 ? 'done' : 'active');
+                    if (p.stage >= 3) document.getElementById('searchStage3').className = 'search-stage ' + (p.done ? 'done' : 'active');
+                });
+
+                renderSearchResults(result);
+            } catch (err) {
+                console.error('[Search] Error:', err);
+                showToast('Search failed: ' + err.message, 'error');
+                document.getElementById('searchResults').innerHTML = `
+                    <div class="search-empty">
+                        <p style="color: var(--error);">Search failed: ${err.message}</p>
+                    </div>`;
+            } finally {
+                searchInProgress = false;
+                document.getElementById('searchBtn').disabled = false;
+                setTimeout(() => progress.classList.remove('active'), 2000);
+            }
+        }
+
+        function renderSearchResults(result) {
+            const container = document.getElementById('searchResults');
+
+            if (result.results.length === 0) {
+                container.innerHTML = `
+                    <div class="search-empty">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                        <p>No relevant results found. Try a different query or make sure your documents have been extracted.</p>
+                    </div>`;
+                return;
+            }
+
+            let html = `<div class="search-summary">
+                Found ${result.results.length} result${result.results.length !== 1 ? 's' : ''} across
+                ${result.files.length} file${result.files.length !== 1 ? 's' : ''} in
+                ${result.folders.length} folder${result.folders.length !== 1 ? 's' : ''}
+                (${(result.elapsed / 1000).toFixed(1)}s)
+            </div>`;
+
+            for (const item of result.results) {
+                html += renderSearchResultCard(item);
+            }
+
+            container.innerHTML = html;
+        }
+
+        function renderSearchResultCard(item) {
+            const badgeClass = item.type === 'table' ? 'table'
+                : item.type === 'chart' ? 'chart'
+                : item.type === 'image' ? 'image'
+                : item.type === 'reading' ? 'reading'
+                : '';
+
+            let contentHtml = '';
+
+            if (item.type === 'section' && item.content) {
+                contentHtml = `<h4>${escapeHtml(item.content.heading || '')}</h4>
+                    <p>${escapeHtml(truncateText(item.content.text || '', 500))}</p>`;
+            } else if (item.type === 'table' && item.content) {
+                contentHtml = `<h4>${escapeHtml(item.content.title || 'Table')}</h4>`;
+                if (item.content.headers && item.content.rows) {
+                    contentHtml += `<table class="search-result-table"><thead><tr>`;
+                    for (const h of item.content.headers) {
+                        contentHtml += `<th>${escapeHtml(h)}</th>`;
+                    }
+                    contentHtml += `</tr></thead><tbody>`;
+                    const maxRows = Math.min(item.content.rows.length, 10);
+                    for (let i = 0; i < maxRows; i++) {
+                        contentHtml += `<tr>`;
+                        for (const cell of item.content.rows[i]) {
+                            contentHtml += `<td>${escapeHtml(String(cell))}</td>`;
+                        }
+                        contentHtml += `</tr>`;
+                    }
+                    if (item.content.rows.length > 10) {
+                        contentHtml += `<tr><td colspan="${item.content.headers.length}" style="text-align:center; color:var(--text-secondary); font-style:italic;">... ${item.content.rows.length - 10} more rows</td></tr>`;
+                    }
+                    contentHtml += `</tbody></table>`;
+                }
+            } else if (item.type === 'chart' && item.content) {
+                contentHtml = `<h4>${escapeHtml(item.content.title || 'Chart')} (${escapeHtml(item.content.type || '')})</h4>`;
+                if (item.content.insights) {
+                    contentHtml += `<p>${escapeHtml(item.content.insights)}</p>`;
+                }
+                if (item.content.data) {
+                    contentHtml += `<pre>${escapeHtml(JSON.stringify(item.content.data, null, 2))}</pre>`;
+                }
+            } else if (item.type === 'image' && item.content) {
+                contentHtml = `<p>${escapeHtml(item.content.description || '')}</p>`;
+                if (item.content.ocr_text) {
+                    contentHtml += `<pre>${escapeHtml(item.content.ocr_text)}</pre>`;
+                }
+            } else if (item.type === 'reading' && item.content) {
+                contentHtml = `<div class="search-reading-card">
+                    <span class="search-reading-param">${escapeHtml(item.content.parameter || '')}</span>
+                    <span class="search-reading-value">${escapeHtml(String(item.content.value || ''))}</span>
+                    <span class="search-reading-unit">${escapeHtml(item.content.unit || '')}</span>
+                </div>`;
+            }
+
+            return `<div class="search-result-card">
+                <div class="search-result-header">
+                    <span class="search-result-file">${escapeHtml(item.fileTitle || item.filename || '')}</span>
+                    <span class="search-type-badge ${badgeClass}">${item.type}</span>
+                    <span style="font-size:0.7rem; color:var(--text-secondary);">${escapeHtml(item.folder || '')}</span>
+                </div>
+                <div class="search-result-reason">${escapeHtml(item.reason || '')}</div>
+                <div class="search-result-content">${contentHtml}</div>
+            </div>`;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function truncateText(text, maxLen) {
+            if (text.length <= maxLen) return text;
+            return text.substring(0, maxLen) + '...';
+        }
+
+        // ============================================
         // Event Listeners
         // ============================================
         function setupEventListeners() {
@@ -3284,6 +3769,12 @@
             document.getElementById('saveSettings').addEventListener('click', saveSettings);
             elements.settingsModal.addEventListener('click', (e) => {
                 if (e.target === elements.settingsModal) closeSettings();
+            });
+
+            // Search
+            document.getElementById('searchBtn').addEventListener('click', runSearch);
+            document.getElementById('searchInput').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') runSearch();
             });
 
             // Keyboard shortcuts

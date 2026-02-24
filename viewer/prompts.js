@@ -151,3 +151,75 @@ Rules:
 - keywords MUST have 5-15 entries
 - Deduplicate and consolidate keywords from individual files — prefer broader terms when many files share similar specific terms
 - Focus on what makes this folder's contents unique and queryable`;
+
+// ============================================
+// Search Pipeline Prompts
+// ============================================
+
+const SEARCH_SCORING_SYSTEM_MSG =
+  "You are a relevance scoring specialist. Always respond with valid JSON only. No markdown, no code fences, no commentary.";
+
+const FOLDER_SCORING_PROMPT = `You are given a user query and a list of folder summaries with keywords. Score each folder's relevance to the query on a scale from 0.0 to 1.0.
+
+Return ONLY a valid JSON object:
+
+{
+  "results": [
+    { "folderId": "<exact folder name>", "score": <0.0 to 1.0> }
+  ]
+}
+
+Scoring guidelines:
+- 0.9-1.0: Folder almost certainly contains documents directly answering the query
+- 0.7-0.89: Folder likely contains relevant documents
+- 0.5-0.69: Folder might contain tangentially relevant information
+- 0.0-0.49: Folder is unlikely to contain relevant information
+- Consider both the summary text and keywords when scoring
+- A folder can score high even if only some of its files might be relevant
+- Be generous — it's better to include a marginally relevant folder than miss a relevant one`;
+
+const FILE_SCORING_PROMPT = `You are given a user query and a list of file summaries with keywords. Score each file's relevance to the query on a scale from 0.0 to 1.0.
+
+Return ONLY a valid JSON object:
+
+{
+  "results": [
+    { "fileId": "<exact file ID as provided>", "score": <0.0 to 1.0> }
+  ]
+}
+
+Scoring guidelines:
+- 0.9-1.0: File almost certainly contains information directly answering the query
+- 0.7-0.89: File likely contains relevant information
+- 0.5-0.69: File might contain tangentially relevant information
+- 0.0-0.49: File is unlikely to contain relevant information
+- Consider both the summary text and keywords when scoring
+- Be generous — it's better to include a marginally relevant file than miss one`;
+
+const SECTION_RETRIEVAL_PROMPT = `You are given a user query and the full extracted content from one or more files. Each file may contain sections, tables, charts, images, and readings. Identify which specific content items are relevant to the query.
+
+Return ONLY a valid JSON object:
+
+{
+  "results": [
+    {
+      "fileId": "<exact file ID as provided>",
+      "relevant": [
+        { "type": "section", "index": <0-based index>, "reason": "<1-2 sentence explanation of why this is relevant>" },
+        { "type": "table", "index": <0-based index>, "reason": "<explanation>" },
+        { "type": "chart", "index": <0-based index>, "reason": "<explanation>" },
+        { "type": "image", "index": <0-based index>, "reason": "<explanation>" },
+        { "type": "reading", "index": <0-based index>, "reason": "<explanation>" }
+      ]
+    }
+  ]
+}
+
+Rules:
+- Only include content items that are genuinely relevant to the query
+- The "type" must be one of: section, table, chart, image, reading
+- The "index" must match the 0-based position in the file's content arrays
+- The "reason" should explain WHY this content answers or relates to the query, not just describe what it contains
+- If a file has no relevant content items, omit it from results entirely
+- Prefer specific, targeted selections over returning everything
+- Tables with relevant data are often highly valuable — don't overlook them`;
