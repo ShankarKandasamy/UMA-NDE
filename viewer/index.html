@@ -288,6 +288,46 @@
             padding-left: 3.5rem;
         }
 
+        .folder-summary-badge {
+            font-size: 0.6rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .folder-summary-badge.generating {
+            background: var(--warning);
+            color: var(--bg-primary);
+            animation: pulse-badge 1.2s ease-in-out infinite;
+        }
+
+        .folder-summary-badge.ready {
+            background: var(--success);
+            color: var(--bg-primary);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .folder-summary-badge.ready.fading {
+            opacity: 0;
+        }
+
+        .folder-summary-badge.error {
+            background: var(--error);
+            color: var(--bg-primary);
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
         .file-tree-item .file-tree-icon {
             width: 14px;
             height: 14px;
@@ -299,6 +339,36 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+        }
+
+        /* Context Menu */
+        .context-menu {
+            position: fixed;
+            z-index: 1000;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4px 0;
+            min-width: 160px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        .context-menu-item {
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            transition: background 0.15s;
+        }
+        .context-menu-item:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        .context-menu-item.danger {
+            color: #ef4444;
+        }
+        .context-menu-item.danger:hover {
+            background: #ef4444;
+            color: #fff;
         }
 
         .inline-preview {
@@ -1271,6 +1341,14 @@
         <span id="toastMessage">Success</span>
     </div>
 
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu" style="display:none">
+        <div class="context-menu-item" data-action="rename">Rename Folder</div>
+        <div class="context-menu-item" data-action="move">Move to...</div>
+        <div class="context-menu-item" data-action="new-folder">New Folder</div>
+        <div class="context-menu-item danger" data-action="delete">Delete Folder</div>
+    </div>
+
     <script src="prompts.js"></script>
     <script>
         // ============================================
@@ -1413,12 +1491,18 @@
                 });
             },
 
-            async putMetadata(folder, extraction) {
+            async putMetadata(folder, data) {
                 const db = await this.open();
                 return new Promise((resolve, reject) => {
                     const tx = db.transaction(this.STORE_META, 'readwrite');
                     const store = tx.objectStore(this.STORE_META);
-                    store.put({ folder, extraction, updated: new Date().toISOString() });
+                    const getReq = store.get(folder);
+                    getReq.onsuccess = () => {
+                        const existing = getReq.result || { folder };
+                        const merged = { ...existing, ...data, folder, updated: new Date().toISOString() };
+                        store.put(merged);
+                    };
+                    getReq.onerror = (e) => reject(e.target.error);
                     tx.oncomplete = () => resolve();
                     tx.onerror = (e) => reject(e.target.error);
                 });
@@ -1520,6 +1604,201 @@
                 }
                 return JSON.parse(cleaned);
             }
+        }
+
+        // ============================================
+        // Folder Summary Generation
+        // ============================================
+        const folderSummaryTimers = {};
+        const folderSummaryStates = {};
+
+        function setFolderSummaryStatus(folderName, status) {
+            folderSummaryStates[folderName] = status;
+            // Update badge in sidebar without full re-render
+            const badge = document.querySelector(`.folder-summary-badge[data-folder="${folderName}"]`);
+            if (badge) {
+                badge.className = `folder-summary-badge ${status}`;
+                badge.textContent = status === 'generating' ? '' : status === 'ready' ? '\u2713' : '!';
+                if (status === 'ready') {
+                    setTimeout(() => {
+                        badge.classList.add('fading');
+                        setTimeout(() => { delete folderSummaryStates[folderName]; badge.remove(); }, 500);
+                    }, 5000);
+                }
+            } else {
+                // Badge not in DOM yet — trigger re-render so it appears
+                renderFolderTree(state.folders);
+            }
+        }
+
+        async function isFolderSummaryStale(folderName) {
+            try {
+                const files = await DevDB.listFiles(folderName);
+                const realFiles = files
+                    .filter(f => {
+                        const name = f.key.split('/').pop();
+                        return name !== '.folder' && !name.endsWith('_extraction.json');
+                    })
+                    .map(f => f.key.split('/').pop())
+                    .sort();
+
+                const meta = await DevDB.getMetadata(folderName);
+                if (!meta || !meta.folderSummary) return true;
+
+                const storedList = (meta.folderSummary.fileList || []).slice().sort();
+                if (realFiles.length !== storedList.length) return true;
+                return realFiles.some((f, i) => f !== storedList[i]);
+            } catch (err) {
+                console.warn(`[Folder Summary] Stale check failed for ${folderName}:`, err);
+                return true;
+            }
+        }
+
+        async function generateFolderSummary(folderName) {
+            if (!settings.anthropicKey || !settings.apiEndpoint) {
+                console.warn('[Folder Summary] No API key/endpoint configured, skipping');
+                return;
+            }
+
+            console.log(`[Folder Summary] Generating for "${folderName}"...`);
+            setFolderSummaryStatus(folderName, 'generating');
+
+            try {
+                // List real files in folder
+                const files = await DevDB.listFiles(folderName);
+                const realFiles = files.filter(f => {
+                    const name = f.key.split('/').pop();
+                    return name !== '.folder' && !name.endsWith('_extraction.json');
+                });
+
+                if (realFiles.length === 0) {
+                    // Empty folder — clear summary
+                    await DevDB.putMetadata(folderName, { folderSummary: null });
+                    console.log(`[Folder Summary] Cleared summary for empty folder "${folderName}"`);
+                    setFolderSummaryStatus(folderName, 'ready');
+                    return;
+                }
+
+                // Collect extraction summaries
+                const fileSummaries = [];
+                const fileList = [];
+                for (const file of realFiles) {
+                    const fileName = file.key.split('/').pop();
+                    fileList.push(fileName);
+
+                    // Look for companion extraction JSON
+                    const baseName = fileName.replace(/\.[^.]+$/, '');
+                    const extKey = `${folderName}/${baseName}_extraction.json`;
+                    try {
+                        const extRecord = await DevDB.getFile(extKey);
+                        if (extRecord && extRecord.blob) {
+                            const text = await extRecord.blob.text();
+                            const extraction = JSON.parse(text);
+                            fileSummaries.push({
+                                filename: fileName,
+                                summary: extraction.summary || '',
+                                keywords: extraction.keywords || []
+                            });
+                        }
+                    } catch (_) {
+                        // No extraction available — skip
+                    }
+                }
+
+                if (fileSummaries.length === 0) {
+                    console.log(`[Folder Summary] No extractions available yet for "${folderName}", skipping`);
+                    delete folderSummaryStates[folderName];
+                    return;
+                }
+
+                // Build user message
+                let userMessage = `Folder: "${folderName}"\nFiles: ${fileSummaries.length}\n\n`;
+                fileSummaries.forEach((f, i) => {
+                    userMessage += `--- File ${i + 1}: ${f.filename} ---\nSummary: ${f.summary}\nKeywords: ${Array.isArray(f.keywords) ? f.keywords.join(', ') : f.keywords}\n\n`;
+                });
+
+                // Call Claude Sonnet via proxy
+                const body = {
+                    model: 'claude-sonnet-4-5-20250929',
+                    max_tokens: 1024,
+                    system: FOLDER_SUMMARY_SYSTEM_MSG,
+                    messages: [{ role: 'user', content: userMessage + '\n\n' + FOLDER_SUMMARY_PROMPT }]
+                };
+
+                const response = await fetch(`${settings.apiEndpoint}/llm/anthropic`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': settings.apiKey,
+                        'X-Anthropic-Key': settings.anthropicKey
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                if (!response.ok) {
+                    const errText = await response.text();
+                    throw new Error(`API error ${response.status}: ${errText}`);
+                }
+
+                const data = await response.json();
+                const rawText = data.content[0].text;
+
+                if (data.usage) {
+                    console.log(`[Folder Summary] Tokens — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
+                }
+
+                let result;
+                try {
+                    result = JSON.parse(rawText);
+                } catch {
+                    let cleaned = rawText.trim();
+                    if (cleaned.startsWith('```')) {
+                        cleaned = cleaned.split('\n').slice(1).join('\n').replace(/```\s*$/, '');
+                    }
+                    result = JSON.parse(cleaned);
+                }
+
+                // Save to metadata store
+                await DevDB.putMetadata(folderName, {
+                    folderSummary: {
+                        summary: result.summary,
+                        keywords: result.keywords,
+                        fileCount: realFiles.length,
+                        fileList: fileList.sort(),
+                        generated: new Date().toISOString()
+                    }
+                });
+
+                console.log(`[Folder Summary] Saved summary for "${folderName}" (${realFiles.length} files, ${result.keywords.length} keywords)`);
+                setFolderSummaryStatus(folderName, 'ready');
+            } catch (err) {
+                console.error(`[Folder Summary] Generation failed for "${folderName}":`, err);
+                setFolderSummaryStatus(folderName, 'error');
+            }
+        }
+
+        function scheduleFolderSummary(folderName) {
+            if (folderName === 'Uncategorized') return;
+
+            console.log(`[Folder Summary] Scheduled regeneration for "${folderName}" in 7s`);
+
+            if (folderSummaryTimers[folderName]) {
+                clearTimeout(folderSummaryTimers[folderName]);
+            }
+
+            folderSummaryTimers[folderName] = setTimeout(async () => {
+                delete folderSummaryTimers[folderName];
+                try {
+                    const stale = await isFolderSummaryStale(folderName);
+                    if (stale) {
+                        await generateFolderSummary(folderName);
+                    } else {
+                        console.log(`[Folder Summary] "${folderName}" is up-to-date, skipping`);
+                    }
+                } catch (err) {
+                    console.error(`[Folder Summary] Error in scheduled task for "${folderName}":`, err);
+                }
+            }, 7000);
         }
 
         // Settings from localStorage
@@ -1786,6 +2065,9 @@
 
                                         showToast(`Extraction complete: ${_fileName} → ${category}`, 'success');
 
+                                        // Schedule folder summary regeneration
+                                        scheduleFolderSummary(category);
+
                                         // Refresh sidebar — clear cached expansion so folders re-fetch
                                         state.expandedDevFolders = {};
                                         await loadDevFolders();
@@ -1895,11 +2177,12 @@
                                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                             </svg>
                             <span class="folder-name">${sub}</span>
+                            ${folderSummaryStates[sub] ? `<span class="folder-summary-badge ${folderSummaryStates[sub]}" data-folder="${sub}">${folderSummaryStates[sub] === 'generating' ? '' : folderSummaryStates[sub] === 'ready' ? '\u2713' : '!'}</span>` : ''}
                         </div>
                     `;
                     // Render nested file items if this dev subfolder is expanded
                     if (isSubExpanded && Array.isArray(state.expandedDevFolders[sub])) {
-                        state.expandedDevFolders[sub].forEach(file => {
+                        state.expandedDevFolders[sub].filter(f => f.key.split('/').pop() !== '.folder').forEach(file => {
                             const fileName = file.customMetadata?.originalName || file.key.split('/').pop();
                             const isSelected = state.selectedFileKey === file.key;
                             html += `
@@ -1979,6 +2262,28 @@
                     } else {
                         renderInlinePreview(fileKey, fileName);
                     }
+                });
+            });
+
+            // Context menu: right-click on Development root row
+            elements.folderTree.querySelectorAll('.folder-item[data-dev="true"]:not([data-dev-sub])').forEach(item => {
+                item.addEventListener('contextmenu', (e) => {
+                    showContextMenu(e, 'dev-root', {});
+                });
+            });
+
+            // Context menu: right-click on dev subfolder rows
+            elements.folderTree.querySelectorAll('.folder-item[data-dev-sub]').forEach(item => {
+                item.addEventListener('contextmenu', (e) => {
+                    const sub = item.dataset.path.split('/')[1];
+                    showContextMenu(e, 'folder', { name: sub });
+                });
+            });
+
+            // Context menu: right-click on local file items
+            elements.folderTree.querySelectorAll('.file-tree-item[data-local]').forEach(item => {
+                item.addEventListener('contextmenu', (e) => {
+                    showContextMenu(e, 'file', { key: item.dataset.fileKey, name: item.dataset.fileName });
                 });
             });
         }
@@ -2127,7 +2432,7 @@
                 // Expand — fetch files from IndexedDB
                 try {
                     const files = await DevDB.listFiles(subName);
-                    state.expandedDevFolders[subName] = files.map(f => ({
+                    state.expandedDevFolders[subName] = files.filter(f => f.key.split('/').pop() !== '.folder').map(f => ({
                         key: f.key,
                         size: f.size,
                         uploaded: f.uploaded,
@@ -2753,6 +3058,173 @@
             return `${bytes.toFixed(i > 0 ? 1 : 0)} ${units[i]}`;
         }
 
+        // ============================================
+        // Context Menu & Folder Operations
+        // ============================================
+        let contextMenuTarget = null; // { type: 'folder'|'file', name: string, key: string }
+
+        function showContextMenu(e, targetType, targetData) {
+            e.preventDefault();
+            e.stopPropagation();
+            contextMenuTarget = { type: targetType, ...targetData };
+            const menu = document.getElementById('contextMenu');
+            // Show/hide items based on target type
+            menu.querySelector('[data-action="rename"]').style.display = targetType === 'folder' ? '' : 'none';
+            menu.querySelector('[data-action="move"]').style.display = targetType === 'file' ? '' : 'none';
+            menu.querySelector('[data-action="new-folder"]').style.display = targetType === 'dev-root' ? '' : 'none';
+            menu.querySelector('[data-action="delete"]').style.display = targetType === 'folder' ? '' : 'none';
+            menu.style.display = 'block';
+            // Position at cursor, clamped to viewport
+            const x = Math.min(e.clientX, window.innerWidth - 180);
+            const y = Math.min(e.clientY, window.innerHeight - menu.offsetHeight - 10);
+            menu.style.left = x + 'px';
+            menu.style.top = y + 'px';
+        }
+
+        function hideContextMenu() {
+            document.getElementById('contextMenu').style.display = 'none';
+            contextMenuTarget = null;
+        }
+
+        document.addEventListener('click', hideContextMenu);
+        document.addEventListener('contextmenu', (e) => {
+            if (!e.target.closest('.context-menu')) hideContextMenu();
+        });
+
+        // Wire context menu item clicks
+        document.getElementById('contextMenu').addEventListener('click', (e) => {
+            const action = e.target.dataset.action;
+            if (!action || !contextMenuTarget) return;
+            const target = contextMenuTarget;
+            hideContextMenu();
+            switch (action) {
+                case 'rename': renameDevFolder(target.name); break;
+                case 'move': moveDevFile(target.key); break;
+                case 'new-folder': createDevFolder(); break;
+                case 'delete': deleteDevFolder(target.name); break;
+            }
+        });
+
+        async function renameDevFolder(oldName) {
+            const newName = prompt('Rename folder:', oldName);
+            if (!newName || newName === oldName) return;
+            if (newName.includes('/')) { showToast('Folder name cannot contain "/"', 'error'); return; }
+            if (state.devFolders.includes(newName)) { showToast('A folder with that name already exists', 'error'); return; }
+            try {
+                const files = await DevDB.listFiles(oldName);
+                for (const file of files) {
+                    const record = await DevDB.getFile(file.key);
+                    const filename = file.key.split('/').slice(1).join('/');
+                    await DevDB.putFile(newName + '/' + filename, record.blob, record.originalName);
+                    await DevDB.deleteFile(file.key);
+                }
+                // Update expanded cache
+                if (state.expandedDevFolders.hasOwnProperty(oldName)) {
+                    state.expandedDevFolders[newName] = state.expandedDevFolders[oldName].map(f => ({
+                        ...f,
+                        key: newName + '/' + f.key.split('/').slice(1).join('/')
+                    }));
+                    delete state.expandedDevFolders[oldName];
+                }
+                if (state.currentPath[1] === oldName) {
+                    state.currentPath[1] = newName;
+                }
+                await loadDevFolders();
+                renderFolderTree(state.folders);
+                showToast('Renamed to ' + newName);
+            } catch (err) {
+                console.error('Rename failed:', err);
+                showToast('Rename failed', 'error');
+            }
+        }
+
+        async function moveDevFile(fileKey) {
+            const currentFolder = fileKey.split('/')[0];
+            const targets = state.devFolders.filter(f => f !== currentFolder);
+            if (targets.length === 0) { showToast('No other folders to move to', 'error'); return; }
+            const list = targets.map((f, i) => `${i + 1}. ${f}`).join('\n');
+            const choice = prompt('Move to:\n' + list + '\n\nEnter number:');
+            if (!choice) return;
+            const idx = parseInt(choice, 10) - 1;
+            if (isNaN(idx) || idx < 0 || idx >= targets.length) { showToast('Invalid selection', 'error'); return; }
+            const targetFolder = targets[idx];
+            try {
+                const record = await DevDB.getFile(fileKey);
+                if (!record) { showToast('File not found', 'error'); return; }
+                const filename = fileKey.split('/').slice(1).join('/');
+                await DevDB.putFile(targetFolder + '/' + filename, record.blob, record.originalName);
+                await DevDB.deleteFile(fileKey);
+                // Move companion extraction JSON if it exists
+                const extKey = fileKey.replace(/\.[^.]+$/, '_extraction.json');
+                if (extKey !== fileKey) {
+                    const extRecord = await DevDB.getFile(extKey);
+                    if (extRecord) {
+                        const extFilename = extKey.split('/').slice(1).join('/');
+                        await DevDB.putFile(targetFolder + '/' + extFilename, extRecord.blob, extRecord.originalName);
+                        await DevDB.deleteFile(extKey);
+                    }
+                }
+                // Refresh caches for both folders
+                delete state.expandedDevFolders[currentFolder];
+                delete state.expandedDevFolders[targetFolder];
+                // Re-expand source folder if it was expanded
+                try {
+                    const srcFiles = await DevDB.listFiles(currentFolder);
+                    state.expandedDevFolders[currentFolder] = srcFiles.filter(f => f.key.split('/').pop() !== '.folder').map(f => ({
+                        key: f.key, size: f.size, uploaded: f.uploaded,
+                        customMetadata: { originalName: f.originalName }, _local: true
+                    }));
+                } catch (_) {}
+                state.selectedFileKey = null;
+                renderFolderTree(state.folders);
+                showToast('Moved to ' + targetFolder);
+                // Schedule folder summary regeneration for both source and target
+                scheduleFolderSummary(currentFolder);
+                scheduleFolderSummary(targetFolder);
+            } catch (err) {
+                console.error('Move failed:', err);
+                showToast('Move failed', 'error');
+            }
+        }
+
+        async function createDevFolder() {
+            const folderName = prompt('New folder name:');
+            if (!folderName) return;
+            if (folderName.includes('/')) { showToast('Folder name cannot contain "/"', 'error'); return; }
+            if (state.devFolders.includes(folderName)) { showToast('Folder already exists', 'error'); return; }
+            try {
+                await DevDB.putFile(folderName + '/.folder', new Blob(['']), '.folder');
+                await loadDevFolders();
+                renderFolderTree(state.folders);
+                showToast('Created folder: ' + folderName);
+            } catch (err) {
+                console.error('Create folder failed:', err);
+                showToast('Create folder failed', 'error');
+            }
+        }
+
+        async function deleteDevFolder(folderName) {
+            try {
+                const files = await DevDB.listFiles(folderName);
+                const realFiles = files.filter(f => f.key.split('/').pop() !== '.folder');
+                if (realFiles.length > 0) { showToast('Folder is not empty', 'error'); return; }
+                if (!confirm('Delete folder "' + folderName + '"?')) return;
+                // Delete sentinel
+                const sentinel = files.find(f => f.key.split('/').pop() === '.folder');
+                if (sentinel) await DevDB.deleteFile(sentinel.key);
+                delete state.expandedDevFolders[folderName];
+                if (state.currentPath[1] === folderName) {
+                    state.currentPath = ['Development'];
+                }
+                await loadDevFolders();
+                renderFolderTree(state.folders);
+                showToast('Deleted folder: ' + folderName);
+            } catch (err) {
+                console.error('Delete folder failed:', err);
+                showToast('Delete folder failed', 'error');
+            }
+        }
+
         function showToast(message, type = 'success') {
             elements.toastMessage.textContent = message;
             elements.toast.className = `toast ${type}`;
@@ -2867,6 +3339,19 @@
                     console.warn('[Dev Sync] Initial sync failed:', err);
                 }
             }
+
+            // Startup stale-check for folder summaries (after initial sync settles)
+            setTimeout(async () => {
+                try {
+                    const devFolders = await DevDB.listSubfolders();
+                    for (const folder of devFolders) {
+                        if (folder === 'Uncategorized') continue;
+                        scheduleFolderSummary(folder);
+                    }
+                } catch (err) {
+                    console.warn('[Folder Summary] Startup stale-check failed:', err);
+                }
+            }, 15000);
         }
 
         // Service Worker Registration
