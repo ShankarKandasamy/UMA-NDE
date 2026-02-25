@@ -1393,18 +1393,79 @@
             }
         }
 
+        /* Mobile sidebar toggle */
+        .sidebar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .sidebar-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sidebar-close {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.25rem;
+            margin-left: auto;
+        }
+
+        .sidebar-close svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+
+        .sidebar-overlay.open {
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: flex;
+                align-items: center;
+            }
+
+            .sidebar-close {
+                display: flex;
+                align-items: center;
+            }
+
             .sidebar {
                 display: none;
                 position: fixed;
-                inset: 0;
-                width: 100%;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 280px;
                 z-index: 100;
             }
 
             .sidebar.open {
                 display: flex;
+            }
+
+            .sidebar-header {
+                display: flex;
+                align-items: center;
             }
 
             .file-grid {
@@ -1480,9 +1541,19 @@
     <div class="main-content">
         <!-- Browse Tab -->
         <section id="browse-tab" class="tab-content active">
+            <!-- Sidebar overlay (mobile) -->
+            <div class="sidebar-overlay" id="sidebarOverlay"></div>
             <!-- Sidebar -->
             <aside class="sidebar" id="sidebar">
-                <div class="sidebar-header">Folders</div>
+                <div class="sidebar-header">
+                    Folders
+                    <button class="sidebar-close" id="sidebarClose" aria-label="Close folders">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
                 <div class="folder-tree" id="folderTree">
                     <!-- Populated by JavaScript -->
                 </div>
@@ -1492,6 +1563,13 @@
             <!-- File Panel -->
             <div class="file-panel">
                 <div class="breadcrumb-bar" id="breadcrumbs">
+                    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open folders">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
                     <span class="breadcrumb current">Home</span>
                 </div>
                 <div class="file-toolbar">
@@ -2524,6 +2602,20 @@
                                 </div>
                             `;
                         });
+                        // Virtual _summary.md item
+                        if (state.expandedDevFolders[sub]._summary) {
+                            const summaryKey = `__summary__/${sub}`;
+                            const isSummarySelected = state.selectedFileKey === summaryKey;
+                            html += `
+                                <div class="file-tree-item nested-2 ${isSummarySelected ? 'active' : ''}" data-file-key="${summaryKey}" data-file-name="_summary.md" data-virtual-summary="${sub}" style="opacity:0.7; font-style:italic">
+                                    <svg class="file-tree-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    <span class="file-tree-name">_summary.md</span>
+                                </div>
+                            `;
+                        }
                     }
                 });
             }
@@ -2580,11 +2672,18 @@
                 item.addEventListener('click', (e) => {
                     const fileKey = item.dataset.fileKey;
                     const fileName = item.dataset.fileName;
-                    const isLocal = item.dataset.local === 'true';
-                    state.selectedFileKey = fileKey;
                     // Update active states in tree
                     elements.folderTree.querySelectorAll('.file-tree-item').forEach(el => el.classList.remove('active'));
                     item.classList.add('active');
+                    // Handle virtual summary click
+                    if (item.dataset.virtualSummary) {
+                        const sub = item.dataset.virtualSummary;
+                        state.selectedFileKey = `__summary__/${sub}`;
+                        renderFolderSummaryPreview(sub);
+                        return;
+                    }
+                    const isLocal = item.dataset.local === 'true';
+                    state.selectedFileKey = fileKey;
                     // Show inline preview in the right pane
                     if (isLocal) {
                         renderInlinePreviewLocal(fileKey, fileName);
@@ -2610,7 +2709,7 @@
             });
 
             // Context menu: right-click on local file items
-            elements.folderTree.querySelectorAll('.file-tree-item[data-local]').forEach(item => {
+            elements.folderTree.querySelectorAll('.file-tree-item[data-local]:not([data-virtual-summary])').forEach(item => {
                 item.addEventListener('contextmenu', (e) => {
                     showContextMenu(e, 'file', { key: item.dataset.fileKey, name: item.dataset.fileName });
                 });
@@ -2768,6 +2867,8 @@
                         customMetadata: { originalName: f.originalName },
                         _local: true
                     }));
+                    const meta = await DevDB.getMetadata(subName);
+                    state.expandedDevFolders[subName]._summary = meta?.folderSummary || null;
                 } catch (err) {
                     console.error('Failed to load dev subfolder files:', err);
                     state.expandedDevFolders[subName] = [];
@@ -2854,6 +2955,30 @@
                     </div>
                 `;
             }
+        }
+
+        async function renderFolderSummaryPreview(subName) {
+            renderBreadcrumbs(['Development', subName, '_summary.md']);
+            elements.fileCount.textContent = '_summary.md';
+            const meta = await DevDB.getMetadata(subName);
+            if (!meta?.folderSummary) {
+                elements.fileGrid.innerHTML = '<div class="inline-preview"><p>No summary available yet.</p></div>';
+                return;
+            }
+            const s = meta.folderSummary;
+            const esc = (str) => String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            const keywordsHtml = (s.keywords || []).map(k => `<code style="background:var(--bg-tertiary);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem;">${esc(k)}</code>`).join(' ');
+            const ts = s.generatedAt ? new Date(s.generatedAt).toLocaleString() : 'unknown';
+            elements.fileGrid.innerHTML = `
+                <div class="inline-preview" style="padding:1.5rem;">
+                    <h3 style="margin:0 0 1rem 0;color:var(--text-primary);">${esc(subName)} — Folder Summary</h3>
+                    <p style="color:var(--text-secondary);line-height:1.6;white-space:pre-wrap;">${esc(s.summary)}</p>
+                    ${keywordsHtml ? `<div style="margin-top:1rem;"><strong style="color:var(--text-primary);">Keywords:</strong> ${keywordsHtml}</div>` : ''}
+                    <div style="margin-top:1rem;color:var(--text-tertiary);font-size:0.8rem;">
+                        ${s.fileCount ? `${s.fileCount} files` : ''} ${s.fileCount ? '·' : ''} Generated ${ts}
+                    </div>
+                </div>
+            `;
         }
 
         // ============================================
@@ -3741,6 +3866,15 @@
                 clearTimeout(clickTimer);
                 clickTimer = setTimeout(() => clickCount = 0, 500);
             });
+
+            // Mobile sidebar toggle
+            const sidebarEl = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const openSidebar = () => { sidebarEl.classList.add('open'); sidebarOverlay.classList.add('open'); };
+            const closeSidebar = () => { sidebarEl.classList.remove('open'); sidebarOverlay.classList.remove('open'); };
+            document.getElementById('sidebarToggle').addEventListener('click', openSidebar);
+            document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
 
             // Refresh button
             document.getElementById('refreshBtn').addEventListener('click', () => {
