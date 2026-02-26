@@ -464,6 +464,14 @@
             overflow-x: auto;
         }
 
+        #breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            overflow-x: auto;
+            min-width: 0;
+        }
+
         .breadcrumb {
             color: var(--text-secondary);
             cursor: pointer;
@@ -1393,15 +1401,70 @@
             }
         }
 
-        /* Mobile sidebar toggle */
+        /* Mobile sidebar toggle — now hidden everywhere */
         .sidebar-toggle {
             display: none;
+            align-items: center;
             background: none;
             border: none;
             color: var(--text-secondary);
             cursor: pointer;
             padding: 0.25rem;
             margin-right: 0.5rem;
+            flex-shrink: 0;
+            -webkit-appearance: none;
+        }
+
+        /* Folder strip (mobile only) */
+        .folder-strip {
+            display: none;
+            flex-direction: column;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .folder-strip-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            scrollbar-width: none;
+        }
+
+        .folder-strip-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .folder-chip {
+            white-space: nowrap;
+            padding: 0.35rem 0.75rem;
+            border-radius: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex-shrink: 0;
+            font-family: inherit;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .folder-chip:active {
+            opacity: 0.7;
+        }
+
+        .folder-chip.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .folder-chip svg {
+            width: 14px;
+            height: 14px;
             flex-shrink: 0;
         }
 
@@ -1411,13 +1474,15 @@
         }
 
         .sidebar-close {
-            display: none;
+            display: flex;
+            align-items: center;
             background: none;
             border: none;
             color: var(--text-secondary);
             cursor: pointer;
             padding: 0.25rem;
             margin-left: auto;
+            -webkit-appearance: none;
         }
 
         .sidebar-close svg {
@@ -1437,35 +1502,29 @@
             display: block;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Hide mobile-only controls on desktop */
+        @media (min-width: 769px) {
             .sidebar-toggle {
-                display: flex;
-                align-items: center;
+                display: none;
             }
 
             .sidebar-close {
-                display: flex;
-                align-items: center;
+                display: none;
             }
+        }
 
+        /* Responsive */
+        @media (max-width: 768px) {
             .sidebar {
                 display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                width: 280px;
-                z-index: 100;
             }
 
-            .sidebar.open {
+            .folder-strip {
                 display: flex;
             }
 
-            .sidebar-header {
-                display: flex;
-                align-items: center;
+            .sidebar-toggle {
+                display: none;
             }
 
             .file-grid {
@@ -1560,9 +1619,15 @@
                 <div class="sidebar-footer" id="storageInfo">Loading...</div>
             </aside>
 
+            <!-- Mobile folder strip (always visible on mobile) -->
+            <div class="folder-strip" id="folderStrip">
+                <div class="folder-strip-row" id="folderStripMain"></div>
+                <div class="folder-strip-row" id="folderStripSub" style="display:none"></div>
+            </div>
+
             <!-- File Panel -->
             <div class="file-panel">
-                <div class="breadcrumb-bar" id="breadcrumbs">
+                <div class="breadcrumb-bar">
                     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open folders">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="3" y1="12" x2="21" y2="12"/>
@@ -1570,7 +1635,9 @@
                             <line x1="3" y1="18" x2="21" y2="18"/>
                         </svg>
                     </button>
-                    <span class="breadcrumb current">Home</span>
+                    <div id="breadcrumbs">
+                        <span class="breadcrumb current">Home</span>
+                    </div>
                 </div>
                 <div class="file-toolbar">
                     <span class="file-count" id="fileCount">0 items</span>
@@ -2622,6 +2689,9 @@
 
             elements.folderTree.innerHTML = html;
 
+            // Also update the mobile folder strip
+            renderFolderStrip(folders);
+
             // Add click handlers for folder items
             elements.folderTree.querySelectorAll('.folder-item').forEach(item => {
                 item.addEventListener('click', (e) => {
@@ -2714,6 +2784,61 @@
                     showContextMenu(e, 'file', { key: item.dataset.fileKey, name: item.dataset.fileName });
                 });
             });
+        }
+
+        // ============================================
+        // Mobile Folder Strip
+        // ============================================
+        function buildChip(path, label, iconSvg, isActive) {
+            return `<button class="folder-chip${isActive ? ' active' : ''}" data-path="${path}">
+                ${iconSvg}
+                ${label}
+            </button>`;
+        }
+
+        function renderFolderStrip(folders) {
+            const mainRow = document.getElementById('folderStripMain');
+            const subRow = document.getElementById('folderStripSub');
+            if (!mainRow) return;
+
+            const clockIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
+            const folderIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`;
+
+            // Build main row: Recent + date folders + Development
+            let mainHtml = buildChip('', 'Recent', clockIcon, state.currentPath.length === 0);
+            folders.forEach(f => {
+                const name = f.replace(/\/$/, '');
+                mainHtml += buildChip(name, name, folderIcon, state.currentPath[0] === name && state.currentPath.length === 1);
+            });
+            mainHtml += buildChip('Development', 'Dev', folderIcon, state.currentPath[0] === 'Development' && state.currentPath.length === 1);
+            mainRow.innerHTML = mainHtml;
+
+            // Build sub row: Development subfolders
+            if (state.currentPath[0] === 'Development' && state.devFolders.length > 0) {
+                let subHtml = '';
+                state.devFolders.forEach(sub => {
+                    subHtml += buildChip('Development/' + sub, sub, folderIcon, state.currentPath[1] === sub);
+                });
+                subRow.innerHTML = subHtml;
+                subRow.style.display = 'flex';
+            } else {
+                subRow.innerHTML = '';
+                subRow.style.display = 'none';
+            }
+
+            // Attach click handlers
+            document.querySelectorAll('.folder-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const path = chip.dataset.path;
+                    navigateToPath(path ? path.split('/') : []);
+                });
+            });
+
+            // Auto-scroll active chip into view
+            const activeChip = document.querySelector('.folder-chip.active');
+            if (activeChip) {
+                activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
         }
 
         async function toggleDateFolder(folderName) {
@@ -3113,6 +3238,9 @@
                 const currentFullPath = path.join('/');
                 item.classList.toggle('active', itemPath === currentFullPath || (!currentFullPath && !itemPath));
             });
+
+            // Update mobile folder strip active states
+            renderFolderStrip(state.folders);
         }
 
         function renderBreadcrumbs(path) {
@@ -3866,15 +3994,6 @@
                 clearTimeout(clickTimer);
                 clickTimer = setTimeout(() => clickCount = 0, 500);
             });
-
-            // Mobile sidebar toggle
-            const sidebarEl = document.getElementById('sidebar');
-            const sidebarOverlay = document.getElementById('sidebarOverlay');
-            const openSidebar = () => { sidebarEl.classList.add('open'); sidebarOverlay.classList.add('open'); };
-            const closeSidebar = () => { sidebarEl.classList.remove('open'); sidebarOverlay.classList.remove('open'); };
-            document.getElementById('sidebarToggle').addEventListener('click', openSidebar);
-            document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
-            sidebarOverlay.addEventListener('click', closeSidebar);
 
             // Refresh button
             document.getElementById('refreshBtn').addEventListener('click', () => {
