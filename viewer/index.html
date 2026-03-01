@@ -1164,6 +1164,12 @@
             cursor: pointer;
             padding: 0.25rem;
             line-height: 1;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .preview-close:hover {
@@ -1551,6 +1557,11 @@
                 max-height: none;
                 border-radius: 0;
             }
+
+            .preview-header {
+                padding-top: calc(0.5rem + env(safe-area-inset-top));
+                padding-right: calc(1rem + env(safe-area-inset-right));
+            }
         }
 
         /* iOS PWA standalone mode — ensure folder strip is visible */
@@ -1849,6 +1860,8 @@
         <div class="context-menu-item danger" data-action="delete">Delete Folder</div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="prompts.js"></script>
     <script src="search.js"></script>
     <script>
@@ -2022,11 +2035,205 @@
         };
 
         // ============================================
+        // Spreadsheet Parsing Helpers
+        // ============================================
+
+        function parseCSV(text, filename) {
+            const result = Papa.parse(text, { header: false, skipEmptyLines: true });
+            const rows = result.data;
+            const headers = rows.length > 0 ? rows[0] : [];
+            const dataRows = rows.slice(1);
+            return {
+                spreadsheet_type: 'csv',
+                filename,
+                sheets: [{
+                    name: 'Sheet1',
+                    headers,
+                    rows: dataRows,
+                    row_count: dataRows.length,
+                    column_count: headers.length
+                }],
+                total_rows: dataRows.length,
+                total_columns: headers.length,
+                sheet_count: 1
+            };
+        }
+
+        function parseExcel(arrayBuffer, filename) {
+            const workbook = XLSX.read(arrayBuffer, { type: 'array', cellDates: true });
+            const sheets = [];
+            let totalRows = 0;
+            let maxCols = 0;
+
+            for (const sheetName of workbook.SheetNames) {
+                const ws = workbook.Sheets[sheetName];
+                const raw = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+                // Convert Date objects to ISO strings
+                const converted = raw.map(row =>
+                    row.map(cell => cell instanceof Date ? cell.toISOString() : cell)
+                );
+                const headers = converted.length > 0 ? converted[0].map(String) : [];
+                const dataRows = converted.slice(1).map(row => row.map(String));
+                sheets.push({
+                    name: sheetName,
+                    headers,
+                    rows: dataRows,
+                    row_count: dataRows.length,
+                    column_count: headers.length
+                });
+                totalRows += dataRows.length;
+                if (headers.length > maxCols) maxCols = headers.length;
+            }
+
+            return {
+                spreadsheet_type: 'excel',
+                filename,
+                sheets,
+                total_rows: totalRows,
+                total_columns: maxCols,
+                sheet_count: sheets.length
+            };
+        }
+
+        function formatParsedSpreadsheetForLLM(parsed, fileSize) {
+            const MAX_ROWS_PER_SHEET = 500;
+            let text = `=== SPREADSHEET METADATA ===\n`;
+            text += `Filename: ${parsed.filename}\n`;
+            text += `Type: ${parsed.spreadsheet_type}\n`;
+            text += `Sheets: ${parsed.sheet_count}\n`;
+            text += `Total rows: ${parsed.total_rows}\n`;
+            text += `Total columns: ${parsed.total_columns}\n`;
+            text += `File size: ${fileSize}\n\n`;
+
+            for (const sheet of parsed.sheets) {
+                text += `=== Sheet: ${sheet.name} ===\n`;
+                text += sheet.headers.join('\t') + '\n';
+
+                if (sheet.rows.length <= MAX_ROWS_PER_SHEET) {
+                    for (const row of sheet.rows) {
+                        text += row.join('\t') + '\n';
+                    }
+                } else {
+                    // First 250 + last 250
+                    const half = MAX_ROWS_PER_SHEET / 2;
+                    for (let i = 0; i < half; i++) {
+                        text += sheet.rows[i].join('\t') + '\n';
+                    }
+                    text += `\n... (${sheet.rows.length - MAX_ROWS_PER_SHEET} rows omitted) ...\n\n`;
+                    for (let i = sheet.rows.length - half; i < sheet.rows.length; i++) {
+                        text += sheet.rows[i].join('\t') + '\n';
+                    }
+                }
+                text += '\n';
+            }
+            return text;
+        }
+
+        // ============================================
+        // Spreadsheet Extraction
+        // ============================================
+
+        async function extractSpreadsheet(filename, blob, notes = '') {
+            if (!settings.anthropicKey) {
+                console.warn('[LLM] No Anthropic API key configured, skipping extraction');
+                return null;
+            }
+            if (!settings.apiEndpoint) {
+                console.warn('[LLM] No API endpoint configured, skipping extraction');
+                return null;
+            }
+
+            const ext = filename.split('.').pop().toLowerCase();
+            const isCSV = ext === 'csv';
+            const fileSize = formatSize(blob.size);
+
+            // Parse client-side
+            let parsed;
+            if (isCSV) {
+                const text = await blob.text();
+                parsed = parseCSV(text, filename);
+            } else {
+                const arrayBuffer = await blob.arrayBuffer();
+                parsed = parseExcel(arrayBuffer, filename);
+            }
+
+            // Format for LLM
+            const llmText = formatParsedSpreadsheetForLLM(parsed, fileSize);
+
+            const promptText = notes && notes.trim()
+                ? `${SPREADSHEET_EXTRACTION_PROMPT}\n\n---\nUSER NOTE (treat as highly influential context — may affect category, extracted data, labels, and interpretation):\n"${notes.trim()}"\n---\n\n${llmText}`
+                : `${SPREADSHEET_EXTRACTION_PROMPT}\n\n${llmText}`;
+
+            const body = {
+                model: 'claude-opus-4-5-20251101',
+                max_tokens: 8192,
+                system: EXTRACTION_SYSTEM_MSG,
+                messages: [{
+                    role: 'user',
+                    content: [{ type: 'text', text: promptText }]
+                }]
+            };
+
+            const response = await fetch(`${settings.apiEndpoint}/llm/anthropic`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-Key': settings.apiKey,
+                    'X-Anthropic-Key': settings.anthropicKey
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(`Anthropic API error ${response.status}: ${errText}`);
+            }
+
+            const data = await response.json();
+            const rawText = data.content[0].text;
+
+            if (data.usage) {
+                console.log(`[LLM] Spreadsheet tokens — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
+            }
+
+            let extraction;
+            try {
+                extraction = JSON.parse(rawText);
+            } catch {
+                let cleaned = rawText.trim();
+                if (cleaned.startsWith('```')) {
+                    cleaned = cleaned.split('\n').slice(1).join('\n').replace(/```\s*$/, '');
+                }
+                extraction = JSON.parse(cleaned);
+            }
+
+            // Override with client-parsed data (LLM only trusted for summary/keywords/category/observations/sections)
+            extraction.spreadsheet_type = parsed.spreadsheet_type;
+            extraction.sheets = parsed.sheets;
+            extraction.file_metadata = {
+                filename: parsed.filename,
+                sheet_count: parsed.sheet_count,
+                total_rows: parsed.total_rows,
+                total_columns: parsed.total_columns,
+                file_size: fileSize
+            };
+
+            // Build tables[] from sheets for search compatibility
+            extraction.tables = parsed.sheets.map(sheet => ({
+                title: sheet.name,
+                headers: sheet.headers,
+                rows: sheet.rows
+            }));
+
+            return extraction;
+        }
+
+        // ============================================
         // LLM Extraction
         // ============================================
         // Prompts loaded from prompts.js: EXTRACTION_SYSTEM_MSG, PDF_EXTRACTION_PROMPT, IMAGE_EXTRACTION_PROMPT
 
-        async function extractWithLLM(filename, blob) {
+        async function extractWithLLM(filename, blob, notes = '') {
             if (!settings.anthropicKey) {
                 console.warn('[LLM] No Anthropic API key configured, skipping extraction');
                 return null;
@@ -2051,7 +2258,10 @@
             const contentBlock = isPdf
                 ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } }
                 : { type: 'image', source: { type: 'base64', media_type: blob.type || 'image/jpeg', data: base64 } };
-            const promptText = isPdf ? PDF_EXTRACTION_PROMPT : IMAGE_EXTRACTION_PROMPT;
+            const basePrompt = isPdf ? PDF_EXTRACTION_PROMPT : IMAGE_EXTRACTION_PROMPT;
+            const promptText = notes && notes.trim()
+                ? `${basePrompt}\n\n---\nUSER NOTE (treat as highly influential context — may affect category, extracted data, labels, and interpretation):\n"${notes.trim()}"\n---`
+                : basePrompt;
 
             const body = {
                 model: 'claude-opus-4-5-20251101',
@@ -2524,7 +2734,7 @@
                         console.log(`[Dev Sync] Synced: ${file.key} → Development/${uncategorizedKey}`);
 
                         // Trigger LLM extraction (async, non-blocking) — moves file to category folder on success
-                        const isExtractable = /\.(pdf|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif)$/i.test(originalName);
+                        const isExtractable = /\.(pdf|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif|csv|xlsx?|xls)$/i.test(originalName);
                         if (!isExtractable) {
                             console.log(`[Dev Sync] Skipping extraction for non-extractable file: ${originalName}`);
                         } else if (!settings.anthropicKey) {
@@ -2535,11 +2745,15 @@
                             const _fileName = originalName;
                             const _uncatKey = uncategorizedKey;
                             const _blob = blob;
+                            const _notes = file.customMetadata?.notes || '';
                             (async () => {
                                 try {
                                     showToast(`Extracting: ${_fileName}...`, 'success');
-                                    console.log(`[LLM] Starting extraction for ${_fileName}`);
-                                    const extraction = await extractWithLLM(_fileName, _blob);
+                                    console.log(`[LLM] Starting extraction for ${_fileName}${_notes ? ' (with user note)' : ''}`);
+                                    const _isSpreadsheet = /\.(csv|xlsx?|xls)$/i.test(_fileName);
+                                    const extraction = _isSpreadsheet
+                                        ? await extractSpreadsheet(_fileName, _blob, _notes)
+                                        : await extractWithLLM(_fileName, _blob, _notes);
                                     if (!extraction) {
                                         console.warn(`[LLM] Extraction returned null for ${_fileName}`);
                                     }
@@ -2974,6 +3188,45 @@
                 } catch {
                     elements.fileGrid.innerHTML = `<div class="inline-preview"><p>Failed to load PDF</p></div>`;
                 }
+            } else if (/\.(csv|xlsx?|xls)$/i.test(fileName)) {
+                elements.fileGrid.innerHTML = `<div class="inline-preview"><div class="spinner"></div></div>`;
+                try {
+                    const res = await fetch(fileUrl, { headers: { 'X-API-Key': settings.apiKey } });
+                    const blob = await res.blob();
+                    const ext = fileName.split('.').pop().toLowerCase();
+                    let parsed;
+                    if (ext === 'csv') {
+                        const text = await blob.text();
+                        parsed = parseCSV(text, fileName);
+                    } else {
+                        const arrayBuffer = await blob.arrayBuffer();
+                        parsed = parseExcel(arrayBuffer, fileName);
+                    }
+                    const MAX_PREVIEW_ROWS = 50;
+                    let html = `<div class="inline-preview" style="padding:1rem;overflow:auto;">`;
+                    html += `<div class="file-label" style="margin-bottom:0.75rem;">${fileName}${file ? ' — ' + formatSize(file.size) : ''} — ${parsed.total_rows} rows, ${parsed.total_columns} cols${parsed.sheet_count > 1 ? `, ${parsed.sheet_count} sheets` : ''}</div>`;
+                    for (const sheet of parsed.sheets) {
+                        if (parsed.sheet_count > 1) {
+                            html += `<div style="font-weight:600;margin:0.75rem 0 0.25rem;color:var(--accent);">${sheet.name}</div>`;
+                        }
+                        html += `<div style="overflow-x:auto;"><table style="border-collapse:collapse;font-size:0.75rem;font-family:'JetBrains Mono',monospace;width:100%;">`;
+                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g,'&lt;')}</th>`).join('')}</tr></thead>`;
+                        html += `<tbody>`;
+                        const previewRows = sheet.rows.slice(0, MAX_PREVIEW_ROWS);
+                        for (const row of previewRows) {
+                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g,'&lt;')}</td>`).join('')}</tr>`;
+                        }
+                        html += `</tbody></table></div>`;
+                        if (sheet.rows.length > MAX_PREVIEW_ROWS) {
+                            html += `<div style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.5rem;">Showing ${MAX_PREVIEW_ROWS} of ${sheet.rows.length} rows</div>`;
+                        }
+                    }
+                    html += `</div>`;
+                    elements.fileGrid.innerHTML = html;
+                } catch (err) {
+                    console.error('Failed to preview spreadsheet:', err);
+                    elements.fileGrid.innerHTML = `<div class="inline-preview"><p>Failed to parse spreadsheet</p></div>`;
+                }
             } else {
                 const otherNotes = file?.customMetadata?.notes || '';
                 elements.fileGrid.innerHTML = `
@@ -3087,6 +3340,42 @@
                             <pre style="padding:1rem;overflow:auto;font-size:0.8rem;color:var(--text-primary);white-space:pre-wrap;">${text.replace(/</g, '&lt;')}</pre>
                         </div>
                     `;
+                }
+            } else if (/\.(csv|xlsx?|xls)$/i.test(fileName)) {
+                try {
+                    const ext = fileName.split('.').pop().toLowerCase();
+                    let parsed;
+                    if (ext === 'csv') {
+                        const text = await record.blob.text();
+                        parsed = parseCSV(text, fileName);
+                    } else {
+                        const arrayBuffer = await record.blob.arrayBuffer();
+                        parsed = parseExcel(arrayBuffer, fileName);
+                    }
+                    const MAX_PREVIEW_ROWS = 50;
+                    let html = `<div class="inline-preview" style="padding:1rem;overflow:auto;">`;
+                    html += `<div class="file-label" style="margin-bottom:0.75rem;">${fileName} — ${formatSize(record.size)} — ${parsed.total_rows} rows, ${parsed.total_columns} cols${parsed.sheet_count > 1 ? `, ${parsed.sheet_count} sheets` : ''}</div>`;
+                    for (const sheet of parsed.sheets) {
+                        if (parsed.sheet_count > 1) {
+                            html += `<div style="font-weight:600;margin:0.75rem 0 0.25rem;color:var(--accent);">${sheet.name}</div>`;
+                        }
+                        html += `<div style="overflow-x:auto;"><table style="border-collapse:collapse;font-size:0.75rem;font-family:'JetBrains Mono',monospace;width:100%;">`;
+                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g,'&lt;')}</th>`).join('')}</tr></thead>`;
+                        html += `<tbody>`;
+                        const previewRows = sheet.rows.slice(0, MAX_PREVIEW_ROWS);
+                        for (const row of previewRows) {
+                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g,'&lt;')}</td>`).join('')}</tr>`;
+                        }
+                        html += `</tbody></table></div>`;
+                        if (sheet.rows.length > MAX_PREVIEW_ROWS) {
+                            html += `<div style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.5rem;">Showing ${MAX_PREVIEW_ROWS} of ${sheet.rows.length} rows</div>`;
+                        }
+                    }
+                    html += `</div>`;
+                    elements.fileGrid.innerHTML = html;
+                } catch (err) {
+                    console.error('Failed to preview spreadsheet:', err);
+                    elements.fileGrid.innerHTML = `<div class="inline-preview"><p>Failed to parse spreadsheet</p></div>`;
                 }
             } else {
                 elements.fileGrid.innerHTML = `

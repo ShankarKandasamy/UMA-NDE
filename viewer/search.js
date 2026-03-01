@@ -265,14 +265,73 @@ const Search = {
                     }));
                 }
 
-                // For image-type extractions, add observations as pseudo-sections
-                if (extraction.image_type && extraction.observations && extraction.observations.length > 0) {
+                // For image-type extractions, add observations, OCR text, components, and summary as pseudo-sections
+                if (extraction.image_type) {
                     if (!fileContent.sections) fileContent.sections = [];
-                    fileContent.sections.push({
-                        index: fileContent.sections.length,
-                        heading: 'Observations',
-                        text: extraction.observations.join('\n')
-                    });
+
+                    if (extraction.summary) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'Summary',
+                            text: extraction.summary
+                        });
+                    }
+
+                    if (extraction.ocr_text) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'OCR Text',
+                            text: extraction.ocr_text
+                        });
+                    }
+
+                    if (extraction.observations && extraction.observations.length > 0) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'Observations',
+                            text: extraction.observations.join('\n')
+                        });
+                    }
+
+                    if (extraction.components && extraction.components.length > 0) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'Components',
+                            text: extraction.components.map(c =>
+                                `${c.tag ? c.tag + ': ' : ''}${c.type} — ${c.description}`
+                            ).join('\n')
+                        });
+                    }
+                }
+
+                // For spreadsheet-type extractions, add summary, observations, and file metadata as pseudo-sections
+                if (extraction.spreadsheet_type) {
+                    if (!fileContent.sections) fileContent.sections = [];
+
+                    if (extraction.summary) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'Summary',
+                            text: extraction.summary
+                        });
+                    }
+
+                    if (extraction.observations && extraction.observations.length > 0) {
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'Observations',
+                            text: extraction.observations.join('\n')
+                        });
+                    }
+
+                    if (extraction.file_metadata) {
+                        const fm = extraction.file_metadata;
+                        fileContent.sections.push({
+                            index: fileContent.sections.length,
+                            heading: 'File Metadata',
+                            text: `Filename: ${fm.filename}\nSheets: ${fm.sheet_count}\nTotal rows: ${fm.total_rows}\nTotal columns: ${fm.total_columns}\nFile size: ${fm.file_size}`
+                        });
+                    }
                 }
 
                 filesContent.push(fileContent);
@@ -333,12 +392,51 @@ const Search = {
                         const sections = extraction.sections || [];
                         if (sections[item.index]) {
                             resolvedItem.content = sections[item.index];
-                        } else if (extraction.observations && item.index === (extraction.sections || []).length) {
-                            // Observations pseudo-section
-                            resolvedItem.content = {
-                                heading: 'Observations',
-                                text: extraction.observations.join('\n')
-                            };
+                        } else if (extraction.image_type) {
+                            // Resolve pseudo-sections for image extractions
+                            // Reconstruct the same order used in retrieveSections
+                            const pseudoSections = [];
+                            if (extraction.summary) {
+                                pseudoSections.push({ heading: 'Summary', text: extraction.summary });
+                            }
+                            if (extraction.ocr_text) {
+                                pseudoSections.push({ heading: 'OCR Text', text: extraction.ocr_text });
+                            }
+                            if (extraction.observations && extraction.observations.length > 0) {
+                                pseudoSections.push({ heading: 'Observations', text: extraction.observations.join('\n') });
+                            }
+                            if (extraction.components && extraction.components.length > 0) {
+                                pseudoSections.push({
+                                    heading: 'Components',
+                                    text: extraction.components.map(c =>
+                                        `${c.tag ? c.tag + ': ' : ''}${c.type} — ${c.description}`
+                                    ).join('\n')
+                                });
+                            }
+                            const pseudoIndex = item.index - sections.length;
+                            if (pseudoIndex >= 0 && pseudoIndex < pseudoSections.length) {
+                                resolvedItem.content = pseudoSections[pseudoIndex];
+                            }
+                        } else if (extraction.spreadsheet_type) {
+                            // Resolve pseudo-sections for spreadsheet extractions
+                            const pseudoSections = [];
+                            if (extraction.summary) {
+                                pseudoSections.push({ heading: 'Summary', text: extraction.summary });
+                            }
+                            if (extraction.observations && extraction.observations.length > 0) {
+                                pseudoSections.push({ heading: 'Observations', text: extraction.observations.join('\n') });
+                            }
+                            if (extraction.file_metadata) {
+                                const fm = extraction.file_metadata;
+                                pseudoSections.push({
+                                    heading: 'File Metadata',
+                                    text: `Filename: ${fm.filename}\nSheets: ${fm.sheet_count}\nTotal rows: ${fm.total_rows}\nTotal columns: ${fm.total_columns}\nFile size: ${fm.file_size}`
+                                });
+                            }
+                            const pseudoIndex = item.index - sections.length;
+                            if (pseudoIndex >= 0 && pseudoIndex < pseudoSections.length) {
+                                resolvedItem.content = pseudoSections[pseudoIndex];
+                            }
                         }
                     } else if (item.type === 'table') {
                         const tables = extraction.tables || [];

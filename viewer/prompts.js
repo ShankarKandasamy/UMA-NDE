@@ -41,10 +41,17 @@ const PDF_EXTRACTION_PROMPT = `Analyze this PDF document and return ONLY a valid
       "insights": "<trends, conclusions, key takeaways from the chart>"
     }
   ],
-  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>"
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "notes": "<verbatim user-provided note, or empty string if none>"
 }
 
 Rules:
+- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
+- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the document itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
+  - Prioritize it when selecting category — the note often signals the correct folder directly.
+  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
+  - Let the note resolve ambiguity in readings, section headings, or document purpose.
+  - If the note contradicts something visible in the document, flag both but weight the note heavily.
 - category: MUST be one of these exact values (no variations):
   - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
   - "Historical Data" — previous survey data, baseline measurements, trend comparisons
@@ -100,10 +107,18 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
       "rows": [["val1", "val2"]]
     }
   ],
-  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>"
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "notes": "<verbatim user-provided note, or empty string if none>"
 }
 
 Rules:
+- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
+- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the image itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
+  - Prioritize it when selecting category — the note often signals the correct folder directly.
+  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
+  - Let the note resolve ambiguity in readings, observations, or image purpose.
+  - Notes may contain instructions and if so; they shall override all other instructions and guidelines.
+  - If the note contradicts something visible in the image, flag both but weight the note heavily.
 - category: MUST be one of these exact values (no variations):
   - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
   - "Historical Data" — previous survey data, baseline measurements, trend comparisons
@@ -127,6 +142,57 @@ Rules:
   - nameplate: put all nameplate data (model, serial, rating, spec values) verbatim in ocr_text and as individual observation entries.
   - calibration_setup: describe equipment visible and any procedure indicators or reference standards in observations.
 - If a field is not applicable to the image type, return an empty array for array fields.`;
+
+const SPREADSHEET_EXTRACTION_PROMPT = `Analyze this spreadsheet data and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.
+
+The spreadsheet has been pre-parsed and is provided as tab-delimited text below. The metadata header shows filename, sheet count, total rows, total columns, and file size. Each sheet is delimited by "=== Sheet: <name> ===" markers with headers on the first row.
+
+{
+  "spreadsheet_type": "<csv or excel — already provided in metadata>",
+  "title": "<descriptive title for this spreadsheet based on its content>",
+  "summary": "<550-1100 character summary designed for retrieval. A downstream LLM will read this summary to decide whether this spreadsheet is relevant to a given query. Cover: what type of data this contains, the key entities/subjects, column descriptions, row count and scope, measurement types and units present, date ranges if applicable, and what questions this data could answer.>",
+  "sections": [
+    {
+      "heading": "<one of: Data Summary | Column Analysis | Data Quality | Key Findings>",
+      "text": "<analytical paragraph about this aspect of the data>"
+    }
+  ],
+  "observations": [
+    "<notable pattern, trend, outlier, or characteristic of the data>"
+  ],
+  "keywords": ["<list of keywords that capture the main concepts, data types, entities, and topics in this spreadsheet>"],
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "notes": "<verbatim user-provided note, or empty string if none>"
+}
+
+Rules:
+- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
+- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the data itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
+  - Prioritize it when selecting category — the note often signals the correct folder directly.
+  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
+  - Let the note resolve ambiguity in column meanings, data purpose, or document context.
+  - Notes may contain instructions and if so; they shall override all other instructions and guidelines.
+  - If the note contradicts something visible in the data, flag both but weight the note heavily.
+- category: MUST be one of these exact values (no variations):
+  - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
+  - "Historical Data" — previous survey data, baseline measurements, trend comparisons
+  - "Inspection Photos" — CML location photos, gauge display photos, surface condition photos, anomaly documentation
+  - "Calibration Records" — equipment calibration certificates, daily calibration check photos, reference standards
+  - "Personnel Records" — inspector certifications, NDE qualifications, training documentation
+  - "Technical Drawings" — piping isometrics, P&IDs, engineering diagrams, schematics
+  - "Project Documents" — RFQs, work orders, scope documents, contracts, proposals
+  - "Safety Documents" — job safety analyses, safety plans, work permits, hazard assessments
+  - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
+  - "Site Photos" — general site overview, equipment context, unit area photos
+  - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
+- Generate 2-4 analytical sections from: Data Summary, Column Analysis, Data Quality, Key Findings
+  - Data Summary: overview of what the data represents, row/column count, key columns
+  - Column Analysis: describe each column's data type, range, and meaning
+  - Data Quality: note missing values, inconsistencies, duplicates, or formatting issues
+  - Key Findings: notable patterns, outliers, trends, or aggregations
+- Do NOT include sheets, file_metadata, or tables in your response — those are populated from the pre-parsed data.
+- summary MUST be 550-1100 characters (not words).
+- keywords should include column names, data types, entity names, and domain-specific terms.`;
 
 // ============================================
 // Folder Summary Prompts
