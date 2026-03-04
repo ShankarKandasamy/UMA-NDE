@@ -156,6 +156,7 @@
             flex: 1;
             display: flex;
             overflow: hidden;
+            padding-bottom: 32px;
         }
 
         .tab-content {
@@ -1582,6 +1583,118 @@
                 flex-direction: column;
             }
         }
+        /* Pipeline Activity Log */
+        .pipeline-log {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        .pipeline-log-bar {
+            display: flex;
+            align-items: center;
+            height: 32px;
+            padding: 0 0.75rem;
+            cursor: pointer;
+            user-select: none;
+            gap: 0.5rem;
+        }
+
+        .pipeline-log-chevron {
+            color: var(--text-secondary);
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+        }
+
+        .pipeline-log.expanded .pipeline-log-chevron {
+            transform: rotate(90deg);
+        }
+
+        .pipeline-log-title {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .pipeline-log-preview {
+            flex: 1;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            opacity: 0.7;
+        }
+
+        .pipeline-log.expanded .pipeline-log-preview {
+            display: none;
+        }
+
+        .pipeline-log-clear {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .pipeline-log.expanded .pipeline-log-clear {
+            opacity: 1;
+        }
+
+        .pipeline-log-clear:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        .pipeline-log-body {
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 0 0.75rem 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .pipeline-log.expanded .pipeline-log-body {
+            display: block;
+        }
+
+        .pipeline-log-line {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1px 0;
+            animation: logFadeIn 0.3s ease;
+        }
+
+        .pipeline-log-time {
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .pipeline-log-msg {
+            color: var(--text-primary);
+        }
+
+        .pipeline-log-msg .log-accent {
+            color: var(--accent);
+        }
+
+        @keyframes logFadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 
@@ -1793,6 +1906,17 @@
         </section>
     </div>
 
+    <!-- Pipeline Activity Log -->
+    <div class="pipeline-log" id="pipelineLog">
+        <div class="pipeline-log-bar" id="pipelineLogBar">
+            <span class="pipeline-log-chevron" id="pipelineLogChevron">&#9656;</span>
+            <span class="pipeline-log-title">Pipeline Activity</span>
+            <span class="pipeline-log-preview" id="pipelineLogPreview"></span>
+            <button class="pipeline-log-clear" id="pipelineLogClear">Clear</button>
+        </div>
+        <div class="pipeline-log-body" id="pipelineLogBody"></div>
+    </div>
+
     <!-- Preview Modal -->
     <div class="modal-overlay" id="previewModal">
         <div class="preview-modal">
@@ -1885,6 +2009,53 @@
             expandedDevFolders: {}, // Maps Dev subfolder name → file list (expanded flag + cache)
             selectedFileKey: null   // Tracks which file is selected for inline preview
         };
+
+        // ============================================
+        // Pipeline Activity Log
+        // ============================================
+        const PipelineLog = {
+            entries: [],
+            log(message) {
+                const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const entry = { time, message };
+                this.entries.push(entry);
+                this.render(entry);
+            },
+            render(entry) {
+                const body = document.getElementById('pipelineLogBody');
+                const preview = document.getElementById('pipelineLogPreview');
+                if (!body || !preview) return;
+
+                const line = document.createElement('div');
+                line.className = 'pipeline-log-line';
+
+                // Highlight arrows and counts in search messages
+                const msgHtml = entry.message
+                    .replace(/→/g, '<span class="log-accent">→</span>')
+                    .replace(/(\d+\.\d+s)/g, '<span class="log-accent">$1</span>');
+
+                line.innerHTML = `<span class="pipeline-log-time">${entry.time}</span><span class="pipeline-log-msg">${msgHtml}</span>`;
+                body.appendChild(line);
+                body.scrollTop = body.scrollHeight;
+                preview.textContent = entry.message;
+            },
+            clear() {
+                this.entries = [];
+                const body = document.getElementById('pipelineLogBody');
+                const preview = document.getElementById('pipelineLogPreview');
+                if (body) body.innerHTML = '';
+                if (preview) preview.textContent = '';
+            }
+        };
+
+        // Pipeline log toggle + clear
+        document.getElementById('pipelineLogBar').addEventListener('click', () => {
+            document.getElementById('pipelineLog').classList.toggle('expanded');
+        });
+        document.getElementById('pipelineLogClear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            PipelineLog.clear();
+        });
 
         // Track which R2 file keys have already been synced to Development
         const processedFileKeys = new Set(
@@ -2372,6 +2543,7 @@
             }
 
             console.log(`[Folder Summary] Generating for "${folderName}"...`);
+            PipelineLog.log(`Summarizing folder: ${folderName}...`);
             setFolderSummaryStatus(folderName, 'generating');
 
             try {
@@ -2481,6 +2653,7 @@
                 });
 
                 console.log(`[Folder Summary] Saved summary for "${folderName}" (${realFiles.length} files, ${result.keywords.length} keywords)`);
+                PipelineLog.log(`Folder summary ready: ${folderName}`);
                 setFolderSummaryStatus(folderName, 'ready');
             } catch (err) {
                 console.error(`[Folder Summary] Generation failed for "${folderName}":`, err);
@@ -2706,6 +2879,7 @@
 
             state.syncingToDev = true;
             console.log(`[Dev Sync] Found ${newFiles.length} new file(s) to sync`);
+            PipelineLog.log(`Syncing ${newFiles.length} new file${newFiles.length !== 1 ? 's' : ''} from R2...`);
 
             try {
                 for (const file of newFiles) {
@@ -2732,6 +2906,7 @@
                         // Mark as processed
                         processedFileKeys.add(file.key);
                         console.log(`[Dev Sync] Synced: ${file.key} → Development/${uncategorizedKey}`);
+                        PipelineLog.log(`Stored: ${originalName} → Uncategorized`);
 
                         // Trigger LLM extraction (async, non-blocking) — moves file to category folder on success
                         const isExtractable = /\.(pdf|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif|csv|xlsx?|xls)$/i.test(originalName);
@@ -2751,9 +2926,24 @@
                                     showToast(`Extracting: ${_fileName}...`, 'success');
                                     console.log(`[LLM] Starting extraction for ${_fileName}${_notes ? ' (with user note)' : ''}`);
                                     const _isSpreadsheet = /\.(csv|xlsx?|xls)$/i.test(_fileName);
+                                    PipelineLog.log(`Extracting${_isSpreadsheet ? ' spreadsheet' : ''}: ${_fileName}...`);
+
+                                    // Drip-feed sub-step logs during extraction
+                                    const _subSteps = [
+                                        { delay: 2000, msg: `  extracting file summary...` },
+                                        { delay: 4000, msg: `  intelligent chunking started...` },
+                                        { delay: 7000, msg: `  capturing observations...` },
+                                        { delay: 10000, msg: `  extracting keywords...` },
+                                        { delay: 13000, msg: `  processing ${_isSpreadsheet ? 'tabular' : /\.(jpg|jpeg|png|gif|webp|bmp|tiff?|heic|heif)$/i.test(_fileName) ? 'image' : 'meta'} data...` },
+                                    ];
+                                    const _subTimers = _subSteps.map(s => setTimeout(() => PipelineLog.log(s.msg), s.delay));
+
                                     const extraction = _isSpreadsheet
                                         ? await extractSpreadsheet(_fileName, _blob, _notes)
                                         : await extractWithLLM(_fileName, _blob, _notes);
+
+                                    // Cancel any sub-step timers that haven't fired yet
+                                    _subTimers.forEach(t => clearTimeout(t));
                                     if (!extraction) {
                                         console.warn(`[LLM] Extraction returned null for ${_fileName}`);
                                     }
@@ -2780,6 +2970,7 @@
                                         }
 
                                         showToast(`Extraction complete: ${_fileName} → ${category}`, 'success');
+                                        PipelineLog.log(`Extracted: ${_fileName} → ${category}`);
 
                                         // Schedule folder summary regeneration
                                         scheduleFolderSummary(category);
@@ -2810,6 +3001,7 @@
                 if (newFiles.length > 0) {
                     showToast(`${newFiles.length} file(s) synced to Development`, 'success');
                 }
+                PipelineLog.log(`Sync complete: ${newFiles.length} file${newFiles.length !== 1 ? 's' : ''}`);
             } finally {
                 state.syncingToDev = false;
             }
@@ -4162,12 +4354,25 @@
             document.getElementById('searchStage2').className = 'search-stage';
             document.getElementById('searchStage3').className = 'search-stage';
 
+            PipelineLog.log(`Search: "${query}"`);
+
             try {
                 const result = await Search.search(query, (p) => {
                     document.getElementById('searchProgressText').textContent = p.message;
                     if (p.stage >= 1) document.getElementById('searchStage1').className = 'search-stage ' + (p.stage > 1 ? 'done' : 'active');
                     if (p.stage >= 2) document.getElementById('searchStage2').className = 'search-stage ' + (p.stage > 2 ? 'done' : 'active');
                     if (p.stage >= 3) document.getElementById('searchStage3').className = 'search-stage ' + (p.done ? 'done' : 'active');
+
+                    // Pipeline log
+                    if (p.log) {
+                        const l = p.log;
+                        if (p.stage === 1) PipelineLog.log(`Search: ${l.total} → ${l.kept} relevant folders ${l.time}s`);
+                        else if (p.stage === 2) PipelineLog.log(`Search: ${l.total} → ${l.kept} relevant files ${l.time}s`);
+                        else if (p.stage === 3 && p.done) PipelineLog.log(`Search: Complete — ${l.kept} results in ${l.totalTime}s`);
+                        else if (p.stage === 3) PipelineLog.log(`Search: Retrieving sections from ${l.total} files...`);
+                    } else if (!p.done) {
+                        PipelineLog.log(`Search: ${p.message}`);
+                    }
                 });
 
                 renderSearchResults(result);

@@ -135,7 +135,7 @@ const Search = {
         console.log(`[Search] Stage 1 results: ${scored.length} folders above threshold (${folders.length} total)`);
         scored.forEach(r => console.log(`  ${r.folderId}: ${r.score.toFixed(2)}`));
 
-        return scored;
+        return { results: scored, total: folders.length };
     },
 
     // ---- Stage 2: File Scoring ----
@@ -188,7 +188,7 @@ const Search = {
         console.log(`[Search] Stage 2 results: ${scored.length} files above threshold (${files.length} total)`);
         scored.forEach(r => console.log(`  ${r.fileId}: ${r.score.toFixed(2)}`));
 
-        return scored;
+        return { results: scored, total: files.length };
     },
 
     // ---- Stage 3: Section-Level Retrieval ----
@@ -350,9 +350,10 @@ const Search = {
         // Use GPT-4.1 for the more demanding extraction task
         const result = await this.callOpenAI('gpt-4.1', SEARCH_SCORING_SYSTEM_MSG, userMsg + '\n\n' + SECTION_RETRIEVAL_PROMPT);
 
-        console.log(`[Search] Stage 3 results: ${(result.results || []).length} files with relevant content`);
+        const sectionResults = result.results || [];
+        console.log(`[Search] Stage 3 results: ${sectionResults.length} files with relevant content`);
 
-        return result.results || [];
+        return { results: sectionResults, total: fileIds.length };
     },
 
     // ---- Resolve Pointers to Content ----
@@ -476,38 +477,48 @@ const Search = {
         const startTime = performance.now();
 
         // Stage 1: Score folders
+        let t1 = performance.now();
         progress({ stage: 1, message: 'Scoring folder relevance...' });
-        const scoredFolders = await this.scoreFolders(query);
+        const foldersResult = await this.scoreFolders(query);
+        const scoredFolders = foldersResult.results;
+        const s1 = ((performance.now() - t1) / 1000).toFixed(1);
+
+        progress({ stage: 1, message: `${foldersResult.total} → ${scoredFolders.length} relevant folders`, done: scoredFolders.length === 0, log: { total: foldersResult.total, kept: scoredFolders.length, time: s1 } });
 
         if (scoredFolders.length === 0) {
-            progress({ stage: 1, message: 'No relevant folders found', done: true });
             return { folders: [], files: [], results: [], elapsed: performance.now() - startTime };
         }
 
         const folderIds = scoredFolders.map(f => f.folderId);
 
         // Stage 2: Score files
+        let t2 = performance.now();
         progress({ stage: 2, message: `Scoring files in ${folderIds.length} folder${folderIds.length > 1 ? 's' : ''}...` });
-        const scoredFiles = await this.scoreFiles(query, folderIds);
+        const filesResult = await this.scoreFiles(query, folderIds);
+        const scoredFiles = filesResult.results;
+        const s2 = ((performance.now() - t2) / 1000).toFixed(1);
+
+        progress({ stage: 2, message: `${filesResult.total} → ${scoredFiles.length} relevant files`, done: scoredFiles.length === 0, log: { total: filesResult.total, kept: scoredFiles.length, time: s2 } });
 
         if (scoredFiles.length === 0) {
-            progress({ stage: 2, message: 'No relevant files found', done: true });
             return { folders: scoredFolders, files: [], results: [], elapsed: performance.now() - startTime };
         }
 
         const fileIds = scoredFiles.map(f => f.fileId);
 
         // Stage 3: Retrieve sections
+        let t3 = performance.now();
         progress({ stage: 3, message: `Extracting relevant content from ${fileIds.length} file${fileIds.length > 1 ? 's' : ''}...` });
-        const sectionResults = await this.retrieveSections(query, fileIds);
+        const sectionsResult = await this.retrieveSections(query, fileIds);
 
         // Resolve pointers to actual content
         progress({ stage: 3, message: 'Resolving content...' });
-        const resolved = await this.resolvePointers(sectionResults);
+        const resolved = await this.resolvePointers(sectionsResult.results);
+        const s3 = ((performance.now() - t3) / 1000).toFixed(1);
 
         const elapsed = performance.now() - startTime;
         console.log(`[Search] Complete in ${(elapsed / 1000).toFixed(1)}s — ${resolved.length} results`);
-        progress({ stage: 3, message: `Found ${resolved.length} result${resolved.length !== 1 ? 's' : ''}`, done: true });
+        progress({ stage: 3, message: `Found ${resolved.length} result${resolved.length !== 1 ? 's' : ''}`, done: true, log: { total: sectionsResult.total, kept: resolved.length, time: s3, totalTime: (elapsed / 1000).toFixed(1) } });
 
         return {
             folders: scoredFolders,
