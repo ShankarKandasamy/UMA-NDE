@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
+    <filter id="stepShadow" x="-8%" y="-6%" width="116%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a5f" flood-opacity="0.1"/>
+    </filter>
+    <filter id="heroGlow" x="-8%" y="-6%" width="116%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#ea580c" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="400" rx="16" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="500" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a5f" letter-spacing="0.5">END-TO-END WORKFLOW</text>
+
+  <!-- ==================== STEP 1: Upload ==================== -->
+  <g transform="translate(30, 60)">
+    <rect width="160" height="220" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <circle cx="80" cy="30" r="18" fill="#1e3a5f"/>
+    <text x="80" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+    <g transform="translate(52, 56)">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+    </g>
+    <text x="80" y="132" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a5f">Upload</text>
+    <circle cx="30" cy="155" r="2.5" fill="#ea580c"/>
+    <text x="40" y="159" font-size="11" fill="#64748b">PDFs &amp; scans</text>
+    <circle cx="30" cy="175" r="2.5" fill="#ea580c"/>
+    <text x="40" y="179" font-size="11" fill="#64748b">Photos &amp; images</text>
+    <circle cx="30" cy="195" r="2.5" fill="#ea580c"/>
+    <text x="40" y="199" font-size="11" fill="#64748b">Thickness data</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <g transform="translate(193, 163)">
+    <line x1="0" y1="0" x2="24" y2="0" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="22,-5 32,0 22,5" fill="#ea580c"/>
+  </g>
+
+  <!-- ==================== STEP 2: AI Processing ==================== -->
+  <g transform="translate(222, 60)">
+    <rect width="160" height="220" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <circle cx="80" cy="30" r="18" fill="#1e3a5f"/>
+    <text x="80" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2</text>
+    <g transform="translate(52, 56)">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </g>
+    <text x="80" y="132" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a5f">AI Processing</text>
+    <circle cx="30" cy="155" r="2.5" fill="#ea580c"/>
+    <text x="40" y="159" font-size="11" fill="#64748b">Auto-categorize</text>
+    <circle cx="30" cy="175" r="2.5" fill="#ea580c"/>
+    <text x="40" y="179" font-size="11" fill="#64748b">Extract key data</text>
+    <circle cx="30" cy="195" r="2.5" fill="#ea580c"/>
+    <text x="40" y="199" font-size="11" fill="#64748b">Index &amp; structure</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <g transform="translate(385, 163)">
+    <line x1="0" y1="0" x2="24" y2="0" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="22,-5 32,0 22,5" fill="#ea580c"/>
+  </g>
+
+  <!-- ==================== STEP 3: Browse ==================== -->
+  <g transform="translate(414, 60)">
+    <rect width="160" height="220" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <circle cx="80" cy="30" r="18" fill="#1e3a5f"/>
+    <text x="80" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+    <g transform="translate(52, 56)">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+      </svg>
+    </g>
+    <text x="80" y="132" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a5f">Browse</text>
+    <circle cx="30" cy="155" r="2.5" fill="#ea580c"/>
+    <text x="40" y="159" font-size="11" fill="#64748b">Smart folders</text>
+    <circle cx="30" cy="175" r="2.5" fill="#ea580c"/>
+    <text x="40" y="179" font-size="11" fill="#64748b">Image gallery</text>
+    <circle cx="30" cy="195" r="2.5" fill="#ea580c"/>
+    <text x="40" y="199" font-size="11" fill="#64748b">File previews</text>
+  </g>
+
+  <!-- Arrow 3→4 (main path to Search) -->
+  <g transform="translate(577, 133)">
+    <line x1="0" y1="0" x2="24" y2="0" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="22,-5 32,0 22,5" fill="#ea580c"/>
+  </g>
+
+  <!-- ==================== STEP 4: Search (HERO - Primary) ==================== -->
+  <g transform="translate(606, 60)">
+    <rect width="180" height="160" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="url(#heroGlow)"/>
+    <!-- Star accent -->
+    <rect x="-1" y="-1" width="182" height="162" rx="13" fill="none" stroke="#ea580c" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="90" cy="28" r="18" fill="#ea580c"/>
+    <text x="90" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">4</text>
+    <g transform="translate(62, 50)">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </g>
+    <text x="90" y="124" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a5f">Asset Intelligence</text>
+    <text x="90" y="142" text-anchor="middle" font-size="11" fill="#64748b">Natural language search</text>
+    <!-- "Core" badge -->
+    <rect x="60" y="148" width="60" height="16" rx="8" fill="#ea580c" opacity="0.12"/>
+    <text x="90" y="160" text-anchor="middle" font-size="9" font-weight="600" fill="#ea580c">CORE</text>
+  </g>
+
+  <!-- Arrow 3→5 (branch down to Reports) -->
+  <path d="M 574 200 C 590 200, 590 310, 610 310" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="608,305 618,310 608,315" fill="#1e3a5f"/>
+
+  <!-- ==================== STEP 5: Report (Secondary branch) ==================== -->
+  <g transform="translate(616, 250)">
+    <rect width="170" height="120" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#stepShadow)"/>
+    <circle cx="85" cy="24" r="16" fill="#1e3a5f"/>
+    <text x="85" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">5</text>
+    <g transform="translate(60, 40)">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <path d="M9 15l2 2 4-4"/>
+      </svg>
+    </g>
+    <text x="85" y="102" text-anchor="middle" font-size="13" font-weight="600" fill="#1e3a5f">Reports</text>
+    <text x="85" y="116" text-anchor="middle" font-size="10" fill="#64748b">Code-compliant output</text>
+  </g>
+
+  <!-- ==================== RIGHT: Value callout ==================== -->
+  <g transform="translate(810, 70)">
+    <rect width="170" height="140" rx="10" fill="#1e3a5f"/>
+    <text x="85" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fb923c" letter-spacing="0.5">EXPOSE TO YOUR</text>
+    <text x="85" y="44" text-anchor="middle" font-size="11" font-weight="600" fill="#fb923c" letter-spacing="0.5">END-CUSTOMERS</text>
+    <line x1="20" y1="54" x2="150" y2="54" stroke="#2d5280" stroke-width="1"/>
+    <text x="85" y="74" text-anchor="middle" font-size="10" fill="#94a3b8">"When does this pipe</text>
+    <text x="85" y="88" text-anchor="middle" font-size="10" fill="#94a3b8">hit retirement</text>
+    <text x="85" y="102" text-anchor="middle" font-size="10" fill="#94a3b8">thickness?"</text>
+    <line x1="20" y1="112" x2="150" y2="112" stroke="#2d5280" stroke-width="1"/>
+    <text x="85" y="132" text-anchor="middle" font-size="10" font-weight="600" fill="#fb923c">New revenue stream</text>
+  </g>
+
+  <!-- Arrow from Search to callout -->
+  <g transform="translate(789, 133)">
+    <line x1="0" y1="0" x2="16" y2="0" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+    <polygon points="14,-4 22,0 14,4" fill="#ea580c"/>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="500" y="388" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Upload once. AI organizes, indexes, and turns your inspection data into queryable asset intelligence.</text>
+</svg>

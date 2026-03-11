@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a5f" flood-opacity="0.12"/>
+    </filter>
+    <filter id="centerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#ea580c" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="520" rx="16" fill="#f8fafc"/>
+
+  <!-- ==================== LEFT ZONE: Raw NDE Data ==================== -->
+  <text x="155" y="52" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a5f" letter-spacing="0.5">YOUR RAW NDE DATA</text>
+
+  <!-- PDF Card (tilted -6deg) -->
+  <g transform="translate(90, 110) rotate(-6, 65, 75)">
+    <rect width="130" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <g transform="translate(42, 24)">
+      <svg width="46" height="56" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="8" y1="13" x2="16" y2="13"/>
+        <line x1="8" y1="17" x2="13" y2="17"/>
+      </svg>
+    </g>
+    <text x="65" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a5f">PDF</text>
+    <text x="65" y="123" text-anchor="middle" font-size="10" fill="#64748b">Scan reports</text>
+    <text x="65" y="136" text-anchor="middle" font-size="10" fill="#64748b">Procedures</text>
+  </g>
+
+  <!-- Photo Card (tilted +4deg) -->
+  <g transform="translate(80, 170) rotate(4, 65, 75)">
+    <rect width="130" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <g transform="translate(42, 24)">
+      <svg width="46" height="56" viewBox="0 0 24 24" fill="none" stroke="#2d5280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </svg>
+    </g>
+    <text x="65" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a5f">Photo</text>
+    <text x="65" y="123" text-anchor="middle" font-size="10" fill="#64748b">Weld images</text>
+    <text x="65" y="136" text-anchor="middle" font-size="10" fill="#64748b">Site photos</text>
+  </g>
+
+  <!-- Spreadsheet Card (tilted -3deg) -->
+  <g transform="translate(100, 280) rotate(-3, 65, 75)">
+    <rect width="130" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <g transform="translate(42, 24)">
+      <svg width="46" height="56" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="3" y1="15" x2="21" y2="15"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+      </svg>
+    </g>
+    <text x="65" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a5f">Spreadsheet</text>
+    <text x="65" y="123" text-anchor="middle" font-size="10" fill="#64748b">Thickness data</text>
+    <text x="65" y="136" text-anchor="middle" font-size="10" fill="#64748b">CML readings</text>
+  </g>
+
+  <!-- ==================== ARROWS: Left to Center ==================== -->
+  <path d="M 260 180 C 310 180, 330 220, 370 240" fill="none" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="370,235 380,242 370,248" fill="#ea580c"/>
+
+  <path d="M 255 270 C 310 270, 330 255, 370 250" fill="none" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="370,245 380,252 370,258" fill="#ea580c"/>
+
+  <path d="M 270 370 C 320 370, 340 300, 370 265" fill="none" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="370,260 380,267 370,273" fill="#ea580c"/>
+
+  <!-- ==================== CENTER: UMA AI Processing Badge ==================== -->
+  <g transform="translate(385, 170)">
+    <rect width="190" height="160" rx="16" fill="#1e3a5f" filter="url(#centerGlow)"/>
+    <rect x="2" y="2" width="186" height="156" rx="14" fill="none" stroke="#2d5280" stroke-width="1"/>
+
+    <g transform="translate(70, 16)">
+      <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </g>
+
+    <text x="95" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="1">UMA AI</text>
+
+    <line x1="30" y1="96" x2="160" y2="96" stroke="#2d5280" stroke-width="1"/>
+    <text x="95" y="116" text-anchor="middle" font-size="11" font-weight="500" fill="#fb923c">Categorize</text>
+    <text x="95" y="132" text-anchor="middle" font-size="11" font-weight="500" fill="#fb923c">Extract &amp; Index</text>
+    <circle cx="95" cy="145" r="2" fill="#ea580c" opacity="0.5"/>
+  </g>
+
+  <!-- ==================== ARROWS: Center to Right ==================== -->
+  <!-- Arrow to Asset Intelligence (primary, thicker) -->
+  <path d="M 580 230 C 620 210, 640 150, 660 140" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="658,134 668,140 658,146" fill="#ea580c"/>
+
+  <!-- Arrow to Auto-Categorized -->
+  <path d="M 580 250 C 620 250, 640 270, 660 275" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="660,270 670,277 660,283" fill="#ea580c"/>
+
+  <!-- Arrow to Report-Ready -->
+  <path d="M 580 270 C 610 290, 640 360, 660 375" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="660,370 670,377 660,383" fill="#ea580c"/>
+
+  <!-- ==================== RIGHT ZONE ==================== -->
+  <text x="790" y="52" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a5f" letter-spacing="0.5">STRUCTURED &amp; INTELLIGENT</text>
+
+  <!-- Asset Intelligence Card (HERO - Primary output) -->
+  <g transform="translate(670, 72)">
+    <rect width="230" height="130" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="url(#cardShadow)"/>
+    <g transform="translate(16, 18)">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </g>
+    <text x="66" y="33" font-size="15" font-weight="700" fill="#1e3a5f">Asset Intelligence</text>
+    <text x="66" y="50" font-size="11" fill="#64748b">Natural language queries across</text>
+    <text x="66" y="64" font-size="11" fill="#64748b">all inspection data &amp; history</text>
+    <!-- Example query -->
+    <rect x="16" y="76" width="198" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="26" y="92" font-size="9" fill="#94a3b8" font-style="italic">"When does V-101 hit retirement</text>
+    <text x="26" y="104" font-size="9" fill="#94a3b8" font-style="italic">thickness?"</text>
+    <!-- Core badge -->
+    <rect x="170" y="10" width="48" height="18" rx="9" fill="#ea580c" opacity="0.12"/>
+    <text x="194" y="23" text-anchor="middle" font-size="9" font-weight="600" fill="#ea580c">CORE</text>
+  </g>
+
+  <!-- Auto-Categorized Card -->
+  <g transform="translate(670, 225)">
+    <rect width="230" height="100" rx="10" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <g transform="translate(16, 18)">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        <line x1="12" y1="11" x2="12" y2="17"/>
+        <line x1="9" y1="14" x2="15" y2="14"/>
+      </svg>
+    </g>
+    <text x="58" y="32" font-size="13" font-weight="600" fill="#1e3a5f">Auto-Categorized</text>
+    <text x="58" y="48" font-size="11" fill="#64748b">Smart folders by type,</text>
+    <text x="58" y="62" font-size="11" fill="#64748b">component &amp; discipline</text>
+    <g transform="translate(190, 64)">
+      <circle cx="12" cy="12" r="12" fill="#dcfce7"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </g>
+  </g>
+
+  <!-- Report-Ready Card -->
+  <g transform="translate(670, 350)">
+    <rect width="230" height="100" rx="10" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <g transform="translate(16, 18)">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <path d="M9 15l2 2 4-4"/>
+      </svg>
+    </g>
+    <text x="58" y="32" font-size="13" font-weight="600" fill="#1e3a5f">Report-Ready</text>
+    <text x="58" y="48" font-size="11" fill="#64748b">Code-compliant output</text>
+    <text x="58" y="62" font-size="11" fill="#64748b">ASME, API, CSA formats</text>
+    <g transform="translate(190, 64)">
+      <circle cx="12" cy="12" r="12" fill="#dcfce7"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </g>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="480" y="498" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">From scattered inspection data to queryable asset intelligence — with compliance-ready reports built in</text>
+</svg>

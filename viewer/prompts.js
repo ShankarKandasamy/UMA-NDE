@@ -289,3 +289,184 @@ Rules:
 - If a file has no relevant content items, omit it from results entirely
 - Prefer specific, targeted selections over returning everything
 - Tables with relevant data are often highly valuable — don't overlook them`;
+
+// ============================================
+// Report Generation Prompts
+// ============================================
+
+const TEMPLATE_ANALYSIS_SYSTEM_MSG =
+  "You are an inspection report template analyst. Always respond with valid JSON only. No markdown, no code fences, no commentary.";
+
+const TEMPLATE_ANALYSIS_PROMPT = `Analyze this PDF report template/example and identify every section and sub-section. Return ONLY a valid JSON object:
+
+{
+  "reportType": "<type of report, e.g. UT Thickness Survey, MT/PT Inspection, Visual Inspection>",
+  "title": "<report title as shown or inferred>",
+  "sections": [
+    {
+      "index": 0,
+      "title": "<section title as it appears>",
+      "summary": "<100-300 character description of what content is NEEDED for this section — not what the template says, but what data/narrative must be provided>",
+      "fields": ["<list of specific data fields this section requires, e.g. report_number, client, facility, inspection_dates>"],
+      "hasTables": false,
+      "tableSchemas": [
+        {
+          "title": "<table title>",
+          "columns": ["<column headers>"],
+          "rowDescription": "<what each row represents>"
+        }
+      ]
+    }
+  ]
+}
+
+Rules:
+- Extract EVERY section including appendices, attachments, and signature blocks
+- Order sections exactly as they appear in the document
+- Summaries must describe what content/data is needed, not what text is printed
+- For tables: capture column headers and describe what each row represents
+- If a section has no tables, set hasTables to false and tableSchemas to []
+- fields should list specific data items needed (not generic descriptions)
+- Be thorough — missing a section means missing content in the final report`;
+
+const FOLDER_MAPPING_PROMPT = `You are given a list of report template sections and a list of data folders with summaries. Map each section to the folders most likely to contain relevant data for generating that section's content.
+
+Return ONLY a valid JSON object:
+
+{
+  "mappings": [
+    {
+      "sectionIndex": 0,
+      "sectionTitle": "<section title>",
+      "folders": [
+        { "folderId": "<exact folder name>", "score": 0.8, "reason": "<why this folder is relevant>" }
+      ]
+    }
+  ]
+}
+
+Rules:
+- Include ALL sections in the mappings array
+- Only include folders with relevance score >= 0.3
+- Be generous — it is better to include a marginally relevant folder than miss critical data
+- Some sections (e.g. Cover Page, Table of Contents) may map to many folders for metadata
+- Data-heavy sections (Results, Trending) should map to inspection data and historical folders
+- Score 0.9-1.0: folder almost certainly has data needed for this section
+- Score 0.7-0.89: folder likely has relevant data
+- Score 0.5-0.69: folder might have tangentially relevant data
+- Score 0.3-0.49: folder has marginal relevance but worth checking`;
+
+const SECTION_GENERATION_SYSTEM_MSG =
+  "You are an expert NDE (Non-Destructive Examination) report writer with deep knowledge of UT thickness surveys, corrosion assessment, and inspection standards. Always respond with valid JSON only. No markdown, no code fences, no commentary.";
+
+const SECTION_GENERATION_PROMPT = `Generate the content for one section of an NDE inspection report. You are given:
+1. The section specification (what content is needed)
+2. Relevant data chunks extracted from the corpus
+3. The report manifest (data inferred so far, user answers, completed sections)
+
+Return ONLY a valid JSON object:
+
+{
+  "sectionContent": {
+    "title": "<section title>",
+    "narratives": [
+      "plain paragraph (when no specific source)",
+      { "text": "paragraph referencing data [0][3]", "sources": [0, 3] }
+    ],
+    "tables": [
+      {
+        "title": "<table title>",
+        "headers": ["col1", "col2"],
+        "rows": [["val1", "val2"]],
+        "rowSources": [[0, 1], [2]]
+      }
+    ],
+    "bulletPoints": [
+      "plain bullet",
+      { "text": "bullet citing chunk [5]", "sources": [5] }
+    ]
+  },
+  "manifestUpdates": {
+    "inferredData": { "<key>": "<value inferred from data>" },
+    "sectionSummary": "<50-150 char summary of what was generated>"
+  },
+  "questions": [
+    {
+      "id": "<unique_id>",
+      "text": "<question to ask the user>",
+      "field": "<manifest field name for the answer>",
+      "type": "text",
+      "choices": [],
+      "required": false,
+      "default": "<suggested default value if any>"
+    }
+  ],
+  "dataGaps": ["<description of missing data that could improve this section>"],
+  "confidence": 0.85
+}
+
+Source citation rules:
+- Each narrative or bulletPoint MAY be a plain string OR an object { "text": "...", "sources": [N, ...] } where sources is an array of 0-based indices into the data chunks array
+- For tables, include "rowSources" parallel to "rows" — each entry is an array of chunk indices that sourced that row
+- Insert [N] bracket references in the text near the claims they support (N = chunk index from the data chunks array)
+- Source annotations are best-effort — omit rather than guess. Only cite when you are confident which chunk supports a claim
+- Plain strings are acceptable when no specific source chunk applies
+
+Rules:
+- ALL calculations must be performed by you (corrosion rates, remaining life, min/max, averages, categories)
+- Corrosion rate = (previous_thickness - current_thickness) / years_between_surveys
+- Remaining life = (current_thickness - t_min) / corrosion_rate
+- Use the manifest for cross-section consistency (reuse client name, dates, CML counts from earlier sections)
+- Generate questions ONLY for truly missing information that cannot be inferred from the data
+- Include EVERY data row in tables — never summarize or truncate table data
+- Use exact values from the source data — do not round or approximate unless standard practice
+- narratives should be professional NDE report language
+- If data chunks are empty/insufficient for this section, generate reasonable boilerplate and flag in dataGaps
+- type can be "text" or "choice" — use "choice" when there are known valid options
+- confidence: 0.0-1.0 indicating how well the data supports this section`;
+
+const CROSS_CHECK_SYSTEM_MSG =
+  "You are a quality assurance reviewer for NDE inspection reports. Always respond with valid JSON only. No markdown, no code fences, no commentary.";
+
+const CROSS_CHECK_PROMPT = `Review the complete generated report for internal consistency and technical accuracy. Check:
+
+1. CML counts: do totals match across Executive Summary, Results, and Trending sections?
+2. Client/facility/dates: consistent across all sections?
+3. Personnel: do initials/names in signature blocks trace to the Personnel section?
+4. Equipment serials: do calibration references trace to Calibration Records section?
+5. Category assignments: do thickness categories match t-min values and actual readings?
+6. Corrosion rate calculations: rate = (previous - current) / years — verify sample calculations
+7. Remaining life calculations: life = (current - t_min) / rate — verify samples
+8. Recommendations: do they match the severity of findings?
+9. Table data: are there any obvious data entry errors (e.g. current > nominal, negative thickness)?
+
+Return ONLY a valid JSON object:
+
+{
+  "overallConsistency": 0.85,
+  "issues": [
+    {
+      "severity": "critical|warning|info",
+      "sections": [0, 3],
+      "description": "<what is inconsistent>",
+      "suggestion": "<how to fix it>"
+    }
+  ],
+  "corrections": [
+    {
+      "sectionIndex": 3,
+      "field": "<which field or table cell>",
+      "currentValue": "<what it says now>",
+      "correctedValue": "<what it should say>",
+      "reason": "<why>"
+    }
+  ]
+}
+
+Rules:
+- overallConsistency: 0.0-1.0 score for the entire report
+- severity "critical": must fix before publishing (wrong calculations, contradictory data)
+- severity "warning": should fix (inconsistent naming, missing cross-references)
+- severity "info": minor improvements (formatting, optional additions)
+- Check at least 5 sample corrosion rate calculations if data is available
+- Verify every CML count mentioned in narrative matches table row counts`;

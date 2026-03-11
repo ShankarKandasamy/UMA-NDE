@@ -19,6 +19,10 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            /* overflow: hidden; */
+        }
+
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
@@ -39,6 +43,7 @@
             color: var(--text-primary);
             min-height: 100vh;
             min-height: 100dvh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
@@ -157,6 +162,7 @@
             display: flex;
             overflow: hidden;
             padding-bottom: 32px;
+            min-width: 0;
         }
 
         .tab-content {
@@ -329,8 +335,17 @@
         }
 
         @keyframes pulse-badge {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.85); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.85);
+            }
         }
 
         .file-tree-item .file-tree-icon {
@@ -357,6 +372,7 @@
             min-width: 160px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
+
         .context-menu-item {
             padding: 8px 14px;
             cursor: pointer;
@@ -364,13 +380,16 @@
             color: var(--text-primary);
             transition: background 0.15s;
         }
+
         .context-menu-item:hover {
             background: var(--accent);
             color: #fff;
         }
+
         .context-menu-item.danger {
             color: #ef4444;
         }
+
         .context-menu-item.danger:hover {
             background: #ef4444;
             color: #fff;
@@ -382,7 +401,7 @@
             align-items: center;
             flex: 1;
             padding: 1rem;
-            overflow: hidden;
+            overflow: auto;
             min-height: 0;
         }
 
@@ -774,64 +793,366 @@
         /* Reports Tab */
         #reports-tab {
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            padding: 0;
         }
 
-        .reports-placeholder {
-            max-width: 400px;
-            text-align: center;
+        .report-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            flex: 1;
+            min-height: 0;
         }
 
-        .reports-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: var(--accent-dim);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @media (max-width: 768px) {
+            .report-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .reports-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--accent);
-        }
-
-        .reports-placeholder h2 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .reports-placeholder p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .reports-features {
-            text-align: left;
+        .report-panel {
             background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1rem;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
-        .reports-features li {
-            padding: 0.5rem 0;
+        .report-panel-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 600;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .template-upload-area {
+            margin: 0.75rem;
+            padding: 1.25rem;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .template-upload-area:hover,
+        .template-upload-area.dragover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .template-upload-area svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .template-upload-area p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .template-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+
+        .template-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.6rem 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.15s;
         }
 
-        .reports-features li svg {
-            width: 16px;
-            height: 16px;
+        .template-item:hover {
+            background: var(--bg-secondary);
+        }
+
+        .template-item.selected {
+            background: var(--accent-dim);
+        }
+
+        .template-item input[type="radio"] {
+            accent-color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .template-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .template-item-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+
+        .template-item-meta {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .template-item-delete {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 0.25rem;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity 0.15s, color 0.15s;
+        }
+
+        .template-item:hover .template-item-delete {
+            opacity: 1;
+        }
+
+        .template-item-delete:hover {
+            color: var(--error);
+        }
+
+        .report-main {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .report-controls {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-generate {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-generate:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .btn-generate:not(:disabled):hover {
+            opacity: 0.85;
+        }
+
+        .btn-download-pdf {
+            background: none;
+            border: 1px solid var(--accent);
             color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+        }
+
+        .btn-download-pdf:hover {
+            background: var(--accent-dim);
+        }
+
+        .report-progress {
+            height: 3px;
+            background: var(--border);
+            position: relative;
+            display: none;
+        }
+
+        .report-progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .report-progress-text {
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .report-body {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .report-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .report-logs {
+            overflow-y: auto;
+            padding: 0.75rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .report-logs .log-entry {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .report-logs .log-time {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .report-logs .log-sub-entry {
+            display: flex;
+            gap: 0.4rem;
+            padding-left: 5rem;
+            font-size: 0.68rem;
+            line-height: 1.5;
+            animation: logFadeIn 0.3s ease;
+        }
+
+        .report-logs .log-sub-prefix {
+            color: var(--text-secondary);
+            opacity: 0.4;
+            flex-shrink: 0;
+            font-size: 0.65rem;
+        }
+
+        .report-logs .log-sub-msg {
+            color: var(--text-primary);
+            opacity: 0.85;
+        }
+
+        .report-logs .log-sub-msg .log-accent-num {
+            color: var(--accent);
+        }
+
+        .report-logs .log-sub-file {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .report-logs .log-sub-folder {
+            color: var(--text-secondary);
+            font-size: 0.6rem;
+        }
+
+        .report-logs .log-sub-reason {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.6rem;
+        }
+
+        .report-user-input {
+            border-left: 1px solid var(--border);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-user-input-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .report-user-input-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+
+        .report-user-input-empty {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .question-card {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            padding: 0.6rem 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-card label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .question-card input[type="text"],
+        .question-card select {
+            width: 100%;
+            padding: 0.4rem 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.8rem;
+        }
+
+        .question-card input[type="text"]:focus,
+        .question-card select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .question-card .question-choices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .question-card .question-choices label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            cursor: pointer;
+        }
+
+        .question-card .question-choices input[type="radio"] {
+            accent-color: var(--accent);
         }
 
         /* Search Tab */
@@ -1583,6 +1904,7 @@
                 flex-direction: column;
             }
         }
+
         /* Pipeline Activity Log */
         .pipeline-log {
             position: fixed;
@@ -1691,10 +2013,16 @@
         }
 
         @keyframes logFadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -1759,9 +2087,10 @@
                 <div class="sidebar-header">
                     Folders
                     <button class="sidebar-close" id="sidebarClose" aria-label="Close folders">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"/>
-                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
                     </button>
                 </div>
@@ -1781,10 +2110,11 @@
             <div class="file-panel">
                 <div class="breadcrumb-bar">
                     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open folders">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"/>
-                            <line x1="3" y1="6" x2="21" y2="6"/>
-                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
                         </svg>
                     </button>
                     <div id="breadcrumbs">
@@ -1857,51 +2187,61 @@
                         <circle cx="11" cy="11" r="8" />
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     </svg>
-                    <p>Search across all your documents using AI.<br>Ask questions like "What are the calibration requirements?" or "Show me thickness readings."</p>
+                    <p>Search across all your documents using AI.<br>Ask questions like "What are the calibration
+                        requirements?" or "Show me thickness readings."</p>
                 </div>
             </div>
         </section>
 
         <!-- Reports Tab -->
         <section id="reports-tab" class="tab-content">
-            <div class="reports-placeholder">
-                <div class="reports-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                        <polyline points="14 2 14 8 20 8" />
-                        <line x1="16" y1="13" x2="8" y2="13" />
-                        <line x1="16" y1="17" x2="8" y2="17" />
-                    </svg>
+            <div class="report-layout">
+                <!-- Left: Templates Panel -->
+                <div class="report-panel">
+                    <div class="report-panel-header">Templates</div>
+                    <div class="template-upload-area" id="templateDropZone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="12" y1="18" x2="12" y2="12" />
+                            <polyline points="9 15 12 12 15 15" />
+                        </svg>
+                        <p>Drop a report PDF here<br>or click to upload</p>
+                        <input type="file" id="templateFileInput" accept=".pdf" style="display:none">
+                    </div>
+                    <div class="template-list" id="templateList"></div>
                 </div>
-                <h2>AI Reports</h2>
-                <p>Generate AI-assisted inspection reports from your uploaded data. Coming soon.</p>
-                <ul class="reports-features">
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        Select inspection images and data
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        Choose report templates (UT, MT/PT, Visual)
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        Generate formatted inspection reports
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        Export to PDF or Word format
-                    </li>
-                </ul>
+
+                <!-- Right: Main Area -->
+                <div class="report-main">
+                    <div class="report-controls">
+                        <button class="btn-generate" id="btnGenerate" disabled>Generate Report</button>
+                        <button class="btn-download-pdf" id="btnDownloadPdf">Download Report</button>
+                    </div>
+                    <div class="report-progress" id="reportProgress">
+                        <div class="report-progress-fill" id="reportProgressFill"></div>
+                    </div>
+                    <div class="report-progress-text" id="reportProgressText"></div>
+                    <div class="report-body">
+                        <div class="report-logs" id="reportLogs">
+                            <div
+                                style="padding:1.5rem;text-align:center;color:var(--text-secondary);font-family:'Space Grotesk',sans-serif;font-size:0.85rem;">
+                                Upload a report template PDF to get started.<br>Then click Generate Report to create an
+                                inspection report from your data.
+                            </div>
+                        </div>
+                        <div class="report-user-input">
+                            <div class="report-user-input-header">User Input</div>
+                            <div class="report-user-input-body" id="reportQuestions">
+                                <div class="report-user-input-empty">
+                                    Questions will appear here as the AI discovers missing information during report
+                                    generation.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -1982,12 +2322,15 @@
         <div class="context-menu-item" data-action="move">Move to...</div>
         <div class="context-menu-item" data-action="new-folder">New Folder</div>
         <div class="context-menu-item danger" data-action="delete">Delete Folder</div>
+        <div class="context-menu-item danger" data-action="clear-all">Clear All Dev Data</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@9.5.0/dist/index.iife.js"></script>
     <script src="prompts.js"></script>
     <script src="search.js"></script>
+    <script src="report.js"></script>
     <script>
         // ============================================
         // State Management
@@ -3348,7 +3691,7 @@
                     const blob = await res.blob();
                     let notes = file?.customMetadata?.notes || '';
                     if (!notes) {
-                        try { notes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch {}
+                        try { notes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch { }
                     }
                     elements.fileGrid.innerHTML = `
                         <div class="inline-preview">
@@ -3368,7 +3711,7 @@
                     const blobUrl = URL.createObjectURL(blob);
                     let pdfNotes = file?.customMetadata?.notes || '';
                     if (!pdfNotes) {
-                        try { pdfNotes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch {}
+                        try { pdfNotes = JSON.parse(res.headers.get('X-Custom-Metadata') || '{}').notes || ''; } catch { }
                     }
                     elements.fileGrid.innerHTML = `
                         <div class="inline-preview">
@@ -3402,11 +3745,11 @@
                             html += `<div style="font-weight:600;margin:0.75rem 0 0.25rem;color:var(--accent);">${sheet.name}</div>`;
                         }
                         html += `<div style="overflow-x:auto;"><table style="border-collapse:collapse;font-size:0.75rem;font-family:'JetBrains Mono',monospace;width:100%;">`;
-                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g,'&lt;')}</th>`).join('')}</tr></thead>`;
+                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g, '&lt;')}</th>`).join('')}</tr></thead>`;
                         html += `<tbody>`;
                         const previewRows = sheet.rows.slice(0, MAX_PREVIEW_ROWS);
                         for (const row of previewRows) {
-                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g,'&lt;')}</td>`).join('')}</tr>`;
+                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g, '&lt;')}</td>`).join('')}</tr>`;
                         }
                         html += `</tbody></table></div>`;
                         if (sheet.rows.length > MAX_PREVIEW_ROWS) {
@@ -3552,11 +3895,11 @@
                             html += `<div style="font-weight:600;margin:0.75rem 0 0.25rem;color:var(--accent);">${sheet.name}</div>`;
                         }
                         html += `<div style="overflow-x:auto;"><table style="border-collapse:collapse;font-size:0.75rem;font-family:'JetBrains Mono',monospace;width:100%;">`;
-                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g,'&lt;')}</th>`).join('')}</tr></thead>`;
+                        html += `<thead><tr>${sheet.headers.map(h => `<th style="padding:4px 8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--accent);text-align:left;white-space:nowrap;">${String(h).replace(/</g, '&lt;')}</th>`).join('')}</tr></thead>`;
                         html += `<tbody>`;
                         const previewRows = sheet.rows.slice(0, MAX_PREVIEW_ROWS);
                         for (const row of previewRows) {
-                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g,'&lt;')}</td>`).join('')}</tr>`;
+                            html += `<tr>${row.map(cell => `<td style="padding:4px 8px;border:1px solid var(--border);color:var(--text-primary);white-space:nowrap;">${String(cell).replace(/</g, '&lt;')}</td>`).join('')}</tr>`;
                         }
                         html += `</tbody></table></div>`;
                         if (sheet.rows.length > MAX_PREVIEW_ROWS) {
@@ -3600,7 +3943,7 @@
                 return;
             }
             const s = meta.folderSummary;
-            const esc = (str) => String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            const esc = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             const keywordsHtml = (s.keywords || []).map(k => `<code style="background:var(--bg-tertiary);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem;">${esc(k)}</code>`).join(' ');
             const ts = s.generatedAt ? new Date(s.generatedAt).toLocaleString() : 'unknown';
             elements.fileGrid.innerHTML = `
@@ -3933,7 +4276,7 @@
                                 elements.previewNotes.textContent = meta.notes;
                                 elements.previewNotes.style.display = '';
                             }
-                        } catch {}
+                        } catch { }
                     }
                     return res;
                 };
@@ -4167,6 +4510,7 @@
             menu.querySelector('[data-action="move"]').style.display = targetType === 'file' ? '' : 'none';
             menu.querySelector('[data-action="new-folder"]').style.display = targetType === 'dev-root' ? '' : 'none';
             menu.querySelector('[data-action="delete"]').style.display = targetType === 'folder' ? '' : 'none';
+            menu.querySelector('[data-action="clear-all"]').style.display = targetType === 'dev-root' ? '' : 'none';
             menu.style.display = 'block';
             // Position at cursor, clamped to viewport
             const x = Math.min(e.clientX, window.innerWidth - 180);
@@ -4196,6 +4540,7 @@
                 case 'move': moveDevFile(target.key); break;
                 case 'new-folder': createDevFolder(); break;
                 case 'delete': deleteDevFolder(target.name); break;
+                case 'clear-all': clearAllDevData(); break;
             }
         });
 
@@ -4268,7 +4613,7 @@
                         key: f.key, size: f.size, uploaded: f.uploaded,
                         customMetadata: { originalName: f.originalName }, _local: true
                     }));
-                } catch (_) {}
+                } catch (_) { }
                 state.selectedFileKey = null;
                 renderFolderTree(state.folders);
                 showToast('Moved to ' + targetFolder);
@@ -4316,6 +4661,34 @@
             } catch (err) {
                 console.error('Delete folder failed:', err);
                 showToast('Delete folder failed', 'error');
+            }
+        }
+
+        async function clearAllDevData() {
+            if (!confirm('Delete ALL Development folders and files? This cannot be undone.')) return;
+            try {
+                // Delete the entire IndexedDB database
+                if (DevDB._db) { DevDB._db.close(); DevDB._db = null; }
+                await new Promise((resolve, reject) => {
+                    const req = indexedDB.deleteDatabase(DevDB.DB_NAME);
+                    req.onsuccess = () => resolve();
+                    req.onerror = (e) => reject(e.target.error);
+                    req.onblocked = () => resolve(); // proceed even if blocked
+                });
+                // Clear the processed-keys tracker so future syncs start fresh
+                localStorage.removeItem('uma_processed_keys');
+                processedFileKeys.clear();
+                // Reset in-memory state
+                state.devFolders = [];
+                state.devExpanded = false;
+                state.expandedDevFolders = {};
+                state.currentPath = ['Development'];
+                renderFolderTree(state.folders);
+                loadDevFiles(['Development']);
+                showToast('All Development data cleared', 'success');
+            } catch (err) {
+                console.error('Clear all dev data failed:', err);
+                showToast('Failed to clear Development data', 'error');
             }
         }
 
@@ -4422,9 +4795,9 @@
         function renderSearchResultCard(item) {
             const badgeClass = item.type === 'table' ? 'table'
                 : item.type === 'chart' ? 'chart'
-                : item.type === 'image' ? 'image'
-                : item.type === 'reading' ? 'reading'
-                : '';
+                    : item.type === 'image' ? 'image'
+                        : item.type === 'reading' ? 'reading'
+                            : '';
 
             let contentHtml = '';
 
@@ -4496,6 +4869,263 @@
         }
 
         // ============================================
+        // Report Tab Logic
+        // ============================================
+        let _selectedTemplateId = null;
+
+        function setupReportTab() {
+            const dropZone = document.getElementById('templateDropZone');
+            const fileInput = document.getElementById('templateFileInput');
+            const btnGenerate = document.getElementById('btnGenerate');
+            const btnDownload = document.getElementById('btnDownloadPdf');
+
+            // Click to upload
+            dropZone.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) handleTemplateUpload(e.target.files[0]);
+                e.target.value = '';
+            });
+
+            // Drag-drop
+            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+            dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type === 'application/pdf') handleTemplateUpload(file);
+                else showToast('Please upload a PDF file', 'error');
+            });
+
+            // Generate button
+            btnGenerate.addEventListener('click', runReportGeneration);
+
+            // Download button
+            btnDownload.addEventListener('click', async () => {
+                const manifest = ReportPipeline.getSavedManifest();
+                const templates = ReportPipeline.getTemplates();
+                if (manifest && manifest.templateId) {
+                    const template = templates.find(t => t.id === manifest.templateId);
+                    if (template) await ReportPipeline.renderDocx(manifest, template);
+                }
+            });
+
+            // Render existing templates
+            renderTemplateList();
+
+            // Check for in-progress report
+            const saved = ReportPipeline.getSavedManifest();
+            if (saved && saved.status === 'ready') {
+                btnDownload.style.display = 'inline-block';
+                window._reportManifest = saved;
+            }
+        }
+
+        async function handleTemplateUpload(file) {
+            const dropZone = document.getElementById('templateDropZone');
+            const origHTML = dropZone.innerHTML;
+            dropZone.innerHTML = '<p style="color:var(--accent)">Analyzing template...</p>';
+            dropZone.style.pointerEvents = 'none';
+
+            try {
+                await ReportPipeline.analyzeTemplate(file.name, file);
+                renderTemplateList();
+                showToast('Template analyzed successfully', 'success');
+            } catch (err) {
+                showToast(`Template analysis failed: ${err.message}`, 'error');
+                PipelineLog.log(`Template error: ${err.message}`);
+            } finally {
+                dropZone.innerHTML = origHTML;
+                dropZone.style.pointerEvents = '';
+                // Re-bind click on restored drop zone
+                dropZone.addEventListener('click', () => document.getElementById('templateFileInput').click());
+            }
+        }
+
+        function renderTemplateList() {
+            const list = document.getElementById('templateList');
+            const templates = ReportPipeline.getTemplates();
+            list.innerHTML = '';
+
+            for (const t of templates) {
+                const item = document.createElement('div');
+                item.className = 'template-item' + (t.id === _selectedTemplateId ? ' selected' : '');
+                item.innerHTML = `
+                    <input type="radio" name="template" value="${t.id}" ${t.id === _selectedTemplateId ? 'checked' : ''}>
+                    <div class="template-item-info">
+                        <div class="template-item-name" title="${t.filename}">${t.filename}</div>
+                        <div class="template-item-meta">${t.sections.length} sections &middot; ${t.reportType}</div>
+                    </div>
+                    <button class="template-item-delete" title="Delete template">&times;</button>
+                `;
+
+                // Select template
+                const radio = item.querySelector('input[type="radio"]');
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('.template-item-delete')) return;
+                    _selectedTemplateId = t.id;
+                    radio.checked = true;
+                    document.getElementById('btnGenerate').disabled = false;
+                    renderTemplateList();
+                });
+
+                // Delete template
+                item.querySelector('.template-item-delete').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    ReportPipeline.deleteTemplate(t.id);
+                    if (_selectedTemplateId === t.id) {
+                        _selectedTemplateId = null;
+                        document.getElementById('btnGenerate').disabled = true;
+                    }
+                    renderTemplateList();
+                });
+
+                list.appendChild(item);
+            }
+        }
+
+        function renderReportQuestion(q) {
+            const container = document.getElementById('reportQuestions');
+            // Remove empty state
+            const empty = container.querySelector('.report-user-input-empty');
+            if (empty) empty.remove();
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+
+            if (q.type === 'choice' && q.choices && q.choices.length > 0) {
+                const choicesHTML = q.choices.map((c, i) => `
+                    <label>
+                        <input type="radio" name="q_${q.id}" value="${c}" ${q.default === c ? 'checked' : ''}>
+                        ${c}
+                    </label>
+                `).join('');
+                card.innerHTML = `<label>${q.text}${q.required ? ' *' : ''}</label><div class="question-choices">${choicesHTML}</div>`;
+                card.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        const manifest = ReportPipeline.getSavedManifest();
+                        if (manifest) {
+                            manifest.userAnswers[q.field] = radio.value;
+                            ReportPipeline.saveManifest(manifest);
+                        }
+                    });
+                });
+            } else {
+                card.innerHTML = `
+                    <label>${q.text}${q.required ? ' *' : ''}</label>
+                    <input type="text" placeholder="${q.default || ''}" value="${q.default || ''}" data-field="${q.field}">
+                `;
+                const input = card.querySelector('input[type="text"]');
+                input.addEventListener('change', () => {
+                    const manifest = ReportPipeline.getSavedManifest();
+                    if (manifest) {
+                        manifest.userAnswers[q.field] = input.value;
+                        ReportPipeline.saveManifest(manifest);
+                    }
+                });
+                // Auto-save default
+                if (q.default) {
+                    const manifest = ReportPipeline.getSavedManifest();
+                    if (manifest && !manifest.userAnswers[q.field]) {
+                        manifest.userAnswers[q.field] = q.default;
+                        ReportPipeline.saveManifest(manifest);
+                    }
+                }
+            }
+
+            container.appendChild(card);
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function appendReportLog(message) {
+            const logs = document.getElementById('reportLogs');
+            // Remove placeholder on first log
+            if (logs.children.length === 1 && logs.children[0].style) {
+                const first = logs.children[0];
+                if (first.style.textAlign === 'center') first.remove();
+            }
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-time">${time}</span><span>${message}</span>`;
+            logs.appendChild(entry);
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        function appendReportSubLog(sub) {
+            const logs = document.getElementById('reportLogs');
+            const entry = document.createElement('div');
+
+            if (sub.type === 'status') {
+                entry.className = 'log-sub-entry';
+                entry.innerHTML = `<span class="log-sub-msg">${sub.message
+                    .replace(/(\d+)/g, '<span class="log-accent-num">$1</span>')}</span>`;
+            } else if (sub.type === 'chunk') {
+                entry.className = 'log-sub-entry log-sub-chunk';
+                const prefix = sub.isLast ? '\u2514' : '\u251C';
+                const badgeClass = sub.chunkType === 'section' ? '' : sub.chunkType;
+                entry.innerHTML = `<span class="log-sub-prefix">${prefix}</span>`
+                    + `<span class="log-sub-msg">`
+                    + `<span class="log-sub-file">${escapeHtml(sub.fileTitle)}</span>`
+                    + ` <span class="search-type-badge ${badgeClass}">${sub.chunkType.toUpperCase()}</span>`
+                    + ` <span class="log-sub-folder">${escapeHtml(sub.folder)}</span>`
+                    + (sub.reason ? `<br><span class="log-sub-reason">${escapeHtml(sub.reason)}</span>` : '')
+                    + `</span>`;
+            }
+
+            logs.appendChild(entry);
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        async function runReportGeneration() {
+            if (!_selectedTemplateId) return;
+
+            const btnGenerate = document.getElementById('btnGenerate');
+            const btnDownload = document.getElementById('btnDownloadPdf');
+            const progressBar = document.getElementById('reportProgress');
+            const progressFill = document.getElementById('reportProgressFill');
+            const progressText = document.getElementById('reportProgressText');
+
+            btnGenerate.disabled = true;
+            btnDownload.style.display = 'none';
+            progressBar.style.display = 'block';
+            progressText.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            // Clear previous questions
+            const qBody = document.getElementById('reportQuestions');
+            qBody.innerHTML = '<div class="report-user-input-empty">Questions will appear here as the AI discovers missing information during report generation.</div>';
+
+            appendReportLog('Starting report generation...');
+
+            try {
+                const manifest = await ReportPipeline.generateReport(
+                    _selectedTemplateId,
+                    (p) => {
+                        if (p.pct != null) progressFill.style.width = p.pct + '%';
+                        if (p.message) {
+                            progressText.textContent = p.message;
+                            appendReportLog(p.message);
+                        }
+                    },
+                    (q) => renderReportQuestion(q),
+                    (sub) => appendReportSubLog(sub)
+                );
+
+                window._reportManifest = manifest;
+                btnDownload.style.display = 'inline-block';
+                showToast('Report generation complete', 'success');
+                appendReportLog('Done. Click "Download Report" to save.');
+            } catch (err) {
+                showToast(`Report generation failed: ${err.message}`, 'error');
+                appendReportLog(`ERROR: ${err.message}`);
+            } finally {
+                btnGenerate.disabled = false;
+                progressFill.style.width = '100%';
+            }
+        }
+
+        // ============================================
         // Event Listeners
         // ============================================
         function setupEventListeners() {
@@ -4551,6 +5181,9 @@
             document.getElementById('searchInput').addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') runSearch();
             });
+
+            // ---- Report Tab ----
+            setupReportTab();
 
             // Keyboard shortcuts
             document.addEventListener('keydown', (e) => {

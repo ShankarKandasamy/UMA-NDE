@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
+    <filter id="panelShadow" x="-4%" y="-3%" width="108%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#1e3a5f" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="520" rx="16" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="480" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a5f" letter-spacing="0.5">THE MANUAL WAY vs. THE UMA AI WAY</text>
+
+  <!-- ==================== LEFT PANEL: Before (Manual) ==================== -->
+  <g transform="translate(30, 60)">
+    <rect width="410" height="360" rx="14" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5" filter="url(#panelShadow)"/>
+
+    <!-- Header -->
+    <rect width="410" height="48" rx="14" fill="#e2e8f0"/>
+    <rect y="34" width="410" height="14" fill="#e2e8f0"/>
+    <text x="205" y="32" text-anchor="middle" font-size="15" font-weight="700" fill="#64748b" letter-spacing="0.5">WITHOUT UMA AI</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(24, 72)">
+      <circle cx="16" cy="16" r="16" fill="#fef2f2"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#334155">No Asset Intelligence</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Data sits in binders, no way to query history</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(24, 140)">
+      <circle cx="16" cy="16" r="16" fill="#fef2f2"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#334155">Manual File Sorting</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Hours organizing files by hand into folders</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(24, 208)">
+      <circle cx="16" cy="16" r="16" fill="#fef2f2"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#334155">Hours of Report Writing</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Copy-paste between documents, error-prone</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(24, 276)">
+      <circle cx="16" cy="16" r="16" fill="#fef2f2"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#334155">No Revenue Upside</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Nothing new to offer your end-customers</text>
+    </g>
+  </g>
+
+  <!-- ==================== CENTER: VS Badge ==================== -->
+  <g transform="translate(448, 215)">
+    <circle cx="32" cy="32" r="32" fill="#ea580c"/>
+    <circle cx="32" cy="32" r="28" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+    <text x="32" y="39" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">VS</text>
+  </g>
+
+  <!-- ==================== RIGHT PANEL: After (UMA AI) ==================== -->
+  <g transform="translate(520, 60)">
+    <rect width="410" height="360" rx="14" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.5" filter="url(#panelShadow)"/>
+
+    <!-- Header -->
+    <rect width="410" height="48" rx="14" fill="#1e3a5f"/>
+    <rect y="34" width="410" height="14" fill="#1e3a5f"/>
+    <text x="205" y="32" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff" letter-spacing="0.5">WITH UMA AI</text>
+
+    <!-- Item 1: Search/Intelligence (HERO) -->
+    <g transform="translate(24, 72)">
+      <circle cx="16" cy="16" r="16" fill="#dcfce7"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#1e3a5f">Queryable Asset Intelligence</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Ask questions across all inspection history</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(24, 140)">
+      <circle cx="16" cy="16" r="16" fill="#dcfce7"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#1e3a5f">Auto-Categorized</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">AI sorts files instantly by type &amp; component</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(24, 208)">
+      <circle cx="16" cy="16" r="16" fill="#dcfce7"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#1e3a5f">AI-Generated Reports</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Code-compliant reports in minutes, not hours</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(24, 276)">
+      <circle cx="16" cy="16" r="16" fill="#dcfce7"/>
+      <svg x="4" y="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <text x="44" y="12" font-size="14" font-weight="600" fill="#1e3a5f">New Revenue for Your Clients</text>
+      <text x="44" y="28" font-size="11" fill="#64748b">Offer asset intelligence to end-customers</text>
+    </g>
+  </g>
+
+  <!-- ==================== BOTTOM: Summary Metrics Strip ==================== -->
+  <g transform="translate(30, 440)">
+    <rect width="900" height="60" rx="10" fill="#1e3a5f"/>
+
+    <!-- Metric 1 -->
+    <g transform="translate(30, 0)">
+      <text x="120" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#fb923c">Asset Intelligence</text>
+      <text x="120" y="44" text-anchor="middle" font-size="11" fill="#94a3b8">queryable inspection history</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="300" y1="12" x2="300" y2="48" stroke="#2d5280" stroke-width="1"/>
+
+    <!-- Metric 2 -->
+    <g transform="translate(300, 0)">
+      <text x="150" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#fb923c">Less Time</text>
+      <text x="150" y="44" text-anchor="middle" font-size="11" fill="#94a3b8">on reporting &amp; file management</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="600" y1="12" x2="600" y2="48" stroke="#2d5280" stroke-width="1"/>
+
+    <!-- Metric 3 -->
+    <g transform="translate(600, 0)">
+      <text x="150" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#fb923c">New Revenue</text>
+      <text x="150" y="44" text-anchor="middle" font-size="11" fill="#94a3b8">offer intelligence to your clients</text>
+    </g>
+  </g>
+</svg>
