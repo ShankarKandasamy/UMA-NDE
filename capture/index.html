@@ -920,7 +920,7 @@
             const hasFiles = pendingFiles.length > 0;
             previewSection.classList.toggle('active', hasFiles);
             // Notes section is always visible for voice-first workflow
-            uploadBtn.disabled = !hasFiles || !settings.apiEndpoint;
+            uploadBtn.disabled = !hasFiles;
             fileCount.textContent = pendingFiles.length;
         }
 
