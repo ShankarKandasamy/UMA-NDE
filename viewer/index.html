@@ -1436,6 +1436,34 @@
             color: var(--text-secondary);
         }
 
+        .search-final-answer {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .search-final-answer-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .search-final-answer-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
         /* Preview Modal */
         .modal-overlay {
             position: fixed;
@@ -2177,6 +2205,7 @@
                         <div class="search-stage" id="searchStage1"></div>
                         <div class="search-stage" id="searchStage2"></div>
                         <div class="search-stage" id="searchStage3"></div>
+                        <div class="search-stage" id="searchStage4"></div>
                     </div>
                     <span class="search-progress-text" id="searchProgressText">Searching...</span>
                 </div>
@@ -4726,6 +4755,7 @@
             document.getElementById('searchStage1').className = 'search-stage';
             document.getElementById('searchStage2').className = 'search-stage';
             document.getElementById('searchStage3').className = 'search-stage';
+            document.getElementById('searchStage4').className = 'search-stage';
 
             PipelineLog.log(`Search: "${query}"`);
 
@@ -4734,7 +4764,30 @@
                     document.getElementById('searchProgressText').textContent = p.message;
                     if (p.stage >= 1) document.getElementById('searchStage1').className = 'search-stage ' + (p.stage > 1 ? 'done' : 'active');
                     if (p.stage >= 2) document.getElementById('searchStage2').className = 'search-stage ' + (p.stage > 2 ? 'done' : 'active');
-                    if (p.stage >= 3) document.getElementById('searchStage3').className = 'search-stage ' + (p.done ? 'done' : 'active');
+                    if (p.stage >= 3) document.getElementById('searchStage3').className = 'search-stage ' + (p.stage > 3 ? 'done' : (p.stage === 3 && p.done ? 'done' : 'active'));
+                    if (p.stage >= 4) document.getElementById('searchStage4').className = 'search-stage ' + (p.done ? 'done' : 'active');
+
+                    // Render result cards as soon as stage 3 resolves sections
+                    if (p.partialResults) {
+                        renderSearchResults(p.partialResults);
+                    }
+
+                    // Append the final answer as soon as stage 4 completes
+                    if (p.answer) {
+                        const container = document.getElementById('searchResults');
+                        const answerDiv = document.createElement('div');
+                        answerDiv.className = 'search-final-answer';
+                        answerDiv.innerHTML = `
+                            <div class="search-final-answer-label">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                    <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/>
+                                    <line x1="10" y1="22" x2="14" y2="22"/>
+                                </svg>
+                                Final Answer
+                            </div>
+                            <div class="search-final-answer-text">${escapeHtml(p.answer)}</div>`;
+                        container.appendChild(answerDiv);
+                    }
 
                     // Pipeline log
                     if (p.log) {
@@ -4743,12 +4796,12 @@
                         else if (p.stage === 2) PipelineLog.log(`Search: ${l.total} → ${l.kept} relevant files ${l.time}s`);
                         else if (p.stage === 3 && p.done) PipelineLog.log(`Search: Complete — ${l.kept} results in ${l.totalTime}s`);
                         else if (p.stage === 3) PipelineLog.log(`Search: Retrieving sections from ${l.total} files...`);
+                        else if (p.stage === 4 && p.done) PipelineLog.log(`Search: Answer synthesized ${l.time}s`);
+                        else if (p.stage === 4) PipelineLog.log(`Search: Synthesizing answer...`);
                     } else if (!p.done) {
                         PipelineLog.log(`Search: ${p.message}`);
                     }
                 });
-
-                renderSearchResults(result);
             } catch (err) {
                 console.error('[Search] Error:', err);
                 showToast('Search failed: ' + err.message, 'error');

@@ -1,10 +1,11 @@
 // ============================================
 // Hierarchical Relevance Search Pipeline
 // ============================================
-// 3-stage "zoom-in" retrieval:
+// 4-stage "zoom-in" retrieval:
 //   Stage 1: Score folders (GPT-4o-mini via OpenAI proxy)
 //   Stage 2: Score files within relevant folders (GPT-4o-mini)
 //   Stage 3: Retrieve relevant sections from top files (GPT-4.1)
+//   Stage 4: Synthesize final answer from relevant sections (Claude Opus 4.5)
 
 const Search = {
     SCORE_THRESHOLD: 0.5,
@@ -94,6 +95,43 @@ const Search = {
             }
             return JSON.parse(cleaned);
         }
+    },
+
+    async callAnthropicText(model, systemMsg, userMsg) {
+        if (!settings.anthropicKey || !settings.apiEndpoint) {
+            throw new Error('Anthropic API key or API endpoint not configured.');
+        }
+
+        const body = {
+            model,
+            max_tokens: 4096,
+            system: systemMsg,
+            messages: [{ role: 'user', content: userMsg }]
+        };
+
+        const response = await fetch(`${settings.apiEndpoint}/llm/anthropic`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': settings.apiKey,
+                'X-Anthropic-Key': settings.anthropicKey
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`Anthropic API error ${response.status}: ${errText}`);
+        }
+
+        const data = await response.json();
+        const rawText = data.content[0].text;
+
+        if (data.usage) {
+            console.log(`[Search] Anthropic ${model} — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
+        }
+
+        return rawText;
     },
 
     // ---- Stage 1: Folder Scoring ----
@@ -234,15 +272,25 @@ const Search = {
                     }));
                 }
 
-                // Add charts
+                // Add charts (from PDF extractions)
                 if (extraction.charts && extraction.charts.length > 0) {
                     fileContent.charts = extraction.charts.map((c, i) => ({
                         index: i,
                         title: c.title || `Chart ${i + 1}`,
                         type: c.type || 'unknown',
+                        axes: c.axes || {},
+                        data_points: c.data_points || [],
+                        reference_lines: c.reference_lines || [],
+                        statistics: c.statistics || {},
+                        regions: c.regions || [],
                         data: c.data || {},
                         insights: c.insights || ''
                     }));
+                }
+
+                // Add chart_data (from image extractions of charts/graphs)
+                if (extraction.chart_data && extraction.chart_data.chart_type && extraction.chart_data.chart_type !== 'none') {
+                    fileContent.chart_data = extraction.chart_data;
                 }
 
                 // Add images
@@ -468,6 +516,38 @@ const Search = {
         return resolved;
     },
 
+    // ---- Stage 4: Answer Synthesis ----
+
+    async synthesizeAnswer(query, resolvedResults) {
+        console.log(`[Search] Stage 4: Synthesizing answer from ${resolvedResults.length} results...`);
+
+        // Build context from resolved results
+        const chunks = resolvedResults.map((item, i) => {
+            let content = '';
+            if (item.type === 'section' && item.content) {
+                content = `[${item.content.heading || 'Section'}]\n${item.content.text || ''}`;
+            } else if (item.type === 'table' && item.content) {
+                const headers = (item.content.headers || []).join(' | ');
+                const rows = (item.content.rows || []).map(r => r.join(' | ')).join('\n');
+                content = `[Table: ${item.content.title || 'Untitled'}]\n${headers}\n${rows}`;
+            } else if (item.type === 'chart' && item.content) {
+                content = `[Chart: ${item.content.title || 'Untitled'} (${item.content.type || ''})]\n${item.content.insights || ''}\n${JSON.stringify(item.content.data_points || item.content.data || [], null, 1)}`;
+            } else if (item.type === 'image' && item.content) {
+                content = `[Image: ${item.content.description || ''}]\nOCR: ${item.content.ocr_text || ''}`;
+            } else if (item.type === 'reading' && item.content) {
+                content = `[Reading: ${item.content.parameter || ''} = ${item.content.value || ''} ${item.content.unit || ''}]`;
+            }
+
+            return `--- Source ${i + 1}: ${item.fileTitle || item.filename || 'Unknown'} (${item.folder || ''}) ---\n${content}`;
+        });
+
+        const userMsg = `Query: "${query}"\n\nEvidence:\n${chunks.join('\n\n')}`;
+
+        const answer = await this.callAnthropicText('claude-opus-4-5-20251101', ANSWER_SYNTHESIS_SYSTEM_MSG, userMsg + '\n\n' + ANSWER_SYNTHESIS_PROMPT);
+        console.log(`[Search] Stage 4 complete`);
+        return answer;
+    },
+
     // ---- Main Search Orchestrator ----
 
     async search(query, onProgress) {
@@ -516,14 +596,33 @@ const Search = {
         const resolved = await this.resolvePointers(sectionsResult.results);
         const s3 = ((performance.now() - t3) / 1000).toFixed(1);
 
+        const s3Elapsed = ((performance.now() - t3) / 1000).toFixed(1);
+        progress({ stage: 3, message: `Found ${resolved.length} result${resolved.length !== 1 ? 's' : ''}`, done: false, log: { total: sectionsResult.total, kept: resolved.length, time: s3Elapsed }, partialResults: { folders: scoredFolders, files: scoredFiles, results: resolved } });
+
+        // Stage 4: Synthesize answer
+        let answer = null;
+        if (resolved.length > 0) {
+            let t4 = performance.now();
+            progress({ stage: 4, message: 'Synthesizing answer...' });
+            try {
+                answer = await this.synthesizeAnswer(query, resolved);
+            } catch (err) {
+                console.warn('[Search] Answer synthesis failed:', err);
+                answer = null;
+            }
+            const s4 = ((performance.now() - t4) / 1000).toFixed(1);
+            progress({ stage: 4, message: 'Answer ready', done: true, log: { time: s4 }, answer });
+        }
+
         const elapsed = performance.now() - startTime;
         console.log(`[Search] Complete in ${(elapsed / 1000).toFixed(1)}s — ${resolved.length} results`);
-        progress({ stage: 3, message: `Found ${resolved.length} result${resolved.length !== 1 ? 's' : ''}`, done: true, log: { total: sectionsResult.total, kept: resolved.length, time: s3, totalTime: (elapsed / 1000).toFixed(1) } });
+        progress({ stage: 3, message: `Found ${resolved.length} result${resolved.length !== 1 ? 's' : ''}`, done: true, log: { total: sectionsResult.total, kept: resolved.length, time: s3Elapsed, totalTime: (elapsed / 1000).toFixed(1) } });
 
         return {
             folders: scoredFolders,
             files: scoredFiles,
             results: resolved,
+            answer,
             elapsed
         };
     }
