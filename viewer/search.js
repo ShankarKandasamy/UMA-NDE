@@ -505,6 +505,12 @@ const Search = {
                     }
 
                     if (resolvedItem.content) {
+                        resolvedItem.contentIndex = item.index;
+                        resolvedItem.contentHeading = resolvedItem.content.heading
+                            || resolvedItem.content.title
+                            || resolvedItem.content.parameter
+                            || resolvedItem.content.description
+                            || null;
                         resolved.push(resolvedItem);
                     }
                 }

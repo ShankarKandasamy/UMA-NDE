@@ -1074,6 +1074,170 @@
             font-size: 0.6rem;
         }
 
+        /* Report view toggle */
+        .report-view-toggle {
+            display: flex;
+            gap: 0;
+            padding: 0 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .report-view-btn {
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .report-view-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .report-view-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Report HTML preview */
+        .report-preview-pane {
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .report-preview {
+            padding: 1.5rem 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .rp-cover {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .rp-title {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin: 0 0 0.25rem;
+        }
+
+        .rp-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .rp-meta-table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .rp-meta-label {
+            text-align: right;
+            padding: 0.2rem 0.75rem 0.2rem 0;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .rp-meta-value {
+            text-align: left;
+            padding: 0.2rem 0;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .rp-section {
+            margin-bottom: 1rem;
+        }
+
+        .rp-section h2 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.3rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .rp-section p {
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin: 0.5rem 0;
+        }
+
+        .rp-section ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .rp-section li {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin: 0.25rem 0;
+        }
+
+        .report-sourced {
+            border-left: 3px solid rgba(0, 212, 170, 0.3);
+            padding-left: 0.75rem;
+        }
+
+        .report-cite {
+            color: #4499DD;
+            cursor: pointer;
+            font-size: 0.7em;
+            vertical-align: super;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .report-cite:hover {
+            text-decoration: underline;
+            color: #66BBFF;
+        }
+
+        .rp-table-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1rem 0 0.4rem;
+        }
+
+        .rp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .rp-table th {
+            background: var(--surface-alt, #1A1A2E);
+            color: #F0F0F5;
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        .rp-table td {
+            padding: 0.35rem 0.6rem;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .rp-alt-row {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
         .report-user-input {
             border-left: 1px solid var(--border);
             overflow-y: auto;
@@ -2252,7 +2416,12 @@
                         <div class="report-progress-fill" id="reportProgressFill"></div>
                     </div>
                     <div class="report-progress-text" id="reportProgressText"></div>
+                    <div class="report-view-toggle" id="reportViewToggle" style="display:none;">
+                        <button class="report-view-btn active" data-view="logs">Logs</button>
+                        <button class="report-view-btn" data-view="preview">Preview</button>
+                    </div>
                     <div class="report-body">
+                        <div class="report-preview-pane" id="reportPreviewPane" style="display:none;"></div>
                         <div class="report-logs" id="reportLogs">
                             <div
                                 style="padding:1.5rem;text-align:center;color:var(--text-secondary);font-family:'Space Grotesk',sans-serif;font-size:0.85rem;">
@@ -4971,6 +5140,7 @@
             if (saved && saved.status === 'ready') {
                 btnDownload.style.display = 'inline-block';
                 window._reportManifest = saved;
+                showReportPreview(saved);
             }
         }
 
@@ -5145,6 +5315,12 @@
             progressText.style.display = 'block';
             progressFill.style.width = '0%';
 
+            // Reset preview toggle to logs view
+            document.getElementById('reportViewToggle').style.display = 'none';
+            document.getElementById('reportPreviewPane').style.display = 'none';
+            document.getElementById('reportPreviewPane').innerHTML = '';
+            document.getElementById('reportLogs').style.display = '';
+
             // Clear previous questions
             const qBody = document.getElementById('reportQuestions');
             qBody.innerHTML = '<div class="report-user-input-empty">Questions will appear here as the AI discovers missing information during report generation.</div>';
@@ -5169,6 +5345,7 @@
                 btnDownload.style.display = 'inline-block';
                 showToast('Report generation complete', 'success');
                 appendReportLog('Done. Click "Download Report" to save.');
+                showReportPreview(manifest);
             } catch (err) {
                 showToast(`Report generation failed: ${err.message}`, 'error');
                 appendReportLog(`ERROR: ${err.message}`);
@@ -5176,6 +5353,150 @@
                 btnGenerate.disabled = false;
                 progressFill.style.width = '100%';
             }
+        }
+
+        // ============================================
+        // Report Preview
+        // ============================================
+        function showReportPreview(manifest) {
+            const templates = ReportPipeline.getTemplates();
+            const tpl = templates.find(t => t.id === manifest.templateId);
+            if (!tpl) return;
+
+            const toggle = document.getElementById('reportViewToggle');
+            const previewPane = document.getElementById('reportPreviewPane');
+
+            toggle.style.display = 'flex';
+            previewPane.innerHTML = ReportPipeline.renderHtml(manifest, tpl);
+
+            // Auto-switch to preview view
+            document.querySelectorAll('.report-view-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.report-view-btn[data-view="preview"]').classList.add('active');
+            document.getElementById('reportLogs').style.display = 'none';
+            previewPane.style.display = '';
+        }
+
+        // Toggle between Logs and Preview
+        document.getElementById('reportViewToggle').addEventListener('click', (e) => {
+            const btn = e.target.closest('.report-view-btn');
+            if (!btn) return;
+            const view = btn.dataset.view;
+
+            document.querySelectorAll('.report-view-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.getElementById('reportLogs').style.display = view === 'logs' ? '' : 'none';
+            document.getElementById('reportPreviewPane').style.display = view === 'preview' ? '' : 'none';
+        });
+
+        // Citation click handler
+        document.getElementById('reportPreviewPane').addEventListener('click', async (e) => {
+            const cite = e.target.closest('.report-cite');
+            if (!cite) return;
+
+            const fileId = cite.dataset.fileId;
+            const contentType = cite.dataset.type;
+            const contentIndex = cite.dataset.contentIndex !== '' ? parseInt(cite.dataset.contentIndex) : null;
+            const contentHeading = cite.dataset.contentHeading || null;
+
+            if (!fileId) return;
+            await openPreviewWithHighlight(fileId, contentType, contentIndex, contentHeading);
+        });
+
+        async function openPreviewWithHighlight(fileId, contentType, contentIndex, contentHeading) {
+            const folder = fileId.split('/')[0];
+            const filename = fileId.split('/').slice(1).join('/');
+
+            // Try loading original file for PDF preview
+            const fileRecord = await DevDB.getFile(fileId);
+            if (fileRecord && filename.toLowerCase().endsWith('.pdf') && contentType !== 'section') {
+                // For charts/images with page info, try to open at the right page
+                const extKey = `${fileId}_extraction.json`;
+                const extRecord = await DevDB.getFile(extKey);
+                let pageSuffix = '';
+                if (extRecord && contentIndex != null) {
+                    try {
+                        const extraction = JSON.parse(await extRecord.blob.text());
+                        const arr = extraction[contentType + 's'] || [];
+                        const item = arr[contentIndex];
+                        if (item && item.page) pageSuffix = `#page=${item.page}`;
+                    } catch {}
+                }
+                const blobUrl = URL.createObjectURL(fileRecord.blob);
+                elements.previewTitle.textContent = contentHeading
+                    ? `${filename} — ${contentHeading}`
+                    : filename;
+                elements.previewBody.innerHTML = `<iframe src="${blobUrl}${pageSuffix}" style="width:100%;height:100%;border:none;"></iframe>`;
+                elements.previewModal.classList.add('active');
+                state.selectedFile = { key: fileId, name: filename, isLocal: true };
+                return;
+            }
+
+            // Load extraction and render with highlighting
+            const extKey = `${fileId}_extraction.json`;
+            const extRecord = await DevDB.getFile(extKey);
+            if (!extRecord) {
+                // Fallback: open file-level preview
+                openPreview(fileId, filename, true);
+                return;
+            }
+
+            let extraction;
+            try {
+                extraction = JSON.parse(await extRecord.blob.text());
+            } catch {
+                openPreview(fileId, filename, true);
+                return;
+            }
+
+            elements.previewTitle.textContent = contentHeading
+                ? `${filename} — ${contentHeading}`
+                : filename;
+
+            const targetType = contentType + 's';
+            let html = '<div style="padding:1rem;overflow:auto;font-size:0.82rem;font-family:\'Space Grotesk\',sans-serif;">';
+
+            const contentArrays = ['sections', 'tables', 'charts', 'images', 'readings'];
+            for (const arrName of contentArrays) {
+                const items = extraction[arrName] || [];
+                if (items.length === 0) continue;
+
+                items.forEach((item, idx) => {
+                    const isTarget = (arrName === targetType && idx === contentIndex);
+                    const style = isTarget
+                        ? 'background:rgba(0,212,170,0.1);border-left:4px solid #00D4AA;padding:0.75rem;margin:0.5rem 0;border-radius:4px;'
+                        : 'padding:0.75rem;margin:0.5rem 0;opacity:0.4;border-left:4px solid transparent;';
+
+                    const label = item.heading || item.title || item.parameter || item.description || `${arrName} ${idx}`;
+                    html += `<div style="${style}" ${isTarget ? 'id="highlight-target"' : ''}>`;
+                    html += `<div style="font-weight:600;font-size:0.75rem;color:var(--text-secondary);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.3px;">${arrName.slice(0, -1)} ${idx}: ${label}</div>`;
+
+                    if (item.text) html += `<div style="white-space:pre-wrap;line-height:1.6;">${item.text.replace(/</g, '&lt;')}</div>`;
+                    if (item.headers && item.rows) {
+                        html += '<table style="width:100%;border-collapse:collapse;margin-top:0.3rem;font-size:0.75rem;">';
+                        html += '<tr>' + item.headers.map(h => `<th style="text-align:left;padding:0.25rem 0.4rem;border-bottom:1px solid var(--border);font-weight:600;">${h}</th>`).join('') + '</tr>';
+                        for (const row of item.rows.slice(0, 20)) {
+                            html += '<tr>' + row.map(c => `<td style="padding:0.25rem 0.4rem;border-bottom:1px solid var(--border);">${c}</td>`).join('') + '</tr>';
+                        }
+                        if (item.rows.length > 20) html += `<tr><td colspan="${item.headers.length}" style="padding:0.25rem;color:var(--text-secondary);font-style:italic;">...${item.rows.length - 20} more rows</td></tr>`;
+                        html += '</table>';
+                    }
+                    if (item.value) html += `<div>${item.parameter || ''}: <strong>${item.value}</strong> ${item.unit || ''}</div>`;
+                    if (item.insights) html += `<div style="margin-top:0.3rem;font-style:italic;color:var(--text-secondary);">${item.insights.replace(/</g, '&lt;')}</div>`;
+                    html += '</div>';
+                });
+            }
+
+            html += '</div>';
+            elements.previewBody.innerHTML = html;
+            elements.previewModal.classList.add('active');
+            state.selectedFile = { key: fileId, name: filename, isLocal: true };
+
+            // Scroll to highlighted element
+            requestAnimationFrame(() => {
+                const target = document.getElementById('highlight-target');
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
         }
 
         // ============================================

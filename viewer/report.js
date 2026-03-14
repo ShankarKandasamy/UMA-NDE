@@ -374,7 +374,9 @@ const ReportPipeline = {
                         filename: c.filename,
                         fileTitle: c.fileTitle || c.filename,
                         type: c.type,
-                        reason: c.reason
+                        reason: c.reason,
+                        contentIndex: c.contentIndex,
+                        contentHeading: c.contentHeading
                     }));
 
                     // Phase 2c-2d: Generate section
@@ -883,5 +885,196 @@ const ReportPipeline = {
         URL.revokeObjectURL(url);
 
         PipelineLog.log('Word document downloaded');
+    },
+
+    // ---- Phase 5: HTML Preview Rendering ----
+
+    renderHtml(manifest, template) {
+        // Build global reference map (same logic as renderDocx)
+        const globalRefMap = new Map();
+        const refBySection = new Map();
+        const chunkMetaMap = new Map();
+        let refCounter = 1;
+
+        if (manifest.sectionChunks) {
+            for (const [secIdx, chunks] of Object.entries(manifest.sectionChunks)) {
+                const sectionTitle = (manifest.sectionOutputs[secIdx] || {}).title
+                    || (template.sections[secIdx] || {}).title
+                    || `Section ${parseInt(secIdx) + 1}`;
+                const localMap = new Map();
+
+                (chunks || []).forEach((chunk, chunkIdx) => {
+                    chunkMetaMap.set(`${secIdx}:${chunkIdx}`, chunk);
+                    const dedupKey = `${chunk.fileId}||${chunk.type}`;
+                    if (!globalRefMap.has(dedupKey)) {
+                        globalRefMap.set(dedupKey, {
+                            ref: refCounter++,
+                            fileId: chunk.fileId,
+                            fileTitle: chunk.fileTitle,
+                            folder: chunk.folder,
+                            type: chunk.type,
+                            reason: chunk.reason,
+                            contentIndex: chunk.contentIndex,
+                            contentHeading: chunk.contentHeading,
+                            sections: new Set()
+                        });
+                    }
+                    const entry = globalRefMap.get(dedupKey);
+                    entry.sections.add(sectionTitle);
+                    localMap.set(chunkIdx, entry.ref);
+                });
+
+                refBySection.set(parseInt(secIdx), localMap);
+            }
+        }
+
+        // Reverse lookup: ref number -> globalRefMap entry
+        const refToEntry = new Map();
+        for (const entry of globalRefMap.values()) {
+            refToEntry.set(entry.ref, entry);
+        }
+
+        function esc(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function buildCitedHtml(text, sources, sectionIndex) {
+            const localMap = refBySection.get(sectionIndex);
+            const escaped = esc(text);
+            if (!sources || !sources.length || !localMap) return escaped;
+
+            return escaped.replace(/\[(\d+)\]/g, (match, idx) => {
+                const chunkIdx = parseInt(idx);
+                const globalRef = localMap.get(chunkIdx);
+                if (globalRef === undefined) return match;
+
+                const chunk = chunkMetaMap.get(`${sectionIndex}:${chunkIdx}`);
+                if (!chunk) return `<span class="report-cite">[${globalRef}]</span>`;
+
+                return `<a class="report-cite" data-ref="${globalRef}" data-file-id="${esc(chunk.fileId)}" data-type="${esc(chunk.type)}" data-content-index="${chunk.contentIndex != null ? chunk.contentIndex : ''}" data-content-heading="${esc(chunk.contentHeading || '')}" title="Source: ${esc(chunk.fileTitle || chunk.filename)}">[${globalRef}]</a>`;
+            });
+        }
+
+        let html = '<div class="report-preview">';
+
+        // Cover
+        const titleText = manifest.inferredData.reportTitle || template.title || 'Inspection Report';
+        html += `<div class="rp-cover">`;
+        html += `<h1 class="rp-title">${esc(titleText)}</h1>`;
+        html += `<div class="rp-subtitle">${esc(template.reportType || 'Inspection Report')}</div>`;
+
+        const coverFields = [
+            ['Client', manifest.inferredData.client || manifest.userAnswers.client || '\u2014'],
+            ['Facility', manifest.inferredData.facility || manifest.userAnswers.facility || '\u2014'],
+            ['Report No.', manifest.userAnswers.report_number || manifest.inferredData.report_number || '\u2014'],
+            ['Date', manifest.inferredData.inspection_date || manifest.userAnswers.inspection_date || new Date().toLocaleDateString()]
+        ];
+        html += '<table class="rp-meta-table">';
+        for (const [label, value] of coverFields) {
+            html += `<tr><td class="rp-meta-label">${esc(label)}:</td><td class="rp-meta-value">${esc(value)}</td></tr>`;
+        }
+        html += '</table></div>';
+
+        // Sections
+        for (let i = 0; i < template.sections.length; i++) {
+            const output = manifest.sectionOutputs[i];
+            if (!output) continue;
+
+            const heading = output.title || template.sections[i].title;
+            html += `<div class="rp-section">`;
+            html += `<h2>${esc(heading)}</h2>`;
+
+            // Narratives
+            if (output.narratives) {
+                for (const para of output.narratives) {
+                    if (typeof para === 'string') {
+                        html += `<p>${esc(para)}</p>`;
+                    } else if (para && para.text) {
+                        const chunk = para.sources && para.sources[0] != null ? chunkMetaMap.get(`${i}:${para.sources[0]}`) : null;
+                        const tooltip = chunk ? `Source: ${chunk.fileTitle || chunk.filename}` : '';
+                        html += `<p class="report-sourced" title="${esc(tooltip)}">${buildCitedHtml(para.text, para.sources, i)}</p>`;
+                    }
+                }
+            }
+
+            // Bullet points
+            if (output.bulletPoints && output.bulletPoints.length > 0) {
+                html += '<ul>';
+                for (const bullet of output.bulletPoints) {
+                    if (typeof bullet === 'string') {
+                        html += `<li>${esc(bullet)}</li>`;
+                    } else if (bullet && bullet.text) {
+                        const chunk = bullet.sources && bullet.sources[0] != null ? chunkMetaMap.get(`${i}:${bullet.sources[0]}`) : null;
+                        const tooltip = chunk ? `Source: ${chunk.fileTitle || chunk.filename}` : '';
+                        html += `<li class="report-sourced" title="${esc(tooltip)}">${buildCitedHtml(bullet.text, bullet.sources, i)}</li>`;
+                    }
+                }
+                html += '</ul>';
+            }
+
+            // Tables
+            if (output.tables) {
+                const localMap = refBySection.get(i);
+                for (const table of output.tables) {
+                    if (!table.headers || !table.rows) continue;
+                    if (table.title) {
+                        html += `<div class="rp-table-title">${esc(table.title)}</div>`;
+                    }
+                    html += '<table class="rp-table"><thead><tr>';
+                    for (const h of table.headers) {
+                        html += `<th>${esc(h)}</th>`;
+                    }
+                    html += '</tr></thead><tbody>';
+                    table.rows.forEach((row, ri) => {
+                        const rowClass = ri % 2 === 1 ? ' class="rp-alt-row"' : '';
+                        html += `<tr${rowClass}>`;
+                        row.forEach((cell, ci) => {
+                            let cellHtml = esc(cell);
+                            // Append citation to last cell if rowSources exist
+                            if (ci === row.length - 1 && table.rowSources && table.rowSources[ri] && localMap) {
+                                const refNums = table.rowSources[ri].map(idx => localMap.get(idx)).filter(r => r !== undefined);
+                                if (refNums.length > 0) {
+                                    const chunk = chunkMetaMap.get(`${i}:${table.rowSources[ri][0]}`);
+                                    if (chunk) {
+                                        cellHtml += ` <a class="report-cite" data-ref="${refNums[0]}" data-file-id="${esc(chunk.fileId)}" data-type="${esc(chunk.type)}" data-content-index="${chunk.contentIndex != null ? chunk.contentIndex : ''}" data-content-heading="${esc(chunk.contentHeading || '')}" title="Source: ${esc(chunk.fileTitle || chunk.filename)}">[${refNums.join(',')}]</a>`;
+                                    }
+                                }
+                            }
+                            html += `<td>${cellHtml}</td>`;
+                        });
+                        html += '</tr>';
+                    });
+                    html += '</tbody></table>';
+                }
+            }
+
+            html += '</div>';
+        }
+
+        // Traceability Matrix
+        if (globalRefMap.size > 0) {
+            html += '<div class="rp-section">';
+            html += '<h2>Traceability Matrix</h2>';
+            html += '<p>The table below maps each item in this report to its source document.</p>';
+            html += '<table class="rp-table"><thead><tr><th>Ref</th><th>Report Section(s)</th><th>Source Document</th><th>Folder</th><th>Type</th><th>Relevance</th></tr></thead><tbody>';
+
+            const sorted = [...globalRefMap.values()].sort((a, b) => a.ref - b.ref);
+            sorted.forEach((entry, ri) => {
+                const rowClass = ri % 2 === 1 ? ' class="rp-alt-row"' : '';
+                html += `<tr${rowClass}>`;
+                html += `<td>${entry.ref}</td>`;
+                html += `<td>${esc([...entry.sections].join(', '))}</td>`;
+                html += `<td>${esc(entry.fileTitle || '')}</td>`;
+                html += `<td>${esc(entry.folder || '')}</td>`;
+                html += `<td>${esc(entry.type || '')}</td>`;
+                html += `<td>${esc(entry.reason || '')}</td>`;
+                html += '</tr>';
+            });
+
+            html += '</tbody></table></div>';
+        }
+
+        html += '</div>';
+        return html;
     }
 };
