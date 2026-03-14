@@ -1,9 +1,58 @@
-  ## Questions
-  1. What's the most tedious part of your reporting workflow right now?
-  2. What does a typical inspection report cycle look like — from data collection to final deliverable?
-  3. What format does your raw data come in? How messy is it?
-  4. What would make you actually trust an AI-generated report enough to sign off on it?
-  5. Who ultimately reviews and approves reports — the inspector, a Level 3, the client?
-  6. What's the biggest bottleneck that costs time or money in the reporting chain?
-  7. If you could wave a magic wand and fix one thing about the current process, what would it be?
-  8. Who else in the industry do you think would benefit from seeing this?
+## Questions
+
+1. What's the most tedious part of your reporting workflow right now?
+2. What does a typical inspection report cycle look like — from data collection to final deliverable?
+3. What format does your raw data come in? How messy is it?
+4. What would make you actually trust an AI-generated report enough to sign off on it?
+5. Who ultimately reviews and approves reports — the inspector, a Level 3, the client?
+6. What's the biggest bottleneck that costs time or money in the reporting chain?
+7. If you could wave a magic wand and fix one thing about the current process, what would it be?
+8. Who else in the industry do you think would benefit from seeing this?
+
+Questions to Ask (Strategic Order)
+Structure the conversation in three phases. Don't jump to the ask — earn it.
+Phase 1: His World (15–20 min over appetizers) — Build rapport, gather intel
+
+"What's the current state of inspection documentation at OPG/Pickering? Has anything changed in how they handle reports?"
+"What's your biggest frustration with the reporting side of inspection work these days?"
+"When your students go out into the field, what do they struggle with most in their first couple years?"
+"Are you seeing any of the NDE vendors you work with adopting new software or digital tools? Or is everyone still on PDF/Excel?"
+"What does the CINDE community think about AI tools coming into the inspection space — excitement, skepticism, fear?"
+
+Phase 2: The Demo (15–20 min over mains) — Show, don't tell
+
+Show the prototype, then ask: "If you were still running jobs day-to-day, what would you change about this?"
+"Does this match how data actually flows on a real job, or am I missing steps?"
+"What template formats are most common among the vendors you work with?"
+"If I showed this to a Level III at one of the vendors you know, what would their first objection be?"
+
+Phase 3: The Ask (10 min over coffee/dessert) — Direct but respectful
+
+This is where the script below kicks in.
+
+The Script (Post-Small Talk)
+Here's what to say after you've caught up, ordered food, and the conversation has naturally turned to "so what are you working on?" or after you steer it there:
+
+"Ciprian, I want to show you something I've been building, and I'd really value your honest opinion on it.
+You know I've been doing inspection work at Candu for almost 20 years now. One thing that's always bothered me is how much time gets burned on the documentation side — the data capture, the report writing, making sure everything lines up with the right code references and template formats. I've watched Level II techs spend half their day on paperwork that should take a fraction of the time.
+So I've been building a software tool that handles that workflow — from data capture through to automated report generation against any template. The idea is that the tech focuses on the inspection, and the software handles turning that data into a compliant, client-ready report.
+Let me show you what I have so far."
+
+[Demo the prototype — keep it to 10 minutes max, show the most impressive flow: data in → report out]
+
+"Now, I know this is a prototype. What I need is honest feedback — where does this miss the mark? What am I not seeing from someone who's been training inspectors and working with vendors for as long as you have?"
+
+[Listen carefully. Take notes. Don't get defensive. Ask follow-up questions on anything he flags.]
+Then, after he's given feedback and you've discussed it:
+
+"I really appreciate this, Ciprian. This is exactly the kind of insight I can't get sitting in front of a computer.
+Here's where I need your help beyond tonight. To make this software actually work for real-world use, I need to develop it alongside a working NDE vendor — using their real job data, their templates, their workflow. I'm looking for a design partner: a vendor who would work with me over the next year or so, use the software on actual jobs, and give me structured feedback. In exchange, they'd get free access through development and deeply preferential pricing after that.
+I'm not looking for a giant company. I'm looking for a small to mid-size vendor whose owner actually cares about improving their operation and would be hands-on with this.
+I know you work with a lot of people through CINDE. Is there anyone you think would be a good fit for something like this? Someone who's sharp, forward-thinking, and would actually engage with it rather than just shelve it?
+I know you work with Paul Holloway at CINDE — from what I've seen of Holloway NDE, that's exactly the kind of operation I think this could be a perfect fit for. Would you be comfortable making an introduction?"
+
+[If he suggests others besides Paul, write every name down. If he hesitates on Paul specifically, don't push — ask "who would you suggest instead?"]
+
+"I really appreciate you taking the time tonight. If you think this has legs, I'd love to keep you in the loop as it develops. Your perspective from the training side is something I can't get anywhere else."
+
+Key Tactical Notes

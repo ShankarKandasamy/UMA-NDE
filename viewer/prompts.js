@@ -35,13 +35,17 @@ const PDF_EXTRACTION_PROMPT = `Analyze this PDF document and return ONLY a valid
   "charts": [
     {
       "page": <page number>,
-      "type": "<bar chart | line chart | pie chart | diagram | flowchart | other>",
+      "type": "<line_chart | bar_chart | scatter_plot | a_scan | heatmap | contour_map | pie_chart | histogram | box_plot | diagram | flowchart | other>",
       "title": "<chart title or inferred title>",
-      "data": {"x": ["..."], "y": ["..."]},
+      "axes": {"x_label": "<x-axis label with unit>", "y_label": "<y-axis label with unit>"},
+      "data_points": [{"x": "<x value>", "y": "<y value>", "label": "<optional annotation>"}],
+      "reference_lines": [{"label": "<e.g. Nominal, t_min>", "value": "<numeric>", "axis": "y"}],
+      "statistics": {"min": "<if shown>", "max": "<if shown>", "avg": "<if shown>", "count": "<if shown>"},
+      "regions": [{"description": "<for heatmaps/contour maps — zone description>", "bounds": "<location>", "severity": "<if applicable>"}],
       "insights": "<trends, conclusions, key takeaways from the chart>"
     }
   ],
-  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
 }
 
@@ -64,10 +68,11 @@ Rules:
   - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
   - "Site Photos" — general site overview, equipment context, unit area photos
   - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
+  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
 - Split text into sections at logical boundaries (numbered headings, bold headings, topic shifts).
 - For tables: extract ALL rows and columns as structured data. Do not summarize table contents.
 - For images: describe what is visible and provide OCR'd text. If the image is purely decorative (logo, border), still include it but note it as decorative.
-- For charts/diagrams: extract data points where possible. If exact values aren't readable, provide approximate values and note they are approximate.
+- For charts/diagrams: extract EVERY individual data point as {x, y} pairs in data_points. For line charts, record every plotted point. For bar charts, record every bar's value. For heatmaps, describe regions instead of individual points. Extract reference lines (nominal, t_min, thresholds) and any summary statistics shown. If exact values aren't readable, provide approximate values and add "label": "~approx" to the data point.
 - If no images, charts, or tables exist, return empty arrays for those fields.
 - The summary MUST be 550-1100 characters (not words).`;
 
@@ -100,6 +105,31 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
       "description": "<what this component is and its notable characteristics>"
     }
   ],
+  "chart_data": {
+    "chart_type": "<line_chart | bar_chart | scatter_plot | a_scan | heatmap | contour_map | pie_chart | histogram | box_plot | other | none>",
+    "chart_title": "<chart title as shown, or empty string if not a chart>",
+    "axes": {
+      "x_label": "<x-axis label with unit>",
+      "y_label": "<y-axis label with unit>",
+      "x_range": [<min>, <max>],
+      "y_range": [<min>, <max>]
+    },
+    "data_points": [
+      {"x": "<x value>", "y": <y value>, "label": "<optional data label or annotation>"}
+    ],
+    "reference_lines": [
+      {"label": "<e.g. Nominal Wall, t_min>", "value": <numeric value>, "axis": "x or y"}
+    ],
+    "regions": [
+      {"description": "<region description, e.g. severe corrosion zone>", "bounds": "<approximate location/extent>", "severity": "<if applicable>"}
+    ],
+    "statistics": {
+      "min": "<min value with label if shown>",
+      "max": "<max value with label if shown>",
+      "avg": "<average if shown>",
+      "count": "<number of data points or readings>"
+    }
+  },
   "tables": [
     {
       "title": "<table title or inferred title>",
@@ -107,7 +137,7 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
       "rows": [["val1", "val2"]]
     }
   ],
-  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
 }
 
@@ -131,6 +161,7 @@ Rules:
   - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
   - "Site Photos" — general site overview, equipment context, unit area photos
   - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
+  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
 - ALWAYS populate image_type, title, summary, ocr_text, and image_quality — these are required for every image.
 - ocr_text: extract ALL readable text verbatim, even partial or worn text. If no text is visible, use an empty string.
 - summary MUST be 550-1100 characters (not words).
@@ -141,7 +172,26 @@ Rules:
   - document: populate tables if any tabular data is visible. Capture key text content in observations.
   - nameplate: put all nameplate data (model, serial, rating, spec values) verbatim in ocr_text and as individual observation entries.
   - calibration_setup: describe equipment visible and any procedure indicators or reference standards in observations.
-- If a field is not applicable to the image type, return an empty array for array fields.`;
+- If a field is not applicable to the image type, return an empty array for array fields or null for object fields.
+
+Chart/Graph Data Extraction — CRITICAL for any image containing a chart, graph, plot, or data visualization:
+- chart_data.chart_type: MUST be set for ANY image containing a chart or graph. Set to "none" only for non-chart images (photos, documents, diagrams).
+- data_points: Extract EVERY individually identifiable data point as an {x, y} pair. This is the most important field.
+  - LINE CHARTS: Read each plotted point where the line changes direction or where a marker dot is visible. Walk left-to-right along the x-axis and record every point. Example: [{"x": "12:00", "y": 8.45}, {"x": "1:00", "y": 8.38}, ...]
+  - BAR CHARTS: Record the x-position label and height (y-value) of every bar. If bars are grouped, include a "label" field to identify the series. Example: [{"x": "0", "y": 0.353}, {"x": "0.5", "y": 0.354}, ...]
+  - A-SCANS / WAVEFORMS: Record each significant peak — the x-position (time) and y-value (amplitude). Label peaks with their identity if annotated (IP, BE, etc.). Example: [{"x": 10, "y": 98, "label": "IP"}, {"x": 20, "y": 48, "label": "BE"}, {"x": 31, "y": 45, "label": "BE"}]
+  - SCATTER PLOTS: Record every visible point as {x, y}.
+  - PIE CHARTS: Record each slice as {"x": "<category>", "y": <percentage or value>, "label": "<category label>"}.
+  - HISTOGRAMS: Record each bin as {"x": "<bin range or center>", "y": <count or frequency>}.
+- HEATMAPS / CONTOUR MAPS: data_points may be sparse or unavailable. Instead, populate the "regions" array:
+  - Identify distinct zones by their color/intensity and describe their approximate location, extent, and the value range they represent.
+  - Example: [{"description": "Severe thinning zone", "bounds": "center-left quadrant, x: 200-600, y: 400-800", "severity": "critical — values 10-12 (near minimum)"}]
+  - If a color scale legend is present, reference its values in the region descriptions.
+- reference_lines: Extract any horizontal or vertical reference lines (nominal wall thickness, t_min, alarm thresholds, code limits). These are critical for engineering context.
+- statistics: Extract any summary statistics shown on the chart (min, max, avg, count, THK values). If shown as annotations, capture them exactly.
+- axes: ALWAYS populate axis labels and ranges for any chart. Read the axis tick marks to determine the range.
+- When exact values are not readable from the chart, estimate from the grid/axis and note in the data point's "label" field that the value is approximate (e.g., "label": "~approx").
+- Prefer over-extraction to under-extraction. It is better to include an approximate data point than to skip it.`;
 
 const SPREADSHEET_EXTRACTION_PROMPT = `Analyze this spreadsheet data and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.
 
@@ -161,7 +211,7 @@ The spreadsheet has been pre-parsed and is provided as tab-delimited text below.
     "<notable pattern, trend, outlier, or characteristic of the data>"
   ],
   "keywords": ["<list of keywords that capture the main concepts, data types, entities, and topics in this spreadsheet>"],
-  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials>",
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
 }
 
@@ -185,6 +235,7 @@ Rules:
   - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
   - "Site Photos" — general site overview, equipment context, unit area photos
   - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
+  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
 - Generate 2-4 analytical sections from: Data Summary, Column Analysis, Data Quality, Key Findings
   - Data Summary: overview of what the data represents, row/column count, key columns
   - Column Analysis: describe each column's data type, range, and meaning
@@ -289,6 +340,23 @@ Rules:
 - If a file has no relevant content items, omit it from results entirely
 - Prefer specific, targeted selections over returning everything
 - Tables with relevant data are often highly valuable — don't overlook them`;
+
+const ANSWER_SYNTHESIS_SYSTEM_MSG =
+  "You are an expert NDE (Non-Destructive Examination) technical analyst. You answer questions by synthesizing information from inspection documents, data, and images. Be precise, cite specific values, and flag any gaps or uncertainties.";
+
+const ANSWER_SYNTHESIS_PROMPT = `You are given a user's query and a set of relevant content retrieved from their document corpus. Synthesize a clear, direct answer to the query based on the provided evidence.
+
+Rules:
+- Answer the query directly and concisely — lead with the answer, not background
+- Cite specific values, measurements, dates, and document names from the evidence
+- If the evidence partially answers the query, answer what you can and note what's missing
+- If the evidence does not answer the query at all, say so clearly
+- Use professional NDE/inspection terminology where appropriate
+- For numerical data, include units and context (e.g. "minimum thickness of 0.285 in. at CML 12")
+- If multiple sources provide conflicting information, note the discrepancy
+- Keep the answer focused — typically 2-6 sentences, longer only if the query demands detail
+- Do NOT fabricate information not present in the provided evidence
+- Format the answer as plain text (no markdown, no bullet points unless listing multiple items)`;
 
 // ============================================
 // Report Generation Prompts
