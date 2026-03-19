@@ -12,7 +12,7 @@ const Search = {
 
     // ---- LLM Call Helpers ----
 
-    async callOpenAI(model, systemMsg, userMsg) {
+    async callOpenAI(model, systemMsg, userMsg, maxTokens) {
         if (!settings.openaiKey || !settings.apiEndpoint) {
             throw new Error('OpenAI API key or API endpoint not configured. Add your OpenAI key in Settings.');
         }
@@ -26,6 +26,7 @@ const Search = {
                 { role: 'user', content: userMsg }
             ]
         };
+        if (maxTokens) body.max_tokens = maxTokens;
 
         const response = await fetch(`${settings.apiEndpoint}/llm/openai`, {
             method: 'POST',

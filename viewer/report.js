@@ -231,8 +231,8 @@ const ReportPipeline = {
 
         const userContent = `Section specification:\n${JSON.stringify(section, null, 2)}\n\nData chunks (${dataChunks.length} items):\n${JSON.stringify(dataChunks, null, 2)}\n\nReport manifest:\n${JSON.stringify(compactManifest, null, 2)}\n\n${SECTION_GENERATION_PROMPT}`;
 
-        const result = await this.callAnthropicEx(
-            'claude-opus-4-5-20251101',
+        const result = await Search.callOpenAI(
+            'gpt-4.1',
             SECTION_GENERATION_SYSTEM_MSG,
             userContent,
             16384
@@ -252,6 +252,8 @@ const ReportPipeline = {
 
         // Store section output
         manifest.sectionOutputs[sectionIndex] = result.sectionContent || {};
+        manifest.sectionOutputs[sectionIndex].dataGaps = result.dataGaps || [];
+        manifest.sectionOutputs[sectionIndex].confidence = result.confidence ?? null;
         manifest.currentSection = sectionIndex + 1;
 
         return result;
@@ -288,8 +290,8 @@ const ReportPipeline = {
 
         const userContent = `Report sections:\n${JSON.stringify(sectionSummaries, null, 2)}\n\nInferred data:\n${JSON.stringify(manifest.inferredData, null, 2)}\n\n${CROSS_CHECK_PROMPT}`;
 
-        const result = await this.callAnthropicEx(
-            'claude-opus-4-5-20251101',
+        const result = await Search.callOpenAI(
+            'gpt-4.1',
             CROSS_CHECK_SYSTEM_MSG,
             userContent,
             8192
@@ -983,6 +985,13 @@ const ReportPipeline = {
             const heading = output.title || template.sections[i].title;
             html += `<div class="rp-section">`;
             html += `<h2>${esc(heading)}</h2>`;
+
+            if (output.dataGaps && output.dataGaps.length > 0) {
+                html += '<div class="rp-data-gaps">';
+                html += '<strong>Missing data:</strong> ';
+                html += output.dataGaps.map(g => esc(g)).join(' | ');
+                html += '</div>';
+            }
 
             // Narratives
             if (output.narratives) {

@@ -1167,6 +1167,16 @@
             margin: 1.5rem 0 0.75rem;
         }
 
+        .rp-data-gaps {
+            background: rgba(255, 180, 50, 0.1);
+            border-left: 3px solid #FFB432;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.75rem;
+            color: #FFB432;
+            margin: 0.25rem 0 0.75rem;
+            line-height: 1.5;
+        }
+
         .rp-section p {
             font-size: 0.8rem;
             line-height: 1.7;
@@ -4516,6 +4526,7 @@
 
         function closePreview() {
             elements.previewModal.classList.remove('active');
+            elements.previewBody.style.alignItems = '';
             elements.previewNotes.style.display = 'none';
             elements.previewNotes.textContent = '';
             state.selectedFile = null;
@@ -5488,6 +5499,7 @@
             }
 
             html += '</div>';
+            elements.previewBody.style.alignItems = 'flex-start';
             elements.previewBody.innerHTML = html;
             elements.previewModal.classList.add('active');
             state.selectedFile = { key: fileId, name: filename, isLocal: true };
