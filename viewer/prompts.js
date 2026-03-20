@@ -438,8 +438,8 @@ Return ONLY a valid JSON object:
   "sectionContent": {
     "title": "<section title>",
     "narratives": [
-      "plain paragraph (when no specific source)",
-      { "text": "paragraph referencing data [0][3]", "sources": [0, 3] }
+      "plain paragraph (when no specific source applies)",
+      { "text": "The minimum thickness was 0.285 in. [0] at CML 12, which is below the nominal wall of 0.432 in. [3]", "sources": [0, 3] }
     ],
     "tables": [
       {
@@ -450,8 +450,8 @@ Return ONLY a valid JSON object:
       }
     ],
     "bulletPoints": [
-      "plain bullet",
-      { "text": "bullet citing chunk [5]", "sources": [5] }
+      "plain bullet (when no specific source applies)",
+      { "text": "Corrosion rate of 0.005 in./yr calculated from trending data [2]", "sources": [2] }
     ]
   },
   "manifestUpdates": {
@@ -474,11 +474,12 @@ Return ONLY a valid JSON object:
 }
 
 Source citation rules:
-- Each narrative or bulletPoint MAY be a plain string OR an object { "text": "...", "sources": [N, ...] } where sources is an array of 0-based indices into the data chunks array
-- For tables, include "rowSources" parallel to "rows" — each entry is an array of chunk indices that sourced that row
-- Insert [N] bracket references in the text near the claims they support (N = chunk index from the data chunks array)
-- Source annotations are best-effort — omit rather than guess. Only cite when you are confident which chunk supports a claim
-- Plain strings are acceptable when no specific source chunk applies
+- Each narrative or bulletPoint that uses data from a chunk MUST be an object { "text": "...", "sources": [N, ...] } where N is a 0-based index into the data chunks array. Only use a plain string for boilerplate text that does not reference any chunk data.
+- For tables, include "rowSources" parallel to "rows" — each entry is an array of chunk indices that sourced that row's data
+- Insert [N] bracket references inline in the text, placed immediately after the specific claim or value they support. N = chunk index from the data chunks array.
+- Every measurement, thickness value, date, CML identifier, calculation input, or factual claim that came from a data chunk MUST have a [N] citation. Cite generously — if a value came from the data, cite it.
+- Each [N] reference in the text must appear exactly once per claim. Never repeat the same index adjacent to itself (e.g. [0][0] is wrong). If two different chunks support the same sentence, place each reference after the respective claim: "value A [0] and value B [3]", not "[0][3]".
+- The "sources" array must list every unique chunk index referenced in the text, with no duplicates
 
 Rules:
 - ALL calculations must be performed by you (corrosion rates, remaining life, min/max, averages, categories)
