@@ -1,4 +1,4 @@
-const CACHE_NAME = 'uma-capture-v1';
+const CACHE_NAME = 'uma-capture-v2';
 const ASSETS = [
   '/capture/',
   '/capture/index.html',
@@ -26,19 +26,20 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch - serve from cache, fallback to network
+// Fetch - try network first, fallback to cache (so updates appear immediately)
 self.addEventListener('fetch', (event) => {
   // Skip non-GET requests (uploads should always go to network)
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => cached || fetch(event.request))
+    fetch(event.request)
+      .then(response => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        return response;
+      })
       .catch(() => {
-        // Offline fallback for navigation
-        if (event.request.mode === 'navigate') {
-          return caches.match('/capture/index.html');
-        }
+        return caches.match(event.request);
       })
   );
 });
