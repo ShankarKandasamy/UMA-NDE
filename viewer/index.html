@@ -23,18 +23,58 @@
             /* overflow: hidden; */
         }
 
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
+        :root, [data-theme="dark"] {
+            --bg-primary: #0c0c14;
+            --bg-secondary: #111119;
+            --bg-card: rgba(255,255,255,0.03);
             --accent: #00d4aa;
             --accent-dim: #00d4aa22;
-            --text-primary: #f0f0f5;
+            --text-primary: #e0e0ea;
             --text-secondary: #8888aa;
-            --border: #2a2a3a;
+            --border: rgba(255,255,255,0.07);
             --success: #00d4aa;
             --error: #ff4466;
             --warning: #ffaa00;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f3ef;
+            --bg-secondary: #ede9e3;
+            --bg-card: #ffffff;
+            --accent: #d4502a;
+            --accent-dim: #d4502a15;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --border: #e5e0d8;
+            --success: #22c55e;
+            --error: #dc2626;
+            --warning: #f59e0b;
+        }
+
+        /* Light mode refinements */
+        [data-theme="light"] .file-card,
+        [data-theme="light"] .modal,
+        [data-theme="light"] .preview-modal,
+        [data-theme="light"] .settings-modal {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        [data-theme="light"] .modal-overlay,
+        [data-theme="light"] .settings-overlay {
+            background: rgba(0,0,0,0.4);
+        }
+
+        [data-theme="light"] .toast {
+            background: var(--bg-card);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="light"] .context-menu {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        [data-theme="light"] .file-thumb {
+            background: #f0ebe5;
         }
 
         body {
@@ -65,8 +105,8 @@
         }
 
         .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
             font-size: 1rem;
             color: var(--accent);
             letter-spacing: -0.5px;
@@ -575,6 +615,84 @@
             flex-direction: column;
         }
 
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .view-btn {
+            padding: 0.35rem 0.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.15s;
+        }
+
+        .view-btn:not(:last-child) {
+            border-right: 1px solid var(--border);
+        }
+
+        .view-btn.active {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .view-btn:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
+        .view-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .browse-gallery-filter {
+            font-size: 0.8rem;
+        }
+
+        /* List View Mode */
+        .file-grid.view-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .file-grid.view-list .file-card {
+            flex-direction: row;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            gap: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .file-grid.view-list .file-thumb {
+            width: 40px;
+            height: 40px;
+            aspect-ratio: 1;
+            flex-shrink: 0;
+            border-radius: 6px;
+        }
+
+        .file-grid.view-list .file-name {
+            text-align: left;
+            flex: 1;
+        }
+
+        .file-grid.view-list .file-meta {
+            margin-left: auto;
+        }
+
+        /* Gallery View Mode */
+        .file-grid.view-gallery {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+
         .file-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -676,28 +794,6 @@
         }
 
         /* Gallery Tab */
-        #gallery-tab {
-            flex-direction: column;
-        }
-
-        .gallery-header {
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .gallery-title {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .gallery-filters {
-            display: flex;
-            gap: 0.5rem;
-        }
-
         .filter-select {
             padding: 0.4rem 0.75rem;
             background: var(--bg-card);
@@ -707,16 +803,6 @@
             font-family: inherit;
             font-size: 0.75rem;
             cursor: pointer;
-        }
-
-        .gallery-grid {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
-            align-content: start;
         }
 
         .gallery-item {
@@ -760,34 +846,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-        }
-
-        .gallery-footer {
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .gallery-count {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .load-more-btn {
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-
-        .load-more-btn:hover {
-            border-color: var(--accent);
         }
 
         /* Reports Tab */
@@ -1875,6 +1933,40 @@
             margin-top: 1rem;
         }
 
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.4rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        [data-theme="light"] .icon-sun,
+        :root:not([data-theme="light"]) .icon-moon {
+            display: none;
+        }
+
+        [data-theme="light"] .icon-moon,
+        :root:not([data-theme="light"]) .icon-sun {
+            display: block;
+        }
+
         /* Toast */
         .toast {
             position: fixed;
@@ -2070,10 +2162,6 @@
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-
             .preview-modal {
                 width: 100%;
                 height: 100%;
@@ -2233,6 +2321,17 @@
     <header>
         <div class="logo" id="logo">UMA_VIEWER</div>
         <div class="header-right">
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
             <div class="status-indicator">
                 <div class="status-dot" id="statusDot"></div>
                 <span id="statusText">Connecting...</span>
@@ -2248,15 +2347,6 @@
                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
             </svg>
             Browse
-        </button>
-        <button class="tab" data-tab="gallery">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-            </svg>
-            Gallery
         </button>
         <button class="tab" data-tab="search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2326,6 +2416,31 @@
                 <div class="file-toolbar">
                     <span class="file-count" id="fileCount">0 items</span>
                     <div class="toolbar-actions">
+                        <select class="filter-select browse-gallery-filter" id="browseGalleryFilter" style="display:none;">
+                            <option value="">All Dates</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" title="Grid view">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                                </svg>
+                            </button>
+                            <button class="view-btn" data-view="list" title="List view">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+                                    <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                                </svg>
+                            </button>
+                            <button class="view-btn" data-view="gallery" title="Gallery view">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                            </button>
+                        </div>
                         <button class="toolbar-btn" id="refreshBtn">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="23 4 23 10 17 10" />
@@ -2341,24 +2456,6 @@
             </div>
         </section>
 
-        <!-- Gallery Tab -->
-        <section id="gallery-tab" class="tab-content">
-            <div class="gallery-header">
-                <span class="gallery-title">Image Gallery</span>
-                <div class="gallery-filters">
-                    <select class="filter-select" id="galleryDateFilter">
-                        <option value="">All Dates</option>
-                    </select>
-                </div>
-            </div>
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Populated by JavaScript -->
-            </div>
-            <div class="gallery-footer">
-                <span class="gallery-count" id="galleryCount">0 images</span>
-                <button class="load-more-btn" id="loadMoreBtn" style="display: none;">Load More</button>
-            </div>
-        </section>
 
         <!-- Search Tab -->
         <section id="search-tab" class="tab-content">
@@ -2540,6 +2637,20 @@
     <script src="search.js"></script>
     <script src="report.js"></script>
     <script>
+        // Theme toggle
+        (function() {
+            const saved = localStorage.getItem('uma_theme');
+            if (saved) document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('uma_theme', next);
+                document.querySelector('meta[name="theme-color"]').content =
+                    next === 'light' ? '#f5f3ef' : '#0c0c14';
+            });
+        })();
+
         // ============================================
         // State Management
         // ============================================
@@ -2549,6 +2660,7 @@
             folders: [],
             files: [],
             galleryImages: [],
+            browseViewMode: 'grid',
             selectedFile: null,
             isLoading: false,
             isConnected: false,
@@ -3255,9 +3367,6 @@
             fileCount: document.getElementById('fileCount'),
             breadcrumbs: document.getElementById('breadcrumbs'),
             storageInfo: document.getElementById('storageInfo'),
-            galleryGrid: document.getElementById('galleryGrid'),
-            galleryCount: document.getElementById('galleryCount'),
-            galleryDateFilter: document.getElementById('galleryDateFilter'),
             previewModal: document.getElementById('previewModal'),
             previewTitle: document.getElementById('previewTitle'),
             previewBody: document.getElementById('previewBody'),
@@ -4336,9 +4445,10 @@
 
                 state.galleryImages = images;
 
-                // Populate date filter
+                // Populate date filter in browse toolbar
+                const filter = document.getElementById('browseGalleryFilter');
                 const dates = [...new Set(images.map(img => img.key.split('/')[0]))];
-                elements.galleryDateFilter.innerHTML = '<option value="">All Dates</option>' +
+                filter.innerHTML = '<option value="">All Dates</option>' +
                     dates.map(d => `<option value="${d}">${d}</option>`).join('');
 
                 renderGallery(images);
@@ -4348,10 +4458,10 @@
         }
 
         function renderGallery(images) {
-            elements.galleryCount.textContent = `${images.length} image${images.length !== 1 ? 's' : ''}`;
+            elements.fileCount.textContent = `${images.length} image${images.length !== 1 ? 's' : ''}`;
 
             if (images.length === 0) {
-                elements.galleryGrid.innerHTML = `
+                elements.fileGrid.innerHTML = `
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -4380,10 +4490,10 @@
                 `;
             });
 
-            elements.galleryGrid.innerHTML = html;
+            elements.fileGrid.innerHTML = html;
 
             // Lazy load images
-            const galleryImages = elements.galleryGrid.querySelectorAll('img[data-src]');
+            const galleryImages = elements.fileGrid.querySelectorAll('img[data-src]');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -4403,7 +4513,7 @@
             galleryImages.forEach(img => observer.observe(img));
 
             // Add click handlers
-            elements.galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+            elements.fileGrid.querySelectorAll('.gallery-item').forEach(item => {
                 item.addEventListener('click', () => openPreview(item.dataset.key, item.dataset.name));
             });
         }
@@ -4609,10 +4719,6 @@
                 content.classList.toggle('active', content.id === `${tabName}-tab`);
             });
 
-            // Load tab data
-            if (tabName === 'gallery' && state.galleryImages.length === 0) {
-                loadGallery();
-            }
         }
 
         // ============================================
@@ -5539,8 +5645,35 @@
                 showToast('Refreshed', 'success');
             });
 
-            // Gallery filter
-            elements.galleryDateFilter.addEventListener('change', (e) => {
+            // View toggle (grid / list / gallery)
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    state.browseViewMode = btn.dataset.view;
+
+                    elements.fileGrid.classList.remove('view-grid', 'view-list', 'view-gallery');
+                    if (state.browseViewMode !== 'grid') {
+                        elements.fileGrid.classList.add('view-' + state.browseViewMode);
+                    }
+
+                    const filter = document.getElementById('browseGalleryFilter');
+                    filter.style.display = state.browseViewMode === 'gallery' ? '' : 'none';
+
+                    if (state.browseViewMode === 'gallery') {
+                        if (state.galleryImages.length === 0) {
+                            loadGallery();
+                        } else {
+                            renderGallery(state.galleryImages);
+                        }
+                    } else {
+                        navigateToPath(state.currentPath);
+                    }
+                });
+            });
+
+            // Browse gallery filter
+            document.getElementById('browseGalleryFilter').addEventListener('change', (e) => {
                 const date = e.target.value;
                 const filtered = date
                     ? state.galleryImages.filter(img => img.key.startsWith(date + '/'))

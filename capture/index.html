@@ -19,18 +19,62 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
+        :root, [data-theme="dark"] {
+            --bg-primary: #0c0c14;
+            --bg-secondary: #111119;
+            --bg-card: rgba(255,255,255,0.03);
             --accent: #00d4aa;
             --accent-dim: #00d4aa22;
-            --text-primary: #f0f0f5;
+            --text-primary: #e0e0ea;
             --text-secondary: #8888aa;
-            --border: #2a2a3a;
+            --border: rgba(255,255,255,0.07);
             --success: #00d4aa;
             --error: #ff4466;
             --warning: #ffaa00;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f3ef;
+            --bg-secondary: #ede9e3;
+            --bg-card: #ffffff;
+            --accent: #d4502a;
+            --accent-dim: #d4502a15;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --border: #e5e0d8;
+            --success: #22c55e;
+            --error: #dc2626;
+            --warning: #f59e0b;
+        }
+
+        /* Light mode refinements */
+        [data-theme="light"] .capture-zone,
+        [data-theme="light"] .action-btn,
+        [data-theme="light"] .modal {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        [data-theme="light"] .modal-overlay {
+            background: rgba(0,0,0,0.4);
+        }
+
+        [data-theme="light"] .voice-btn.listening {
+            animation: pulse-ring-light 1.5s infinite;
+        }
+
+        @keyframes pulse-ring-light {
+            0% { box-shadow: 0 0 0 0 rgba(212, 80, 42, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 80, 42, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 80, 42, 0); }
+        }
+
+        [data-theme="light"] .upload-btn {
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .toast {
+            background: var(--bg-card);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         body {
@@ -55,8 +99,8 @@
         }
 
         .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
             font-size: 1.1rem;
             color: var(--accent);
             letter-spacing: -0.5px;
@@ -655,13 +699,66 @@
             cursor: pointer;
             margin-top: 1rem;
         }
+
+        /* Theme Toggle */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.4rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        [data-theme="light"] .icon-sun,
+        :root:not([data-theme="light"]) .icon-moon {
+            display: none;
+        }
+
+        [data-theme="light"] .icon-moon,
+        :root:not([data-theme="light"]) .icon-sun {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="logo">UMA_CAPTURE</div>
-        <div class="status-dot" id="statusDot" title="Connected"></div>
+        <div class="header-right">
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <div class="status-dot" id="statusDot" title="Connected"></div>
+        </div>
     </header>
 
     <main>
@@ -791,6 +888,20 @@
     <input type="file" id="fileInput" accept=".pdf,.csv,.xlsx,.xls,.doc,.docx,.jpg,.jpeg,.png,.heic" multiple>
 
     <script>
+        // Theme toggle
+        (function() {
+            const saved = localStorage.getItem('uma_theme');
+            if (saved) document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('uma_theme', next);
+                document.querySelector('meta[name="theme-color"]').content =
+                    next === 'light' ? '#f5f3ef' : '#0c0c14';
+            });
+        })();
+
         // State
         let pendingFiles = [];
         let settings = {
