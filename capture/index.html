@@ -9,6 +9,25 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
     <title>UMA Capture</title>
+    <script>
+        // One-time cache purge: delete all old SW caches so stale UI cannot persist.
+        // Bump PURGE_VERSION when you need to force a full cache reset.
+        (function() {
+            var PURGE_VERSION = 'v3';
+            var PURGE_KEY = 'uma-capture-purged';
+            if (localStorage.getItem(PURGE_KEY) !== PURGE_VERSION && 'caches' in window) {
+                caches.keys().then(function(keys) {
+                    keys.forEach(function(k) { caches.delete(k); });
+                });
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function(regs) {
+                        regs.forEach(function(r) { r.unregister(); });
+                    });
+                }
+                localStorage.setItem(PURGE_KEY, PURGE_VERSION);
+            }
+        })();
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
@@ -99,11 +118,27 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-family: 'Space Grotesk', system-ui, sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.1rem;
-            color: var(--accent);
+            color: var(--text-primary);
             letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--accent);
+        }
+
+        .status-label {
+            font-size: 0.8rem;
+            color: var(--success);
+            font-weight: 400;
         }
 
         .status-dot {
@@ -744,8 +779,13 @@
 
 <body>
     <header>
-        <div class="logo">UMA_CAPTURE</div>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            UMA Capture
+        </div>
         <div class="header-right">
+            <span class="status-label" id="statusLabel">Connected</span>
+            <div class="status-dot" id="statusDot" title="Connected"></div>
             <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light/dark mode">
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
@@ -757,7 +797,6 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                 </svg>
             </button>
-            <div class="status-dot" id="statusDot" title="Connected"></div>
         </div>
     </header>
 
@@ -766,12 +805,13 @@
         <div class="capture-zone" id="captureZone">
             <div class="capture-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                    <circle cx="12" cy="13" r="4" />
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
             </div>
-            <h2>Tap to Capture</h2>
-            <p>Take a photo or select files</p>
+            <h2>Tap to capture or drop files</h2>
+            <p>Photos, PDFs, spreadsheets</p>
         </div>
 
         <!-- Quick Actions -->
@@ -783,14 +823,6 @@
                 </svg>
                 <span>Camera</span>
             </button>
-            <button class="action-btn" id="galleryBtn">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <polyline points="21 15 16 10 5 21" />
-                </svg>
-                <span>Gallery</span>
-            </button>
             <button class="action-btn" id="filesBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -799,6 +831,16 @@
                     <line x1="16" y1="17" x2="8" y2="17" />
                 </svg>
                 <span>Files</span>
+            </button>
+            <button class="action-btn" id="spreadsheetBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="3" y1="15" x2="21" y2="15" />
+                    <line x1="9" y1="3" x2="9" y2="21" />
+                    <line x1="15" y1="3" x2="15" y2="21" />
+                </svg>
+                <span>Spreadsheet</span>
             </button>
         </div>
 
@@ -815,7 +857,7 @@
         <div class="notes-section" id="notesSection">
             <div class="notes-container">
                 <textarea class="notes-input" id="notesInput"
-                    placeholder="Describe what you're uploading...&#10;&#10;e.g., 'Calibration setup for XYZ company job #ABC123, butt weld UT inspection, 10mm carbon steel'"></textarea>
+                    placeholder="Add notes about this capture..."></textarea>
                 <button class="voice-btn" id="voiceBtn" title="Voice input">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -850,7 +892,7 @@
                     <polyline points="17 8 12 3 7 8" />
                     <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
-                Upload to UMA
+                Upload to Project
             </button>
         </div>
     </main>
@@ -884,8 +926,8 @@
 
     <!-- Hidden File Inputs -->
     <input type="file" id="cameraInput" accept="image/*" capture="environment" multiple>
-    <input type="file" id="galleryInput" accept="image/*" multiple>
     <input type="file" id="fileInput" accept=".pdf,.csv,.xlsx,.xls,.doc,.docx,.jpg,.jpeg,.png,.heic" multiple>
+    <input type="file" id="spreadsheetInput" accept=".csv,.xlsx,.xls,.tsv,.ods" multiple>
 
     <script>
         // Theme toggle
@@ -912,11 +954,11 @@
         // DOM Elements
         const captureZone = document.getElementById('captureZone');
         const cameraBtn = document.getElementById('cameraBtn');
-        const galleryBtn = document.getElementById('galleryBtn');
         const filesBtn = document.getElementById('filesBtn');
+        const spreadsheetBtn = document.getElementById('spreadsheetBtn');
         const cameraInput = document.getElementById('cameraInput');
-        const galleryInput = document.getElementById('galleryInput');
         const fileInput = document.getElementById('fileInput');
+        const spreadsheetInput = document.getElementById('spreadsheetInput');
         const previewSection = document.getElementById('previewSection');
         const previewGrid = document.getElementById('previewGrid');
         const fileCount = document.getElementById('fileCount');
@@ -934,6 +976,7 @@
         const toast = document.getElementById('toast');
         const toastText = document.getElementById('toastText');
         const statusDot = document.getElementById('statusDot');
+        const statusLabel = document.getElementById('statusLabel');
         const settingsModal = document.getElementById('settingsModal');
         const closeSettings = document.getElementById('closeSettings');
         const saveSettingsBtn = document.getElementById('saveSettings');
@@ -945,10 +988,10 @@
         apiKeyInput.value = settings.apiKey;
 
         // Event Listeners
-        captureZone.addEventListener('click', () => cameraInput.click());
+        captureZone.addEventListener('click', () => fileInput.click());
         cameraBtn.addEventListener('click', () => cameraInput.click());
-        galleryBtn.addEventListener('click', () => galleryInput.click());
         filesBtn.addEventListener('click', () => fileInput.click());
+        spreadsheetBtn.addEventListener('click', () => spreadsheetInput.click());
 
         // Long press on logo to open settings
         let pressTimer;
@@ -976,7 +1019,7 @@
         });
 
         // File handling
-        [cameraInput, galleryInput, fileInput].forEach(input => {
+        [cameraInput, fileInput, spreadsheetInput].forEach(input => {
             input.addEventListener('change', handleFileSelect);
         });
 
@@ -1114,6 +1157,8 @@
             statusDot.style.background = connected ? 'var(--success)' : 'var(--warning)';
             statusDot.style.boxShadow = connected ? '0 0 8px var(--success)' : '0 0 8px var(--warning)';
             statusDot.title = connected ? 'Connected' : 'Not configured';
+            statusLabel.textContent = connected ? 'Connected' : 'Offline';
+            statusLabel.style.color = connected ? 'var(--success)' : 'var(--warning)';
         }
 
         // Drag and drop
@@ -1303,7 +1348,7 @@
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(console.error);
+            navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(console.error);
         }
 
         // Initial status check

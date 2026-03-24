@@ -9,6 +9,25 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
     <title>UMA Viewer</title>
+    <script>
+        // One-time cache purge: delete all old SW caches so stale UI cannot persist.
+        // Bump PURGE_VERSION when you need to force a full cache reset.
+        (function() {
+            var PURGE_VERSION = 'v13';
+            var PURGE_KEY = 'uma-viewer-purged';
+            if (localStorage.getItem(PURGE_KEY) !== PURGE_VERSION && 'caches' in window) {
+                caches.keys().then(function(keys) {
+                    keys.forEach(function(k) { caches.delete(k); });
+                });
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function(regs) {
+                        regs.forEach(function(r) { r.unregister(); });
+                    });
+                }
+                localStorage.setItem(PURGE_KEY, PURGE_VERSION);
+            }
+        })();
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
@@ -5774,7 +5793,7 @@
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(console.error);
+            navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(console.error);
         }
 
         // Start app
