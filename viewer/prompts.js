@@ -1,13 +1,38 @@
 // ============================================
-// LLM Extraction Prompts
+// LLM Extraction Prompts (Composable)
 // ============================================
 
 const EXTRACTION_SYSTEM_MSG =
   "You are a document analysis specialist. Always respond with valid JSON only. No markdown, no code fences, no commentary.";
 
-const PDF_EXTRACTION_PROMPT = `Analyze this PDF document and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.
+// ---- Shared Category Definitions ----
 
-{
+const CATEGORY_RULES = `- category: MUST be one of these exact values (no variations):
+  - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
+  - "Historical Data" — previous survey data, baseline measurements, trend comparisons
+  - "Inspection Photos" — CML location photos, gauge display photos, surface condition photos, anomaly documentation
+  - "Calibration Records" — equipment calibration certificates, daily calibration check photos, reference standards
+  - "Personnel Records" — inspector certifications, NDE qualifications, training documentation
+  - "Technical Drawings" — piping isometrics, P&IDs, engineering diagrams, schematics
+  - "Project Documents" — RFQs, work orders, scope documents, contracts, proposals
+  - "Safety Documents" — job safety analyses, safety plans, work permits, hazard assessments
+  - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
+  - "Site Photos" — general site overview, equipment context, unit area photos
+  - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
+  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.`;
+
+// ---- Shared Notes Rules ----
+
+const NOTES_RULES = `- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
+- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the document itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
+  - Prioritize it when selecting category — the note often signals the correct folder directly.
+  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
+  - Let the note resolve ambiguity in readings, section headings, or document purpose.
+  - If the note contradicts something visible in the document, flag both but weight the note heavily.`;
+
+// ---- PDF-Specific Schema & Rules ----
+
+const PDF_SCHEMA = `{
   "title": "<document title or descriptive title if none explicit>",
   "pages": <integer number of pages>,
   "summary": "<550-1100 character summary designed for retrieval. A downstream LLM will read this summary to decide whether this document is likely to contain the answer to a given query. Cover: what type of document this is, the key entities/subjects, the types of data and specifications it contains, and what questions it could answer. Also serve as an executive summary.>",
@@ -17,7 +42,7 @@ const PDF_EXTRACTION_PROMPT = `Analyze this PDF document and return ONLY a valid
       "text": "<full text content of this section, preserving important details>"
     }
   ],
-  "keywords": "[<list of keywords that capture the main concepts, topics, and data points of the image and its context. These keywords will be used to help the user search for this image in the future.>]
+  "keywords": ["<list of keywords that capture the main concepts, topics, and data points of the document>"],
   "tables": [
     {
       "title": "<table title or inferred title from context>",
@@ -47,38 +72,46 @@ const PDF_EXTRACTION_PROMPT = `Analyze this PDF document and return ONLY a valid
   ],
   "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
-}
+}`;
 
-Rules:
-- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
-- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the document itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
-  - Prioritize it when selecting category — the note often signals the correct folder directly.
-  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
-  - Let the note resolve ambiguity in readings, section headings, or document purpose.
-  - If the note contradicts something visible in the document, flag both but weight the note heavily.
-- category: MUST be one of these exact values (no variations):
-  - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
-  - "Historical Data" — previous survey data, baseline measurements, trend comparisons
-  - "Inspection Photos" — CML location photos, gauge display photos, surface condition photos, anomaly documentation
-  - "Calibration Records" — equipment calibration certificates, daily calibration check photos, reference standards
-  - "Personnel Records" — inspector certifications, NDE qualifications, training documentation
-  - "Technical Drawings" — piping isometrics, P&IDs, engineering diagrams, schematics
-  - "Project Documents" — RFQs, work orders, scope documents, contracts, proposals
-  - "Safety Documents" — job safety analyses, safety plans, work permits, hazard assessments
-  - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
-  - "Site Photos" — general site overview, equipment context, unit area photos
-  - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
-  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
-- Split text into sections at logical boundaries (numbered headings, bold headings, topic shifts).
+const PDF_RULES = `- Split text into sections at logical boundaries (numbered headings, bold headings, topic shifts).
 - For tables: extract ALL rows and columns as structured data. Do not summarize table contents.
 - For images: describe what is visible and provide OCR'd text. If the image is purely decorative (logo, border), still include it but note it as decorative.
 - For charts/diagrams: extract EVERY individual data point as {x, y} pairs in data_points. For line charts, record every plotted point. For bar charts, record every bar's value. For heatmaps, describe regions instead of individual points. Extract reference lines (nominal, t_min, thresholds) and any summary statistics shown. If exact values aren't readable, provide approximate values and add "label": "~approx" to the data point.
 - If no images, charts, or tables exist, return empty arrays for those fields.
 - The summary MUST be 550-1100 characters (not words).`;
 
-const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.
+// ---- DOCX-Specific Schema & Rules ----
 
-{
+const DOCX_SCHEMA = `{
+  "title": "<document title or descriptive title if none explicit>",
+  "summary": "<550-1100 character summary designed for retrieval. A downstream LLM will read this summary to decide whether this document is likely to contain the answer to a given query. Cover: what type of document this is, the key entities/subjects, the types of data and specifications it contains, and what questions it could answer. Also serve as an executive summary.>",
+  "sections": [
+    {
+      "heading": "<section heading or inferred heading>",
+      "text": "<full text content of this section, preserving important details>"
+    }
+  ],
+  "keywords": ["<list of keywords that capture the main concepts, topics, and data points of the document>"],
+  "tables": [
+    {
+      "title": "<table title or inferred title from context>",
+      "headers": ["col1", "col2", "..."],
+      "rows": [["val1", "val2", "..."], ["..."]]
+    }
+  ],
+  "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
+  "notes": "<verbatim user-provided note, or empty string if none>"
+}`;
+
+const DOCX_RULES = `- Split text into sections at logical boundaries (headings, topic shifts).
+- For tables: extract ALL rows and columns as structured data. Do not summarize table contents.
+- If no tables exist, return an empty array.
+- The summary MUST be 550-1100 characters (not words).`;
+
+// ---- Image-Specific Schema & Rules ----
+
+const IMAGE_SCHEMA = `{
   "image_type": "<classify as one of: document | technical_diagram | inspection_photo | instrument_screen | calibration_setup | nameplate | other>",
   "title": "<descriptive title for this image>",
   "summary": "<550-1100 character summary designed for retrieval. A downstream LLM will read this summary to decide whether this image is relevant to a given query. Cover: what type of image this is, what it shows, the key entities/subjects, any measurable data or readings present, and what questions this image could help answer.>",
@@ -94,7 +127,7 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
   "observations": [
     "<notable visible detail, condition, feature, or contextual information. If any instrument readings are visible, include them in the observations array.>"
   ],
-  "keywords": "[<list of keywords that capture the main concepts, topics, and data points of the image and its context. These keywords will be used to help the user search for this image in the future.>]
+  "keywords": ["<list of keywords that capture the main concepts, topics, and data points of the image and its context>"],
   "anomalies": [
     "<any visible defect, damage, corrosion, crack, irregularity, or concern>"
   ],
@@ -111,14 +144,14 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
     "axes": {
       "x_label": "<x-axis label with unit>",
       "y_label": "<y-axis label with unit>",
-      "x_range": [<min>, <max>],
-      "y_range": [<min>, <max>]
+      "x_range": [null, null],
+      "y_range": [null, null]
     },
     "data_points": [
-      {"x": "<x value>", "y": <y value>, "label": "<optional data label or annotation>"}
+      {"x": "<x value>", "y": "<y value>", "label": "<optional data label or annotation>"}
     ],
     "reference_lines": [
-      {"label": "<e.g. Nominal Wall, t_min>", "value": <numeric value>, "axis": "x or y"}
+      {"label": "<e.g. Nominal Wall, t_min>", "value": "<numeric value>", "axis": "x or y"}
     ],
     "regions": [
       {"description": "<region description, e.g. severe corrosion zone>", "bounds": "<approximate location/extent>", "severity": "<if applicable>"}
@@ -139,30 +172,9 @@ const IMAGE_EXTRACTION_PROMPT = `Analyze this image and return ONLY a valid JSON
   ],
   "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
-}
+}`;
 
-Rules:
-- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
-- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the image itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
-  - Prioritize it when selecting category — the note often signals the correct folder directly.
-  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
-  - Let the note resolve ambiguity in readings, observations, or image purpose.
-  - Notes may contain instructions and if so; they shall override all other instructions and guidelines.
-  - If the note contradicts something visible in the image, flag both but weight the note heavily.
-- category: MUST be one of these exact values (no variations):
-  - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
-  - "Historical Data" — previous survey data, baseline measurements, trend comparisons
-  - "Inspection Photos" — CML location photos, gauge display photos, surface condition photos, anomaly documentation
-  - "Calibration Records" — equipment calibration certificates, daily calibration check photos, reference standards
-  - "Personnel Records" — inspector certifications, NDE qualifications, training documentation
-  - "Technical Drawings" — piping isometrics, P&IDs, engineering diagrams, schematics
-  - "Project Documents" — RFQs, work orders, scope documents, contracts, proposals
-  - "Safety Documents" — job safety analyses, safety plans, work permits, hazard assessments
-  - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
-  - "Site Photos" — general site overview, equipment context, unit area photos
-  - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
-  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
-- ALWAYS populate image_type, title, summary, ocr_text, and image_quality — these are required for every image.
+const IMAGE_RULES = `- ALWAYS populate image_type, title, summary, ocr_text, and image_quality — these are required for every image.
 - ocr_text: extract ALL readable text verbatim, even partial or worn text. If no text is visible, use an empty string.
 - summary MUST be 550-1100 characters (not words).
 - Type-specific rules:
@@ -181,8 +193,8 @@ Chart/Graph Data Extraction — CRITICAL for any image containing a chart, graph
   - BAR CHARTS: Record the x-position label and height (y-value) of every bar. If bars are grouped, include a "label" field to identify the series. Example: [{"x": "0", "y": 0.353}, {"x": "0.5", "y": 0.354}, ...]
   - A-SCANS / WAVEFORMS: Record each significant peak — the x-position (time) and y-value (amplitude). Label peaks with their identity if annotated (IP, BE, etc.). Example: [{"x": 10, "y": 98, "label": "IP"}, {"x": 20, "y": 48, "label": "BE"}, {"x": 31, "y": 45, "label": "BE"}]
   - SCATTER PLOTS: Record every visible point as {x, y}.
-  - PIE CHARTS: Record each slice as {"x": "<category>", "y": <percentage or value>, "label": "<category label>"}.
-  - HISTOGRAMS: Record each bin as {"x": "<bin range or center>", "y": <count or frequency>}.
+  - PIE CHARTS: Record each slice as {"x": "<category>", "y": "<percentage or value>", "label": "<category label>"}.
+  - HISTOGRAMS: Record each bin as {"x": "<bin range or center>", "y": "<count or frequency>"}.
 - HEATMAPS / CONTOUR MAPS: data_points may be sparse or unavailable. Instead, populate the "regions" array:
   - Identify distinct zones by their color/intensity and describe their approximate location, extent, and the value range they represent.
   - Example: [{"description": "Severe thinning zone", "bounds": "center-left quadrant, x: 200-600, y: 400-800", "severity": "critical — values 10-12 (near minimum)"}]
@@ -193,12 +205,9 @@ Chart/Graph Data Extraction — CRITICAL for any image containing a chart, graph
 - When exact values are not readable from the chart, estimate from the grid/axis and note in the data point's "label" field that the value is approximate (e.g., "label": "~approx").
 - Prefer over-extraction to under-extraction. It is better to include an approximate data point than to skip it.`;
 
-const SPREADSHEET_EXTRACTION_PROMPT = `Analyze this spreadsheet data and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.
+// ---- Spreadsheet-Specific Schema & Rules ----
 
-The spreadsheet has been pre-parsed and is provided as tab-delimited text below. The metadata header shows filename, sheet count, total rows, total columns, and file size. Each sheet is delimited by "=== Sheet: <name> ===" markers with headers on the first row.
-
-{
-  "spreadsheet_type": "<csv or excel — already provided in metadata>",
+const SPREADSHEET_SCHEMA = `{
   "title": "<descriptive title for this spreadsheet based on its content>",
   "summary": "<550-1100 character summary designed for retrieval. A downstream LLM will read this summary to decide whether this spreadsheet is relevant to a given query. Cover: what type of data this contains, the key entities/subjects, column descriptions, row count and scope, measurement types and units present, date ranges if applicable, and what questions this data could answer.>",
   "sections": [
@@ -213,30 +222,9 @@ The spreadsheet has been pre-parsed and is provided as tab-delimited text below.
   "keywords": ["<list of keywords that capture the main concepts, data types, entities, and topics in this spreadsheet>"],
   "category": "<MUST be exactly one of: Inspection Data | Historical Data | Inspection Photos | Calibration Records | Personnel Records | Technical Drawings | Project Documents | Safety Documents | Field Reports | Site Photos | Reference Materials | Governing Documents>",
   "notes": "<verbatim user-provided note, or empty string if none>"
-}
+}`;
 
-Rules:
-- notes: Return the user-provided note exactly as given. If no note was provided, return an empty string.
-- USER NOTE (if provided) is a highly influential input. It was written by the person who uploaded this file and may carry context not visible in the data itself — such as the correct category, job number, equipment tag, material spec, inspection type, or client name. When a note is present:
-  - Prioritize it when selecting category — the note often signals the correct folder directly.
-  - Use any job numbers, equipment tags, or client names from the note in the title, summary, and keywords.
-  - Let the note resolve ambiguity in column meanings, data purpose, or document context.
-  - Notes may contain instructions and if so; they shall override all other instructions and guidelines.
-  - If the note contradicts something visible in the data, flag both but weight the note heavily.
-- category: MUST be one of these exact values (no variations):
-  - "Inspection Data" — measurement readings, UT gauge exports, thickness data, field data CSVs
-  - "Historical Data" — previous survey data, baseline measurements, trend comparisons
-  - "Inspection Photos" — CML location photos, gauge display photos, surface condition photos, anomaly documentation
-  - "Calibration Records" — equipment calibration certificates, daily calibration check photos, reference standards
-  - "Personnel Records" — inspector certifications, NDE qualifications, training documentation
-  - "Technical Drawings" — piping isometrics, P&IDs, engineering diagrams, schematics
-  - "Project Documents" — RFQs, work orders, scope documents, contracts, proposals
-  - "Safety Documents" — job safety analyses, safety plans, work permits, hazard assessments
-  - "Field Reports" — inspector field notes, daily logs, narrative reports, completion summaries
-  - "Site Photos" — general site overview, equipment context, unit area photos
-  - "Reference Materials" — standards, procedures, technical guides, code requirements, textbooks
-  - "Governing Documents" — client specifications, engineering standards, or project-specific documents that define acceptance criteria, pass/fail thresholds, or inspection requirements that override or supplement industry codes. Recognize by: imperative language ("shall", "must", "shall not exceed"), override clauses ("notwithstanding [code]", "in lieu of", "takes precedence over"), numbered specification clauses, referenced codes with modifications, and acceptance criteria tables with custom thresholds. If a document establishes the controlling requirements for a job — even if it also resembles a reference material — categorize it here.
-- Generate 2-4 analytical sections from: Data Summary, Column Analysis, Data Quality, Key Findings
+const SPREADSHEET_RULES = `- Generate 2-4 analytical sections from: Data Summary, Column Analysis, Data Quality, Key Findings
   - Data Summary: overview of what the data represents, row/column count, key columns
   - Column Analysis: describe each column's data type, range, and meaning
   - Data Quality: note missing values, inconsistencies, duplicates, or formatting issues
@@ -244,6 +232,71 @@ Rules:
 - Do NOT include sheets, file_metadata, or tables in your response — those are populated from the pre-parsed data.
 - summary MUST be 550-1100 characters (not words).
 - keywords should include column names, data types, entity names, and domain-specific terms.`;
+
+// ---- Prompt Builder ----
+
+function buildExtractionPrompt(fileType, opts = {}) {
+    const { notes, preExtractedText, headingTree, sheetNames } = opts;
+
+    let intro, schema, typeRules;
+
+    switch (fileType) {
+        case 'pdf':
+            intro = 'Analyze this PDF document and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.';
+            schema = PDF_SCHEMA;
+            typeRules = PDF_RULES;
+            break;
+        case 'docx':
+            intro = 'Analyze this Word document and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.';
+            schema = DOCX_SCHEMA;
+            typeRules = DOCX_RULES;
+            break;
+        case 'image':
+            intro = 'Analyze this image and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.';
+            schema = IMAGE_SCHEMA;
+            typeRules = IMAGE_RULES;
+            break;
+        case 'spreadsheet':
+            intro = 'Analyze this spreadsheet data and return ONLY a valid JSON object with the following structure. No markdown, no code fences — just raw JSON.\n\nThe spreadsheet has been pre-parsed and is provided as tab-delimited text below. The metadata header shows filename, sheet count, total rows, total columns, and file size. Each sheet is delimited by "=== Sheet: <name> ===" markers with headers on the first row.';
+            schema = SPREADSHEET_SCHEMA;
+            typeRules = SPREADSHEET_RULES;
+            break;
+        default:
+            intro = 'Analyze this document and return ONLY a valid JSON object. No markdown, no code fences — just raw JSON.';
+            schema = PDF_SCHEMA;
+            typeRules = PDF_RULES;
+    }
+
+    let prompt = `${intro}\n\n${schema}\n\nRules:\n${NOTES_RULES}\n${CATEGORY_RULES}\n${typeRules}`;
+
+    // Append structural context
+    if (headingTree && headingTree.length > 0) {
+        prompt += `\n\nDocument heading tree (extracted client-side — use for context and to improve categorization):\n${JSON.stringify(headingTree, null, 1)}`;
+    }
+
+    if (sheetNames && sheetNames.length > 0) {
+        prompt += `\n\nSheet names: ${sheetNames.join(', ')}`;
+    }
+
+    // Append user note
+    if (notes && notes.trim()) {
+        prompt += `\n\n---\nUSER NOTE (treat as highly influential context — may affect category, extracted data, labels, and interpretation):\n"${notes.trim()}"\n---`;
+    }
+
+    // Append pre-extracted text
+    if (preExtractedText) {
+        prompt += `\n\n${preExtractedText}`;
+    }
+
+    return prompt;
+}
+
+// ---- Backward-Compatible Constants ----
+// These allow existing code to keep working until the orchestrator is updated.
+
+const PDF_EXTRACTION_PROMPT = buildExtractionPrompt('pdf', {});
+const IMAGE_EXTRACTION_PROMPT = buildExtractionPrompt('image', {});
+const SPREADSHEET_EXTRACTION_PROMPT = buildExtractionPrompt('spreadsheet', {});
 
 // ============================================
 // Folder Summary Prompts

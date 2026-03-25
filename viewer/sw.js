@@ -1,7 +1,8 @@
-const CACHE_NAME = "uma-viewer-v13";
+const CACHE_NAME = "uma-viewer-v14";
 const ASSETS = [
   "/viewer/",
   "/viewer/index.html",
+  "/viewer/extractor.js",
   "/viewer/prompts.js",
   "/viewer/search.js",
   "/viewer/manifest.json",

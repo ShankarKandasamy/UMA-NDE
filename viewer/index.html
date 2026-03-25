@@ -13,7 +13,7 @@
         // One-time cache purge: delete all old SW caches so stale UI cannot persist.
         // Bump PURGE_VERSION when you need to force a full cache reset.
         (function() {
-            var PURGE_VERSION = 'v13';
+            var PURGE_VERSION = 'v14';
             var PURGE_KEY = 'uma-viewer-purged';
             if (localStorage.getItem(PURGE_KEY) !== PURGE_VERSION && 'caches' in window) {
                 caches.keys().then(function(keys) {
@@ -2628,6 +2628,13 @@
                 <label>OpenAI API Key</label>
                 <input type="password" id="openaiKey" placeholder="sk-... (for search scoring)">
             </div>
+            <div class="setting-item">
+                <label>Extraction Tier</label>
+                <select id="extractionTier" style="width:100%;padding:10px;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;">
+                    <option value="1">Tier 1 - SmartCapture (GPT-4.1-mini)</option>
+                    <option value="2">Tier 2 - Pro (Claude Opus 4.5)</option>
+                </select>
+            </div>
             <button class="save-settings-btn" id="saveSettings">Save Settings</button>
         </div>
     </div>
@@ -2652,6 +2659,10 @@
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/docx@9.5.0/dist/index.iife.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';</script>
+    <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+    <script src="extractor.js"></script>
     <script src="prompts.js"></script>
     <script src="search.js"></script>
     <script src="report.js"></script>
@@ -2983,48 +2994,72 @@
         }
 
         // ============================================
-        // Spreadsheet Extraction
+        // Tiered Extraction Pipeline
         // ============================================
+        // Tier 1: GPT-4.1-mini via OpenAI proxy (cheap, text-based + basic vision)
+        // Tier 2: Claude Opus 4.5 via Anthropic proxy (full vision, highest quality)
 
-        async function extractSpreadsheet(filename, blob, notes = '') {
-            if (!settings.anthropicKey) {
-                console.warn('[LLM] No Anthropic API key configured, skipping extraction');
-                return null;
+        function blobToBase64(blob) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        }
+
+        function parseJsonResponse(rawText) {
+            try {
+                return JSON.parse(rawText);
+            } catch {
+                let cleaned = rawText.trim();
+                if (cleaned.startsWith('```')) {
+                    cleaned = cleaned.split('\n').slice(1).join('\n').replace(/```\s*$/, '');
+                }
+                return JSON.parse(cleaned);
             }
-            if (!settings.apiEndpoint) {
-                console.warn('[LLM] No API endpoint configured, skipping extraction');
-                return null;
+        }
+
+        async function callTier1(systemMsg, messages, maxTokens = 8192) {
+            const body = {
+                model: 'gpt-4.1-mini',
+                temperature: 0,
+                response_format: { type: 'json_object' },
+                max_tokens: maxTokens,
+                messages: [
+                    { role: 'system', content: systemMsg },
+                    ...messages
+                ]
+            };
+
+            const response = await fetch(`${settings.apiEndpoint}/llm/openai`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-Key': settings.apiKey,
+                    'X-OpenAI-Key': settings.openaiKey
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(`OpenAI API error ${response.status}: ${errText}`);
             }
 
-            const ext = filename.split('.').pop().toLowerCase();
-            const isCSV = ext === 'csv';
-            const fileSize = formatSize(blob.size);
-
-            // Parse client-side
-            let parsed;
-            if (isCSV) {
-                const text = await blob.text();
-                parsed = parseCSV(text, filename);
-            } else {
-                const arrayBuffer = await blob.arrayBuffer();
-                parsed = parseExcel(arrayBuffer, filename);
+            const data = await response.json();
+            if (data.usage) {
+                console.log(`[LLM] Tier 1 GPT-4.1-mini — input: ${data.usage.prompt_tokens}, output: ${data.usage.completion_tokens}`);
             }
+            return parseJsonResponse(data.choices[0].message.content);
+        }
 
-            // Format for LLM
-            const llmText = formatParsedSpreadsheetForLLM(parsed, fileSize);
-
-            const promptText = notes && notes.trim()
-                ? `${SPREADSHEET_EXTRACTION_PROMPT}\n\n---\nUSER NOTE (treat as highly influential context — may affect category, extracted data, labels, and interpretation):\n"${notes.trim()}"\n---\n\n${llmText}`
-                : `${SPREADSHEET_EXTRACTION_PROMPT}\n\n${llmText}`;
-
+        async function callTier2(systemMsg, content, maxTokens = 16384) {
             const body = {
                 model: 'claude-opus-4-5-20251101',
-                max_tokens: 8192,
-                system: EXTRACTION_SYSTEM_MSG,
-                messages: [{
-                    role: 'user',
-                    content: [{ type: 'text', text: promptText }]
-                }]
+                max_tokens: maxTokens,
+                system: systemMsg,
+                messages: [{ role: 'user', content }]
             };
 
             const response = await fetch(`${settings.apiEndpoint}/llm/anthropic`, {
@@ -3043,131 +3078,160 @@
             }
 
             const data = await response.json();
-            const rawText = data.content[0].text;
-
             if (data.usage) {
-                console.log(`[LLM] Spreadsheet tokens — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
+                console.log(`[LLM] Tier 2 Opus 4.5 — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
             }
-
-            let extraction;
-            try {
-                extraction = JSON.parse(rawText);
-            } catch {
-                let cleaned = rawText.trim();
-                if (cleaned.startsWith('```')) {
-                    cleaned = cleaned.split('\n').slice(1).join('\n').replace(/```\s*$/, '');
-                }
-                extraction = JSON.parse(cleaned);
-            }
-
-            // Override with client-parsed data (LLM only trusted for summary/keywords/category/observations/sections)
-            extraction.spreadsheet_type = parsed.spreadsheet_type;
-            extraction.sheets = parsed.sheets;
-            extraction.file_metadata = {
-                filename: parsed.filename,
-                sheet_count: parsed.sheet_count,
-                total_rows: parsed.total_rows,
-                total_columns: parsed.total_columns,
-                file_size: fileSize
-            };
-
-            // Build tables[] from sheets for search compatibility
-            extraction.tables = parsed.sheets.map(sheet => ({
-                title: sheet.name,
-                headers: sheet.headers,
-                rows: sheet.rows
-            }));
-
-            return extraction;
+            return parseJsonResponse(data.content[0].text);
         }
 
-        // ============================================
-        // LLM Extraction
-        // ============================================
-        // Prompts loaded from prompts.js: EXTRACTION_SYSTEM_MSG, PDF_EXTRACTION_PROMPT, IMAGE_EXTRACTION_PROMPT
-
-        async function extractWithLLM(filename, blob, notes = '') {
-            if (!settings.anthropicKey) {
-                console.warn('[LLM] No Anthropic API key configured, skipping extraction');
-                return null;
-            }
+        async function runExtraction(filename, blob, notes = '') {
             if (!settings.apiEndpoint) {
-                console.warn('[LLM] No API endpoint configured, skipping extraction (needed as Anthropic CORS proxy)');
+                console.warn('[LLM] No API endpoint configured, skipping extraction');
                 return null;
             }
 
-            // Convert blob to base64
-            const base64 = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    const dataUrl = reader.result;
-                    resolve(dataUrl.split(',')[1]);
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
+            const tier = settings.extractionTier || 1;
+            const requiredKey = tier === 1 ? 'openaiKey' : 'anthropicKey';
+            if (!settings[requiredKey]) {
+                const keyName = tier === 1 ? 'OpenAI' : 'Anthropic';
+                console.warn(`[LLM] No ${keyName} API key configured for Tier ${tier}, skipping extraction`);
+                showToast(`Extraction skipped — set ${keyName} key in Settings`, 'error');
+                return null;
+            }
+
+            const fileType = Extractor.detectFileType(filename);
+            console.log(`[LLM] Extraction: ${filename} (${fileType}, Tier ${tier})`);
+
+            let pre = null;
+            let parsed = null;
+            let llmText = null;
+            let promptText = '';
+
+            // Step 1: Client-side pre-extraction
+            switch (fileType) {
+                case 'pdf':
+                    try {
+                        pre = await Extractor.extractPdfText(blob);
+                        console.log(`[LLM] PDF pre-extracted: ${pre.pageCount} pages, ${pre.headingTree.length} headings, ${pre.text.length} chars`);
+                    } catch (err) {
+                        console.warn('[LLM] PDF text extraction failed, continuing without pre-extraction:', err);
+                    }
+                    break;
+
+                case 'docx':
+                    try {
+                        pre = await Extractor.extractDocxText(blob);
+                        console.log(`[LLM] DOCX pre-extracted: ${pre.headingTree.length} headings, ${pre.text.length} chars`);
+                    } catch (err) {
+                        console.warn('[LLM] DOCX text extraction failed:', err);
+                        return null;
+                    }
+                    break;
+
+                case 'spreadsheet': {
+                    const ext = filename.split('.').pop().toLowerCase();
+                    const isCSV = ext === 'csv';
+                    const fileSize = formatSize(blob.size);
+                    if (isCSV) {
+                        const text = await blob.text();
+                        parsed = parseCSV(text, filename);
+                    } else {
+                        const arrayBuffer = await blob.arrayBuffer();
+                        parsed = parseExcel(arrayBuffer, filename);
+                    }
+                    llmText = formatParsedSpreadsheetForLLM(parsed, fileSize);
+                    break;
+                }
+
+                case 'image':
+                    // No pre-extraction for images
+                    break;
+
+                case 'doc-legacy':
+                    console.warn(`[LLM] Legacy .doc format not supported: ${filename}. Save as .docx first.`);
+                    showToast(`${filename}: .doc not supported — save as .docx`, 'error');
+                    return null;
+
+                default:
+                    console.warn(`[LLM] Unknown file type for ${filename}, skipping`);
+                    return null;
+            }
+
+            // Step 2: Build prompt
+            promptText = buildExtractionPrompt(fileType, {
+                notes,
+                preExtractedText: pre?.text || llmText || null,
+                headingTree: pre?.headingTree || null,
+                sheetNames: parsed?.sheets.map(s => s.name) || null
             });
 
-            const isPdf = blob.type === 'application/pdf' || filename.toLowerCase().endsWith('.pdf');
-            const contentBlock = isPdf
-                ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } }
-                : { type: 'image', source: { type: 'base64', media_type: blob.type || 'image/jpeg', data: base64 } };
-            const basePrompt = isPdf ? PDF_EXTRACTION_PROMPT : IMAGE_EXTRACTION_PROMPT;
-            const promptText = notes && notes.trim()
-                ? `${basePrompt}\n\n---\nUSER NOTE (treat as highly influential context — may affect category, extracted data, labels, and interpretation):\n"${notes.trim()}"\n---`
-                : basePrompt;
+            // Step 3: Route to LLM
+            let extraction;
 
-            const body = {
-                model: 'claude-opus-4-5-20251101',
-                max_tokens: 16384,
-                system: EXTRACTION_SYSTEM_MSG,
-                messages: [
-                    {
+            if (tier === 1) {
+                // Tier 1: GPT-4.1-mini via OpenAI
+                let messages;
+                if (fileType === 'image') {
+                    const base64 = await blobToBase64(blob);
+                    const mimeType = blob.type || 'image/jpeg';
+                    messages = [{
                         role: 'user',
                         content: [
-                            contentBlock,
+                            { type: 'image_url', image_url: { url: `data:${mimeType};base64,${base64}` } },
                             { type: 'text', text: promptText }
                         ]
-                    }
-                ]
-            };
-
-            // Proxy through our Cloudflare Worker (Anthropic API doesn't support CORS)
-            const proxyUrl = `${settings.apiEndpoint}/llm/anthropic`;
-
-            const response = await fetch(proxyUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-Key': settings.apiKey,
-                    'X-Anthropic-Key': settings.anthropicKey
-                },
-                body: JSON.stringify(body)
-            });
-
-            if (!response.ok) {
-                const errText = await response.text();
-                throw new Error(`Anthropic API error ${response.status}: ${errText}`);
-            }
-
-            const data = await response.json();
-            const rawText = data.content[0].text;
-
-            // Log token usage
-            if (data.usage) {
-                console.log(`[LLM] Tokens — input: ${data.usage.input_tokens}, output: ${data.usage.output_tokens}`);
-            }
-
-            // Parse JSON, handling possible markdown fences
-            try {
-                return JSON.parse(rawText);
-            } catch {
-                let cleaned = rawText.trim();
-                if (cleaned.startsWith('```')) {
-                    cleaned = cleaned.split('\n').slice(1).join('\n');
-                    cleaned = cleaned.replace(/```\s*$/, '');
+                    }];
+                } else {
+                    messages = [{ role: 'user', content: promptText }];
                 }
-                return JSON.parse(cleaned);
+                extraction = await callTier1(EXTRACTION_SYSTEM_MSG, messages, fileType === 'image' ? 16384 : 8192);
+
+            } else {
+                // Tier 2: Claude Opus 4.5 via Anthropic
+                let content;
+                if (fileType === 'pdf') {
+                    const base64 = await blobToBase64(blob);
+                    content = [
+                        { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } },
+                        { type: 'text', text: promptText }
+                    ];
+                } else if (fileType === 'image') {
+                    const base64 = await blobToBase64(blob);
+                    const mimeType = blob.type || 'image/jpeg';
+                    content = [
+                        { type: 'image', source: { type: 'base64', media_type: mimeType, data: base64 } },
+                        { type: 'text', text: promptText }
+                    ];
+                } else {
+                    // DOCX and spreadsheet: text only
+                    content = [{ type: 'text', text: promptText }];
+                }
+                extraction = await callTier2(EXTRACTION_SYSTEM_MSG, content, 16384);
             }
+
+            // Step 4: Attach client-side fields
+            extraction.headingTree = pre?.headingTree || [];
+            extraction.sheetNames = parsed?.sheets.map(s => s.name) || [];
+
+            // Step 5: For spreadsheets, override with client-parsed data
+            if (fileType === 'spreadsheet' && parsed) {
+                extraction.spreadsheet_type = parsed.spreadsheet_type;
+                extraction.sheets = parsed.sheets;
+                extraction.file_metadata = {
+                    filename: parsed.filename,
+                    sheet_count: parsed.sheet_count,
+                    total_rows: parsed.total_rows,
+                    total_columns: parsed.total_columns,
+                    file_size: formatSize(blob.size)
+                };
+                extraction.tables = parsed.sheets.map(sheet => ({
+                    title: sheet.name,
+                    headers: sheet.headers,
+                    rows: sheet.rows
+                }));
+            }
+
+            return extraction;
         }
 
         // ============================================
@@ -3372,7 +3436,8 @@
             apiEndpoint: localStorage.getItem('uma_api_endpoint') || '',
             apiKey: localStorage.getItem('uma_api_key') || '',
             anthropicKey: localStorage.getItem('uma_anthropic_key') || '',
-            openaiKey: localStorage.getItem('uma_openai_key') || ''
+            openaiKey: localStorage.getItem('uma_openai_key') || '',
+            extractionTier: parseInt(localStorage.getItem('uma_extraction_tier') || '1')
         };
 
         // ============================================
@@ -3588,14 +3653,16 @@
                         PipelineLog.log(`Stored: ${originalName} → Uncategorized`);
 
                         // Trigger LLM extraction (async, non-blocking) — moves file to category folder on success
-                        const isExtractable = /\.(pdf|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif|csv|xlsx?|xls)$/i.test(originalName);
+                        const isExtractable = /\.(pdf|docx?|jpg|jpeg|png|gif|webp|bmp|tiff|tif|heic|heif|csv|xlsx?|xls)$/i.test(originalName);
+                        const tierKey = (settings.extractionTier || 1) === 1 ? 'openaiKey' : 'anthropicKey';
                         if (!isExtractable) {
                             console.log(`[Dev Sync] Skipping extraction for non-extractable file: ${originalName}`);
-                        } else if (!settings.anthropicKey) {
-                            console.warn(`[Dev Sync] Skipping extraction — no Anthropic API key configured`);
-                            showToast('LLM extraction skipped — set Anthropic key in Settings', 'error');
+                        } else if (!settings[tierKey]) {
+                            const keyName = tierKey === 'openaiKey' ? 'OpenAI' : 'Anthropic';
+                            console.warn(`[Dev Sync] Skipping extraction — no ${keyName} API key configured for Tier ${settings.extractionTier || 1}`);
+                            showToast(`LLM extraction skipped — set ${keyName} key in Settings`, 'error');
                         }
-                        if (isExtractable && settings.anthropicKey) {
+                        if (isExtractable && settings[tierKey]) {
                             const _fileName = originalName;
                             const _uncatKey = uncategorizedKey;
                             const _blob = blob;
@@ -3603,23 +3670,21 @@
                             (async () => {
                                 try {
                                     showToast(`Extracting: ${_fileName}...`, 'success');
-                                    console.log(`[LLM] Starting extraction for ${_fileName}${_notes ? ' (with user note)' : ''}`);
-                                    const _isSpreadsheet = /\.(csv|xlsx?|xls)$/i.test(_fileName);
-                                    PipelineLog.log(`Extracting${_isSpreadsheet ? ' spreadsheet' : ''}: ${_fileName}...`);
+                                    console.log(`[LLM] Starting extraction for ${_fileName}${_notes ? ' (with user note)' : ''} (Tier ${settings.extractionTier || 1})`);
+                                    const _fileType = Extractor.detectFileType(_fileName);
+                                    PipelineLog.log(`Extracting${_fileType === 'spreadsheet' ? ' spreadsheet' : ''}: ${_fileName}...`);
 
                                     // Drip-feed sub-step logs during extraction
                                     const _subSteps = [
-                                        { delay: 2000, msg: `  extracting file summary...` },
-                                        { delay: 4000, msg: `  intelligent chunking started...` },
-                                        { delay: 7000, msg: `  capturing observations...` },
-                                        { delay: 10000, msg: `  extracting keywords...` },
-                                        { delay: 13000, msg: `  processing ${_isSpreadsheet ? 'tabular' : /\.(jpg|jpeg|png|gif|webp|bmp|tiff?|heic|heif)$/i.test(_fileName) ? 'image' : 'meta'} data...` },
+                                        { delay: 2000, msg: `  pre-extracting text...` },
+                                        { delay: 4000, msg: `  analyzing document structure...` },
+                                        { delay: 7000, msg: `  extracting structured data...` },
+                                        { delay: 10000, msg: `  categorizing document...` },
+                                        { delay: 13000, msg: `  finalizing extraction...` },
                                     ];
                                     const _subTimers = _subSteps.map(s => setTimeout(() => PipelineLog.log(s.msg), s.delay));
 
-                                    const extraction = _isSpreadsheet
-                                        ? await extractSpreadsheet(_fileName, _blob, _notes)
-                                        : await extractWithLLM(_fileName, _blob, _notes);
+                                    const extraction = await runExtraction(_fileName, _blob, _notes);
 
                                     // Cancel any sub-step timers that haven't fired yet
                                     _subTimers.forEach(t => clearTimeout(t));
@@ -4697,6 +4762,7 @@
             document.getElementById('apiKey').value = settings.apiKey;
             document.getElementById('anthropicKey').value = settings.anthropicKey;
             document.getElementById('openaiKey').value = settings.openaiKey;
+            document.getElementById('extractionTier').value = settings.extractionTier;
             elements.settingsModal.classList.add('active');
         }
 
@@ -4709,11 +4775,13 @@
             settings.apiKey = document.getElementById('apiKey').value;
             settings.anthropicKey = document.getElementById('anthropicKey').value;
             settings.openaiKey = document.getElementById('openaiKey').value;
+            settings.extractionTier = parseInt(document.getElementById('extractionTier').value);
 
             localStorage.setItem('uma_api_endpoint', settings.apiEndpoint);
             localStorage.setItem('uma_api_key', settings.apiKey);
             localStorage.setItem('uma_anthropic_key', settings.anthropicKey);
             localStorage.setItem('uma_openai_key', settings.openaiKey);
+            localStorage.setItem('uma_extraction_tier', settings.extractionTier);
 
             closeSettings();
             showToast('Settings saved', 'success');
