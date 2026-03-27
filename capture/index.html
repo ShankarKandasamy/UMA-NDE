@@ -13,7 +13,7 @@
         // One-time cache purge: delete all old SW caches so stale UI cannot persist.
         // Bump PURGE_VERSION when you need to force a full cache reset.
         (function() {
-            var PURGE_VERSION = 'v3';
+            var PURGE_VERSION = 'v4';
             var PURGE_KEY = 'uma-capture-purged';
             if (localStorage.getItem(PURGE_KEY) !== PURGE_VERSION && 'caches' in window) {
                 caches.keys().then(function(keys) {
@@ -774,6 +774,82 @@
         :root:not([data-theme="light"]) .icon-sun {
             display: block;
         }
+        /* Annotation Overlay */
+        .annotation-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 300;
+        }
+
+        .annotation-overlay.active {
+            display: flex;
+        }
+
+        .annotation-container {
+            position: relative;
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+
+        .annotation-container img {
+            display: block;
+            max-width: 80vw;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .annotation-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            cursor: crosshair;
+        }
+
+        .annotation-undo-btn {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .annotation-undo-btn:active {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .annotation-text-input {
+            position: absolute;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #FF0000;
+            font-size: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            resize: none;
+            z-index: 3;
+            min-width: 50px;
+            min-height: 24px;
+            overflow: hidden;
+            line-height: 1.2;
+        }
     </style>
 </head>
 
@@ -924,6 +1000,15 @@
         </div>
     </div>
 
+    <!-- Annotation Overlay -->
+    <div class="annotation-overlay" id="annotationOverlay">
+        <div class="annotation-container" id="annotationContainer">
+            <img id="annotationImage" src="" alt="Annotate">
+            <canvas class="annotation-canvas" id="annotationCanvas"></canvas>
+            <button class="annotation-undo-btn" id="annotationUndo" title="Undo">&#x21A9;</button>
+        </div>
+    </div>
+
     <!-- Hidden File Inputs -->
     <input type="file" id="cameraInput" accept="image/*" capture="environment" multiple>
     <input type="file" id="fileInput" accept=".pdf,.csv,.xlsx,.xls,.doc,.docx,.jpg,.jpeg,.png,.heic" multiple>
@@ -1044,6 +1129,11 @@
                     const img = document.createElement('img');
                     img.src = URL.createObjectURL(file);
                     item.appendChild(img);
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', (e) => {
+                        if (e.target.closest('.remove-btn')) return;
+                        openAnnotation(index);
+                    });
                 } else {
                     const icon = document.createElement('div');
                     icon.className = 'file-icon';
@@ -1344,6 +1434,308 @@
 
         // ============================================
         // END SPEECH-TO-TEXT
+        // ============================================
+
+        // ============================================
+        // IMAGE ANNOTATION
+        // ============================================
+        let annotationState = null;
+        const annotationOverlay = document.getElementById('annotationOverlay');
+        const annotationContainer = document.getElementById('annotationContainer');
+        const annotationImage = document.getElementById('annotationImage');
+        const annotationCanvas = document.getElementById('annotationCanvas');
+        const annotationCtx = annotationCanvas.getContext('2d');
+
+        function canvasCoords(e) {
+            const rect = annotationCanvas.getBoundingClientRect();
+            return {
+                x: (e.clientX - rect.left) / rect.width,
+                y: (e.clientY - rect.top) / rect.height
+            };
+        }
+
+        function openAnnotation(index) {
+            const file = pendingFiles[index];
+            const url = URL.createObjectURL(file);
+            annotationImage.onload = () => {
+                const MAX_DIM = 4096;
+                let cw = annotationImage.naturalWidth;
+                let ch = annotationImage.naturalHeight;
+                if (cw > MAX_DIM || ch > MAX_DIM) {
+                    const scale = MAX_DIM / Math.max(cw, ch);
+                    cw = Math.round(cw * scale);
+                    ch = Math.round(ch * scale);
+                }
+                annotationCanvas.width = cw;
+                annotationCanvas.height = ch;
+                annotationCtx.clearRect(0, 0, cw, ch);
+
+                // Initialize state immediately so overlay is interactive
+                annotationState = {
+                    fileIndex: index,
+                    objectURL: url,
+                    actions: [],
+                    isDrawing: false,
+                    currentStroke: [],
+                    lastTapTime: 0,
+                    lastTapX: 0,
+                    lastTapY: 0,
+                    activeTextarea: null,
+                    lineWidth: 4,
+                    fontSize: 16
+                };
+
+                // Refine line width after layout is done
+                requestAnimationFrame(() => {
+                    if (!annotationState) return;
+                    const displayWidth = annotationCanvas.getBoundingClientRect().width;
+                    const displayScale = cw / displayWidth;
+                    annotationState.lineWidth = Math.max(2, 4 * displayScale);
+                    annotationState.fontSize = Math.max(12, 16 * displayScale);
+                });
+            };
+            annotationImage.src = url;
+            annotationOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        let annotationClosing = false;
+
+        function closeAnnotation() {
+            if (!annotationState || annotationClosing) return;
+
+            if (annotationState.activeTextarea) {
+                commitTextarea();
+            }
+
+            const objectURL = annotationState.objectURL;
+
+            if (annotationState.actions.length > 0) {
+                annotationClosing = true;
+                // Bake annotations onto image
+                const offscreen = document.createElement('canvas');
+                offscreen.width = annotationCanvas.width;
+                offscreen.height = annotationCanvas.height;
+                const offCtx = offscreen.getContext('2d');
+                offCtx.drawImage(annotationImage, 0, 0, offscreen.width, offscreen.height);
+                offCtx.drawImage(annotationCanvas, 0, 0);
+
+                const idx = annotationState.fileIndex;
+                const fileName = pendingFiles[idx].name;
+                offscreen.toBlob(blob => {
+                    pendingFiles[idx] = new File([blob], fileName, { type: 'image/png' });
+                    updatePreview();
+                    annotationClosing = false;
+                }, 'image/png');
+            }
+
+            annotationOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            URL.revokeObjectURL(objectURL);
+            annotationCtx.clearRect(0, 0, annotationCanvas.width, annotationCanvas.height);
+            annotationState = null;
+        }
+
+        // Close on tap outside image
+        annotationOverlay.addEventListener('click', (e) => {
+            if (e.target === annotationOverlay) {
+                closeAnnotation();
+            }
+        });
+
+        // --- Freehand Drawing ---
+        annotationCanvas.addEventListener('pointerdown', (e) => {
+            if (!annotationState) return;
+            e.preventDefault();
+
+            const coords = canvasCoords(e);
+            const now = Date.now();
+
+            // Double-tap detection
+            if (now - annotationState.lastTapTime < 300 &&
+                Math.abs(coords.x - annotationState.lastTapX) < 0.05 &&
+                Math.abs(coords.y - annotationState.lastTapY) < 0.05) {
+                // Remove tiny dot from first tap if it exists
+                if (annotationState.actions.length > 0) {
+                    const last = annotationState.actions[annotationState.actions.length - 1];
+                    if (last.type === 'stroke' && last.data.length <= 2) {
+                        annotationState.actions.pop();
+                        redrawAnnotations();
+                    }
+                }
+                openTextInput(coords.x, coords.y);
+                annotationState.lastTapTime = 0;
+                return;
+            }
+
+            annotationState.lastTapTime = now;
+            annotationState.lastTapX = coords.x;
+            annotationState.lastTapY = coords.y;
+
+            if (annotationState.activeTextarea) {
+                commitTextarea();
+            }
+
+            // Start drawing
+            annotationState.isDrawing = true;
+            annotationState.currentStroke = [coords];
+            annotationCanvas.setPointerCapture(e.pointerId);
+
+            // Draw initial dot
+            const px = coords.x * annotationCanvas.width;
+            const py = coords.y * annotationCanvas.height;
+            annotationCtx.beginPath();
+            annotationCtx.arc(px, py, annotationState.lineWidth / 2, 0, Math.PI * 2);
+            annotationCtx.fillStyle = '#FF0000';
+            annotationCtx.fill();
+        });
+
+        annotationCanvas.addEventListener('pointermove', (e) => {
+            if (!annotationState || !annotationState.isDrawing) return;
+            e.preventDefault();
+
+            const coords = canvasCoords(e);
+            annotationState.currentStroke.push(coords);
+
+            const prev = annotationState.currentStroke[annotationState.currentStroke.length - 2];
+            annotationCtx.beginPath();
+            annotationCtx.moveTo(prev.x * annotationCanvas.width, prev.y * annotationCanvas.height);
+            annotationCtx.lineTo(coords.x * annotationCanvas.width, coords.y * annotationCanvas.height);
+            annotationCtx.strokeStyle = '#FF0000';
+            annotationCtx.lineWidth = annotationState.lineWidth;
+            annotationCtx.lineCap = 'round';
+            annotationCtx.lineJoin = 'round';
+            annotationCtx.stroke();
+        });
+
+        annotationCanvas.addEventListener('pointerup', (e) => {
+            if (!annotationState || !annotationState.isDrawing) return;
+            annotationState.isDrawing = false;
+            annotationCanvas.releasePointerCapture(e.pointerId);
+            annotationState.actions.push({
+                type: 'stroke',
+                data: [...annotationState.currentStroke]
+            });
+            annotationState.currentStroke = [];
+        });
+
+        // --- Redraw / Replay ---
+        function redrawAnnotations() {
+            annotationCtx.clearRect(0, 0, annotationCanvas.width, annotationCanvas.height);
+            for (const action of annotationState.actions) {
+                if (action.type === 'stroke') {
+                    drawStroke(annotationCtx, action.data);
+                } else if (action.type === 'text') {
+                    drawText(annotationCtx, action.data);
+                }
+            }
+        }
+
+        function drawStroke(ctx, points) {
+            if (points.length === 0) return;
+            ctx.strokeStyle = '#FF0000';
+            ctx.fillStyle = '#FF0000';
+            ctx.lineWidth = annotationState.lineWidth;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            if (points.length === 1) {
+                const px = points[0].x * annotationCanvas.width;
+                const py = points[0].y * annotationCanvas.height;
+                ctx.beginPath();
+                ctx.arc(px, py, annotationState.lineWidth / 2, 0, Math.PI * 2);
+                ctx.fill();
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(points[0].x * annotationCanvas.width, points[0].y * annotationCanvas.height);
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x * annotationCanvas.width, points[i].y * annotationCanvas.height);
+            }
+            ctx.stroke();
+        }
+
+        function drawText(ctx, textData) {
+            ctx.font = `${annotationState.fontSize}px 'Space Grotesk', sans-serif`;
+            ctx.fillStyle = '#FF0000';
+            ctx.textBaseline = 'top';
+            const lines = textData.text.split('\n');
+            const px = textData.x * annotationCanvas.width;
+            const py = textData.y * annotationCanvas.height;
+            for (let i = 0; i < lines.length; i++) {
+                ctx.fillText(lines[i], px, py + (i * annotationState.fontSize * 1.2));
+            }
+        }
+
+        // --- Undo ---
+        document.getElementById('annotationUndo').addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!annotationState) return;
+
+            if (annotationState.activeTextarea) {
+                annotationState.activeTextarea.remove();
+                annotationState.activeTextarea = null;
+                return;
+            }
+
+            if (annotationState.actions.length === 0) return;
+            annotationState.actions.pop();
+            redrawAnnotations();
+        });
+
+        // --- Text Annotation ---
+        function openTextInput(normX, normY) {
+            if (annotationState.activeTextarea) {
+                commitTextarea();
+            }
+
+            const textarea = document.createElement('textarea');
+            textarea.className = 'annotation-text-input';
+            textarea.style.left = (normX * 100) + '%';
+            textarea.style.top = (normY * 100) + '%';
+            textarea.rows = 1;
+
+            annotationContainer.appendChild(textarea);
+            textarea.focus();
+
+            annotationState.activeTextarea = textarea;
+            annotationState.activeTextNormX = normX;
+            annotationState.activeTextNormY = normY;
+
+            textarea.addEventListener('blur', () => {
+                setTimeout(() => {
+                    if (annotationState && annotationState.activeTextarea === textarea) {
+                        commitTextarea();
+                    }
+                }, 100);
+            });
+        }
+
+        function commitTextarea() {
+            if (!annotationState || !annotationState.activeTextarea) return;
+            const textarea = annotationState.activeTextarea;
+            const text = textarea.value.trim();
+
+            if (text) {
+                const action = {
+                    type: 'text',
+                    data: {
+                        text: text,
+                        x: annotationState.activeTextNormX,
+                        y: annotationState.activeTextNormY
+                    }
+                };
+                annotationState.actions.push(action);
+                drawText(annotationCtx, action.data);
+            }
+
+            textarea.remove();
+            annotationState.activeTextarea = null;
+        }
+
+        // ============================================
+        // END IMAGE ANNOTATION
         // ============================================
 
         // Service Worker Registration
