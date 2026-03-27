@@ -13,7 +13,7 @@
         // One-time cache purge: delete all old SW caches so stale UI cannot persist.
         // Bump PURGE_VERSION when you need to force a full cache reset.
         (function() {
-            var PURGE_VERSION = 'v14';
+            var PURGE_VERSION = 'v15';
             var PURGE_KEY = 'uma-viewer-purged';
             if (localStorage.getItem(PURGE_KEY) !== PURGE_VERSION && 'caches' in window) {
                 caches.keys().then(function(keys) {
@@ -1412,6 +1412,213 @@
             padding: 0;
         }
 
+        /* Keyword Search */
+        .keyword-search-section {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .ai-search-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .search-section-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .keyword-search-row {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .keyword-search-icon {
+            position: absolute;
+            left: 0.75rem;
+            width: 16px;
+            height: 16px;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        #keywordSearchInput {
+            width: 100%;
+            padding: 0.65rem 0.75rem 0.65rem 2.25rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        #keywordSearchInput:focus {
+            border-color: var(--accent);
+        }
+
+        .keyword-results {
+            max-height: 60vh;
+            overflow-y: auto;
+            margin-top: 0.5rem;
+        }
+
+        .keyword-results:empty {
+            display: none;
+        }
+
+        .keyword-no-results {
+            padding: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .keyword-folder-group {
+            margin-bottom: 0.25rem;
+        }
+
+        .keyword-folder-header {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            border-radius: 6px;
+            user-select: none;
+        }
+
+        .keyword-folder-header:hover {
+            background: var(--bg-secondary);
+        }
+
+        .keyword-folder-header .chevron {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.15s ease;
+            color: var(--text-secondary);
+        }
+
+        .keyword-folder-header.collapsed .chevron {
+            transform: rotate(-90deg);
+        }
+
+        .keyword-folder-body.hidden {
+            display: none;
+        }
+
+        .keyword-file-group {
+            margin-left: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .keyword-file-header {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .keyword-file-header .file-icon {
+            width: 14px;
+            height: 14px;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .keyword-file-title {
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-left: 0.25rem;
+        }
+
+        .keyword-match-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-left: 2rem;
+            padding: 0.4rem 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            transition: background 0.1s ease;
+        }
+
+        .keyword-match-row:hover {
+            background: var(--bg-secondary);
+        }
+
+        .keyword-type-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .keyword-type-badge.section { background: #3b82f620; color: #3b82f6; }
+        .keyword-type-badge.table   { background: #8b5cf620; color: #8b5cf6; }
+        .keyword-type-badge.image   { background: #10b98120; color: #10b981; }
+        .keyword-type-badge.chart   { background: #f59e0b20; color: #f59e0b; }
+        .keyword-type-badge.reading { background: #ef444420; color: #ef4444; }
+
+        .keyword-match-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .keyword-match-heading {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .keyword-match-page {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-left: 0.25rem;
+        }
+
+        .keyword-match-snippet {
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            margin-top: 0.15rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .keyword-match-snippet mark {
+            background: #f59e0b40;
+            color: inherit;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+
         .search-header {
             padding: 1rem;
             border-bottom: 1px solid var(--border);
@@ -1825,6 +2032,50 @@
             font-style: italic;
             text-align: center;
             border-top: 1px solid var(--border);
+        }
+
+        .preview-table-wrap {
+            width: 100%;
+            max-height: 60vh;
+            overflow: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .preview-table th {
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            font-weight: 600;
+            text-align: left;
+            padding: 0.5rem 0.6rem;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .preview-table td {
+            padding: 0.35rem 0.6rem;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .preview-table tbody tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        .preview-table td.cell-highlight {
+            background: #f59e0b30;
+            outline: 1px solid #f59e0b80;
         }
 
         .preview-footer {
@@ -2478,36 +2729,54 @@
 
         <!-- Search Tab -->
         <section id="search-tab" class="tab-content">
-            <div class="search-header">
-                <div class="search-input-row">
-                    <input type="text" class="search-input" id="searchInput"
-                        placeholder="Ask a question about your documents...">
-                    <button class="search-btn" id="searchBtn">
+            <!-- Quick Keyword Search -->
+            <div class="keyword-search-section">
+                <label class="search-section-label">Quick Search</label>
+                <div class="keyword-search-row">
+                    <svg class="keyword-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input type="text" id="keywordSearchInput"
+                        placeholder="Search by keyword across all files...">
+                </div>
+                <div id="keywordSearchResults" class="keyword-results"></div>
+            </div>
+
+            <!-- AI-Powered Search -->
+            <div class="ai-search-section">
+                <label class="search-section-label">AI-Powered Search</label>
+                <div class="search-header">
+                    <div class="search-input-row">
+                        <input type="text" class="search-input" id="searchInput"
+                            placeholder="Ask a question about your documents...">
+                        <button class="search-btn" id="searchBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                    <div class="search-progress" id="searchProgress">
+                        <div class="search-progress-bar">
+                            <div class="search-stage" id="searchStage1"></div>
+                            <div class="search-stage" id="searchStage2"></div>
+                            <div class="search-stage" id="searchStage3"></div>
+                            <div class="search-stage" id="searchStage4"></div>
+                        </div>
+                        <span class="search-progress-text" id="searchProgressText">Searching...</span>
+                    </div>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="search-empty">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        Search
-                    </button>
-                </div>
-                <div class="search-progress" id="searchProgress">
-                    <div class="search-progress-bar">
-                        <div class="search-stage" id="searchStage1"></div>
-                        <div class="search-stage" id="searchStage2"></div>
-                        <div class="search-stage" id="searchStage3"></div>
-                        <div class="search-stage" id="searchStage4"></div>
+                        <p>Search across all your documents using AI.<br>Ask questions like "What are the calibration
+                            requirements?" or "Show me thickness readings."</p>
                     </div>
-                    <span class="search-progress-text" id="searchProgressText">Searching...</span>
-                </div>
-            </div>
-            <div class="search-results" id="searchResults">
-                <div class="search-empty">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                    <p>Search across all your documents using AI.<br>Ask questions like "What are the calibration
-                        requirements?" or "Show me thickness readings."</p>
                 </div>
             </div>
         </section>
@@ -2662,10 +2931,12 @@
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
     <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';</script>
     <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.43/dist/flexsearch.bundle.min.js"></script>
     <script src="extractor.js"></script>
     <script src="prompts.js"></script>
     <script src="search.js"></script>
     <script src="report.js"></script>
+    <script src="keyword-search.js"></script>
     <script>
         // Theme toggle
         (function() {
@@ -3716,6 +3987,9 @@
                                         showToast(`Extraction complete: ${_fileName} → ${category}`, 'success');
                                         PipelineLog.log(`Extracted: ${_fileName} → ${category}`);
 
+                                        // Update keyword search index
+                                        KeywordSearch.addFile(`${category}/${_fileName}`, extraction);
+
                                         // Schedule folder summary regeneration
                                         scheduleFolderSummary(category);
 
@@ -4641,6 +4915,15 @@
                     elements.previewBody.innerHTML = `<img src="${blobUrl}" alt="${fileName}">`;
                 } else if (fileName.toLowerCase().endsWith('.pdf')) {
                     elements.previewBody.innerHTML = `<iframe src="${blobUrl}"></iframe>`;
+                } else if (/\.(csv|tsv|xlsx|xls)$/i.test(fileName)) {
+                    elements.previewBody.style.alignItems = 'stretch';
+                    elements.previewBody.innerHTML = '<div class="spinner"></div>';
+                    try {
+                        elements.previewBody.innerHTML = await renderSpreadsheetPreview(fileName, record.blob);
+                    } catch (e) {
+                        console.error('[Preview] Spreadsheet render failed:', e);
+                        elements.previewBody.innerHTML = `<div class="empty-state"><p>Could not render spreadsheet</p></div>`;
+                    }
                 } else if (fileName.toLowerCase().endsWith('.json')) {
                     const text = await record.blob.text();
                     try {
@@ -4716,6 +4999,56 @@
             }
 
             elements.previewModal.classList.add('active');
+        }
+
+        async function renderSpreadsheetPreview(fileName, blob) {
+            const lowerName = fileName.toLowerCase();
+            let headers = [];
+            let rows = [];
+
+            if (lowerName.endsWith('.csv') || lowerName.endsWith('.tsv')) {
+                const text = await blob.text();
+                const result = Papa.parse(text, { header: false, skipEmptyLines: true });
+                if (result.data.length > 0) {
+                    headers = result.data[0];
+                    rows = result.data.slice(1);
+                }
+            } else {
+                const arrayBuffer = await blob.arrayBuffer();
+                const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+                const data = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+                if (data.length > 0) {
+                    headers = data[0].map(String);
+                    rows = data.slice(1);
+                }
+            }
+
+            if (headers.length === 0) {
+                return '<div class="empty-state"><p>Spreadsheet is empty</p></div>';
+            }
+
+            const maxRows = 200;
+            const truncated = rows.length > maxRows;
+            const displayRows = truncated ? rows.slice(0, maxRows) : rows;
+            const esc = (v) => String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+            let html = '<div class="preview-table-wrap"><table class="preview-table"><thead><tr>';
+            for (const h of headers) html += `<th>${esc(h)}</th>`;
+            html += '</tr></thead><tbody>';
+            for (const row of displayRows) {
+                html += '<tr>';
+                for (let i = 0; i < headers.length; i++) {
+                    html += `<td>${esc(row[i])}</td>`;
+                }
+                html += '</tr>';
+            }
+            html += '</tbody></table></div>';
+            if (truncated) {
+                html += `<div style="text-align:center;padding:0.5rem;font-size:0.75rem;color:var(--text-secondary);">Showing ${maxRows} of ${rows.length} rows</div>`;
+            }
+            return html;
         }
 
         function closePreview() {
@@ -4972,6 +5305,9 @@
                 }
                 await loadDevFolders();
                 renderFolderTree(state.folders);
+                // Rebuild keyword search index (folder keys changed)
+                KeywordSearch.init();
+                KeywordSearch.buildIndex();
                 showToast('Renamed to ' + newName);
             } catch (err) {
                 console.error('Rename failed:', err);
@@ -5019,6 +5355,17 @@
                 state.selectedFileKey = null;
                 renderFolderTree(state.folders);
                 showToast('Moved to ' + targetFolder);
+                // Update keyword search index for moved file
+                KeywordSearch.removeFile(fileKey);
+                const newFileKey = targetFolder + '/' + fileKey.split('/').slice(1).join('/');
+                const newExtKey = newFileKey.replace(/\.[^.]+$/, '_extraction.json');
+                const newExtRecord = await DevDB.getFile(newExtKey);
+                if (newExtRecord) {
+                    try {
+                        const ext = JSON.parse(await newExtRecord.blob.text());
+                        KeywordSearch.addFile(newFileKey, ext);
+                    } catch (_) { }
+                }
                 // Schedule folder summary regeneration for both source and target
                 scheduleFolderSummary(currentFolder);
                 scheduleFolderSummary(targetFolder);
@@ -5087,6 +5434,8 @@
                 state.currentPath = ['Development'];
                 renderFolderTree(state.folders);
                 loadDevFiles(['Development']);
+                // Reset keyword search index
+                KeywordSearch.init();
                 showToast('All Development data cleared', 'success');
             } catch (err) {
                 console.error('Clear all dev data failed:', err);
@@ -5187,6 +5536,107 @@
                 document.getElementById('searchBtn').disabled = false;
                 setTimeout(() => progress.classList.remove('active'), 2000);
             }
+        }
+
+        function renderKeywordResults(results, container) {
+            if (results.total === 0) {
+                container.innerHTML = `<div class="keyword-no-results">No results for "${escapeHtml(results.query)}"</div>`;
+                return;
+            }
+
+            let html = '';
+            for (const group of results.groups) {
+                html += `<div class="keyword-folder-group">`;
+                html += `<div class="keyword-folder-header" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')">
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    ${escapeHtml(group.folder)}
+                </div>`;
+                html += `<div class="keyword-folder-body">`;
+
+                for (const file of group.files) {
+                    html += `<div class="keyword-file-group">`;
+                    html += `<div class="keyword-file-header">
+                        <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                        ${escapeHtml(file.fileName)}
+                        <span class="keyword-file-title">${escapeHtml(file.fileTitle)}</span>
+                    </div>`;
+
+                    for (const match of file.matches) {
+                        const pageLabel = match.page ? `<span class="keyword-match-page">p.${match.page}</span>` : '';
+                        const snippet = highlightSnippet(match.snippet, results.query);
+                        html += `<div class="keyword-match-row" data-filekey="${escapeHtml(file.fileKey)}" data-filename="${escapeHtml(file.fileName)}" data-page="${match.page || ''}" data-query="${escapeHtml(results.query)}" onclick="openKeywordMatch(this)">
+                            <span class="keyword-type-badge ${match.type}">${match.type}</span>
+                            <div class="keyword-match-content">
+                                <div>${match.heading ? `<span class="keyword-match-heading">${escapeHtml(match.heading)}</span>` : ''}${pageLabel}</div>
+                                ${snippet ? `<div class="keyword-match-snippet">${snippet}</div>` : ''}
+                            </div>
+                        </div>`;
+                    }
+                    html += `</div>`;
+                }
+                html += `</div></div>`;
+            }
+            container.innerHTML = html;
+        }
+
+        function highlightSnippet(snippet, query) {
+            if (!snippet) return '';
+            const escaped = escapeHtml(snippet);
+            const queryEscaped = escapeHtml(query);
+            const regex = new RegExp(`(${queryEscaped.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return escaped.replace(regex, '<mark>$1</mark>');
+        }
+
+        async function openKeywordMatch(el) {
+            const fileKey = el.dataset.filekey;
+            const fileName = el.dataset.filename;
+            const page = el.dataset.page;
+            const query = el.dataset.query;
+
+            if (page && fileName.toLowerCase().endsWith('.pdf')) {
+                openPreviewWithPage(fileKey, fileName, parseInt(page));
+            } else {
+                await openPreview(fileKey, fileName, true);
+                // Highlight and scroll to matching cells in spreadsheet previews
+                if (query && /\.(csv|tsv|xlsx|xls)$/i.test(fileName)) {
+                    highlightPreviewCells(query);
+                }
+            }
+        }
+
+        function highlightPreviewCells(query) {
+            const queryLower = query.toLowerCase();
+            const cells = elements.previewBody.querySelectorAll('.preview-table td');
+            let scrolled = false;
+            for (const cell of cells) {
+                if (cell.textContent.toLowerCase().includes(queryLower)) {
+                    cell.classList.add('cell-highlight');
+                    if (!scrolled) {
+                        cell.scrollIntoView({ block: 'center' });
+                        scrolled = true;
+                    }
+                }
+            }
+        }
+
+        async function openPreviewWithPage(fileKey, fileName, page) {
+            state.selectedFile = { key: fileKey, name: fileName, local: true };
+            elements.previewTitle.textContent = fileName;
+            elements.previewNotes.textContent = '';
+            elements.previewNotes.style.display = 'none';
+
+            const record = await DevDB.getFile(fileKey);
+            if (!record) {
+                elements.previewBody.innerHTML = '<div class="empty-state"><p>File not found</p></div>';
+                elements.previewModal.classList.add('active');
+                return;
+            }
+            const blobUrl = URL.createObjectURL(record.blob);
+            elements.previewBody.innerHTML = `<iframe src="${blobUrl}#page=${page}"></iframe>`;
+            elements.previewModal.classList.add('active');
         }
 
         function renderSearchResults(result) {
@@ -5788,6 +6238,22 @@
                 if (e.key === 'Enter') runSearch();
             });
 
+            // Keyword Search (quick search-as-you-type)
+            let keywordDebounce = null;
+            document.getElementById('keywordSearchInput').addEventListener('input', (e) => {
+                clearTimeout(keywordDebounce);
+                keywordDebounce = setTimeout(() => {
+                    const query = e.target.value.trim();
+                    const container = document.getElementById('keywordSearchResults');
+                    if (query.length < 2) {
+                        container.innerHTML = '';
+                        return;
+                    }
+                    const results = KeywordSearch.search(query);
+                    renderKeywordResults(results, container);
+                }, 300);
+            });
+
             // ---- Report Tab ----
             setupReportTab();
 
@@ -5818,6 +6284,10 @@
             // Initialize local Development DB
             await DevDB.open();
             await loadDevFolders();
+
+            // Build keyword search index
+            KeywordSearch.init();
+            KeywordSearch.buildIndex();
 
             // Check if settings are configured
             if (!settings.apiEndpoint || !settings.apiKey) {
