@@ -5567,7 +5567,7 @@
                     for (const match of file.matches) {
                         const pageLabel = match.page ? `<span class="keyword-match-page">p.${match.page}</span>` : '';
                         const snippet = highlightSnippet(match.snippet, results.query);
-                        html += `<div class="keyword-match-row" data-filekey="${escapeHtml(file.fileKey)}" data-filename="${escapeHtml(file.fileName)}" data-page="${match.page || ''}" data-query="${escapeHtml(results.query)}" onclick="openKeywordMatch(this)">
+                        html += `<div class="keyword-match-row" data-filekey="${escapeHtml(file.fileKey)}" data-filename="${escapeHtml(file.fileName)}" data-page="${match.page || ''}" data-query="${escapeHtml(results.query)}" data-row="${match.rowIndex != null ? match.rowIndex : ''}" onclick="openKeywordMatch(this)">
                             <span class="keyword-type-badge ${match.type}">${match.type}</span>
                             <div class="keyword-match-content">
                                 <div>${match.heading ? `<span class="keyword-match-heading">${escapeHtml(match.heading)}</span>` : ''}${pageLabel}</div>
@@ -5595,6 +5595,7 @@
             const fileName = el.dataset.filename;
             const page = el.dataset.page;
             const query = el.dataset.query;
+            const row = el.dataset.row;
 
             if (page && fileName.toLowerCase().endsWith('.pdf')) {
                 openPreviewWithPage(fileKey, fileName, parseInt(page));
@@ -5602,24 +5603,38 @@
                 await openPreview(fileKey, fileName, true);
                 // Highlight and scroll to matching cells in spreadsheet previews
                 if (query && /\.(csv|tsv|xlsx|xls)$/i.test(fileName)) {
-                    highlightPreviewCells(query);
+                    const targetRow = row !== '' ? parseInt(row) : null;
+                    highlightPreviewCells(query, targetRow);
                 }
             }
         }
 
-        function highlightPreviewCells(query) {
+        function highlightPreviewCells(query, targetRow) {
             const queryLower = query.toLowerCase();
-            const cells = elements.previewBody.querySelectorAll('.preview-table td');
-            let scrolled = false;
+            const cells = elements.previewBody.querySelectorAll('.preview-table td, .preview-table th');
+            let scrollTarget = null;
+            let firstMatch = null;
+
             for (const cell of cells) {
-                if (cell.textContent.toLowerCase().includes(queryLower)) {
-                    cell.classList.add('cell-highlight');
-                    if (!scrolled) {
-                        cell.scrollIntoView({ block: 'center' });
-                        scrolled = true;
+                if (!cell.textContent.toLowerCase().includes(queryLower)) continue;
+                cell.classList.add('cell-highlight');
+                if (!firstMatch) firstMatch = cell;
+
+                if (targetRow != null && !scrollTarget) {
+                    const tr = cell.closest('tr');
+                    const isHeader = tr.parentElement.tagName === 'THEAD';
+                    let blobRow;
+                    if (isHeader) {
+                        blobRow = 0;
+                    } else {
+                        blobRow = Array.prototype.indexOf.call(tr.parentElement.children, tr) + 1;
                     }
+                    if (blobRow === targetRow) scrollTarget = cell;
                 }
             }
+
+            const scrollTo = scrollTarget || firstMatch;
+            if (scrollTo) scrollTo.scrollIntoView({ block: 'center' });
         }
 
         async function openPreviewWithPage(fileKey, fileName, page) {

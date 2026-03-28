@@ -110,13 +110,24 @@ const KeywordSearch = {
             type: 'section',
             heading: extraction.title || '',
             text: summaryParts.join(' '),
-            page: null
+            page: extraction.pages ? 1 : null
         });
 
         // Sections
         if (extraction.sections) {
             extraction.sections.forEach((section, i) => {
-                const page = this._findPageForHeading(section.heading, headingTree);
+                let page = this._findPageForHeading(section.heading, headingTree);
+                // Fallback: estimate page from section position within headingTree
+                if (!page && headingTree.length > 0) {
+                    const ratio = extraction.sections.length > 1
+                        ? i / (extraction.sections.length - 1)
+                        : 0;
+                    const treeIdx = Math.min(
+                        Math.round(ratio * (headingTree.length - 1)),
+                        headingTree.length - 1
+                    );
+                    page = headingTree[treeIdx]?.page || 1;
+                }
                 addRecord(`${fileKey}::section:${i}`, {
                     folder, file, fileKey, fileTitle,
                     type: 'section',
@@ -137,12 +148,20 @@ const KeywordSearch = {
                         if (Array.isArray(row)) textParts.push(row.join(' '));
                     });
                 }
+                // Build rowOffsets: character position where each textPart starts in the joined string
+                const rowOffsets = [];
+                let offset = 0;
+                for (let r = 0; r < textParts.length; r++) {
+                    rowOffsets.push(offset);
+                    offset += textParts[r].length + 1; // +1 for join(' ') separator
+                }
                 addRecord(`${fileKey}::table:${i}`, {
                     folder, file, fileKey, fileTitle,
                     type: 'table',
                     heading: table.title || '',
                     text: textParts.join(' '),
-                    page: table.page || null
+                    page: table.page || null,
+                    rowOffsets
                 });
             });
         }
@@ -199,11 +218,42 @@ const KeywordSearch = {
 
     _findPageForHeading(heading, headingTree) {
         if (!heading || !headingTree.length) return null;
-        const normalizedHeading = heading.toLowerCase().trim();
-        const match = headingTree.find(h =>
-            h.title && h.title.toLowerCase().trim() === normalizedHeading
+        const norm = heading.toLowerCase().trim();
+
+        // 1. Exact match
+        const exact = headingTree.find(h =>
+            h.title && h.title.toLowerCase().trim() === norm
         );
-        return match ? match.page : null;
+        if (exact) return exact.page;
+
+        // 2. Substring match (heading contains tree title or vice versa)
+        const substring = headingTree.find(h => {
+            if (!h.title) return false;
+            const t = h.title.toLowerCase().trim();
+            return norm.includes(t) || t.includes(norm);
+        });
+        if (substring) return substring.page;
+
+        // 3. Word-overlap match (best overlap wins, minimum 50%)
+        const normWords = new Set(norm.split(/\s+/).filter(w => w.length > 2));
+        if (normWords.size === 0) return null;
+        let bestPage = null;
+        let bestRatio = 0;
+        for (const h of headingTree) {
+            if (!h.title || !h.page) continue;
+            const treeWords = new Set(h.title.toLowerCase().trim().split(/\s+/).filter(w => w.length > 2));
+            if (treeWords.size === 0) continue;
+            let overlap = 0;
+            for (const w of normWords) {
+                if (treeWords.has(w)) overlap++;
+            }
+            const ratio = overlap / Math.max(normWords.size, treeWords.size);
+            if (ratio > bestRatio && ratio >= 0.5) {
+                bestRatio = ratio;
+                bestPage = h.page;
+            }
+        }
+        return bestPage;
     },
 
     search(query) {
@@ -269,11 +319,15 @@ const KeywordSearch = {
             // Find all occurrences in text (score 1 each)
             const textOccurrences = this._findAllOccurrences(record.text, queryLower);
             for (const charIdx of textOccurrences) {
+                const rowIndex = record.rowOffsets
+                    ? this._charIdxToRow(record.rowOffsets, charIdx)
+                    : null;
                 matches.push({
                     ...base,
                     id: stringId,
                     snippet: this._generateSnippetAt(record.text, queryLower, charIdx),
-                    score: 1
+                    score: 1,
+                    rowIndex
                 });
             }
 
@@ -328,7 +382,8 @@ const KeywordSearch = {
                 heading: match.heading,
                 snippet: match.snippet,
                 page: match.page,
-                score: match.score
+                score: match.score,
+                rowIndex: match.rowIndex
             });
         }
 
@@ -352,6 +407,17 @@ const KeywordSearch = {
             if (r.heading && r.heading.toLowerCase().includes(queryLower) && r.page) return r.page;
         }
         return null;
+    },
+
+    _charIdxToRow(rowOffsets, charIdx) {
+        if (!rowOffsets || rowOffsets.length === 0) return null;
+        let lo = 0, hi = rowOffsets.length - 1;
+        while (lo < hi) {
+            const mid = (lo + hi + 1) >> 1;
+            if (rowOffsets[mid] <= charIdx) lo = mid;
+            else hi = mid - 1;
+        }
+        return lo;
     },
 
     _findAllOccurrences(source, queryLower) {
