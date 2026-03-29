@@ -1,4 +1,4 @@
-const CACHE_NAME = 'uma-capture-v4';
+const CACHE_NAME = 'uma-capture-v5';
 const ASSETS = [
   '/capture/',
   '/capture/index.html',
